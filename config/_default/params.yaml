@@ -170,17 +170,17 @@ creativeCommons:
 
 # See https://giscus.app
 giscus:
-  repo: "razonyang/hugo-theme-bootstrap-skeleton" # required.
-  repoId: "R_kgDOHJi95g" # required.
-  category: "General" # required.
-  categoryId: "DIC_kwDOHJi95s4CTy6q" # required.
-  # theme: "dark" # Default to auto.
-  # mapping: "title" # Default to pathname.
-  # inputPosition: "bottom" # Default to top.
-  # reactions: false # Disable reactions.
-  # metadata: true # Emit discussion metadata.
+  repo: "yonzilch/blog"
+  repoId: "R_kgDOHJi95g"
+  category: "General"
+  categoryId: "DIC_kwDOKEBur84CYYxl"
+  theme: "auto"
+  mapping: "pathname"
+  inputPosition: "top"
+  reactions: true
+  metadata: true
   # lang: "en" # Specify language, default to site language.
-  # lazyLoading: false # Default to true.
+  lazyLoading: true
 
 search:
   paginate: 5 # Pagination. Default to 10.
