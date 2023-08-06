@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://blog.yon.im/sitemap.xml

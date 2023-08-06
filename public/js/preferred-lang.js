@@ -1,0 +1,1 @@
+(()=>{var o={fallback:"https://blog.yon.im/",homes:{en:"https://blog.yon.im/en/","zh-hans":"https://blog.yon.im/"}};(()=>{let n=navigator.language||navigator.userLanguage;if(n in o.homes){window.location.href=o.homes[n];return}let e=n.split("-");for(let a in o.homes)if(a.indexOf(e[0])===0){window.location.href=o.homes[a];return}window.location.href=o.fallback})();})();
