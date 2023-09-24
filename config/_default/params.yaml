@@ -17,7 +17,7 @@ keywords: Yon Zilch, blog, 博客, yonzilch
 logo: false # Disable Logo
 brand: /
 
-palette: blue # Default palette. Optional. You'll need to clear the browser cache after modifying this.
+palette: blue-gray # Default palette. Optional. You'll need to clear the browser cache after modifying this.
 # Available palettes. Default to ALL. Empty array means disable.
 # palettes:
 #  - blue
@@ -175,7 +175,7 @@ giscus:
   category: "General"
   categoryId: "DIC_kwDOKEBur84CYYxl"
   theme: "auto"
-  mapping: "pathname"
+  mapping: "pathname"s
   inputPosition: "top"
   reactions: true
   metadata: true
