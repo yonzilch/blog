@@ -171,16 +171,17 @@ creativeCommons:
 # See https://giscus.app
 giscus:
   repo: "yonzilch/blog"
-  repoId: "R_kgDOHJi95g"
-  category: "General"
-  categoryId: "DIC_kwDOKEBur84CYYxl"
-  theme: "auto"
-  mapping: "pathname"s
+  repoId: "R_kgDOKEBurw"
+  category: "Announcements"
+  categoryId: "DIC_kwDOKEBur84CYYxk"
+  theme: "preferred_color_scheme"
+  mapping: "pathname"
   inputPosition: "top"
-  reactions: true
-  metadata: true
+  reactions: "true"
+  metadata: "true"
+  lazyLoading: "true"
   # lang: "en" # Specify language, default to site language.
-  lazyLoading: true
+  
 
 search:
   paginate: 5 # Pagination. Default to 10.
