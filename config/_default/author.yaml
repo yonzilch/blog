@@ -14,4 +14,4 @@ social:
 #  twitter: razonyang
 #  patreon: razonyang
 #  paypal: razonyang
-#  rss: "" # Remove RSS
+  rss: "https://blog.yon.im/index.xml" # Remove RSS
