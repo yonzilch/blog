@@ -1,7 +1,7 @@
 ---
-title: "My App Defaults 2023"
-date: 2023-11-30T16:14:22+08:00
-draft: true
+title: "我的2023年默认应用"
+date: 2023-11-30T16:05:00+08:00
+draft: false
 ---
 
 # Intro
@@ -64,4 +64,4 @@ And some extra categories not mentioned in the project:
 
 📚 **Reading app**: KOReader, Kodo Reader with [Z-Library](https://singlelogin.re/)
 
-🔧 **Screenshot app**: Spectacle, [ShareX
+🔧 **Screenshot app**: Spectacle, [ShareX](https://github.com/ShareX/ShareX)
