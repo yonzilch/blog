@@ -2,4 +2,13 @@
 I am excited to start building my new website with this powerful static site generator.
 Hugo makes it easy to quickly create content and customize my site exactly how I want it.
 The default templates and themes provide a great starting point, so I don&amp;rsquo;t have to start completely from scratch.
-I can&amp;rsquo;t wait to add more posts and share my knowledge with the world!</description></item><item><title>Hello World!</title><link>https://blog.yon.im/en/posts/hello-world/</link><pubDate>Mon, 28 Mar 2022 15:38:04 +0800</pubDate><guid>https://blog.yon.im/en/posts/hello-world/</guid><description>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</description></item></channel></rss>
+I can&amp;rsquo;t wait to add more posts and share my knowledge with the world!</description></item><item><title>Hello World!</title><link>https://blog.yon.im/en/posts/hello-world/</link><pubDate>Mon, 28 Mar 2022 15:38:04 +0800</pubDate><guid>https://blog.yon.im/en/posts/hello-world/</guid><description>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</description></item><item><title/><link>https://blog.yon.im/en/posts/my-app-defaults-2023/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://blog.yon.im/en/posts/my-app-defaults-2023/</guid><description>title: &amp;#34;My App Defaults 2023&amp;#34; date: 2023-11-30T16:05:00+08:00 draft: true Intro Inspired by this Repo
+My App Defaults 2023 📨 Mail Client：BetterBird,RoundCube(Web Client)
+📮 Mail Server: MxRoute with my own domains,Disroot,Protonmail
+📝 Notes: Joplin, AnyType
+✅ To-Do: Tasks
+📷 Photo Shooting: Android Default Camera
+🟦 Photo Management: Aves Libre, digiKam
+📆 Calendar: Etar, Countdate
+📁 Cloud File Storage: Alist(self-hosted) as front, Storj DCS, 4everland IPFS etc. as backend
+📖 RSS: MiniFlux(self-hosted) as Server, Newsflash and News as Cilent</description></item></channel></rss>
