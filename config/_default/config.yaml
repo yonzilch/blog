@@ -1,7 +1,7 @@
 baseURL: /
 title: Yon Zilch's blog
 theme: hugo-theme-bootstrap
-copyright: 'Copyright © 2022-{year} Yon Zilch. All Rights Reserved.'
+#copyright: 'Copyright © 2022-{year} Yon Zilch. All Rights Reserved.'
 defaultContentLanguage: zh-hans
 # hasCJKLanguage: true # Uncomment it if your content contains Chinese/Japanese/Korean Languages.
 # defaultContentLanguageInSubdir: true

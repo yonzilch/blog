@@ -1,7 +1,6 @@
 mainSections:
   - blog
   - posts
-  - news
 
 # titleSeparator: '|' # Title separator. Default to -.
 
@@ -41,7 +40,7 @@ palette: blue-gray # Default palette. Optional. You'll need to clear the browser
 dateFormat: ":date_long"
 
 # Google Adsense
-googleAdsense: 
+#googleAdsense: 
 
 # math: true # Enable math globally.
 # toc: false # Disable TOC globally.
@@ -64,8 +63,8 @@ googleAdsense:
 # tagCount: 10 # The number of tags shown in sidebar. Turn off by setting it to false.
 # seriesCount: 20 # The number of series shown in sidebar. Turn off by setting it to false.
 # taxonomyPaginate: 5 # Default to 10.
-taxonomyPostCount: 20 # The number of taxonomy's posts. Turn off by setting it to false.
-countTaxonomyPosts: true # Count posts of taxonomy.
+# axonomyPostCount: 20 # The number of taxonomy's posts. Turn off by setting it to false.
+# countTaxonomyPosts: true # Count posts of taxonomy.
 
 # sidebarTaxonomies: [categories, tags, series] # The order of taxonomies on the sidebar.
 

@@ -1,11 +1,10 @@
 ---
 title: Yon Zilch
-description: Gopher, PHPer, Full Stack Engineer.
+description: Dev/Ops
 social:
-  github: razonyang
-  twitter: razonyang
-  email: razonyang@gmail.com
-  website: https://razonyang.com/
-  patreon: razonyang
-  paypal: razonyang
+  github: yonzilch
+  email: zilch@yon.im
+  website: https://yon.im/
+  patreon: yonzilch
+  paypal: yonzilch
 ---
