@@ -1,5 +1,5 @@
 ---
-title: "我的2023年默认应用"
+title: "My App Defaults 2023"
 date: 2023-11-30T16:05:00+08:00
 draft: false
 ---
@@ -10,9 +10,9 @@ Inspired by this [Repo](https://github.com/rknightuk/app-defaults)
 
 # My App Defaults 2023
 
-📨 **Mail Client**：BetterBird,RoundCube(Web Client)
+📨 **Mail Client**：BetterBird, RoundCube(Web Client)
 
-📮 **Mail Server**: MxRoute with my own domains,Disroot,Protonmail
+📮 **Mail Server**: MxRoute with my own domains, Disroot, Protonmail
 
 📝 **Notes**: Joplin, AnyType
 
@@ -24,7 +24,7 @@ Inspired by this [Repo](https://github.com/rknightuk/app-defaults)
 
 📆 **Calendar**: Etar, Countdate
 
-📁 **Cloud File Storage**: Alist(self-hosted) as front, Storj DCS, 4everland IPFS etc. as backend
+📁 **Cloud File Storage**: Alist(self-hosted) as frontend, Storj DCS, 4everland IPFS etc. as backend
 
 📖 **RSS**: MiniFlux(self-hosted) as Server, Newsflash and News as Cilent
 

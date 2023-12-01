@@ -7,11 +7,11 @@ location: げんそうきょう♂ # HTML markup are supported, such as: <a href
 params: {
   # layout: compacst
 }
-# See https://hbs.razonyang.com/v1/en/docs/widgets/social-links/.
+# See https://hbs.yonzilch.com/v1/en/docs/widgets/social-links/.
 social:
   email: zilch@yon.im
 #  github: yonzilch
-#  twitter: razonyang
-#  patreon: razonyang
-#  paypal: razonyang
+#  twitter: yonzilch
+#  patreon: yonzilch
+#  paypal: yonzilch
   rss: "https://blog.yon.im/index.xml" # Remove RSS

@@ -3,7 +3,7 @@ title: Yon Zilch's blog
 theme: hugo-theme-bootstrap
 #copyright: 'Copyright © 2022-{year} Yon Zilch. All Rights Reserved.'
 defaultContentLanguage: zh-hans
-# hasCJKLanguage: true # Uncomment it if your content contains Chinese/Japanese/Korean Languages.
+hasCJKLanguage: true # Uncomment it if your content contains Chinese/Japanese/Korean Languages.
 # defaultContentLanguageInSubdir: true
 # disableLanguages:
 #  - fr
@@ -30,8 +30,8 @@ build:
   writeStats: true
 
 permalinks:
-  news: /news/:year/:month/:title/
-  blog: /blog/:year/:month/:title/
+  #news: /news/:year/:month/:title/
+  #blog: /blog/:year/:month/:title/
 
 # module:
   # proxy: https://goproxy.cn

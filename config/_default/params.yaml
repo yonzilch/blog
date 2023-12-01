@@ -1,8 +1,7 @@
 mainSections:
-  - blog
   - posts
 
-# titleSeparator: '|' # Title separator. Default to -.
+titleSeparator: '|' # Title separator. Default to -.
 
 description: This is Yon Zilch's blog.
 keywords: Yon Zilch, blog, 博客, yonzilch
@@ -123,18 +122,18 @@ archive:
   # basePath = "/archiv" # The base path of archive pages.
   # dateFormat: 01-02 # Archive date format. Default to Jan 2.
 
-analytics:
+#analytics:
 
 
 # Site verification
-siteVerification:
-  google: 
-  bing: 
-  baidu: 
-  baiduUnion:  # Baidu Union
-  so: 
-  sogou: 
-  shenma: 
+#siteVerification:
+#  google: 
+#  bing: 
+#  baidu: 
+#  baiduUnion:  # Baidu Union
+#  so: 
+#  sogou: 
+#  shenma: 
 
 creativeCommons:
   # by: true # Credit must be given to you, the creator.
@@ -203,9 +202,9 @@ search:
   # indexName: ""
   # debug: true
 
-reward:
-  alipay: images/reward/alipay.png
-  wechat: images/reward/wechat.png
+#reward:
+#  alipay: images/reward/alipay.png
+#  wechat: images/reward/wechat.png
   #paypal: images/reward/paypal.png
   #patreon: images/reward/patreon.png
   #liberapay: images/reward/liberapay.png
@@ -213,8 +212,8 @@ reward:
 #share:
   #addThis:  # AddThis pubid.
 
-#actionsPanel:
-  # disabled: true
+actionsPanel:
+  disabled: true
 
 # Comment or remove this settings to disable font size switcher.
 fontSize:
