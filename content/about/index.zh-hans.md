@@ -1,10 +1,14 @@
 +++
-title = "关于我"
-description = "Describe yourself."
-date = "2019-02-28"
+title = "关于"
+description = "Describe"
+date = "2020-03-28"
 reward = false
 postDate = false
 readingTime = false
+comment = false
+copyright = false
+nav = false
+sidebar = false
 +++
 
-Hi there, I'm XXX.
+Not now
