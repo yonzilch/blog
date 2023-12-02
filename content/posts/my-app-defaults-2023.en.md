@@ -1,6 +1,6 @@
 ---
 title: "My App Defaults 2023"
-date: 2023-11-30T16:05:00+08:00
+date: 2023-12-02T22:12:00+08:00
 draft: false
 ---
 
@@ -14,9 +14,9 @@ Inspired by this [Repo](https://github.com/rknightuk/app-defaults)
 
 📮 **Mail Server**: MxRoute with my own domains, Disroot, Protonmail
 
-📝 **Notes**: Joplin, AnyType
+📝 **Notes**: Joplin, Logseq, AnyType
 
-✅ **To-Do**: Tasks
+✅ **To-Do**: Tasks. Logseq
 
 📷 **Photo Shooting**: Android Default Camera
 
@@ -38,11 +38,11 @@ Inspired by this [Repo](https://github.com/rknightuk/app-defaults)
 
 📑 **Read It Later**: Currently None
 
-📜 **Word Processing**: MarkText with Markdown
+📜 **Word Processing**: MarkText with Markdown, GhostWriter, Joplin
 
 💰 **Budgeting and Personal Finance**: iHateMoney as Server, MoneyBuster as Client
 
-📰 **News**: Twitter, RSS feeds, [Buzzing](https://buzzing.cc),
+📰 **News**: Telegram Chanel, RSS feeds and so on
 
 🎵 **Music**: StrawBerry, Metro, Spotify
 
