@@ -42,7 +42,7 @@ Inspired by this [Repo](https://github.com/rknightuk/app-defaults)
 
 💰 **Budgeting and Personal Finance**: iHateMoney as Server, MoneyBuster as Client
 
-📰 **News**: Telegram Chanel, RSS feeds and so on
+📰 **News**: Telegram Channel, RSS feeds and so on
 
 🎵 **Music**: StrawBerry, Metro, Spotify
 
@@ -56,7 +56,7 @@ And some extra categories not mentioned in the project:
 
 ✈️ **VPN**: Nekoray, CatBox
 
-😘 **Blog Platform**: Hugo deploy on 4everland and code hosting on GitHub
+🖆 **Blog Platform**: Hugo deploy on 4everland and code hosting on GitHub
 
 ⌨️ **Text input**: Ibus-Rime with [rime-ice](https://github.com/iDvel/rime-ice)
 
