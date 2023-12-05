@@ -6,11 +6,12 @@ draft: false
 
 # Intro
 
-To contribute this [Repo](https://github.com/rknightuk/app-defaults)
-And inspired by these blogs:
-https://yinji.org/5179.html
-https://anotherdayu.com/2023/5452/
-https://blog.douchi.space/app-defaults/
+- To contribute this [Repo](https://github.com/rknightuk/app-defaults)
+
+- And inspired by these blogs:
+- https://yinji.org/5179.html
+- https://anotherdayu.com/2023/5452/
+- https://blog.douchi.space/app-defaults/
 
 
 # My App Defaults 2023
