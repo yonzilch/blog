@@ -1,12 +1,17 @@
 ---
 title: "My App Defaults 2023"
-date: 2023-12-02T22:12:00+08:00
+date: 2023-12-05T12:25:00+08:00
 draft: false
 ---
 
 # Intro
 
-Inspired by this [Repo](https://github.com/rknightuk/app-defaults)
+To contribute this [Repo](https://github.com/rknightuk/app-defaults)
+And inspired by these blogs:
+https://yinji.org/5179.html
+https://anotherdayu.com/2023/5452/
+https://blog.douchi.space/app-defaults/
+
 
 # My App Defaults 2023
 
@@ -26,7 +31,7 @@ Inspired by this [Repo](https://github.com/rknightuk/app-defaults)
 
 📁 **Cloud File Storage**: Alist(self-hosted) as frontend, Storj DCS, 4everland IPFS etc. as backend
 
-📖 **RSS**: MiniFlux(self-hosted) as Server, Newsflash and News as Cilent
+📖 **RSS**: MiniFlux(self-hosted) as Server while Newsflash and News as Cilent
 
 🙍🏻‍♂️ **Contacts**: Android Default Contacts
 
@@ -38,7 +43,7 @@ Inspired by this [Repo](https://github.com/rknightuk/app-defaults)
 
 📑 **Read It Later**: Currently None
 
-📜 **Word Processing**: MarkText with Markdown, GhostWriter, Joplin
+📜 **Word Processing**: MarkText, GhostWriter, Joplin
 
 💰 **Budgeting and Personal Finance**: iHateMoney as Server, MoneyBuster as Client
 
@@ -48,7 +53,7 @@ Inspired by this [Repo](https://github.com/rknightuk/app-defaults)
 
 🎤 **Podcasts**: Spotify
 
-🔐 **Password Management**: [Vaultwarden](https://bitwarden.com/)(self-hosted), KeePassXC
+🔐 **Password Management**: Vaultwarden(self-hosted) as Server while [BitWarden](https://bitwarden.com/) as Client, KeePassXC
 
 ---
 
