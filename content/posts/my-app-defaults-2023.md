@@ -18,7 +18,7 @@ draft: false
 
 📨 **Mail Client**：BetterBird, RoundCube(Web Client)
 
-📮 **Mail Server**: MxRoute with my own domains, Disroot, Protonmail
+📮 **Mail Server**: MxRoute with my own domains, Disroot,
 
 📝 **Notes**: Joplin, Logseq, AnyType
 
@@ -42,7 +42,7 @@ draft: false
 
 🔖 **Bookmarks**: Browser, OneNav(self-hosted)
 
-📑 **Read It Later**: Currently None
+📑 **Read It Later**: omnivore(self-hosted)
 
 📜 **Word Processing**: MarkText, GhostWriter, Joplin
 
@@ -66,8 +66,8 @@ And some extra categories not mentioned in the project:
 
 ⌨️ **Text input**: Ibus-Rime with [rime-ice](https://github.com/iDvel/rime-ice)
 
-📖 **Translation app**: [Immersive Translate](https://immersivetranslate.com/), Deepl
+📖 **Translation app**: kiss-translator, Deepl
 
-📚 **Reading app**: KOReader, Kodo Reader with [Z-Library](https://singlelogin.re/)
+📚 **Reading app**: KOReader, Kodo Reader with Z-Library
 
-🔧 **Screenshot app**: Spectacle, [ShareX](https://github.com/ShareX/ShareX)
+🔧 **Screenshot app**: FlameShot, [ShareX](https://github.com/ShareX/ShareX)

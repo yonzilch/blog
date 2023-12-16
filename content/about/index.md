@@ -8,6 +8,7 @@ readingTime = false
 comment = false
 copyright = false
 nav = false
+sidebar = false
 +++
 
 Not now

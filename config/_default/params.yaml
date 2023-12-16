@@ -3,7 +3,7 @@ mainSections:
 
 titleSeparator: '|' # Title separator. Default to -.
 
-description: This is Yon Zilch's blog.
+# description: This is Yon Zilch's blog.
 keywords: Yon Zilch, blog, 博客, yonzilch
 # images:
 #   - site-feature-image.jpg
@@ -11,7 +11,7 @@ keywords: Yon Zilch, blog, 博客, yonzilch
 # metaRobots: noindex, nofollow # Default value for Meta Tag robots
 # metaRobots:  # disable Meta Tag robots
 
-#logo: https://static.yon.im/images/avatar.webp # Logo image. Default to images/logo.webp.
+# logo: https://static.yon.im/images/avatar.webp # Logo image. Default to images/logo.webp.
 logo: false # Disable Logo
 brand: /
 
@@ -149,7 +149,7 @@ creativeCommons:
   # Optional values: github-light, github-dark, preferred-color-scheme, github-dark-orange, icy-dark, dark-blue, photon-dark.
   #theme:  
 
-#staticman:
+# staticman:
   #endpoint: https://yourstaticmaninstance # Required, replace with your own Staticman instance.
   #repo: user/repo # Required
   #service: github # or gitlab. Default to GitHub.

@@ -1,5 +1,5 @@
 # See https://hbs.razonyang.com/v1/en/docs/widgets/social-links/.
-# email: user@domain.tld
+email: zilch@yon.im
 # facebook: yourfacebookusername
 github: yonzilch
 # gitlab: yourgitlabusername
@@ -31,5 +31,5 @@ mastodon: yonzilch
 # paypal: razonyang
 # patreon: razonyang
 # tipeee: yourtipeeeaccount-fr
-rss:
+rss: https://blog.yon.im/index.xml
 website: https://yon.im

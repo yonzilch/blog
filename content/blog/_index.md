@@ -5,5 +5,5 @@ menu:
     identifier: blog
     params:
       icon: '<i class="fas fa-fw fa-blog"></i>'
-      description: 'Blog Menu Description'
+      description: 'Blog Menu'
 ---
