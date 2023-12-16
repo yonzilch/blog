@@ -5,5 +5,5 @@ menu:
     identifier: blog
     params:
       icon: '<i class="fas fa-fw fa-blog"></i>'
-      description: '博客菜单描述'
+      description: '博客菜单'
 ---
