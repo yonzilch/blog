@@ -1,13 +1,58 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Posts on Yon Zilch's blog</title><link>https://blog.yon.im/posts/</link><description>Recent content in Posts on Yon Zilch's blog</description><generator>Hugo -- gohugo.io</generator><language>zh-hans</language><copyright/><lastBuildDate>Tue, 05 Dec 2023 12:25:00 +0800</lastBuildDate><atom:link href="https://blog.yon.im/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>My App Defaults 2023</title><link>https://blog.yon.im/posts/my-app-defaults-2023/</link><pubDate>Tue, 05 Dec 2023 12:25:00 +0800</pubDate><guid>https://blog.yon.im/posts/my-app-defaults-2023/</guid><description>Intro To contribute this Repo
-And inspired by these blogs:
-https://yinji.org/5179.html
-https://anotherdayu.com/2023/5452/
-https://blog.douchi.space/app-defaults/
-My App Defaults 2023 📨 Mail Client：BetterBird, RoundCube(Web Client)
-📮 Mail Server: MxRoute with my own domains, Disroot,
-📝 Notes: Joplin, Logseq, AnyType
-✅ To-Do: Tasks, Vikunja(self-hosted), Logseq
-📷 Photo Shooting: Android Default Camera
-🟦 Photo Management: Aves Libre, digiKam
-📆 Calendar: Etar, Countdate
-📁 Cloud File Storage: Alist(self-hosted) as frontend, Storj DCS, 4everland IPFS etc. as backend</description></item><item><title>我的第一篇文章</title><link>https://blog.yon.im/posts/hello-world-hugo/</link><pubDate>Sun, 06 Aug 2023 22:30:13 +0800</pubDate><guid>https://blog.yon.im/posts/hello-world-hugo/</guid><description>你好,世界!这是我在Hugo中的第一篇文章。 我很兴奋可以开始使用这个强大的静态网站生成器来构建我的新网站。 Hugo让我可以快速简单地创建内容</description></item><item><title>关于记忆的一点思绪</title><link>https://blog.yon.im/posts/thoughs-about-memories/</link><pubDate>Thu, 20 Oct 2022 08:00:00 +0800</pubDate><guid>https://blog.yon.im/posts/thoughs-about-memories/</guid><description>&amp;ldquo;The ordinary everyday consciousness that we have leaves out more than it takes in. And because of this, it leaves out things that are terribly important. It leaves out things that would—if we did know them—allay our anxieties, and fears, and horrors, and if we could extend our awareness, you see, to include those</description></item><item><title>Hello World!</title><link>https://blog.yon.im/posts/hello-world/</link><pubDate>Mon, 28 Mar 2022 15:38:04 +0800</pubDate><guid>https://blog.yon.im/posts/hello-world/</guid><description>欢迎使用WordPress。这是您的第一篇文章。请编辑或删除它,然后开始写作!</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Yon Zilch's blog</title><link>https://blog.yon.im/posts/</link><description>Recent content in Posts on Yon Zilch's blog</description><generator>Hugo -- gohugo.io</generator><language>zh-hans</language><lastBuildDate>Tue, 05 Dec 2023 12:25:00 +0800</lastBuildDate><atom:link href="https://blog.yon.im/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>My App Defaults 2023</title><link>https://blog.yon.im/posts/my-app-defaults-2023/</link><pubDate>Tue, 05 Dec 2023 12:25:00 +0800</pubDate><guid>https://blog.yon.im/posts/my-app-defaults-2023/</guid><description>&lt;h1 id="intro" data-numberify>Intro&lt;a class="anchor ms-1" href="#intro">&lt;/a>&lt;/h1>
+&lt;ul>
+&lt;li>
+&lt;p>To contribute this &lt;a href="https://github.com/rknightuk/app-defaults" target="_blank" rel="noopener noreferrer">Repo&lt;i class="fas fa-external-link-square-alt ms-1">&lt;/i>&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>And inspired by these blogs:&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://yinji.org/5179.html" target="_blank" rel="noopener noreferrer">https://yinji.org/5179.html&lt;i class="fas fa-external-link-square-alt ms-1">&lt;/i>&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://anotherdayu.com/2023/5452/" target="_blank" rel="noopener noreferrer">https://anotherdayu.com/2023/5452/&lt;i class="fas fa-external-link-square-alt ms-1">&lt;/i>&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://blog.douchi.space/app-defaults/" target="_blank" rel="noopener noreferrer">https://blog.douchi.space/app-defaults/&lt;i class="fas fa-external-link-square-alt ms-1">&lt;/i>&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="my-app-defaults-2023" data-numberify>My App Defaults 2023&lt;a class="anchor ms-1" href="#my-app-defaults-2023">&lt;/a>&lt;/h1>
+&lt;p>📨 &lt;strong>Mail Client&lt;/strong>：BetterBird, RoundCube(Web Client)&lt;/p>
+&lt;p>📮 &lt;strong>Mail Server&lt;/strong>: MxRoute with my own domains, Disroot,&lt;/p>
+&lt;p>📝 &lt;strong>Notes&lt;/strong>: Joplin, Logseq, AnyType&lt;/p>
+&lt;p>✅ &lt;strong>To-Do&lt;/strong>: Tasks, Vikunja(self-hosted), Logseq&lt;/p>
+&lt;p>📷 &lt;strong>Photo Shooting&lt;/strong>: Android Default Camera&lt;/p>
+&lt;p>🟦 &lt;strong>Photo Management&lt;/strong>: Aves Libre, digiKam&lt;/p>
+&lt;p>📆 &lt;strong>Calendar&lt;/strong>: Etar, Countdate&lt;/p>
+&lt;p>📁 &lt;strong>Cloud File Storage&lt;/strong>: Alist(self-hosted) as frontend, Storj DCS, 4everland IPFS etc. as backend&lt;/p>
+&lt;p>📖 &lt;strong>RSS&lt;/strong>: MiniFlux(self-hosted) as Server while Newsflash and News as Cilent&lt;/p>
+&lt;p>🙍🏻‍♂️ &lt;strong>Contacts&lt;/strong>: Android Default Contacts&lt;/p>
+&lt;p>🌐 &lt;strong>Browser&lt;/strong>: Brave, FireFox, Kiwi&lt;/p>
+&lt;p>💬 &lt;strong>Chat&lt;/strong>: Matrix, Telegram&lt;/p>
+&lt;p>🔖 &lt;strong>Bookmarks&lt;/strong>: Browser, OneNav(self-hosted)&lt;/p>
+&lt;p>📑 &lt;strong>Read It Later&lt;/strong>: omnivore(self-hosted)
+vikunja
+📜 &lt;strong>Word Processing&lt;/strong>: MarkText, GhostWriter, Joplin&lt;/p>
+&lt;p>💰 &lt;strong>Budgeting and Personal Finance&lt;/strong>: iHateMoney as Server, MoneyBuster as Client&lt;/p>
+&lt;p>📰 &lt;strong>News&lt;/strong>: Telegram Channel, RSS feeds and so on&lt;/p>
+&lt;p>🎵 &lt;strong>Music&lt;/strong>: StrawBerry, Metro, Spotify&lt;/p>
+&lt;p>🎤 &lt;strong>Podcasts&lt;/strong>: Spotify&lt;/p>
+&lt;p>🔐 &lt;strong>Password Management&lt;/strong>: Vaultwarden(self-hosted) as Server while &lt;a href="https://bitwarden.com/" target="_blank" rel="noopener noreferrer">BitWarden&lt;i class="fas fa-external-link-square-alt ms-1">&lt;/i>&lt;/a> as Client, KeePassXC&lt;/p>
+&lt;hr>
+&lt;p>And some extra categories not mentioned in the project:&lt;/p>
+&lt;p>✈️ &lt;strong>VPN&lt;/strong>: Nekoray, CatBox&lt;/p>
+&lt;p>🖆 &lt;strong>Blog Platform&lt;/strong>: Hugo deploy on 4everland and code hosting on GitHub&lt;/p>
+&lt;p>⌨️ &lt;strong>Text input&lt;/strong>: Ibus-Rime with &lt;a href="https://github.com/iDvel/rime-ice" target="_blank" rel="noopener noreferrer">rime-ice&lt;i class="fas fa-external-link-square-alt ms-1">&lt;/i>&lt;/a>&lt;/p>
+&lt;p>📖 &lt;strong>Translation app&lt;/strong>: kiss-translator, Deepl&lt;/p>
+&lt;p>📚 &lt;strong>Reading app&lt;/strong>: KOReader, Kodo Reader with Z-Library&lt;/p>
+&lt;p>🔧 &lt;strong>Screenshot app&lt;/strong>: FlameShot, &lt;a href="https://github.com/ShareX/ShareX" target="_blank" rel="noopener noreferrer">ShareX&lt;i class="fas fa-external-link-square-alt ms-1">&lt;/i>&lt;/a>&lt;/p></description></item><item><title>我的第一篇文章</title><link>https://blog.yon.im/posts/hello-world-hugo/</link><pubDate>Sun, 06 Aug 2023 22:30:13 +0800</pubDate><guid>https://blog.yon.im/posts/hello-world-hugo/</guid><description>&lt;p>你好,世界!这是我在Hugo中的第一篇文章。&lt;/p>
+&lt;p>我很兴奋可以开始使用这个强大的静态网站生成器来构建我的新网站。&lt;/p>
+&lt;p>Hugo让我可以快速简单地创建内容,并且完全自定义我的网站样式。&lt;/p>
+&lt;p>默认的模板和主题提供了很好的起点,所以我不需要从零开始构建。&lt;/p>
+&lt;p>我迫不及待地要写更多文章,与世界分享我的知识!&lt;/p></description></item><item><title>关于记忆的一点思绪</title><link>https://blog.yon.im/posts/thoughs-about-memories/</link><pubDate>Thu, 20 Oct 2022 08:00:00 +0800</pubDate><guid>https://blog.yon.im/posts/thoughs-about-memories/</guid><description>&lt;blockquote>
+&lt;p>&amp;ldquo;The ordinary everyday consciousness that we have leaves out more than it takes in. And because of this, it leaves out things that are terribly important. It leaves out things that would—if we did know them—allay our anxieties, and fears, and horrors, and if we could extend our awareness, you see, to include those things that we leave out, we would have a deep interior peace.&amp;rdquo;&lt;/p>
+&lt;p>&lt;a href="https://genius.com/Alan-watts-the-web-of-life-part-1-what-did-you-forget-annotated" target="_blank" rel="noopener noreferrer">The Web of Life, Part 1: What Did You Forget?&lt;i class="fas fa-external-link-square-alt ms-1">&lt;/i>&lt;/a>——Alan Watts&lt;/p>
+&lt;/blockquote>
+&lt;p>从前，余以为人的记忆是牢靠的，这大抵是源于昔日那个年少轻狂，忘乎所以之人的局限认知：旧日经历历历在目，今日所见见后即逝。此刻，残垣断壁般的记忆突然火花迸现，曾读过一段话：“有的人，75岁死，但在25岁已经埋了。为什么？因为大部分人只有在人生前段真正活过，后段不过是在不断重复过去的自己。”也许你偶时也有同样的感受：曾经热爱的，为之疯狂的，如今已经退烧，不再感冒；曾经令你惊奇得&amp;quot;Unbelievable&amp;quot;的，现在再碰见却没什么感觉了。余的想法是：人生的大部分时间的确是在不断重复曾经的体验与过去的行为。然而，正是经历了太多同样或类似的事物，这个不断重复的过程便在逐渐消磨着人的意志，进而使你的意识带着越来越少的投入，最终达到做某些事不经思考便可以无意识地完成。而在缺乏意识的进程中，记忆便失去效力。就像人在睡眠时，有一大段无意识的时间中不会有任何记忆，在日常生活中无意识&amp;quot;神游&amp;quot;般地度过，这段时间也不会带着清晰、深刻的记忆。这便是残垣断壁般的记忆形成之缘故。&lt;/p>
+&lt;p>所以，当你正以漫不经心的态度带着微弱意识做事情时，就是在助长破碎记忆的形成，令其向支离破碎的方向发展。短时看来不会有多大影响，然而长此以往，由于某些时刻记忆的缺失，你不经意之中遗漏了一些事物，一些可能很重要的事物。而正是这些重要的细节，可能就会对事情的成败起着举足轻重的作用。无意识的行为好比是在高速路上闭眼开车，碰撞与破裂即是不可避免的结果。&lt;/p>
+&lt;p>有时，你不情愿地做着被安排的事情，或有时，你不得已地做着并不自发喜欢的事时。这类情况通常都导向同一个结果：那就是你将带着更少的投入、更少的意识、更少的记忆去执行。不断重复，重复再重复，再热忱的心也会被浇灭，再精力充沛的人也将垂头丧气，疲于应付。这就是人记忆与激情磨灭的概述。&lt;/p></description></item><item><title>Hello World!</title><link>https://blog.yon.im/posts/hello-world/</link><pubDate>Mon, 28 Mar 2022 15:38:04 +0800</pubDate><guid>https://blog.yon.im/posts/hello-world/</guid><description>&lt;p>欢迎使用WordPress。这是您的第一篇文章。请编辑或删除它,然后开始写作!&lt;/p></description></item></channel></rss>
