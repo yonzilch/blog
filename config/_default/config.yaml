@@ -1,4 +1,4 @@
-baseURL: /
+baseURL: https://blog.yon.im/
 title: Yon Zilch's blog
 theme: hugo-theme-bootstrap
 #copyright: 'Copyright © 2022-{year} Yon Zilch. All Rights Reserved.'
