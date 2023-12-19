@@ -167,17 +167,17 @@ creativeCommons:
   #moderation: false # Same as Staticman's moderation.
 
 # See https://giscus.app
-giscus:
-  repo: "yonzilch/blog"
-  repoId: "R_kgDOKEBurw"
-  category: "Announcements"
-  categoryId: "DIC_kwDOKEBur84CYYxk"
-  theme: "preferred_color_scheme"
-  mapping: "pathname"
-  inputPosition: "top"
-  reactions: "true"
-  metadata: "true"
-  lazyLoading: "true"
+#giscus:
+  # repo: "yonzilch/blog"
+  # repoId: "R_kgDOKEBurw"
+  # category: "Announcements"
+  # categoryId: "DIC_kwDOKEBur84CYYxk"
+  # theme: "preferred_color_scheme"
+  # mapping: "pathname"
+  # inputPosition: "top"
+  # reactions: "true"
+  # metadata: "true"
+  # lazyLoading: "true"
   # lang: "en" # Specify language, default to site language.
   
 
