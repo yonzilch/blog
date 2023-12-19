@@ -43,7 +43,7 @@ draft: false
 🔖 **Bookmarks**: Browser, OneNav(self-hosted)
 
 📑 **Read It Later**: omnivore(self-hosted)
-vikunja
+
 📜 **Word Processing**: MarkText, GhostWriter, Joplin
 
 💰 **Budgeting and Personal Finance**: iHateMoney as Server, MoneyBuster as Client
