@@ -18,7 +18,7 @@ draft: false
 
 📨 **Mail Client**：BetterBird, RoundCube(Web Client)
 
-📮 **Mail Server**: MxRoute with my own domains, Disroot,
+📮 **Mail Server**: MxRoute with my own domains, Disroot
 
 📝 **Notes**: Joplin, Logseq, AnyType
 
