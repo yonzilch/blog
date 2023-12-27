@@ -1,5 +1,5 @@
 ---
-title: "我的第一篇文章"
+title: "Hello Hugo!"
 date: 2023-08-06T22:30:13+08:00
 draft: false
 ---

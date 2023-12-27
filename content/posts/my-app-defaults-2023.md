@@ -24,7 +24,7 @@ draft: false
 
 ✅ **To-Do**: Tasks, Vikunja(self-hosted), Logseq
 
-📷 **Photo Shooting**: Android Default Camera
+📷 **Photo Shooting**: ACG(Google Camera)
 
 🟦 **Photo Management**: Aves Libre, digiKam
 
@@ -66,7 +66,7 @@ And some extra categories not mentioned in the project:
 
 ⌨️ **Text input**: Ibus-Rime with [rime-ice](https://github.com/iDvel/rime-ice)
 
-📖 **Translation app**: kiss-translator, Deepl
+📖 **Translation app**: KISS Translator, Deepl
 
 📚 **Reading app**: KOReader, Kodo Reader with Z-Library
 

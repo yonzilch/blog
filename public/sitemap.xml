@@ -1,1 +1,35 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>https://blog.yon.im/zh-hans/sitemap.xml</loc><lastmod>2023-12-05T12:25:00+08:00</lastmod></sitemap><sitemap><loc>https://blog.yon.im/en/sitemap.xml</loc><lastmod>2023-12-05T12:25:00+08:00</lastmod></sitemap></sitemapindex>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://blog.yon.im/</loc>
+    </url>
+    <url>
+        <loc>https://blog.yon.im/about/</loc>
+    </url>
+    <url>
+        <loc>https://blog.yon.im/posts/</loc>
+    </url>
+    <url>
+        <loc>https://blog.yon.im/posts/hello-world-hugo/</loc>
+        <lastmod>2023-08-06T22:30:13+08:00</lastmod>
+    </url>
+    <url>
+        <loc>https://blog.yon.im/posts/hello-world/</loc>
+        <lastmod>2022-03-28T15:38:04+08:00</lastmod>
+    </url>
+    <url>
+        <loc>https://blog.yon.im/posts/markdown-test/</loc>
+        <lastmod>2022-01-01</lastmod>
+    </url>
+    <url>
+        <loc>https://blog.yon.im/posts/my-app-defaults-2023/</loc>
+        <lastmod>2023-12-05T12:25:00+08:00</lastmod>
+    </url>
+    <url>
+        <loc>https://blog.yon.im/posts/page/1/</loc>
+    </url>
+    <url>
+        <loc>https://blog.yon.im/posts/thoughs-about-memories/</loc>
+        <lastmod>2022-10-20T08:00:00+08:00</lastmod>
+    </url>
+</urlset>

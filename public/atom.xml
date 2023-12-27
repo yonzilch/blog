@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Yon Zilch</title>
+    <link rel="self" type="application/atom+xml" href="https://blog.yon.im/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.yon.im"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-12-05T12:25:00+08:00</updated>
+    <id>https://blog.yon.im/atom.xml</id>
+    <entry xml:lang="en">
+        <title>My App Defaults 2023</title>
+        <published>2023-12-05T12:25:00+08:00</published>
+        <updated>2023-12-05T12:25:00+08:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.yon.im/posts/my-app-defaults-2023/"/>
+        <id>https://blog.yon.im/posts/my-app-defaults-2023/</id>
+        
+        <content type="html" xml:base="https://blog.yon.im/posts/my-app-defaults-2023/">&lt;h1 id=&quot;intro&quot;&gt;Intro&lt;&#x2F;h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;To contribute this &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;rknightuk&#x2F;app-defaults&quot;&gt;Repo&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;And inspired by these blogs:&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;https:&#x2F;&#x2F;yinji.org&#x2F;5179.html&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;https:&#x2F;&#x2F;anotherdayu.com&#x2F;2023&#x2F;5452&#x2F;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;https:&#x2F;&#x2F;blog.douchi.space&#x2F;app-defaults&#x2F;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h1 id=&quot;my-app-defaults-2023&quot;&gt;My App Defaults 2023&lt;&#x2F;h1&gt;
+&lt;p&gt;📨 &lt;strong&gt;Mail Client&lt;&#x2F;strong&gt;：BetterBird, RoundCube(Web Client)&lt;&#x2F;p&gt;
+&lt;p&gt;📮 &lt;strong&gt;Mail Server&lt;&#x2F;strong&gt;: MxRoute with my own domains, Disroot&lt;&#x2F;p&gt;
+&lt;p&gt;📝 &lt;strong&gt;Notes&lt;&#x2F;strong&gt;: Joplin, Logseq, AnyType&lt;&#x2F;p&gt;
+&lt;p&gt;✅ &lt;strong&gt;To-Do&lt;&#x2F;strong&gt;: Tasks, Vikunja(self-hosted), Logseq&lt;&#x2F;p&gt;
+&lt;p&gt;📷 &lt;strong&gt;Photo Shooting&lt;&#x2F;strong&gt;: ACG(Google Camera)&lt;&#x2F;p&gt;
+&lt;p&gt;🟦 &lt;strong&gt;Photo Management&lt;&#x2F;strong&gt;: Aves Libre, digiKam&lt;&#x2F;p&gt;
+&lt;p&gt;📆 &lt;strong&gt;Calendar&lt;&#x2F;strong&gt;: Etar, Countdate&lt;&#x2F;p&gt;
+&lt;p&gt;📁 &lt;strong&gt;Cloud File Storage&lt;&#x2F;strong&gt;: Alist(self-hosted) as frontend, Storj DCS, 4everland IPFS etc. as backend&lt;&#x2F;p&gt;
+&lt;p&gt;📖 &lt;strong&gt;RSS&lt;&#x2F;strong&gt;: MiniFlux(self-hosted) as Server while Newsflash and News as Cilent&lt;&#x2F;p&gt;
+&lt;p&gt;🙍🏻‍♂️ &lt;strong&gt;Contacts&lt;&#x2F;strong&gt;: Android Default Contacts&lt;&#x2F;p&gt;
+&lt;p&gt;🌐 &lt;strong&gt;Browser&lt;&#x2F;strong&gt;: Brave, FireFox, Kiwi&lt;&#x2F;p&gt;
+&lt;p&gt;💬 &lt;strong&gt;Chat&lt;&#x2F;strong&gt;: Matrix, Telegram&lt;&#x2F;p&gt;
+&lt;p&gt;🔖 &lt;strong&gt;Bookmarks&lt;&#x2F;strong&gt;: Browser, OneNav(self-hosted)&lt;&#x2F;p&gt;
+&lt;p&gt;📑 &lt;strong&gt;Read It Later&lt;&#x2F;strong&gt;: omnivore(self-hosted)&lt;&#x2F;p&gt;
+&lt;p&gt;📜 &lt;strong&gt;Word Processing&lt;&#x2F;strong&gt;: MarkText, GhostWriter, Joplin&lt;&#x2F;p&gt;
+&lt;p&gt;💰 &lt;strong&gt;Budgeting and Personal Finance&lt;&#x2F;strong&gt;: iHateMoney as Server, MoneyBuster as Client&lt;&#x2F;p&gt;
+&lt;p&gt;📰 &lt;strong&gt;News&lt;&#x2F;strong&gt;: Telegram Channel, RSS feeds and so on&lt;&#x2F;p&gt;
+&lt;p&gt;🎵 &lt;strong&gt;Music&lt;&#x2F;strong&gt;: StrawBerry, Metro, Spotify&lt;&#x2F;p&gt;
+&lt;p&gt;🎤 &lt;strong&gt;Podcasts&lt;&#x2F;strong&gt;: Spotify&lt;&#x2F;p&gt;
+&lt;p&gt;🔐 &lt;strong&gt;Password Management&lt;&#x2F;strong&gt;: Vaultwarden(self-hosted) as Server while &lt;a href=&quot;https:&#x2F;&#x2F;bitwarden.com&#x2F;&quot;&gt;BitWarden&lt;&#x2F;a&gt; as Client, KeePassXC&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;And some extra categories not mentioned in the project:&lt;&#x2F;p&gt;
+&lt;p&gt;✈️ &lt;strong&gt;VPN&lt;&#x2F;strong&gt;: Nekoray, CatBox&lt;&#x2F;p&gt;
+&lt;p&gt;🖆 &lt;strong&gt;Blog Platform&lt;&#x2F;strong&gt;: Hugo deploy on 4everland and code hosting on GitHub&lt;&#x2F;p&gt;
+&lt;p&gt;⌨️ &lt;strong&gt;Text input&lt;&#x2F;strong&gt;: Ibus-Rime with &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;iDvel&#x2F;rime-ice&quot;&gt;rime-ice&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;📖 &lt;strong&gt;Translation app&lt;&#x2F;strong&gt;: KISS Translator, Deepl&lt;&#x2F;p&gt;
+&lt;p&gt;📚 &lt;strong&gt;Reading app&lt;&#x2F;strong&gt;: KOReader, Kodo Reader with Z-Library&lt;&#x2F;p&gt;
+&lt;p&gt;🔧 &lt;strong&gt;Screenshot app&lt;&#x2F;strong&gt;: FlameShot, &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;ShareX&#x2F;ShareX&quot;&gt;ShareX&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Hello Hugo!</title>
+        <published>2023-08-06T22:30:13+08:00</published>
+        <updated>2023-08-06T22:30:13+08:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.yon.im/posts/hello-world-hugo/"/>
+        <id>https://blog.yon.im/posts/hello-world-hugo/</id>
+        
+        <content type="html" xml:base="https://blog.yon.im/posts/hello-world-hugo/">&lt;p&gt;你好,世界!这是我在Hugo中的第一篇文章。&lt;&#x2F;p&gt;
+&lt;p&gt;我很兴奋可以开始使用这个强大的静态网站生成器来构建我的新网站。&lt;&#x2F;p&gt;
+&lt;p&gt;Hugo让我可以快速简单地创建内容,并且完全自定义我的网站样式。&lt;&#x2F;p&gt;
+&lt;p&gt;默认的模板和主题提供了很好的起点,所以我不需要从零开始构建。&lt;&#x2F;p&gt;
+&lt;p&gt;我迫不及待地要写更多文章,与世界分享我的知识!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>关于记忆的一点思绪</title>
+        <published>2022-10-20T08:00:00+08:00</published>
+        <updated>2022-10-20T08:00:00+08:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.yon.im/posts/thoughs-about-memories/"/>
+        <id>https://blog.yon.im/posts/thoughs-about-memories/</id>
+        
+        <content type="html" xml:base="https://blog.yon.im/posts/thoughs-about-memories/">&lt;blockquote&gt;
+&lt;p&gt;&amp;quot;The ordinary everyday consciousness that we have leaves out more than it takes in. And because of this, it leaves out things that are terribly important. It leaves out things that would—if we did know them—allay our anxieties, and fears, and horrors, and if we could extend our awareness, you see, to include those things that we leave out, we would have a deep interior peace.&amp;quot;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;genius.com&#x2F;Alan-watts-the-web-of-life-part-1-what-did-you-forget-annotated&quot;&gt;The Web of Life, Part 1: What Did You Forget?&lt;&#x2F;a&gt;——Alan Watts&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;从前，余以为人的记忆是牢靠的，这大抵是源于昔日那个年少轻狂，忘乎所以之人的局限认知：旧日经历历历在目，今日所见见后即逝。此刻，残垣断壁般的记忆突然火花迸现，曾读过一段话：“有的人，75岁死，但在25岁已经埋了。为什么？因为大部分人只有在人生前段真正活过，后段不过是在不断重复过去的自己。”也许你偶时也有同样的感受：曾经热爱的，为之疯狂的，如今已经退烧，不再感冒；曾经令你惊奇得&amp;quot;Unbelievable&amp;quot;的，现在再碰见却没什么感觉了。余的想法是：人生的大部分时间的确是在不断重复曾经的体验与过去的行为。然而，正是经历了太多同样或类似的事物，这个不断重复的过程便在逐渐消磨着人的意志，进而使你的意识带着越来越少的投入，最终达到做某些事不经思考便可以无意识地完成。而在缺乏意识的进程中，记忆便失去效力。就像人在睡眠时，有一大段无意识的时间中不会有任何记忆，在日常生活中无意识&amp;quot;神游&amp;quot;般地度过，这段时间也不会带着清晰、深刻的记忆。这便是残垣断壁般的记忆形成之缘故。&lt;&#x2F;p&gt;
+&lt;p&gt;所以，当你正以漫不经心的态度带着微弱意识做事情时，就是在助长破碎记忆的形成，令其向支离破碎的方向发展。短时看来不会有多大影响，然而长此以往，由于某些时刻记忆的缺失，你不经意之中遗漏了一些事物，一些可能很重要的事物。而正是这些重要的细节，可能就会对事情的成败起着举足轻重的作用。无意识的行为好比是在高速路上闭眼开车，碰撞与破裂即是不可避免的结果。&lt;&#x2F;p&gt;
+&lt;p&gt;有时，你不情愿地做着被安排的事情，或有时，你不得已地做着并不自发喜欢的事时。这类情况通常都导向同一个结果：那就是你将带着更少的投入、更少的意识、更少的记忆去执行。不断重复，重复再重复，再热忱的心也会被浇灭，再精力充沛的人也将垂头丧气，疲于应付。这就是人记忆与激情磨灭的概述。&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Hello World!</title>
+        <published>2022-03-28T15:38:04+08:00</published>
+        <updated>2022-03-28T15:38:04+08:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.yon.im/posts/hello-world/"/>
+        <id>https://blog.yon.im/posts/hello-world/</id>
+        
+        <content type="html" xml:base="https://blog.yon.im/posts/hello-world/">&lt;p&gt;欢迎使用WordPress。这是您的第一篇文章。请编辑或删除它,然后开始写作!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Markdown Test</title>
+        <published>2022-01-01T00:00:00+00:00</published>
+        <updated>2022-01-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.yon.im/posts/markdown-test/"/>
+        <id>https://blog.yon.im/posts/markdown-test/</id>
+        
+        <content type="html" xml:base="https://blog.yon.im/posts/markdown-test/">&lt;h1 id=&quot;markdown-test&quot;&gt;Markdown Test&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;basic-test&quot;&gt;Basic-Test&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;code-block&quot;&gt;Code Block&lt;&#x2F;h3&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#0f1419;color:#bfbab0;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#ff7733;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffb454;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07178;&quot;&gt;println!&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c2d94c;&quot;&gt;&amp;quot;Hello World&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bfbab0cc;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;quote&quot;&gt;Quote&lt;&#x2F;h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Two things are infinite: the universe and human stupidity; and I&#x27;m not sure about the universe.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Albert Einstein&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;code-tags&quot;&gt;Code tags&lt;&#x2F;h3&gt;
+&lt;p&gt;Lorem ipsum &lt;code&gt;dolor&lt;&#x2F;code&gt; sit amet, &lt;code&gt;consectetur adipiscing&lt;&#x2F;code&gt; elit. 
+&lt;code&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;table-of-contents-test&quot;&gt;Table-Of-Contents-Test&lt;&#x2F;h2&gt;
+&lt;h1 id=&quot;heading-1&quot;&gt;Heading 1&lt;&#x2F;h1&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;heading-2&quot;&gt;Heading 2&lt;&#x2F;h2&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed mollis augue, vel efficitur lacus.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;heading-3&quot;&gt;Heading 3&lt;&#x2F;h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed mollis augue, vel efficitur lacus. Pellentesque eu egestas mi.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;heading-4&quot;&gt;Heading 4&lt;&#x2F;h4&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed mollis augue, vel efficitur lacus. Pellentesque eu egestas mi. Etiam ultrices lectus sit amet aliquet ullamcorper.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;math-symbols-test&quot;&gt;Math-Symbols-Test&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;inline-math&quot;&gt;Inline Math&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;$(a+b)^2$ = $a^2 + 2ab + b^2$&lt;&#x2F;li&gt;
+&lt;li&gt;A polynomial P of degree d over $\mathbb{F}_p$ is an expression of the form
+$P(s) = a_0 + a_1 . s + a_2 . s^2 + ... + a_d . s^d$ for some
+$a_0,..,a_d \in \mathbb{F}_p$&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;displayed-math&quot;&gt;Displayed Math&lt;&#x2F;h3&gt;
+&lt;p&gt;$$
+p := (\sum_{k∈I}{c_k.v_k} + \delta_v.t(x))·(\sum_{k∈I}{c_k.w_k} + \delta_w.t(x)) − (\sum_{k∈I}{c_k.y_k} + \delta_y.t(x))
+$$&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
