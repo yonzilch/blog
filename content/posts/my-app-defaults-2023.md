@@ -60,7 +60,7 @@ draft: false
 
 And some extra categories not mentioned in the project:
 
-✈️ **VPN**: Nekoray, CatBox
+✈️ **VPN**: Nekoray, NekoBox
 
 🖆 **Blog Platform**: Hugo deploy on 4everland and code hosting on GitHub
 
