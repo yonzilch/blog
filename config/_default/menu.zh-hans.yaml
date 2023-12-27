@@ -1,6 +1,0 @@
-main:
-  - name: 分享盘
-    identifier: share
-    url: https://share.yon.im
-    params:
-      icon: '<i class="fas fa-fw fa-book"></i>'
