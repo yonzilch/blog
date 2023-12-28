@@ -3,12 +3,13 @@ title = "关于记忆的一点思绪"
 date = "2022-10-20"
 +++
 
-<figure>
-  <img src="https://static.yon.im/image/blog/thoughs-about-memories/g.y.m-the-right-path%28g.y.m-bootleg%29.jpg" alt="g.y.m-the-right-path(g.y.m-bootleg)" style="width:auto%; height:auto;">
-    <figcaption>Thomas Greenberg-The Right Path(G.Y.M Bootleg)（G.Y.M Remix）</figcaption>
-  <audio controls>
+<link rel="stylesheet" href="/css/audio.min.css" />
+<figure class="figure-center">
+  <img src="https://static.yon.im/image/blog/thoughs-about-memories/g.y.m-the-right-path%28g.y.m-bootleg%29.jpg" alt="g.y.m-the-right-path(g.y.m-bootleg)">
+  <figcaption>Thomas Greenberg-The Right Path(G.Y.M Bootleg)（G.Y.M Remix）</figcaption>
+  <audio class="audio-control" controls>
     <source src="https://static.yon.im/audio/Thomas%20Greenberg-The%20Right%20Path%28G.Y.M%20Bootleg%29%EF%BC%88G.Y.M%20Remix%EF%BC%89%20-%20G.Y.M.mp3" type="audio/mpeg">
-    您的浏览器不支持 audio 元素。
+    您的浏览器不支持audio元素。
   </audio>
 </figure>
 
