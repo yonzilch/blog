@@ -1,8 +1,7 @@
----
-title: "Hello Hugo!"
-date: 2023-08-06T22:30:13+08:00
-draft: false
----
++++
+title = "Hello Hugo!"
+date = "2023-08-06"
++++
 
 你好,世界!这是我在Hugo中的第一篇文章。
 
