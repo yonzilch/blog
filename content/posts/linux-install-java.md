@@ -66,3 +66,7 @@ update-alternatives --install "/usr/bin/javac" "javac" "/usr/local/java-17/jdk-1
 ```
 
 DONE.
+
+## 附录：
+
+https://github.com/bell-sw/Liberica

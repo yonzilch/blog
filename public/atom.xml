@@ -320,6 +320,8 @@ Tip：可以临时放到 VScode 之类的文本编辑器里
 &lt;&#x2F;span&gt;&lt;span&gt;update-alternatives --install &amp;quot;&#x2F;usr&#x2F;bin&#x2F;javac&amp;quot; &amp;quot;javac&amp;quot; &amp;quot;&#x2F;usr&#x2F;local&#x2F;java-17&#x2F;jdk-17.0.9&#x2F;bin&#x2F;javac&amp;quot; 1600
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;DONE.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;fu-lu&quot;&gt;附录：&lt;&#x2F;h2&gt;
+&lt;p&gt;https:&#x2F;&#x2F;github.com&#x2F;bell-sw&#x2F;Liberica&lt;&#x2F;p&gt;
 </content>
         
     </entry>
