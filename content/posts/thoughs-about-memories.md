@@ -1,9 +1,7 @@
----
-title: "关于记忆的一点思绪"
-date: 2022-10-20T08:00:00+08:00
-lastmod: 2023-12-02T07:10:00+08:00
-draft: false
----
++++
+title = "关于记忆的一点思绪"
+date = "2022-10-20"
++++
 
 > "The ordinary everyday consciousness that we have leaves out more than it takes in. And because of this, it leaves out things that are terribly important. It leaves out things that would—if we did know them—allay our anxieties, and fears, and horrors, and if we could extend our awareness, you see, to include those things that we leave out, we would have a deep interior peace."
 > 

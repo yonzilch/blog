@@ -1,8 +1,7 @@
----
-title: "My App Defaults 2023"
-date: 2023-12-05T12:25:00+08:00
-draft: false
----
++++
+title = "My App Defaults 2023"
+date = "2023-12-05"
++++
 
 # Intro
 
