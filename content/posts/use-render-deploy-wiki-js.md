@@ -86,7 +86,6 @@ DB_TYPE 请设为 postgres
 此时可以先在项目 "Settings" 绑定域名
 ![8](https://static.yon.im/image/blog/use-render-deploy-wiki-js/8.webp)
 
-
 8.
 （此处演示直接使用 Render 预置的域名 进行后续操作）
 
@@ -121,7 +120,6 @@ Install 后 wiki-js 可能会出现无响应，请等待片刻（此时服务器
 
 看图自行操作，不多说明
 ![14](https://static.yon.im/image/blog/use-render-deploy-wiki-js/14.webp)
-
 
 ## 附录：
 
