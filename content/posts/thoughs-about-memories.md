@@ -3,6 +3,15 @@ title = "关于记忆的一点思绪"
 date = "2022-10-20"
 +++
 
+<figure>
+  <img src="https://static.yon.im/image/blog/thoughs-about-memories/g.y.m-the-right-path%28g.y.m-bootleg%29.jpg" alt="g.y.m-the-right-path(g.y.m-bootleg)" style="width:auto%; height:auto;">
+    <figcaption>Thomas Greenberg-The Right Path(G.Y.M Bootleg)（G.Y.M Remix）</figcaption>
+  <audio controls>
+    <source src="https://static.yon.im/audio/Thomas%20Greenberg-The%20Right%20Path%28G.Y.M%20Bootleg%29%EF%BC%88G.Y.M%20Remix%EF%BC%89%20-%20G.Y.M.mp3" type="audio/mpeg">
+    您的浏览器不支持 audio 元素。
+  </audio>
+</figure>
+
 > "The ordinary everyday consciousness that we have leaves out more than it takes in. And because of this, it leaves out things that are terribly important. It leaves out things that would—if we did know them—allay our anxieties, and fears, and horrors, and if we could extend our awareness, you see, to include those things that we leave out, we would have a deep interior peace."
 > 
 > [The Web of Life, Part 1: What Did You Forget?](https://genius.com/Alan-watts-the-web-of-life-part-1-what-did-you-forget-annotated)——Alan Watts

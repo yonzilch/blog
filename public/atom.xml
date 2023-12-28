@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet href="/rss-style.xslt" type="text/xsl"?>
+<?xml-stylesheet href="/css/rss-style.xslt" type="text/xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <title>Yon Zilch</title>
     <link rel="self" type="application/atom+xml" href="https://blog.yon.im/atom.xml"/>
@@ -232,7 +232,15 @@ Tip：可以临时放到 VScode 之类的文本编辑器里
         <link rel="alternate" type="text/html" href="https://blog.yon.im/posts/thoughs-about-memories/"/>
         <id>https://blog.yon.im/posts/thoughs-about-memories/</id>
         
-        <content type="html" xml:base="https://blog.yon.im/posts/thoughs-about-memories/">&lt;blockquote&gt;
+        <content type="html" xml:base="https://blog.yon.im/posts/thoughs-about-memories/">&lt;figure&gt;
+  &lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;thoughs-about-memories&#x2F;g.y.m-the-right-path%28g.y.m-bootleg%29.jpg&quot; alt=&quot;g.y.m-the-right-path(g.y.m-bootleg)&quot; style=&quot;width:auto%; height:auto;&quot;&gt;
+    &lt;figcaption&gt;Thomas Greenberg-The Right Path(G.Y.M Bootleg)（G.Y.M Remix）&lt;&#x2F;figcaption&gt;
+  &lt;audio controls&gt;
+    &lt;source src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;audio&#x2F;Thomas%20Greenberg-The%20Right%20Path%28G.Y.M%20Bootleg%29%EF%BC%88G.Y.M%20Remix%EF%BC%89%20-%20G.Y.M.mp3&quot; type=&quot;audio&#x2F;mpeg&quot;&gt;
+    您的浏览器不支持 audio 元素。
+  &lt;&#x2F;audio&gt;
+&lt;&#x2F;figure&gt;
+&lt;blockquote&gt;
 &lt;p&gt;&amp;quot;The ordinary everyday consciousness that we have leaves out more than it takes in. And because of this, it leaves out things that are terribly important. It leaves out things that would—if we did know them—allay our anxieties, and fears, and horrors, and if we could extend our awareness, you see, to include those things that we leave out, we would have a deep interior peace.&amp;quot;&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;genius.com&#x2F;Alan-watts-the-web-of-life-part-1-what-did-you-forget-annotated&quot;&gt;The Web of Life, Part 1: What Did You Forget?&lt;&#x2F;a&gt;——Alan Watts&lt;&#x2F;p&gt;
 &lt;&#x2F;blockquote&gt;
