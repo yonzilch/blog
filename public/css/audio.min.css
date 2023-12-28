@@ -1,16 +1,1 @@
-/* audio.min.css */
-.figure-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .figure-center img {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  .audio-control {
-    width: 100%;
-  }
+.figure-center{display:flex;flex-direction:column;align-items:center;text-align:center}.figure-center img{max-width:100%;height:auto}.audio-control{width:100%}

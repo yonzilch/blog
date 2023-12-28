@@ -74,6 +74,26 @@
         
     </entry>
     <entry xml:lang="en">
+        <title>About</title>
+        <published>2023-09-17T00:00:00+00:00</published>
+        <updated>2023-09-17T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.yon.im/about/"/>
+        <id>https://blog.yon.im/about/</id>
+        
+        <content type="html" xml:base="https://blog.yon.im/about/">&lt;p&gt;Not Now&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
         <title>利用 render 部署 wiki.js</title>
         <published>2023-09-17T00:00:00+00:00</published>
         <updated>2023-09-17T00:00:00+00:00</updated>
@@ -248,6 +268,58 @@ Tip：可以临时放到 VScode 之类的文本编辑器里
 &lt;p&gt;从前，余以为人的记忆是牢靠的，这大抵是源于昔日那个年少轻狂，忘乎所以之人的局限认知：旧日经历历历在目，今日所见见后即逝。此刻，残垣断壁般的记忆突然火花迸现，曾读过一段话：“有的人，75岁死，但在25岁已经埋了。为什么？因为大部分人只有在人生前段真正活过，后段不过是在不断重复过去的自己。”也许你偶时也有同样的感受：曾经热爱的，为之疯狂的，如今已经退烧，不再感冒；曾经令你惊奇得&amp;quot;Unbelievable&amp;quot;的，现在再碰见却没什么感觉了。余的想法是：人生的大部分时间的确是在不断重复曾经的体验与过去的行为。然而，正是经历了太多同样或类似的事物，这个不断重复的过程便在逐渐消磨着人的意志，进而使你的意识带着越来越少的投入，最终达到做某些事不经思考便可以无意识地完成。而在缺乏意识的进程中，记忆便失去效力。就像人在睡眠时，有一大段无意识的时间中不会有任何记忆，在日常生活中无意识&amp;quot;神游&amp;quot;般地度过，这段时间也不会带着清晰、深刻的记忆。这便是残垣断壁般的记忆形成之缘故。&lt;&#x2F;p&gt;
 &lt;p&gt;所以，当你正以漫不经心的态度带着微弱意识做事情时，就是在助长破碎记忆的形成，令其向支离破碎的方向发展。短时看来不会有多大影响，然而长此以往，由于某些时刻记忆的缺失，你不经意之中遗漏了一些事物，一些可能很重要的事物。而正是这些重要的细节，可能就会对事情的成败起着举足轻重的作用。无意识的行为好比是在高速路上闭眼开车，碰撞与破裂即是不可避免的结果。&lt;&#x2F;p&gt;
 &lt;p&gt;有时，你不情愿地做着被安排的事情，或有时，你不得已地做着并不自发喜欢的事时。这类情况通常都导向同一个结果：那就是你将带着更少的投入、更少的意识、更少的记忆去执行。不断重复，重复再重复，再热忱的心也会被浇灭，再精力充沛的人也将垂头丧气，疲于应付。这就是人记忆与激情磨灭的概述。&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Linux 安装 java 通法</title>
+        <published>2022-04-03T00:00:00+00:00</published>
+        <updated>2022-04-03T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.yon.im/posts/linux-install-java/"/>
+        <id>https://blog.yon.im/posts/linux-install-java/</id>
+        
+        <content type="html" xml:base="https://blog.yon.im/posts/linux-install-java/">&lt;hr &#x2F;&gt;
+&lt;p&gt;本文更新于2023&#x2F;12&#x2F;28：更换为最新的 java 下载链接；&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;&lt;strong&gt;本文以安装 JDK 8, JDK 17 为例&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;jdk-8&quot;&gt;JDK 8:&lt;&#x2F;h3&gt;
+&lt;p&gt;首先，为 JDK 8 创建一个目录。&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;mkdir &#x2F;usr&#x2F;local&#x2F;java-8
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;其次，下载 JDK 8&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;wget https:&#x2F;&#x2F;download.bell-sw.com&#x2F;java&#x2F;8u392+9&#x2F;bellsoft-jdk8u392+9-linux-amd64.tar.gz
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;之后，使用&lt;a href=&quot;http:&#x2F;&#x2F;www.runoob.com&#x2F;linux&#x2F;linux-comm-tar.html&quot;&gt;tar命令&lt;&#x2F;a&gt;将&lt;code&gt;bellsoft-jdk8u392+9-linux-amd64.tar.gz&lt;&#x2F;code&gt;文件解压缩到先前创建的目录：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;tar -zxvf bellsoft-jdk8u392+9-linux-amd64.tar.gz -C &#x2F;usr&#x2F;local&#x2F;java-8
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;最后，运行以下命令以创建新的替代方案：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;update-alternatives --install &amp;quot;&#x2F;usr&#x2F;bin&#x2F;java&amp;quot; &amp;quot;java&amp;quot; &amp;quot;&#x2F;usr&#x2F;local&#x2F;java-8&#x2F;jdk8u392&#x2F;bin&#x2F;java&amp;quot; 1500
+&lt;&#x2F;span&gt;&lt;span&gt;update-alternatives --install &amp;quot;&#x2F;usr&#x2F;bin&#x2F;javac&amp;quot; &amp;quot;javac&amp;quot; &amp;quot;&#x2F;usr&#x2F;local&#x2F;java-8&#x2F;jdk8u392&#x2F;bin&#x2F;javac&amp;quot; 1500
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;jdk-17&quot;&gt;JDK 17&lt;&#x2F;h3&gt;
+&lt;p&gt;首先，为 JDK 17 创建一个目录。&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;mkdir &#x2F;usr&#x2F;local&#x2F;java-17
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;其次，下载 JDK 8&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;wget https:&#x2F;&#x2F;download.bell-sw.com&#x2F;java&#x2F;17.0.9+11&#x2F;bellsoft-jdk17.0.9+11-linux-amd64.tar.gz
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;之后，使用&lt;a href=&quot;http:&#x2F;&#x2F;www.runoob.com&#x2F;linux&#x2F;linux-comm-tar.html&quot;&gt;tar命令&lt;&#x2F;a&gt;将&lt;code&gt;bellsoft-jdk17.0.9+11-linux-amd64.tar.gz&lt;&#x2F;code&gt;文件解压缩到先前创建的目录：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;tar -zxvf bellsoft-jdk17.0.9+11-linux-amd64.tar.gz -C &#x2F;usr&#x2F;local&#x2F;java-17
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;最后，运行以下命令以创建新的替代方案：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;update-alternatives --install &amp;quot;&#x2F;usr&#x2F;bin&#x2F;java&amp;quot; &amp;quot;java&amp;quot; &amp;quot;&#x2F;usr&#x2F;local&#x2F;java-17&#x2F;jdk-17.0.9&#x2F;bin&#x2F;java&amp;quot; 1600
+&lt;&#x2F;span&gt;&lt;span&gt;update-alternatives --install &amp;quot;&#x2F;usr&#x2F;bin&#x2F;javac&amp;quot; &amp;quot;javac&amp;quot; &amp;quot;&#x2F;usr&#x2F;local&#x2F;java-17&#x2F;jdk-17.0.9&#x2F;bin&#x2F;javac&amp;quot; 1600
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;DONE.&lt;&#x2F;p&gt;
 </content>
         
     </entry>

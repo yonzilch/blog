@@ -5,6 +5,7 @@
     </url>
     <url>
         <loc>https://blog.yon.im/about/</loc>
+        <lastmod>2023-09-17</lastmod>
     </url>
     <url>
         <loc>https://blog.yon.im/posts/</loc>
@@ -16,6 +17,10 @@
     <url>
         <loc>https://blog.yon.im/posts/hello-world/</loc>
         <lastmod>2022-03-28</lastmod>
+    </url>
+    <url>
+        <loc>https://blog.yon.im/posts/linux-install-java/</loc>
+        <lastmod>2022-04-03</lastmod>
     </url>
     <url>
         <loc>https://blog.yon.im/posts/markdown-test/</loc>
