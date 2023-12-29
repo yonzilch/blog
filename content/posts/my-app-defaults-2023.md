@@ -67,6 +67,6 @@ And some extra categories not mentioned in the project:
 
 📖 **Translation app**: KISS Translator, Deepl
 
-📚 **Reading app**: KOReader, Kodo Reader with Z-Library
+📚 **Reading app**: KOReader, Koodo Reader with Z-Library
 
 🔧 **Screenshot app**: FlameShot, [ShareX](https://github.com/ShareX/ShareX)

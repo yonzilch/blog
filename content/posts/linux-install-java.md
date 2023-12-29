@@ -1,11 +1,11 @@
 +++
-title = "Linux 安装 java 通法"
+title = "Linux 安装 Java 通法"
 date = "2022-04-03"
 +++
 
 ---
 
-本文更新于2023/12/28：更换为最新的 java 下载链接；
+本文更新于2023/12/28：更换为最新的 Java 下载链接；
 
 ---
 
@@ -46,7 +46,7 @@ update-alternatives --install "/usr/bin/javac" "javac" "/usr/local/java-8/jdk8u3
 mkdir /usr/local/java-17
 ```
 
-其次，下载 JDK 8
+其次，下载 JDK 17
 
 ```
 wget https://download.bell-sw.com/java/17.0.9+11/bellsoft-jdk17.0.9+11-linux-amd64.tar.gz

@@ -68,7 +68,7 @@
 &lt;p&gt;🖆 &lt;strong&gt;Blog Platform&lt;&#x2F;strong&gt;: Zola deploy on 4everland and code hosting on GitHub&lt;&#x2F;p&gt;
 &lt;p&gt;⌨️ &lt;strong&gt;Text input&lt;&#x2F;strong&gt;: Ibus-Rime with &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;iDvel&#x2F;rime-ice&quot;&gt;rime-ice&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;📖 &lt;strong&gt;Translation app&lt;&#x2F;strong&gt;: KISS Translator, Deepl&lt;&#x2F;p&gt;
-&lt;p&gt;📚 &lt;strong&gt;Reading app&lt;&#x2F;strong&gt;: KOReader, Kodo Reader with Z-Library&lt;&#x2F;p&gt;
+&lt;p&gt;📚 &lt;strong&gt;Reading app&lt;&#x2F;strong&gt;: KOReader, Koodo Reader with Z-Library&lt;&#x2F;p&gt;
 &lt;p&gt;🔧 &lt;strong&gt;Screenshot app&lt;&#x2F;strong&gt;: FlameShot, &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;ShareX&#x2F;ShareX&quot;&gt;ShareX&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 </content>
         
@@ -94,7 +94,7 @@
         
     </entry>
     <entry xml:lang="en">
-        <title>利用 render 部署 wiki.js</title>
+        <title>利用 Render 部署 wiki.js</title>
         <published>2023-09-17T00:00:00+00:00</published>
         <updated>2023-09-17T00:00:00+00:00</updated>
         
@@ -111,9 +111,11 @@
         
         <content type="html" xml:base="https://blog.yon.im/posts/use-render-deploy-wiki-js/">&lt;p&gt;（应 &lt;a href=&quot;https:&#x2F;&#x2F;milvoid.com&#x2F;&quot;&gt;Milvoid&lt;&#x2F;a&gt; 需求撰写）&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;xu-yao-zhu-ce-shi-yong&quot;&gt;需要注册使用：&lt;&#x2F;h2&gt;
-&lt;p&gt;https:&#x2F;&#x2F;neon.tech&#x2F;
-https:&#x2F;&#x2F;render.com&#x2F;
-https:&#x2F;&#x2F;hetrixtools.com&#x2F;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;https:&#x2F;&#x2F;neon.tech&#x2F;&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;render.com&#x2F;&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;hetrixtools.com&#x2F;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
 &lt;h2 id=&quot;bu-shu&quot;&gt;部署&lt;&#x2F;h2&gt;
 &lt;h4 id=&quot;gai-lan&quot;&gt;概览：&lt;&#x2F;h4&gt;
 &lt;p&gt;Render 作为 ServerLess 服务器运行 wiki.js Docker 容器
@@ -272,7 +274,7 @@ Tip：可以临时放到 VScode 之类的文本编辑器里
         
     </entry>
     <entry xml:lang="en">
-        <title>Linux 安装 java 通法</title>
+        <title>Linux 安装 Java 通法</title>
         <published>2022-04-03T00:00:00+00:00</published>
         <updated>2022-04-03T00:00:00+00:00</updated>
         
@@ -288,7 +290,7 @@ Tip：可以临时放到 VScode 之类的文本编辑器里
         <id>https://blog.yon.im/posts/linux-install-java/</id>
         
         <content type="html" xml:base="https://blog.yon.im/posts/linux-install-java/">&lt;hr &#x2F;&gt;
-&lt;p&gt;本文更新于2023&#x2F;12&#x2F;28：更换为最新的 java 下载链接；&lt;&#x2F;p&gt;
+&lt;p&gt;本文更新于2023&#x2F;12&#x2F;28：更换为最新的 Java 下载链接；&lt;&#x2F;p&gt;
 &lt;hr &#x2F;&gt;
 &lt;p&gt;&lt;strong&gt;本文以安装 JDK 8, JDK 17 为例&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;jdk-8&quot;&gt;JDK 8:&lt;&#x2F;h3&gt;
@@ -309,7 +311,7 @@ Tip：可以临时放到 VScode 之类的文本编辑器里
 &lt;p&gt;首先，为 JDK 17 创建一个目录。&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;mkdir &#x2F;usr&#x2F;local&#x2F;java-17
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;p&gt;其次，下载 JDK 8&lt;&#x2F;p&gt;
+&lt;p&gt;其次，下载 JDK 17&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;wget https:&#x2F;&#x2F;download.bell-sw.com&#x2F;java&#x2F;17.0.9+11&#x2F;bellsoft-jdk17.0.9+11-linux-amd64.tar.gz
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;之后，使用&lt;a href=&quot;http:&#x2F;&#x2F;www.runoob.com&#x2F;linux&#x2F;linux-comm-tar.html&quot;&gt;tar命令&lt;&#x2F;a&gt;将&lt;code&gt;bellsoft-jdk17.0.9+11-linux-amd64.tar.gz&lt;&#x2F;code&gt;文件解压缩到先前创建的目录：&lt;&#x2F;p&gt;
