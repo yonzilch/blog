@@ -1,5 +1,5 @@
 +++
-title = "利用 render 部署 wiki.js"
+title = "利用 Render 部署 wiki.js"
 date = "2023-09-17"
 +++
 
@@ -7,9 +7,9 @@ date = "2023-09-17"
 
 ## 需要注册使用：
 
-https://neon.tech/
-https://render.com/
-https://hetrixtools.com/
+- https://neon.tech/
+- https://render.com/
+- https://hetrixtools.com/
 
 ## 部署
 
