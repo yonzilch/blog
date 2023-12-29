@@ -127,14 +127,14 @@ wiki.js 通过配置好的 env(环境变量) 连接 NEON Postgres 数据库
 &lt;ol&gt;
 &lt;li&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ol&gt;
-&lt;p&gt;创建数据库项目（地区请选择 Oragon）
-&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;1.webp&quot; alt=&quot;1&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;创建数据库项目（地区请选择 Oragon）&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;1.webp&quot; alt=&quot;1&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;ol start=&quot;2&quot;&gt;
 &lt;li&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ol&gt;
 &lt;p&gt;复制所给的环境变量（之后要用）
-Tip：可以临时放到 VScode 之类的文本编辑器里
-&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;2.webp&quot; alt=&quot;2&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+Tip：可以临时放到 VScode 之类的文本编辑器里&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;2.webp&quot; alt=&quot;2&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;Over&lt;&#x2F;p&gt;
 &lt;h4 id=&quot;render-shang-de-cao-zuo&quot;&gt;Render 上的操作：&lt;&#x2F;h4&gt;
 &lt;ol&gt;
@@ -142,19 +142,19 @@ Tip：可以临时放到 VScode 之类的文本编辑器里
 &lt;&#x2F;ol&gt;
 &lt;p&gt;创建一个 Web Service，
 并将我写的 Docker 部署 wiki-js 的 &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;gityzon&#x2F;docker-wiki-js&quot;&gt;Github仓库地址&lt;&#x2F;a&gt; 填入框中，
-然后 &amp;quot;Continue&amp;quot;
-&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;3.webp&quot; alt=&quot;3&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+然后 &amp;quot;Continue&amp;quot;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;3.webp&quot; alt=&quot;3&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;ol start=&quot;2&quot;&gt;
 &lt;li&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ol&gt;
 &lt;p&gt;自定义项目名称（这边演示填入了&amp;quot;wiki-js&amp;quot;），
-以及确认项目部署的边缘服务器地区（建议选择 Oregon ，测试中速度表现最好）
-&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;4.webp&quot; alt=&quot;4&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+以及确认项目部署的边缘服务器地区（建议选择 Oregon ，测试中速度表现最好）&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;4.webp&quot; alt=&quot;4&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;ol start=&quot;3&quot;&gt;
 &lt;li&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ol&gt;
-&lt;p&gt;添加连接 NEON 数据库的环境变量
-&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;5.webp&quot; alt=&quot;5&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;添加连接 NEON 数据库的环境变量&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;5.webp&quot; alt=&quot;5&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;运行 wiki-js 所需的环境变量 与 NEON 中所给的名称并不一致，
 请参照图片以及以下提示填入：&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;DB_HOST 为 PGHOST
@@ -172,33 +172,35 @@ Tip：可以临时放到 VScode 之类的文本编辑器里
 &lt;li&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ol&gt;
 &lt;p&gt;建议关闭 Auto-Deploy 自动部署&lt;&#x2F;p&gt;
-&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;6.webp&quot; alt=&quot;6&quot; &#x2F;&gt;
-5.
-最后点下 &amp;quot;Create Web Service&amp;quot;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;6.webp&quot; alt=&quot;6&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;ol start=&quot;5&quot;&gt;
+&lt;li&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;最后点下 &amp;quot;Create Web Service&amp;quot;
 等待wiki-js部署完成（大概几分钟）&lt;&#x2F;p&gt;
 &lt;ol start=&quot;6&quot;&gt;
 &lt;li&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ol&gt;
 &lt;p&gt;出现下图 &amp;quot;Live&amp;quot; 状态，即表示 wiki-js 已成功部署
-（方框里的域名是 Render给的 二级域名）
-&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;7.webp&quot; alt=&quot;7&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+（方框里的域名是 Render给的 二级域名）&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;7.webp&quot; alt=&quot;7&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;ol start=&quot;7&quot;&gt;
 &lt;li&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ol&gt;
-&lt;p&gt;此时可以先在项目 &amp;quot;Settings&amp;quot; 绑定域名
-&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;8.webp&quot; alt=&quot;8&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;此时可以先在项目 &amp;quot;Settings&amp;quot; 绑定域名&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;8.webp&quot; alt=&quot;8&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;ol start=&quot;8&quot;&gt;
 &lt;li&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ol&gt;
 &lt;p&gt;（此处演示直接使用 Render 预置的域名 进行后续操作）&lt;&#x2F;p&gt;
 &lt;p&gt;这里刚刚部署完可能会提示“网页无法正常运作”
-请隔一会刷新以下，等待 wiki-js服务响应
-&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;9.webp&quot; alt=&quot;9&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+请隔一会刷新以下，等待 wiki-js服务响应&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;9.webp&quot; alt=&quot;9&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;出现了创建管理员界面，请自行创建用户&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;10.webp&quot; alt=&quot;10&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;Install 后 wiki-js 可能会出现无响应，请等待片刻（此时服务器在初始化数据库，并构建页面树）&lt;&#x2F;p&gt;
-&lt;p&gt;下图即是主界面（Home Page）
-&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;11.webp&quot; alt=&quot;11&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;下图即是主界面（Home Page）&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;11.webp&quot; alt=&quot;11&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;下图是登录界面&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;12.webp&quot; alt=&quot;12&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;通过下图操作来设置中文&lt;&#x2F;p&gt;
@@ -207,8 +209,8 @@ Tip：可以临时放到 VScode 之类的文本编辑器里
 &lt;p&gt;&lt;strong&gt;至此，wiki-js 部署完毕！&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;下面是使用 Hetrixtools 监控 wiki-js 网站 实现保活的教程&lt;&#x2F;p&gt;
 &lt;h4 id=&quot;hetrixtools-shang-de-cao-zuo&quot;&gt;Hetrixtools 上的操作：&lt;&#x2F;h4&gt;
-&lt;p&gt;看图自行操作，不多说明
-&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;14.webp&quot; alt=&quot;14&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;看图自行操作，不多说明&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;14.webp&quot; alt=&quot;14&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;fu-lu&quot;&gt;附录：&lt;&#x2F;h2&gt;
 &lt;p&gt;https:&#x2F;&#x2F;github.com&#x2F;requarks&#x2F;wiki&lt;&#x2F;p&gt;
 </content>

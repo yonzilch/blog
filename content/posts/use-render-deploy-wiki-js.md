@@ -27,11 +27,13 @@ wiki.js 通过配置好的 env(环境变量) 连接 NEON Postgres 数据库
 
 1.
 创建数据库项目（地区请选择 Oragon）
+
 ![1](https://static.yon.im/image/blog/use-render-deploy-wiki-js/1.webp)
 
 2.
 复制所给的环境变量（之后要用）
 Tip：可以临时放到 VScode 之类的文本编辑器里
+
 ![2](https://static.yon.im/image/blog/use-render-deploy-wiki-js/2.webp)
 
 Over
@@ -42,15 +44,18 @@ Over
 创建一个 Web Service，
 并将我写的 Docker 部署 wiki-js 的 [Github仓库地址](https://github.com/gityzon/docker-wiki-js) 填入框中，
 然后 "Continue"
+
 ![3](https://static.yon.im/image/blog/use-render-deploy-wiki-js/3.webp)
 
 2.
 自定义项目名称（这边演示填入了"wiki-js"），
 以及确认项目部署的边缘服务器地区（建议选择 Oregon ，测试中速度表现最好）
+
 ![4](https://static.yon.im/image/blog/use-render-deploy-wiki-js/4.webp)
 
 3.
 添加连接 NEON 数据库的环境变量
+
 ![5](https://static.yon.im/image/blog/use-render-deploy-wiki-js/5.webp)
 
 运行 wiki-js 所需的环境变量 与 NEON 中所给的名称并不一致，
@@ -73,6 +78,7 @@ DB_TYPE 请设为 postgres
 建议关闭 Auto-Deploy 自动部署
 
 ![6](https://static.yon.im/image/blog/use-render-deploy-wiki-js/6.webp)
+
 5.
 最后点下 "Create Web Service"
 等待wiki-js部署完成（大概几分钟）
@@ -80,10 +86,12 @@ DB_TYPE 请设为 postgres
 6.
 出现下图 "Live" 状态，即表示 wiki-js 已成功部署
 （方框里的域名是 Render给的 二级域名）
+
 ![7](https://static.yon.im/image/blog/use-render-deploy-wiki-js/7.webp)
 
 7.
 此时可以先在项目 "Settings" 绑定域名
+
 ![8](https://static.yon.im/image/blog/use-render-deploy-wiki-js/8.webp)
 
 8.
@@ -91,6 +99,7 @@ DB_TYPE 请设为 postgres
 
 这里刚刚部署完可能会提示“网页无法正常运作”
 请隔一会刷新以下，等待 wiki-js服务响应
+
 ![9](https://static.yon.im/image/blog/use-render-deploy-wiki-js/9.webp)
 
 出现了创建管理员界面，请自行创建用户
@@ -100,6 +109,7 @@ DB_TYPE 请设为 postgres
 Install 后 wiki-js 可能会出现无响应，请等待片刻（此时服务器在初始化数据库，并构建页面树）
 
 下图即是主界面（Home Page）
+
 ![11](https://static.yon.im/image/blog/use-render-deploy-wiki-js/11.webp)
 
 下图是登录界面
@@ -119,6 +129,7 @@ Install 后 wiki-js 可能会出现无响应，请等待片刻（此时服务器
 #### Hetrixtools 上的操作：
 
 看图自行操作，不多说明
+
 ![14](https://static.yon.im/image/blog/use-render-deploy-wiki-js/14.webp)
 
 ## 附录：
