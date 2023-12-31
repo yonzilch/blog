@@ -1,0 +1,18 @@
+.card {
+    display: flex;
+    grid-template-rows: auto;
+    gap: 24px;
+    padding: 12px 0;
+}
+
+.card-image {
+    border: unset;
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+}
+
+.card-title {
+    margin-top: 1.0em;
+}
