@@ -2,6 +2,7 @@
 <?xml-stylesheet href="/rss-style.xslt" type="text/xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <title>Yon Zilch</title>
+    <subtitle>This is Yon Zilch&#x27;s Blog.</subtitle>
     <link rel="self" type="application/atom+xml" href="https://blog.yon.im/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://blog.yon.im"/>
     <generator uri="https://www.getzola.org/">Zola</generator>

@@ -1,5 +1,6 @@
 base_url = "https://blog.yon.im"
 title = "Yon Zilch"
+description = "This is Yon Zilch's Blog."
 build_search_index = false
 generate_feed = true
 compile_sass = true
