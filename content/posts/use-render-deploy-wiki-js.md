@@ -9,7 +9,7 @@ date = "2023-09-17"
 
 - https://neon.tech/
 - https://render.com/
-- https://hetrixtools.com/
+- https://Hetrixtools.com/
 
 ## 部署
 
@@ -18,7 +18,7 @@ date = "2023-09-17"
 ```
 Render 作为 ServerLess 服务器运行 wiki.js Docker 容器
 wiki.js 通过配置好的 env(环境变量) 连接 NEON Postgres 数据库
-配置 Hetrixtools 定时检查 部署好的 wiki-js 站点，来实现持续运行（保活）
+配置 HetrixTools 定时检查 部署好的 wiki-js 站点，来实现持续运行（保活）
 ```
 
 
@@ -76,7 +76,7 @@ DB_TYPE 请设为 postgres
 ```
 
 4.
-建议关闭 Auto-Deploy 自动部署
+建议关闭 Auto-Deploy（自动部署）
 
 ![6](https://static.yon.im/image/blog/use-render-deploy-wiki-js/6.webp)
 
@@ -99,7 +99,7 @@ DB_TYPE 请设为 postgres
 （此处演示直接使用 Render 预置的域名 进行后续操作）
 
 这里刚刚部署完可能会提示“网页无法正常运作”
-请隔一会刷新以下，等待 wiki-js服务响应
+请隔一会刷新一下，等待 wiki-js 服务响应
 
 ![9](https://static.yon.im/image/blog/use-render-deploy-wiki-js/9.webp)
 
@@ -125,9 +125,9 @@ Install 后 wiki-js 可能会出现无响应，请等待片刻（此时服务器
 
 **至此，wiki-js 部署完毕！**
 
-下面是使用 Hetrixtools 监控 wiki-js 网站 实现保活的教程
+下面是使用 HetrixTools 监控 wiki-js 网站 实现保活的教程
 
-#### Hetrixtools 上的操作：
+#### HetrixTools 上的操作：
 
 看图自行操作，不多说明
 

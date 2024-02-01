@@ -105,13 +105,13 @@
 &lt;ul&gt;
 &lt;li&gt;https:&#x2F;&#x2F;neon.tech&#x2F;&lt;&#x2F;li&gt;
 &lt;li&gt;https:&#x2F;&#x2F;render.com&#x2F;&lt;&#x2F;li&gt;
-&lt;li&gt;https:&#x2F;&#x2F;hetrixtools.com&#x2F;&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;Hetrixtools.com&#x2F;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;h2 id=&quot;bu-shu&quot;&gt;部署&lt;&#x2F;h2&gt;
 &lt;h4 id=&quot;gai-lan&quot;&gt;概览：&lt;&#x2F;h4&gt;
 &lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;Render 作为 ServerLess 服务器运行 wiki.js Docker 容器
 &lt;&#x2F;span&gt;&lt;span&gt;wiki.js 通过配置好的 env(环境变量) 连接 NEON Postgres 数据库
-&lt;&#x2F;span&gt;&lt;span&gt;配置 Hetrixtools 定时检查 部署好的 wiki-js 站点，来实现持续运行（保活）
+&lt;&#x2F;span&gt;&lt;span&gt;配置 HetrixTools 定时检查 部署好的 wiki-js 站点，来实现持续运行（保活）
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;h3 id=&quot;kai-shi-shi-zhan-bu-shu&quot;&gt;开始实战部署：&lt;&#x2F;h3&gt;
 &lt;h4 id=&quot;neon-shang-de-cao-zuo&quot;&gt;NEON 上的操作&lt;&#x2F;h4&gt;
@@ -162,7 +162,7 @@ Tip：可以临时放到 VScode 之类的文本编辑器里&lt;&#x2F;p&gt;
 &lt;ol start=&quot;4&quot;&gt;
 &lt;li&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ol&gt;
-&lt;p&gt;建议关闭 Auto-Deploy 自动部署&lt;&#x2F;p&gt;
+&lt;p&gt;建议关闭 Auto-Deploy（自动部署）&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;6.webp&quot; alt=&quot;6&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;ol start=&quot;5&quot;&gt;
 &lt;li&gt;&lt;&#x2F;li&gt;
@@ -185,7 +185,7 @@ Tip：可以临时放到 VScode 之类的文本编辑器里&lt;&#x2F;p&gt;
 &lt;&#x2F;ol&gt;
 &lt;p&gt;（此处演示直接使用 Render 预置的域名 进行后续操作）&lt;&#x2F;p&gt;
 &lt;p&gt;这里刚刚部署完可能会提示“网页无法正常运作”
-请隔一会刷新以下，等待 wiki-js服务响应&lt;&#x2F;p&gt;
+请隔一会刷新一下，等待 wiki-js 服务响应&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;9.webp&quot; alt=&quot;9&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;出现了创建管理员界面，请自行创建用户&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;10.webp&quot; alt=&quot;10&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
@@ -198,8 +198,8 @@ Tip：可以临时放到 VScode 之类的文本编辑器里&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;13.webp&quot; alt=&quot;13&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;hr &#x2F;&gt;
 &lt;p&gt;&lt;strong&gt;至此，wiki-js 部署完毕！&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
-&lt;p&gt;下面是使用 Hetrixtools 监控 wiki-js 网站 实现保活的教程&lt;&#x2F;p&gt;
-&lt;h4 id=&quot;hetrixtools-shang-de-cao-zuo&quot;&gt;Hetrixtools 上的操作：&lt;&#x2F;h4&gt;
+&lt;p&gt;下面是使用 HetrixTools 监控 wiki-js 网站 实现保活的教程&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;hetrixtools-shang-de-cao-zuo&quot;&gt;HetrixTools 上的操作：&lt;&#x2F;h4&gt;
 &lt;p&gt;看图自行操作，不多说明&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;14.webp&quot; alt=&quot;14&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;fu-lu&quot;&gt;附录：&lt;&#x2F;h2&gt;
