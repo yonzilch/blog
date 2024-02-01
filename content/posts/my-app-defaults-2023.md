@@ -6,14 +6,10 @@ date = "2023-12-05"
 # Intro
 
 - To contribute this [Repo](https://github.com/rknightuk/app-defaults)
-
 - And inspired by these blogs:
-
-- https://yinji.org/5179.html
-
-- https://anotherdayu.com/2023/5452/
-
-- https://blog.douchi.space/app-defaults/
+- [https://yinji.org/5179.html](https://yinji.org/5179.html)
+- [https://anotherdayu.com/2023/5452/](https://anotherdayu.com/2023/5452/)
+- [https://blog.douchi.space/app-defaults/](https://blog.douchi.space/app-defaults/)
 
 # My App Defaults 2023
 
@@ -57,7 +53,7 @@ date = "2023-12-05"
 
 🔐 **Password Management**: Vaultwarden(self-hosted) as Server while [BitWarden](https://bitwarden.com/) as Client, KeePassXC
 
----
+***
 
 And some extra categories not mentioned in the project:
 

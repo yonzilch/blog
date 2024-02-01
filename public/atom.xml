@@ -26,21 +26,11 @@
         
         <content type="html" xml:base="https://blog.yon.im/posts/my-app-defaults-2023/">&lt;h1 id=&quot;intro&quot;&gt;Intro&lt;&#x2F;h1&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;To contribute this &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;rknightuk&#x2F;app-defaults&quot;&gt;Repo&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
-&lt;&#x2F;li&gt;
-&lt;li&gt;
-&lt;p&gt;And inspired by these blogs:&lt;&#x2F;p&gt;
-&lt;&#x2F;li&gt;
-&lt;li&gt;
-&lt;p&gt;https:&#x2F;&#x2F;yinji.org&#x2F;5179.html&lt;&#x2F;p&gt;
-&lt;&#x2F;li&gt;
-&lt;li&gt;
-&lt;p&gt;https:&#x2F;&#x2F;anotherdayu.com&#x2F;2023&#x2F;5452&#x2F;&lt;&#x2F;p&gt;
-&lt;&#x2F;li&gt;
-&lt;li&gt;
-&lt;p&gt;https:&#x2F;&#x2F;blog.douchi.space&#x2F;app-defaults&#x2F;&lt;&#x2F;p&gt;
-&lt;&#x2F;li&gt;
+&lt;li&gt;To contribute this &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;rknightuk&#x2F;app-defaults&quot;&gt;Repo&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;And inspired by these blogs:&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;yinji.org&#x2F;5179.html&quot;&gt;https:&#x2F;&#x2F;yinji.org&#x2F;5179.html&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;anotherdayu.com&#x2F;2023&#x2F;5452&#x2F;&quot;&gt;https:&#x2F;&#x2F;anotherdayu.com&#x2F;2023&#x2F;5452&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;blog.douchi.space&#x2F;app-defaults&#x2F;&quot;&gt;https:&#x2F;&#x2F;blog.douchi.space&#x2F;app-defaults&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;h1 id=&quot;my-app-defaults-2023&quot;&gt;My App Defaults 2023&lt;&#x2F;h1&gt;
 &lt;p&gt;📨 &lt;strong&gt;Mail Client&lt;&#x2F;strong&gt;：BetterBird, RoundCube(Web Client)&lt;&#x2F;p&gt;
