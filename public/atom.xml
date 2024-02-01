@@ -109,16 +109,16 @@
 &lt;&#x2F;ul&gt;
 &lt;h2 id=&quot;bu-shu&quot;&gt;部署&lt;&#x2F;h2&gt;
 &lt;h4 id=&quot;gai-lan&quot;&gt;概览：&lt;&#x2F;h4&gt;
-&lt;p&gt;Render 作为 ServerLess 服务器运行 wiki.js Docker 容器
-wiki.js 通过配置好的 env(环境变量) 连接 NEON Postgres 数据库
-配置 Hetrixtools 定时检查 部署好的 wiki-js 站点，来实现持续运行（保活）&lt;&#x2F;p&gt;
-&lt;hr &#x2F;&gt;
+&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;Render 作为 ServerLess 服务器运行 wiki.js Docker 容器
+&lt;&#x2F;span&gt;&lt;span&gt;wiki.js 通过配置好的 env(环境变量) 连接 NEON Postgres 数据库
+&lt;&#x2F;span&gt;&lt;span&gt;配置 Hetrixtools 定时检查 部署好的 wiki-js 站点，来实现持续运行（保活）
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;h3 id=&quot;kai-shi-shi-zhan-bu-shu&quot;&gt;开始实战部署：&lt;&#x2F;h3&gt;
 &lt;h4 id=&quot;neon-shang-de-cao-zuo&quot;&gt;NEON 上的操作&lt;&#x2F;h4&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ol&gt;
-&lt;p&gt;创建数据库项目（地区请选择 Oragon）&lt;&#x2F;p&gt;
+&lt;p&gt;创建数据库项目（地区请选择 Oregon）&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;1.webp&quot; alt=&quot;1&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;ol start=&quot;2&quot;&gt;
 &lt;li&gt;&lt;&#x2F;li&gt;

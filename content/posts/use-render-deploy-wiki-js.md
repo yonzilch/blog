@@ -15,18 +15,19 @@ date = "2023-09-17"
 
 #### 概览：
 
+```
 Render 作为 ServerLess 服务器运行 wiki.js Docker 容器
 wiki.js 通过配置好的 env(环境变量) 连接 NEON Postgres 数据库
 配置 Hetrixtools 定时检查 部署好的 wiki-js 站点，来实现持续运行（保活）
+```
 
-***
 
 ### 开始实战部署：
 
 #### NEON 上的操作
 
 1.
-创建数据库项目（地区请选择 Oragon）
+创建数据库项目（地区请选择 Oregon）
 
 ![1](https://static.yon.im/image/blog/use-render-deploy-wiki-js/1.webp)
 
