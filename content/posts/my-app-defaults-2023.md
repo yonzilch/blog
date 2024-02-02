@@ -39,7 +39,7 @@ date = "2023-12-05"
 
 🔖 **Bookmarks**: Browser, OneNav(self-hosted)
 
-📑 **Read It Later**: omnivore(self-hosted)
+📑 **Read It Later**: Currently None
 
 📜 **Word Processing**: MarkText, GhostWriter, Joplin
 
