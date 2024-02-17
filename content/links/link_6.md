@@ -1,9 +1,9 @@
 +++
-title = "世纪大道 | 春风少年兄"
-description = ""
-weight = 1
+title = "Medi's Space"
+description = "I'm Medi. This is Me."
+weight = 6
 
 [extra]
-remote_image = "https://img.0pt.icu/blogbuilt/avatar.webp"
-link_to = "https://blog.0pt.icu/"
+remote_image = "https://medihbt.github.io/img/avatar.png"
+link_to = "https://medihbt.github.io/"
 +++

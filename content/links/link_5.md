@@ -1,9 +1,9 @@
 +++
-title = "Medi's Space"
-description = "I'm Medi. This is Me."
-weight = 1
+title = "Purkit's Blog"
+description = "若知是梦何须醒 不比真如一相会"
+weight = 5
 
 [extra]
-remote_image = "https://medihbt.github.io/img/avatar.png"
-link_to = "https://medihbt.github.io/"
+remote_image = "https://s3.tebi.io/img.purkit.ml/avater.jpg"
+link_to = "https://purkit.lockey.icu/"
 +++
