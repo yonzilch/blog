@@ -1,9 +1,9 @@
 +++
-title = "ZhenYu's Blog"
-description = "Stay hungry, stay foolish."
-weight = 1
+title = "Dich 的小站"
+description = ""
+weight = 7
 
 [extra]
-remote_image = "http://zhenyutongxue.com/usr/themes/handsome/assets/img/avatar.png"
-link_to = "http://zhenyutongxue.com/"
+remote_image = "https://neo.lkt.icu/_matrix/media/r0/thumbnail/lkt.icu/ymSHRTuodBGBzznxzlDpmwrs?width=513&height=513&method=scale"
+link_to = "https://blog.dich.ink/"
 +++
