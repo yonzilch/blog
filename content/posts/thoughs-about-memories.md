@@ -9,7 +9,7 @@ date = "2022-10-20"
   <figcaption>Thomas Greenberg-The Right Path(G.Y.M Bootleg)（G.Y.M Remix）</figcaption>
   <audio class="audio-control" controls>
     <source src="https://static.yon.im/audio/Thomas%20Greenberg-The%20Right%20Path%28G.Y.M%20Bootleg%29%EF%BC%88G.Y.M%20Remix%EF%BC%89%20-%20G.Y.M.mp3" type="audio/mpeg">
-    您的浏览器不支持audio元素。
+    您的浏览器不支持 audio 元素。
   </audio>
 </figure>
 
