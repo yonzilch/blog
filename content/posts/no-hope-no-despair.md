@@ -5,7 +5,7 @@ date = "2023-03-13"
 
 <link rel="stylesheet" href="/css/audio.min.css" />
 <figure class="figure-center">
-  <img src="https://static.yon.im/image/blog/no-hope-no-despair/Finding%20Paradise%20%28Original%20Game%20Soundtrack%29.jpg" alt="g.y.m-the-right-path(g.y.m-bootleg)">
+  <img src="https://static.yon.im/image/blog/no-hope-no-despair/Finding%20Paradise%20%28Original%20Game%20Soundtrack%29.jpg" alt="Finding Paradise (Original Game Soundtrack)">
   <figcaption>Faye's Theme (Piano Vers​.​)</figcaption>
   <audio class="audio-control" controls>
     <source src="https://static.yon.im/audio/Faye%27s%20Theme%20%28Piano%20Vers.%29.flac" type="audio/mpeg">
