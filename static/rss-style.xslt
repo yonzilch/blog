@@ -29,20 +29,10 @@
 			<xsl:value-of select="/atom:feed/atom:title"/></a>
 			website.
 		</p>
-
 		<p>It is meant for&#xa0;<a href="https://www.feed.style/newsreaders.html">news readers</a>, not humans.  Please copy-and-paste the URL into your news reader!</p>
-
 		<p>
-			<pre>
 				<code id="feedurl"><xsl:value-of select="/atom:feed/atom:link[@rel='self']/@href"/></code>    
-			</pre>
-			<button
-				class="clipboard"
-				data-clipboard-target="#feedurl">
-				Copy to clipboard
-			</button>
 		</p>
-
 		<xsl:for-each select="/atom:feed/atom:entry">
 			<details><summary>
 				<a>
@@ -65,10 +55,6 @@
 		</xsl:for-each>
 		<p><xsl:value-of select="count(/atom:feed/atom:entry)"/> news items.</p>
 		<p><small>Powered by <a href="https://www.feed.style/">Feed.Style</a></small></p>
-		<script src="/js/clipboard.min.js"></script>    
-		<script>
-			new ClipboardJS('.clipboard');
-		</script>
 	</body>
 </html>
 	</xsl:template>
