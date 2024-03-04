@@ -65,26 +65,6 @@
         
     </entry>
     <entry xml:lang="en">
-        <title>About</title>
-        <published>2023-09-17T00:00:00+00:00</published>
-        <updated>2023-09-17T00:00:00+00:00</updated>
-        
-        <author>
-          <name>
-            
-              Unknown
-            
-          </name>
-        </author>
-        
-        <link rel="alternate" type="text/html" href="https://blog.yon.im/about/"/>
-        <id>https://blog.yon.im/about/</id>
-        
-        <content type="html" xml:base="https://blog.yon.im/about/">&lt;p&gt;Not Now&lt;&#x2F;p&gt;
-</content>
-        
-    </entry>
-    <entry xml:lang="en">
         <title>利用 Render 部署 wiki.js</title>
         <published>2023-09-17T00:00:00+00:00</published>
         <updated>2023-09-17T00:00:00+00:00</updated>
