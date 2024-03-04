@@ -12,7 +12,10 @@
 		<link rel="stylesheet" href="/css/water.min.css" />
 	</head>
 	<body>
-		<h1><xsl:value-of select="/atom:feed/atom:title"/></h1>
+		<h1>
+			<img alt="feed icon" src="/social_icons/rss.svg" style="height:1em;vertical-align:middle;" />&#xa0;
+			<xsl:value-of select="/atom:feed/atom:title"/>
+		</h1>
 
 		<p>
 			<xsl:value-of select="/atom:feed/atom:subtitle"/>
@@ -27,16 +30,45 @@
 			website.
 		</p>
 
-		<ul>
+		<p>It is meant for&#xa0;<a href="https://www.feed.style/newsreaders.html">news readers</a>, not humans.  Please copy-and-paste the URL into your news reader!</p>
+
+		<p>
+			<pre>
+				<code id="feedurl"><xsl:value-of select="/atom:feed/atom:link[@rel='self']/@href"/></code>    
+			</pre>
+			<button
+				class="clipboard"
+				data-clipboard-target="#feedurl">
+				Copy to clipboard
+			</button>
+		</p>
+
 		<xsl:for-each select="/atom:feed/atom:entry">
-			<li>
-				<xsl:value-of select="atom:title" /> 
-				(<xsl:value-of select="atom:updated" />)
-			</li>
+			<details><summary>
+				<a>
+				<xsl:attribute name="href">
+					<xsl:value-of select="atom:id"/>
+				</xsl:attribute>
+				<xsl:value-of select="atom:title"/>
+				</a>&#xa0;-&#xa0;
+				<xsl:value-of select="atom:updated" />
+				</summary>
+				<xsl:choose>
+					<xsl:when test="atom:content">
+						<xsl:value-of disable-output-escaping="yes" select="atom:content" />
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:value-of select="atom:summary" />
+					</xsl:otherwise>
+				</xsl:choose>
+				</details>
 		</xsl:for-each>
-		</ul>
 		<p><xsl:value-of select="count(/atom:feed/atom:entry)"/> news items.</p>
 		<p><small>Powered by <a href="https://www.feed.style/">Feed.Style</a></small></p>
+		<script src="/js/clipboard.min.js"></script>    
+		<script>
+			new ClipboardJS('.clipboard');
+		</script>
 	</body>
 </html>
 	</xsl:template>
