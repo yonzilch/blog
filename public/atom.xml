@@ -81,7 +81,7 @@
 &lt;h3 id=&quot;xue-xi&quot;&gt;学习&lt;&#x2F;h3&gt;
 &lt;p&gt;最大的收获应该是刷完课程&lt;a href=&quot;https:&#x2F;&#x2F;www.bilibili.com&#x2F;list&#x2F;518734451&quot;&gt;计算机教育中缺失的一课&lt;&#x2F;a&gt;，边看边实践从中学到了不少有用的基础知识（也深刻地感受到国内外大学教学差异（降维打击了属于是）&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;8.webp&quot; alt=&quot;8&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
-&lt;p&gt;测试&amp;amp;&amp;amp;对比了一堆开源软件，打磨技术生产力工具，还尝试体验了好几个 Linux 发行版（Fedora、RebornOS、openSUSE、MocaccinoOS、Cauculate Linux etc.）有朝一日也想研究下 Linux From Source&lt;&#x2F;p&gt;
+&lt;p&gt;测试&amp;amp;&amp;amp;对比了一堆开源软件，打磨技术生产力工具，还尝试体验了好几个 Linux 发行版（Fedora、RebornOS、openSUSE、MocaccinoOS、Cauculate Linux etc.）有朝一日也想研究下 Linux from Scratch（LFS）&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;9.webp&quot; alt=&quot;9&quot; &#x2F;&gt;
 &lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;10.webp&quot; alt=&quot;10&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;在这过程中探索了不少开源项目，并成为了一个更加偏执狂的存在。（下一步：主力系统迁移到 NixOS? Gentoo? Or?）&lt;&#x2F;p&gt;
