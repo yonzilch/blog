@@ -72,9 +72,9 @@
 &lt;p&gt;我喜欢 KISS 哲学，对于 Arch Linux 我认为只能用「现象级」来评价它。&lt;&#x2F;p&gt;
 &lt;p&gt;高效工作学习的前提需要有一个简洁易用的系统，而去繁就简的 Arch 符合了这样的需求。&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;ai&quot;&gt;AI&lt;&#x2F;h3&gt;
-&lt;p&gt;2023 注定是 AI 技术大放异彩的一年，各种 Requests 通过 ChatGPT、Claude 等生成式 AI 模型其帮助下，deBug 各种「未曾设想」的 Issue 不再坐牢。作为日常技术学习助理的 GPT 帮助我概括一些又臭又长的官方文档，速通水课论文作业，等琐碎事务根本不在话下（已经是「重度依赖GPT晚期」了🫠）。也期待后继更加强大的 AI 大模型能够降本增效，期望更多如同 MidJourney、Quivr 一众创造性强大的项目孵化。未来可期，拭目以待。&lt;&#x2F;p&gt;
+&lt;p&gt;2023 注定是 AI 技术大放异彩的一年，各种 Requests 通过 ChatGPT、Claude 等生成式 AI 模型其帮助下，deBug 各种「未曾设想」的 Issue 不再坐牢。作为日常技术学习助理的 GPT 帮助我概括一些又臭又长的官方文档，速通水课论文作业，等琐碎事务根本不在话下（已经是「重度依赖GPT晚期」了🫠）。也期待后继更加强大的 AI 大模型能够降本增效，期望更多如同 MidJourney、Quivr 一众创造力强大的项目孵化。未来可期，拭目以待。&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;yan-jiu&quot;&gt;研究&lt;&#x2F;h3&gt;
-&lt;p&gt;使用 &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;BryceRussell&#x2F;astro-minecraft-theme&quot;&gt;astro-minecraft-theme&lt;&#x2F;a&gt;构建了我的&lt;a href=&quot;https:&#x2F;&#x2F;yon.im&quot;&gt;主页&lt;&#x2F;a&gt;，那天心情非常好！&lt;&#x2F;p&gt;
+&lt;p&gt;使用 &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;BryceRussell&#x2F;astro-minecraft-theme&quot;&gt;astro-minecraft-theme&lt;&#x2F;a&gt; 构建了我的&lt;a href=&quot;https:&#x2F;&#x2F;yon.im&quot;&gt;主页&lt;&#x2F;a&gt;，那天心情非常好！&lt;&#x2F;p&gt;
 &lt;p&gt;重构了我的 Blog，从 hugo-theme-bootstrap 到自行魔改的 zola-theme-apollo，由繁至简的称心使我更有动力通过 Blog 来输出文字，同样使我踏入前端领域这一大坑。（WYSIWYG 实时反馈还是很上头的🙃）&lt;&#x2F;p&gt;
 &lt;p&gt;多维度地了解互联网各个领域的状况，在 DevOps 项目实践中研究各类 aaS 平台（SaaS、PaaS、IaaS、DBaaS、AIaaS etc.）&lt;&#x2F;p&gt;
 &lt;p&gt;研究了下 PVE 系统，并在 GPT 帮助下制服 Cloud-init Crash 的问题，掌握了管理集群的一大技能点。&lt;&#x2F;p&gt;
@@ -82,10 +82,10 @@
 &lt;h3 id=&quot;xue-xi&quot;&gt;学习&lt;&#x2F;h3&gt;
 &lt;p&gt;最大的收获应该是刷完课程&lt;a href=&quot;https:&#x2F;&#x2F;www.bilibili.com&#x2F;list&#x2F;518734451&quot;&gt;计算机教育中缺失的一课&lt;&#x2F;a&gt;，边看边实践从中学到了不少有用的基础知识（也深刻地感受到国内外大学教学差异（降维打击了属于是）&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;8.webp&quot; alt=&quot;8&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
-&lt;p&gt;使用&amp;amp;&amp;amp;对比了一堆开源软件，打磨技术生产力工具，还尝试体验了好几个 Linux 发行版（Fedora、RebornOS、openSUSE、MocaccinoOS、Cauculate Linux etc.）&lt;&#x2F;p&gt;
+&lt;p&gt;测试&amp;amp;&amp;amp;对比了一堆开源软件，打磨技术生产力工具，还尝试体验了好几个 Linux 发行版（Fedora、RebornOS、openSUSE、MocaccinoOS、Cauculate Linux etc.）有朝一日也想研究下 Linux From Source&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;9.webp&quot; alt=&quot;9&quot; &#x2F;&gt;
 &lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;10.webp&quot; alt=&quot;10&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
-&lt;p&gt;有朝一日也想研究下 Linux From Source。在过程中探索了不少开源项目，并成为了一个更加偏执狂的存在。（下一步：主力系统迁移到 NixOS? Gentoo? Or?）&lt;&#x2F;p&gt;
+&lt;p&gt;在这过程中探索了不少开源项目，并成为了一个更加偏执狂的存在。（下一步：主力系统迁移到 NixOS? Gentoo? Or?）&lt;&#x2F;p&gt;
 &lt;p&gt;阅读了《区块链超入门》、《人人都能读懂的密码学》以及一些 Blog Posts，使我对 Distributed Systems、Blockchain、web3 等技术领域颇感兴趣。&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;sheng-huo&quot;&gt;生活&lt;&#x2F;h3&gt;
 &lt;h4 id=&quot;zhan-zhuan&quot;&gt;辗转&lt;&#x2F;h4&gt;
@@ -205,7 +205,7 @@
 存，只能不由自主地陷进这边的世界。因此不能停住脚步，不管你如何觉得滑稽好笑，也不能半途而废，务必咬紧牙关踩着舞点跳下去。跳着跳着，原先坚固的东西便会一点点酥软，有的东西还没有完全不可救药。能用的全部用上去，全力以赴，不足为惧的。你的确很疲劳，精疲力竭，惶惶不可终日。都有这种时候，觉得一切都错得不可收拾，以致停下脚步。”&lt;&#x2F;p&gt;
 &lt;&#x2F;blockquote&gt;
 &lt;p&gt;曾经有段时间，我苦苦陷入虚无主义，浑浑噩噩不得终日。但是如今的我听罢如此多的故事，体验种种经历，回响脑海的声音越发高亢：
-「不要考虑为什么跳，不要考虑意义不意义，不管你如何觉得滑稽好笑，务必咬紧牙关踩着舞点跳下去」&lt;&#x2F;p&gt;
+「不要考虑为什么跳，不要考虑意义不意义，不管你如何觉得滑稽好笑，务必咬紧牙关踩着舞点跳下去。」&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;31.webp&quot; alt=&quot;31&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;strong&gt;那么，且让湿婆业舞不断，且歌且行，去全然地面对那过去、未来与现在凝结一体的永恒当下。&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
 </content>
