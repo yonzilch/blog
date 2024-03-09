@@ -77,7 +77,7 @@
 &lt;p&gt;重构了我的 Blog，从 hugo-theme-bootstrap 到自行魔改的 zola-theme-apollo，由繁至简的称心使我更有动力通过 Blog 来输出文字，同样使我踏入前端领域这一大坑。（WYSIWYG 实时反馈还是很上头的🙃）&lt;&#x2F;p&gt;
 &lt;p&gt;多维度地了解互联网各个领域的状况，在 DevOps 项目实践中研究各类 aaS 平台（SaaS、PaaS、IaaS、DBaaS、AIaaS etc.）&lt;&#x2F;p&gt;
 &lt;p&gt;研究了下 PVE 系统，并在 GPT 帮助下制服 Cloud-init Crash 的问题，掌握了管理集群的一大技能点。&lt;&#x2F;p&gt;
-&lt;p&gt;其余时间大多与朋友一同研究 Docker 建站，打造了一系列团队共用软件生态圈（如 Matrix for Chat、MiniFlux for RSS Reading、BitWarden for password managemant etc.）&lt;&#x2F;p&gt;
+&lt;p&gt;其余时间大多与朋友一同研究 Docker 建站，打造了一系列团队共用软件生态圈（如 Matrix for Chat、MiniFlux for RSS Reading、VaultWarden for password managemant etc.）&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;xue-xi&quot;&gt;学习&lt;&#x2F;h3&gt;
 &lt;p&gt;最大的收获应该是刷完课程&lt;a href=&quot;https:&#x2F;&#x2F;www.bilibili.com&#x2F;list&#x2F;518734451&quot;&gt;计算机教育中缺失的一课&lt;&#x2F;a&gt;，边看边实践从中学到了不少有用的基础知识（也深刻地感受到国内外大学教学差异（降维打击了属于是）&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;8.webp&quot; alt=&quot;8&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
