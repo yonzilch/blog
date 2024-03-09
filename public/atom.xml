@@ -84,7 +84,7 @@
 &lt;p&gt;测试&amp;amp;&amp;amp;对比了一堆开源软件，打磨技术生产力工具，还尝试体验了好几个 Linux 发行版（Fedora、RebornOS、openSUSE、MocaccinoOS、Cauculate Linux etc.）有朝一日也想研究下 Linux from Scratch（LFS）&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;9.webp&quot; alt=&quot;9&quot; &#x2F;&gt;
 &lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;10.webp&quot; alt=&quot;10&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
-&lt;p&gt;在这过程中探索了不少开源项目，并成为了一个更加偏执狂的存在。（下一步：主力系统迁移到 NixOS? Gentoo? Or?）&lt;&#x2F;p&gt;
+&lt;p&gt;在这过程中探索了不少开源项目，并成为了一个更加偏执狂的存在👻。（下一步：主力系统迁移到 NixOS? Gentoo? Or?）&lt;&#x2F;p&gt;
 &lt;p&gt;阅读了《区块链超入门》、《人人都能读懂的密码学》以及一些 Blog Posts，使我对 Distributed Systems、Blockchain、web3 等技术领域颇感兴趣。&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;sheng-huo&quot;&gt;生活&lt;&#x2F;h3&gt;
 &lt;h4 id=&quot;zhan-zhuan&quot;&gt;辗转&lt;&#x2F;h4&gt;
@@ -428,10 +428,10 @@ Tip：可以临时放到 VScode 之类的文本编辑器里&lt;&#x2F;p&gt;
         
         <content type="html" xml:base="https://blog.yon.im/posts/no-hope-no-despair/">&lt;link rel=&quot;stylesheet&quot; href=&quot;&#x2F;css&#x2F;audio.min.css&quot; &#x2F;&gt;
 &lt;figure class=&quot;figure-center&quot;&gt;
-  &lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;no-hope-no-despair&#x2F;Finding%20Paradise%20%28Original%20Game%20Soundtrack%29.jpg&quot; alt=&quot;Finding Paradise (Original Game Soundtrack)&quot;&gt;
-  &lt;figcaption&gt;Faye&#x27;s Theme (Piano Vers​.​)&lt;&#x2F;figcaption&gt;
+  &lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;no-hope-no-despair&#x2F;To the Moon (Original Game Soundtrack).jpg&quot; alt=&quot;To the Moon (Original Game Soundtrack).jpg&quot;&gt;
+  &lt;figcaption&gt;For River - Piano (Johnny&#x27;s Version)&lt;&#x2F;figcaption&gt;
   &lt;audio class=&quot;audio-control&quot; controls&gt;
-    &lt;source src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;audio&#x2F;Faye%27s%20Theme%20%28Piano%20Vers.%29.flac&quot; type=&quot;audio&#x2F;mpeg&quot;&gt;
+    &lt;source src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;audio&#x2F;For%20River%20-%20Piano%20%28Johnny%27s%20Version%29.mp3&quot; type=&quot;audio&#x2F;mpeg&quot;&gt;
     您的浏览器不支持 audio 元素。
   &lt;&#x2F;audio&gt;
 &lt;&#x2F;figure&gt;
