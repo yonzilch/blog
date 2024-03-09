@@ -37,6 +37,10 @@
         <loc>https://blog.yon.im/posts/</loc>
     </url>
     <url>
+        <loc>https://blog.yon.im/posts/2023/</loc>
+        <lastmod>2024-03-09</lastmod>
+    </url>
+    <url>
         <loc>https://blog.yon.im/posts/hello-world-hugo/</loc>
         <lastmod>2023-08-06</lastmod>
     </url>
