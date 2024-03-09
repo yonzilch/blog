@@ -5,10 +5,10 @@ date = "2023-03-13"
 
 <link rel="stylesheet" href="/css/audio.min.css" />
 <figure class="figure-center">
-  <img src="https://static.yon.im/image/blog/no-hope-no-despair/Finding%20Paradise%20%28Original%20Game%20Soundtrack%29.jpg" alt="Finding Paradise (Original Game Soundtrack)">
-  <figcaption>Faye's Theme (Piano Vers​.​)</figcaption>
+  <img src="https://static.yon.im/image/blog/no-hope-no-despair/To the Moon (Original Game Soundtrack).jpg" alt="To the Moon (Original Game Soundtrack).jpg">
+  <figcaption>For River - Piano (Johnny's Version)</figcaption>
   <audio class="audio-control" controls>
-    <source src="https://static.yon.im/audio/Faye%27s%20Theme%20%28Piano%20Vers.%29.flac" type="audio/mpeg">
+    <source src="https://static.yon.im/audio/For%20River%20-%20Piano%20%28Johnny%27s%20Version%29.mp3" type="audio/mpeg">
     您的浏览器不支持 audio 元素。
   </audio>
 </figure>
