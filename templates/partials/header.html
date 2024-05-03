@@ -5,11 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
     {% if page.extra.meta %}
          <!-- the meta data config goes here  -->
          {% for data in page.extra.meta %}
-             <meta 
+             <meta
                  {% for key, value in data%}
                      {% if key == "property" and value == "og:title"%}
                          {% set_global page_has_og_title = true -%}
@@ -39,6 +38,7 @@
     {% else %}
     <title>
         {% if page.title %} {{ page.title }}
+        {% elif section.title %} {{ section.title }}
         {% elif config.title %} {{ config.title }}
         {% else %} Post {% endif %}
     </title>
@@ -68,7 +68,6 @@
     {% if config.extra.favicon %}
         <link rel="icon" type="image/png" href={{ config.extra.favicon }} />
     {% endif %}
-
 
     {# Analytics #}
     {% if config.extra.analytics.enabled %}
@@ -122,7 +121,7 @@
 
     {% set theme = config.extra.theme %}
     {% if theme == "dark" %}
-        <link rel="stylesheet" type="text/css" href={{ get_url(path="theme/dark.css") }} />
+        <link rel="stylesheet" type="text/css" href="{{ get_url(path='theme/dark.css') }}" />
     {% elif theme == "light" %}
         <link rel="stylesheet" type="text/css" href={{ get_url(path="theme/light.css") }} />
     {% elif theme == "auto" %}
@@ -131,6 +130,24 @@
     {% elif theme == "toggle" %}
         <link rel="stylesheet" type="text/css" href={{ get_url(path="theme/light.css") }} />
         <link id="darkModeStyle" rel="stylesheet" type="text/css" href="{{ get_url(path='theme/dark.css') }}" />
+    {% endif %}
+    
+    <!-- Set the correct theme in the script -->
+    <script src={{ get_url(path="js/themetoggle.js") }}></script>
+    {% if theme == "dark" %}
+        <script>setTheme("dark");</script>
+    {% elif theme == "light" %}
+        <script>setTheme("light");</script>
+    {% elif theme == "auto" %}
+        <script>
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                setTheme("dark");
+            } else {
+                setTheme("light");
+            }
+        </script>
+    {% else %}
+        <script>setTheme(getSavedTheme());</script>
     {% endif %}
 
     <link rel="stylesheet" type="text/css" media="screen" href={{ get_url(path="main.css") }} />
