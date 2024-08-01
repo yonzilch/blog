@@ -12,14 +12,26 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Check AWS CLI version
+        id: check-aws-cli
+        run: |
+          if command -v aws &> /dev/null; then
+            echo "AWS CLI is already installed"
+            echo "aws_installed=true" >> $GITHUB_OUTPUT
+          else
+            echo "AWS CLI is not installed"
+            echo "aws_installed=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: Install AWS CLI
+        if: steps.check-aws-cli.outputs.aws_installed != 'true'
         run: |
           curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
           unzip awscliv2.zip
           sudo ./aws/install
 
       - name: Configure AWS CLI
-        env:
+        env:  
           FIRST_ACCESS_KEY: ${{ secrets.FIRST_ACCESS_KEY }}
           FIRST_SECRET_KEY: ${{ secrets.FIRST_SECRET_KEY }}
           FIRST_FIRST_REGION: ${{ secrets.FIRST_REGION }}
