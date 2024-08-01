@@ -34,7 +34,7 @@ jobs:
         env:  
           FIRST_ACCESS_KEY: ${{ secrets.FIRST_ACCESS_KEY }}
           FIRST_SECRET_KEY: ${{ secrets.FIRST_SECRET_KEY }}
-          FIRST_FIRST_REGION: ${{ secrets.FIRST_REGION }}
+          FIRST_REGION: ${{ secrets.FIRST_REGION }}
           FIRST_ENDPOINT: ${{ secrets.FIRST_ENDPOINT }}
         run: |
           aws configure set aws_access_key_id $FIRST_ACCESS_KEY
