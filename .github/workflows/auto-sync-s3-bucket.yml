@@ -34,7 +34,7 @@ jobs:
         env:  
           FIRST_ACCESS_KEY: ${{ secrets.FIRST_ACCESS_KEY }}
           FIRST_SECRET_KEY: ${{ secrets.FIRST_SECRET_KEY }}
-          FIRST_REGION: ${{ secrets.FIRST_REGION }}
+          FIRST_FIRST_REGION: ${{ secrets.FIRST_REGION }}
           FIRST_ENDPOINT: ${{ secrets.FIRST_ENDPOINT }}
         run: |
           aws configure set aws_access_key_id $FIRST_ACCESS_KEY
@@ -42,7 +42,7 @@ jobs:
           aws configure set region $FIRST_REGION
           aws configure set s3.endpoint_url $FIRST_ENDPOINT
 
-      - name: Sync from 4everland to local
+      - name: Sync from FIRST to local Temp
         run: |
           aws s3 sync s3://static-yon ./temp_backup
 
