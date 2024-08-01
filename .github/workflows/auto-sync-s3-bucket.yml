@@ -1,0 +1,55 @@
+name: Sync From FIRST S3 Bucket to SECOND S3 Bucket
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install AWS CLI
+        run: |
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          unzip awscliv2.zip
+          sudo ./aws/install
+
+      - name: Configure AWS CLI
+        env:
+          FIRST_ACCESS_KEY: ${{ secrets.FIRST_ACCESS_KEY }}
+          FIRST_SECRET_KEY: ${{ secrets.FIRST_SECRET_KEY }}
+          FIRST_FIRST_REGION: ${{ secrets.FIRST_REGION }}
+          FIRST_ENDPOINT: ${{ secrets.FIRST_ENDPOINT }}
+        run: |
+          aws configure set aws_access_key_id $FIRST_ACCESS_KEY
+          aws configure set aws_secret_access_key $FIRST_SECRET_KEY
+          aws configure set region $FIRST_REGION
+          aws configure set s3.endpoint_url $FIRST_ENDPOINT
+
+      - name: Sync from 4everland to local
+        run: |
+          aws s3 sync s3://static-yon ./temp_backup
+
+      - name: Configure AWS CLI
+        env:
+          SECOND_ACCESS_KEY: ${{ secrets.SECOND_ACCESS_KEY }}
+          SECOND_SECRET_KEY: ${{ secrets.SECOND_SECRET_KEY }}
+          SECOND_REGION: ${{ secrets.SECOND_REGION }}
+          SECOND_ENDPOINT: ${{ secrets.SECOND_ENDPOINT }}
+        run: |
+          aws configure set aws_access_key_id $SECOND_ACCESS_KEY
+          aws configure set aws_secret_access_key $SECOND_SECRET_KEY
+          aws configure set region $SECOND_REGION
+          aws configure set s3.endpoint_url $SECOND_ENDPOINT
+
+      - name: Sync from FIRST to SECOND
+        run: |
+          aws s3 sync ./temp_backup s3://share.yon.im
+
+      - name: Clean up
+        run: |
+          rm -rf ./temp_backup
