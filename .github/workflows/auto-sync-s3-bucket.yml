@@ -12,55 +12,48 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Check AWS CLI version
-        id: check-aws-cli
-        run: |
-          if command -v aws &> /dev/null; then
-            echo "AWS CLI is already installed"
-            echo "aws_installed=true" >> $GITHUB_OUTPUT
-          else
-            echo "AWS CLI is not installed"
-            echo "aws_installed=false" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Install AWS CLI
-        if: steps.check-aws-cli.outputs.aws_installed != 'true'
-        run: |
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          unzip awscliv2.zip
-          sudo ./aws/install
-
-      - name: Configure AWS CLI
+      - name: Configure AWS CLI for FIRST
         env:  
           FIRST_ACCESS_KEY: ${{ secrets.FIRST_ACCESS_KEY }}
           FIRST_SECRET_KEY: ${{ secrets.FIRST_SECRET_KEY }}
-          FIRST_FIRST_REGION: ${{ secrets.FIRST_REGION }}
+          FIRST_REGION: ${{ secrets.FIRST_REGION }}
           FIRST_ENDPOINT: ${{ secrets.FIRST_ENDPOINT }}
         run: |
-          aws configure set aws_access_key_id $FIRST_ACCESS_KEY
-          aws configure set aws_secret_access_key $FIRST_SECRET_KEY
-          aws configure set region $FIRST_REGION
-          aws configure set s3.endpoint_url $FIRST_ENDPOINT
+          mkdir -p ~/.aws
+          echo "[default]" > ~/.aws/credentials
+          echo "aws_access_key_id = $FIRST_ACCESS_KEY" >> ~/.aws/credentials
+          echo "aws_secret_access_key = $FIRST_SECRET_KEY" >> ~/.aws/credentials
+          echo "[default]" > ~/.aws/config
+          echo "region = $FIRST_REGION" >> ~/.aws/config
+          echo "s3 =" >> ~/.aws/config
+          echo "    endpoint_url = $FIRST_ENDPOINT" >> ~/.aws/config
 
-      - name: Sync from FIRST to local Temp
+      - name: Sync from FIRST to local
+        env:
+          FIRST_BUCKET: ${{ secrets.FIRST_BUCKET }}
         run: |
-          aws s3 sync s3://static-yon ./temp_backup
+          aws s3 sync s3://$FIRST_BUCKET ./temp_backup
 
-      - name: Configure AWS CLI
+      - name: Configure AWS CLI for SECOND
         env:
           SECOND_ACCESS_KEY: ${{ secrets.SECOND_ACCESS_KEY }}
           SECOND_SECRET_KEY: ${{ secrets.SECOND_SECRET_KEY }}
           SECOND_REGION: ${{ secrets.SECOND_REGION }}
           SECOND_ENDPOINT: ${{ secrets.SECOND_ENDPOINT }}
         run: |
-          aws configure set aws_access_key_id $SECOND_ACCESS_KEY
-          aws configure set aws_secret_access_key $SECOND_SECRET_KEY
-          aws configure set region $SECOND_REGION
-          aws configure set s3.endpoint_url $SECOND_ENDPOINT
+          echo "[default]" > ~/.aws/credentials
+          echo "aws_access_key_id = $SECOND_ACCESS_KEY" >> ~/.aws/credentials
+          echo "aws_secret_access_key = $SECOND_SECRET_KEY" >> ~/.aws/credentials
+          echo "[default]" > ~/.aws/config
+          echo "region = $SECOND_REGION" >> ~/.aws/config
+          echo "s3 =" >> ~/.aws/config
+          echo "    endpoint_url = $SECOND_ENDPOINT" >> ~/.aws/config
 
       - name: Sync from FIRST to SECOND
+        env:
+          SECOND_BUCKET: ${{ secrets.SECOND_BUCKET }}
         run: |
-          aws s3 sync ./temp_backup s3://share.yon.im
+          aws s3 sync ./temp_backup s3://$SECOND_BUCKET
 
       - name: Clean up
         run: |
