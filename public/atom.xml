@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/rss-style.xslt" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Yon Zilch</title>
+    <subtitle>This is Yon Zilch&#x27;s Blog.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.yon.im/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.yon.im"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-03-09T00:00:00+00:00</updated>
+    <id>https://blog.yon.im/atom.xml</id>
+    <entry xml:lang="en">
+        <title>2023</title>
+        <published>2024-03-09T00:00:00+00:00</published>
+        <updated>2024-03-09T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.yon.im/posts/2023/"/>
+        <id>https://blog.yon.im/posts/2023/</id>
+        
+        <content type="html" xml:base="https://blog.yon.im/posts/2023/">&lt;link rel=&quot;stylesheet&quot; href=&quot;&#x2F;css&#x2F;audio.min.css&quot; &#x2F;&gt;
+&lt;figure class=&quot;figure-center&quot;&gt;
+  &lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;aer.jpg&quot; alt=&quot;aer&quot;&gt;
+  &lt;figcaption&gt;with all my heart&lt;&#x2F;figcaption&gt;
+  &lt;audio class=&quot;audio-control&quot; controls&gt;
+    &lt;source src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;audio&#x2F;with all my heart - Wisp X.mp3&quot; type=&quot;audio&#x2F;mpeg&quot;&gt;
+    您的浏览器不支持 audio 元素。
+  &lt;&#x2F;audio&gt;
+&lt;&#x2F;figure&gt;
+&lt;h2 id=&quot;intro&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#intro&quot; aria-label=&quot;Anchor link for: intro&quot;&gt;Intro&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;「人的一生如此短暂......我们不可能完成每一件想做的事。无论我们做了什么，总有其他东西值得一试，总有另一条路值得一走。」--Finding Paradise&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;1.webp&quot; alt=&quot;1&quot; &#x2F;&gt;
+&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;2.webp&quot; alt=&quot;2&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;有时候会发现自己是无比地矛盾，犹如象与骑象者一般，【想要】写一篇年报 这件事好比是自己的【思想】先行但【行动】却总是在徘徊。&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;在 RSS 信息流中阅读无数篇文章过后，余发觉：个人的思想理念在经受如此多的【输入】整个人的「行为」却会因过多的【思绪】而无法得到真正的改变。深刻反思过后：其实关键的不在犹豫于 &quot;How&quot;，真正关键的在于要打破旧有的行为模式。在此，理清了一些繁乱的【思绪】后，余归纳了以下几点。&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;我必须不断打破旧有的写作习惯，以尽可能地完善自己的写作流。&lt;&#x2F;li&gt;
+&lt;li&gt;我渴望将脑中的思绪用生动的语言来描述出来，但是又时不时会发觉【文字】是一种很有局限性的载体。&lt;&#x2F;li&gt;
+&lt;li&gt;我的 Blog，它是我写字的地方。而写作是一件在当下这个【娱乐至死】社会中鲜有的存在，自然而然地，我为之赋予期望，为之满腹渴念，希望我的文字能有足够的力量，能使人有所感怀，能有所触动。&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;当【输入】过多，水到渠成般地【输出】即是个人行为后一步的演变。即便意识到文字有限，却仍然一直有股冲动不愿让这宝贵的经历消逝在记忆之中。所以，在经历了无意义的思想交锋（更多是无聊造作🤣）后，象终究是由骑象者驱动，写出了一些可有可无的文字，i.e. 以下你看到的这篇年报：&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;zhang-qi&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#zhang-qi&quot; aria-label=&quot;Anchor link for: zhang-qi&quot;&gt;章起&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;「Nothing is True. Everything is permitted.」&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;曾几何时我确是难以想象为何在某时某刻，一个学生在社会化洗礼过后即是成人。那愚昧的身份认同自童年过后便扎根于每一个活生活现的人的思想之中。 且不谈大众，说回个人，我终是会成长，会经历许许尘事，会伤痛，会怅惘，但也会心血来潮，时不时情随事迁，以物喜以己悲。不断地经历种种世事，不断改变，不断地颠覆行为，生物总是这样的：「一切行为都是建立在已有的条件反射之上，继续改变原有的条件反射。」社会的大环境在变，个人的行为因而也在不断改变。回首昨年疫情，魔幻现实下，一粒时代的尘灰落到个人身上也是极其沉重的。我永远会怀念起居家学习的网课时代，曾经转动的命运齿轮奠定了我此时此刻的行为。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;「那些我错过的机会，那些小意外，和我所有未竟的愿望……是的，它们还是我的遗憾，可它们让我拥有了现在的一切。」--Finding Paradise&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;3.webp&quot; alt=&quot;3&quot; &#x2F;&gt;
+&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;4.webp&quot; alt=&quot;4&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;那么我现在拥有的一切是什么呢？除却身外之物，仅剩下了无数经历留给我的记忆，以及与他人（朋友、家人、亲戚）间相处的联系。孑然一身是常态，抛却物欲集中精神更是当下自身的写照。即使虚无主义常伴吾身的我认定：「一切都存在于想象之中」，但无穷无尽的「地球Online」游戏体验仍然使我沉迷。且让我总结下今年在游玩「🌍️Online」过程中 Level UP 的欣喜&amp;amp;收获：&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;she-bei-ruan-ying-jian&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#she-bei-ruan-ying-jian&quot; aria-label=&quot;Anchor link for: she-bei-ruan-ying-jian&quot;&gt;设备软硬件&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;strong&gt;“最令我欣喜的莫不过是用于赛博冲浪的冲浪板得到「史诗级」的加强”&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;从家里的 六代i3老爷机 过渡到 惠普暗影精灵4，再到 AM5 M-ATX.&lt;&#x2F;p&gt;
+&lt;p&gt;从 EndeavourOS 过渡到 Garuda Linux、再到目前的 CachyOS.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;5.webp&quot; alt=&quot;5&quot; &#x2F;&gt;
+&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;6.webp&quot; alt=&quot;6&quot; &#x2F;&gt;
+&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;7.webp&quot; alt=&quot;7&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;我喜欢 KISS 哲学，对于 Arch Linux 我认为只能用「现象级」来评价它。&lt;&#x2F;p&gt;
+&lt;p&gt;高效工作学习的前提需要有一个简洁易用的系统，而去繁就简的 Arch 符合了这样的需求。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;ai&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#ai&quot; aria-label=&quot;Anchor link for: ai&quot;&gt;AI&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;2023 注定是 AI 技术大放异彩的一年，各种 Requests 通过 ChatGPT、Claude 等生成式 AI 模型其帮助下，deBug 各种「未曾设想」的 Issue 不再坐牢。作为日常技术学习助理的 GPT 帮助我概括一些又臭又长的官方文档，速通水课论文作业，等琐碎事务根本不在话下（已经是「重度依赖GPT晚期」了🫠）。也期待后继更加强大的 AI 大模型能够降本增效，期望更多如同 MidJourney、Quivr 一众创造力强大的项目孵化。未来可期，拭目以待。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;yan-jiu&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#yan-jiu&quot; aria-label=&quot;Anchor link for: yan-jiu&quot;&gt;研究&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;使用 &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;BryceRussell&#x2F;astro-minecraft-theme&quot;&gt;astro-minecraft-theme&lt;&#x2F;a&gt; 构建了我的&lt;a href=&quot;https:&#x2F;&#x2F;yon.im&quot;&gt;主页&lt;&#x2F;a&gt;，那天心情非常好！&lt;&#x2F;p&gt;
+&lt;p&gt;重构了我的 Blog，从 hugo-theme-bootstrap 到自行魔改的 zola-theme-apollo，由繁至简的称心使我更有动力通过 Blog 来输出文字，同样使我踏入前端领域这一大坑。（WYSIWYG 实时反馈还是很上头的🙃）&lt;&#x2F;p&gt;
+&lt;p&gt;多维度地了解互联网各个领域的状况，在 DevOps 项目实践中研究各类 aaS 平台（SaaS、PaaS、IaaS、DBaaS、AIaaS etc.）&lt;&#x2F;p&gt;
+&lt;p&gt;研究了下 PVE 系统，并在 GPT 帮助下制服 Cloud-init Crash 的问题，掌握了管理集群的一大技能点。&lt;&#x2F;p&gt;
+&lt;p&gt;其余时间大多与朋友一同研究 Docker 建站，打造了一系列团队共用软件生态圈（如 Matrix for Chat、MiniFlux for RSS Reading、VaultWarden for password managemant etc.）&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;xue-xi&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#xue-xi&quot; aria-label=&quot;Anchor link for: xue-xi&quot;&gt;学习&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;最大的收获应该是刷完课程&lt;a href=&quot;https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV14E411J7n2&quot;&gt;计算机教育中缺失的一课&lt;&#x2F;a&gt;，边看边实践从中学到了不少有用的基础知识（也深刻地感受到国内外大学教学差异（降维打击了属于是）&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;8.webp&quot; alt=&quot;8&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;测试&amp;amp;&amp;amp;对比了一堆开源软件，打磨技术生产力工具，还尝试体验了好几个 Linux 发行版（Fedora、RebornOS、openSUSE、MocaccinoOS、Cauculate Linux etc.）有朝一日也想研究下 Linux from Scratch（LFS）&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;9.webp&quot; alt=&quot;9&quot; &#x2F;&gt;
+&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;10.webp&quot; alt=&quot;10&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;在这过程中探索了不少开源项目，并成为了一个更加偏执狂的存在👻。（下一步：主力系统迁移到 NixOS? Gentoo? Or?）&lt;&#x2F;p&gt;
+&lt;p&gt;阅读了《区块链超入门》、《人人都能读懂的密码学》以及一些 Blog Posts，使我对 Distributed Systems、Blockchain、web3 等技术领域颇感兴趣。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;sheng-huo&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#sheng-huo&quot; aria-label=&quot;Anchor link for: sheng-huo&quot;&gt;生活&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;h4 id=&quot;zhan-zhuan&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#zhan-zhuan&quot; aria-label=&quot;Anchor link for: zhan-zhuan&quot;&gt;辗转&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;ol&gt;
+&lt;li&gt;游深圳&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;八月份与 &lt;a href=&quot;https:&#x2F;&#x2F;blog.dich.ink&quot;&gt;Dich&lt;&#x2F;a&gt; 一同去往深圳这个一线城市一探究竟。体验了早茶文化，吃到了潮汕特色面食，领略了华强北电子世界，寻找鬼市无功而返，以及一路上各种风景拍拍拍，着实勾画了一笔浓墨重彩的人生体验。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;11.webp&quot; alt=&quot;11&quot; &#x2F;&gt;
+&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;12.webp&quot; alt=&quot;12&quot; &#x2F;&gt;
+&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;13.webp&quot; alt=&quot;13&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;14.webp&quot; alt=&quot;14&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;15.webp&quot; alt=&quot;15&quot; &#x2F;&gt;
+&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;16.webp&quot; alt=&quot;16&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;17.webp&quot; alt=&quot;17&quot; &#x2F;&gt;
+&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;18.webp&quot; alt=&quot;18&quot; &#x2F;&gt;
+&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;19.webp&quot; alt=&quot;19&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;访老家&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;20.webp&quot; alt=&quot;20&quot; &#x2F;&gt;
+&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;21.webp&quot; alt=&quot;21&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;抵大连&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;22.webp&quot; alt=&quot;22&quot; &#x2F;&gt;
+&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;23.webp&quot; alt=&quot;23&quot; &#x2F;&gt;
+&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;24.webp&quot; alt=&quot;24&quot; &#x2F;&gt;
+&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;25.webp&quot; alt=&quot;25&quot; &#x2F;&gt;
+&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;26.webp&quot; alt=&quot;26&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;gaming&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#gaming&quot; aria-label=&quot;Anchor link for: gaming&quot;&gt;Gaming&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;p&gt;一图概括：&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;27.webp&quot; alt=&quot;27&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;最喜欢的当属 FreeBird 系列作品：&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;To the Moon《去月球》（二通）&lt;&#x2F;li&gt;
+&lt;li&gt;A Bird Story《鸟的故事》&lt;&#x2F;li&gt;
+&lt;li&gt;Finding Paradise 《寻找天堂》&lt;&#x2F;li&gt;
+&lt;li&gt;Impostor Factory《影子工厂》&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;除此之外，还搭建了 Minecraft、泰拉瑞亚 服务器与伙伴们一同玩耍，也与 &lt;a href=&quot;https:&#x2F;&#x2F;milvoid.com&quot;&gt;Milvoid&lt;&#x2F;a&gt;等几位朋友在 MC Hypixel 服务器里🛏起床战争，不亦乐乎！&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;28.webp&quot; alt=&quot;28&quot; &#x2F;&gt;
+&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;29.webp&quot; alt=&quot;29&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;shu-yu-ying&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#shu-yu-ying&quot; aria-label=&quot;Anchor link for: shu-yu-ying&quot;&gt;书与影&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;ul&gt;
+&lt;li&gt;《小王子》&lt;&#x2F;li&gt;
+&lt;li&gt;《发条橙》&lt;&#x2F;li&gt;
+&lt;li&gt;《悉达多》&lt;&#x2F;li&gt;
+&lt;li&gt;《在轮下》&lt;&#x2F;li&gt;
+&lt;li&gt;《荒原狼》&lt;&#x2F;li&gt;
+&lt;li&gt;《第一人》&lt;&#x2F;li&gt;
+&lt;li&gt;《内在工程》（常看常新）&lt;&#x2F;li&gt;
+&lt;li&gt;《荒谬的自由》&lt;&#x2F;li&gt;
+&lt;li&gt;《区块链超入门》（二刷）&lt;&#x2F;li&gt;
+&lt;li&gt;《想看在看看过》&lt;&#x2F;li&gt;
+&lt;li&gt;《2010 太空漫游》&lt;&#x2F;li&gt;
+&lt;li&gt;《毛姆短篇小说集》&lt;&#x2F;li&gt;
+&lt;li&gt;《茨威格小说全集》&lt;&#x2F;li&gt;
+&lt;li&gt;《音乐影响了我的写作》&lt;&#x2F;li&gt;
+&lt;li&gt;《大问题·简明哲学导论》&lt;&#x2F;li&gt;
+&lt;li&gt;《人人都能读懂的密码学》&lt;&#x2F;li&gt;
+&lt;li&gt;《当我谈跑步时，我谈些什么》&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;2023年我所读过的书绝对不算多，但也不算少。在当下这个浮躁的社会已经很难沉下心来阅读了，不过还算没被时代洪流打败：文学、技术、科幻、哲学、神秘学等都在阅读中不断向前探索。2024年应当拓宽知识面，阅读些知识领域内尚不熟习的著作（经济学、传播学、社会学 etc.）&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;&lt;strong&gt;看电影向来是不喜欢中途被打断的，但这也导致一看系列集电影就停不下来，一晃半天过去了🤣&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;30.webp&quot; alt=&quot;30&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;《洛奇6》&lt;&#x2F;li&gt;
+&lt;li&gt;《绿皮书》&lt;&#x2F;li&gt;
+&lt;li&gt;《发条橙》&lt;&#x2F;li&gt;
+&lt;li&gt;《瓶中信》&lt;&#x2F;li&gt;
+&lt;li&gt;《头号玩家》&lt;&#x2F;li&gt;
+&lt;li&gt;《玲芽之旅》&lt;&#x2F;li&gt;
+&lt;li&gt;《霸王别姬》&lt;&#x2F;li&gt;
+&lt;li&gt;《让子弹飞》&lt;&#x2F;li&gt;
+&lt;li&gt;《大闹天宫》&lt;&#x2F;li&gt;
+&lt;li&gt;《美丽人生》&lt;&#x2F;li&gt;
+&lt;li&gt;《流浪地球2》&lt;&#x2F;li&gt;
+&lt;li&gt;《楚门的世界》&lt;&#x2F;li&gt;
+&lt;li&gt;《罗小黑战记》（二刷）&lt;&#x2F;li&gt;
+&lt;li&gt;《瞬息全宇宙》&lt;&#x2F;li&gt;
+&lt;li&gt;《银翼杀手》（全系列）&lt;&#x2F;li&gt;
+&lt;li&gt;《黑客帝国》（全系列）&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;其中每一部都令人称道，拍案叫绝！&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;wen-zhang&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#wen-zhang&quot; aria-label=&quot;Anchor link for: wen-zhang&quot;&gt;文章&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;（其实一年下来看过的文章没几千篇，也有百来篇了）这里，我仅选取了对我影响最深的10篇文章。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;一年中最想♥️感谢♥️的其实是这些深深触动并改变我的故事和文章：&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;justinyan.me&#x2F;post&#x2F;5790&quot;&gt;《每个人每天都只有24小时，希望我的选择真的是我的选择》&lt;&#x2F;a&gt;&lt;br &#x2F;&gt;
+让我反思人生之陷阱&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;blog.si-on.top&#x2F;2023&#x2F;key4read&#x2F;&quot;&gt;《电子阅读新语》&lt;&#x2F;a&gt;&lt;br &#x2F;&gt;
+使我彻悟读书的意义&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;justgoidea.com&#x2F;posts&#x2F;2022-019&#x2F;&quot;&gt;《2022 年值得持续阅读的内容平台》&lt;&#x2F;a&gt;&lt;br &#x2F;&gt;
+助我收集精良的信息源&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;subnooc.com&#x2F;posts&#x2F;go-far-away&quot;&gt;《如果可以，请去远方看看》&lt;&#x2F;a&gt;&lt;br &#x2F;&gt;
+唤我以不一样的视角看世界&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;lutaonan.com&#x2F;blog&#x2F;7-days-meditation&#x2F;&quot;&gt;《在清迈冥想学习 7 天后，我不再「追求」幸福》&lt;&#x2F;a&gt;&lt;br &#x2F;&gt;
+引我从内心找寻真正的自我&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;atpx.com&#x2F;blog&#x2F;escape-information-explosion&#x2F;&quot;&gt;《逃离爆炸的信息》&lt;&#x2F;a&gt;&lt;br &#x2F;&gt;
+带我远离💥碎片的信息熵乱平台&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;archive.dianqk.blog&#x2F;2022&#x2F;04&#x2F;23&#x2F;archlinux-and-lineageos&#x2F;&quot;&gt;《将 Arch Linux 和 LineageOS 作为主力系统》&lt;&#x2F;a&gt;&lt;br &#x2F;&gt;
+予我开源软件之实践&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.pseudoyu.com&#x2F;zh&#x2F;2022&#x2F;06&#x2F;28&#x2F;weekly_review_20220626&#x2F;&quot;&gt;《周报 #01 - 情感、安全感与认真生活》&lt;&#x2F;a&gt;&lt;br &#x2F;&gt;
+献我生活的多维度视角&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.zackwu.com&#x2F;posts&#x2F;2021-11-26-bigger-world-and-inner-peace&#x2F;&quot;&gt;《二十二岁，追寻更大的世界与更平和的内心》&lt;&#x2F;a&gt;&lt;br &#x2F;&gt;
+激我未来之希冀&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;liuguo.eth.limo&#x2F;13271-%E4%BF%A1%E6%81%AF%E8%87%AA%E7%94%B1%E7%9A%84%E4%B9%8C%E6%89%98%E9%82%A6%E4%B8%8E%E7%8E%B0%E5%AE%9E&#x2F;&quot;&gt;《信息自由的乌托邦与现实》&lt;&#x2F;a&gt;&lt;br &#x2F;&gt;
+领我看清信息技术的现实面目&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;fin&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#fin&quot; aria-label=&quot;Anchor link for: fin&quot;&gt;Fin&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;村上村树所著的《舞！舞！舞！》有一段话：&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“跳舞，”羊男说，“只要音乐在响，就尽管跳下去。明白我的话？跳舞，不停地跳舞。不要考虑为什么跳，不要考虑意义不意义，意义那玩意儿本来就是没有的，要是考虑这个，脚步势必停下来。一旦停下来，我就再也爱莫能助了，并且连接你的线索也将全部消失，永远消失。那一来，你就只能在这里生存，只能不由自主地陷进这边的世界。因此不能停住脚步，不管你如何觉得滑稽好笑，也不能半途而废，务必咬紧牙关踩着舞点跳下去。跳着跳着，原先坚固的东西便会一点点酥软，有的东西还没有完全不可救药。能用的全部用上去，全力以赴，不足为惧的。你的确很疲劳，筋疲力竭，惶惶不可终日。谁都有这种时候，觉得一切都错得不可收拾，以致停下脚步。” 我抬起眼睛，再次凝视墙上的暗影。 “但只有跳下去，”羊男继续道，“而且要跳得出类拔萃，跳得大家心悦诚服。这样，我才有可能助你一臂之力。总之一定要跳要舞，只要音乐没停。”要跳要舞，只要音乐没停。&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;曾经有段时间，我苦苦陷入虚无主义，浑浑噩噩不得终日。但是如今的我听罢如此多的故事，体验种种经历，回响脑海的声音越发高亢：
+「不要考虑为什么跳，不要考虑意义不意义，不管你如何觉得滑稽好笑，务必咬紧牙关踩着舞点跳下去。」&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;2023&#x2F;31.webp&quot; alt=&quot;31&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;那么，且让湿婆业舞不断，且歌且行，去全然地面对那过去、未来与现在凝结一体的永恒当下。&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>My App Defaults 2023</title>
+        <published>2023-12-05T00:00:00+00:00</published>
+        <updated>2023-12-05T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.yon.im/posts/my-app-defaults-2023/"/>
+        <id>https://blog.yon.im/posts/my-app-defaults-2023/</id>
+        
+        <content type="html" xml:base="https://blog.yon.im/posts/my-app-defaults-2023/">&lt;h1 id=&quot;intro&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#intro&quot; aria-label=&quot;Anchor link for: intro&quot;&gt;Intro&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;ul&gt;
+&lt;li&gt;To contribute this &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;rknightuk&#x2F;app-defaults&quot;&gt;Repo&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;And inspired by these blogs:&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;yinji.org&#x2F;5179.html&quot;&gt;https:&#x2F;&#x2F;yinji.org&#x2F;5179.html&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;anotherdayu.com&#x2F;2023&#x2F;5452&#x2F;&quot;&gt;https:&#x2F;&#x2F;anotherdayu.com&#x2F;2023&#x2F;5452&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;blog.douchi.space&#x2F;app-defaults&#x2F;&quot;&gt;https:&#x2F;&#x2F;blog.douchi.space&#x2F;app-defaults&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h1 id=&quot;my-app-defaults-2023&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#my-app-defaults-2023&quot; aria-label=&quot;Anchor link for: my-app-defaults-2023&quot;&gt;My App Defaults 2023&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;p&gt;📨 &lt;strong&gt;Mail Client&lt;&#x2F;strong&gt;：BetterBird, RoundCube(Web Client)&lt;&#x2F;p&gt;
+&lt;p&gt;📮 &lt;strong&gt;Mail Server&lt;&#x2F;strong&gt;: MxRoute with my own domains, Disroot&lt;&#x2F;p&gt;
+&lt;p&gt;📝 &lt;strong&gt;Notes&lt;&#x2F;strong&gt;: Joplin, Logseq, AnyType&lt;&#x2F;p&gt;
+&lt;p&gt;✅ &lt;strong&gt;To-Do&lt;&#x2F;strong&gt;: Tasks, Vikunja(self-hosted), Logseq&lt;&#x2F;p&gt;
+&lt;p&gt;📷 &lt;strong&gt;Photo Shooting&lt;&#x2F;strong&gt;: ACG(Google Camera)&lt;&#x2F;p&gt;
+&lt;p&gt;🟦 &lt;strong&gt;Photo Management&lt;&#x2F;strong&gt;: Aves Libre, digiKam&lt;&#x2F;p&gt;
+&lt;p&gt;📆 &lt;strong&gt;Calendar&lt;&#x2F;strong&gt;: Etar, Countdate&lt;&#x2F;p&gt;
+&lt;p&gt;📁 &lt;strong&gt;Cloud File Storage&lt;&#x2F;strong&gt;: Alist(self-hosted) as frontend, Storj DCS, 4everland IPFS etc. as backend&lt;&#x2F;p&gt;
+&lt;p&gt;📖 &lt;strong&gt;RSS&lt;&#x2F;strong&gt;: MiniFlux(self-hosted) as Server while Newsflash and News as Cilent&lt;&#x2F;p&gt;
+&lt;p&gt;🙍🏻‍♂️ &lt;strong&gt;Contacts&lt;&#x2F;strong&gt;: Android Default Contacts&lt;&#x2F;p&gt;
+&lt;p&gt;🌐 &lt;strong&gt;Browser&lt;&#x2F;strong&gt;: Brave, FireFox, Kiwi&lt;&#x2F;p&gt;
+&lt;p&gt;💬 &lt;strong&gt;Chat&lt;&#x2F;strong&gt;: Matrix, Telegram&lt;&#x2F;p&gt;
+&lt;p&gt;🔖 &lt;strong&gt;Bookmarks&lt;&#x2F;strong&gt;: Browser, OneNav(self-hosted)&lt;&#x2F;p&gt;
+&lt;p&gt;📑 &lt;strong&gt;Read It Later&lt;&#x2F;strong&gt;: Currently None&lt;&#x2F;p&gt;
+&lt;p&gt;📜 &lt;strong&gt;Word Processing&lt;&#x2F;strong&gt;: MarkText, GhostWriter, Joplin&lt;&#x2F;p&gt;
+&lt;p&gt;💰 &lt;strong&gt;Budgeting and Personal Finance&lt;&#x2F;strong&gt;: iHateMoney as Server, MoneyBuster as Client&lt;&#x2F;p&gt;
+&lt;p&gt;📰 &lt;strong&gt;News&lt;&#x2F;strong&gt;: Telegram Channel, RSS feeds and so on&lt;&#x2F;p&gt;
+&lt;p&gt;🎵 &lt;strong&gt;Music&lt;&#x2F;strong&gt;: StrawBerry, Metro, Spotify&lt;&#x2F;p&gt;
+&lt;p&gt;🎤 &lt;strong&gt;Podcasts&lt;&#x2F;strong&gt;: Spotify&lt;&#x2F;p&gt;
+&lt;p&gt;🔐 &lt;strong&gt;Password Management&lt;&#x2F;strong&gt;: Vaultwarden(self-hosted) as Server while &lt;a href=&quot;https:&#x2F;&#x2F;bitwarden.com&#x2F;&quot;&gt;BitWarden&lt;&#x2F;a&gt; as Client, KeePassXC&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;And some extra categories not mentioned in the project:&lt;&#x2F;p&gt;
+&lt;p&gt;✈️ &lt;strong&gt;VPN&lt;&#x2F;strong&gt;: Nekoray, NekoBox&lt;&#x2F;p&gt;
+&lt;p&gt;🖆 &lt;strong&gt;Blog Platform&lt;&#x2F;strong&gt;: Zola deploy on 4everland and code hosting on GitHub&lt;&#x2F;p&gt;
+&lt;p&gt;⌨️ &lt;strong&gt;Text input&lt;&#x2F;strong&gt;: Ibus-Rime with &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;iDvel&#x2F;rime-ice&quot;&gt;rime-ice&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;📖 &lt;strong&gt;Translation app&lt;&#x2F;strong&gt;: KISS Translator, Deepl&lt;&#x2F;p&gt;
+&lt;p&gt;📚 &lt;strong&gt;Reading app&lt;&#x2F;strong&gt;: KOReader, Koodo Reader with Z-Library&lt;&#x2F;p&gt;
+&lt;p&gt;🔧 &lt;strong&gt;Screenshot app&lt;&#x2F;strong&gt;: FlameShot, &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;ShareX&#x2F;ShareX&quot;&gt;ShareX&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>利用 Render 部署 wiki.js</title>
+        <published>2023-09-17T00:00:00+00:00</published>
+        <updated>2023-09-17T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.yon.im/posts/use-render-deploy-wiki-js/"/>
+        <id>https://blog.yon.im/posts/use-render-deploy-wiki-js/</id>
+        
+        <content type="html" xml:base="https://blog.yon.im/posts/use-render-deploy-wiki-js/">&lt;p&gt;（应 &lt;a href=&quot;https:&#x2F;&#x2F;milvoid.com&#x2F;&quot;&gt;Milvoid&lt;&#x2F;a&gt; 需求撰写）&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;xu-yao-zhu-ce-shi-yong&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#xu-yao-zhu-ce-shi-yong&quot; aria-label=&quot;Anchor link for: xu-yao-zhu-ce-shi-yong&quot;&gt;需要注册使用：&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;https:&#x2F;&#x2F;neon.tech&#x2F;&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;render.com&#x2F;&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;Hetrixtools.com&#x2F;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;bu-shu&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#bu-shu&quot; aria-label=&quot;Anchor link for: bu-shu&quot;&gt;部署&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;h4 id=&quot;gai-lan&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#gai-lan&quot; aria-label=&quot;Anchor link for: gai-lan&quot;&gt;概览：&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;Render 作为 ServerLess 服务器运行 wiki.js Docker 容器
+&lt;&#x2F;span&gt;&lt;span&gt;wiki.js 通过配置好的 env(环境变量) 连接 NEON Postgres 数据库
+&lt;&#x2F;span&gt;&lt;span&gt;配置 HetrixTools 定时检查 部署好的 wiki-js 站点，来实现持续运行（保活）
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;kai-shi-shi-zhan-bu-shu&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#kai-shi-shi-zhan-bu-shu&quot; aria-label=&quot;Anchor link for: kai-shi-shi-zhan-bu-shu&quot;&gt;开始实战部署：&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;h4 id=&quot;neon-shang-de-cao-zuo&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#neon-shang-de-cao-zuo&quot; aria-label=&quot;Anchor link for: neon-shang-de-cao-zuo&quot;&gt;NEON 上的操作&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;创建数据库项目（地区请选择 Oregon）&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;1.webp&quot; alt=&quot;1&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;复制所给的环境变量（之后要用）
+Tip：可以临时放到 VScode 之类的文本编辑器里&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;2.webp&quot; alt=&quot;2&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Over&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;render-shang-de-cao-zuo&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#render-shang-de-cao-zuo&quot; aria-label=&quot;Anchor link for: render-shang-de-cao-zuo&quot;&gt;Render 上的操作：&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;创建一个 Web Service，
+并将我写的 Docker 部署 wiki-js 的 &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;gityzon&#x2F;docker-wiki-js&quot;&gt;Github仓库地址&lt;&#x2F;a&gt; 填入框中，
+然后 &quot;Continue&quot;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;3.webp&quot; alt=&quot;3&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;自定义项目名称（这边演示填入了&quot;wiki-js&quot;），
+以及确认项目部署的边缘服务器地区（建议选择 Oregon ，测试中速度表现最好）&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;4.webp&quot; alt=&quot;4&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;添加连接 NEON 数据库的环境变量&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;5.webp&quot; alt=&quot;5&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;运行 wiki-js 所需的环境变量 与 NEON 中所给的名称并不一致，
+请参照图片以及以下提示填入：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;DB_HOST 为 PGHOST
+&lt;&#x2F;span&gt;&lt;span&gt;DB_NAME 为 PGDATABASE
+&lt;&#x2F;span&gt;&lt;span&gt;DB_PASS 为 PGPASSWORD
+&lt;&#x2F;span&gt;&lt;span&gt;DB_USER 为 PGUSER
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;其他：
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;DB_PORT 请设为 5432
+&lt;&#x2F;span&gt;&lt;span&gt;DB_SSL 请设为 true
+&lt;&#x2F;span&gt;&lt;span&gt;DB_TYPE 请设为 postgres
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;建议关闭 Auto-Deploy（自动部署）&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;6.webp&quot; alt=&quot;6&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;ol start=&quot;5&quot;&gt;
+&lt;li&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;最后点下 &quot;Create Web Service&quot;
+等待wiki-js部署完成（大概几分钟）&lt;&#x2F;p&gt;
+&lt;ol start=&quot;6&quot;&gt;
+&lt;li&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;出现下图 &quot;Live&quot; 状态，即表示 wiki-js 已成功部署
+（方框里的域名是 Render给的 二级域名）&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;7.webp&quot; alt=&quot;7&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;ol start=&quot;7&quot;&gt;
+&lt;li&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;此时可以先在项目 &quot;Settings&quot; 绑定域名&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;8.webp&quot; alt=&quot;8&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;ol start=&quot;8&quot;&gt;
+&lt;li&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;（此处演示直接使用 Render 预置的域名 进行后续操作）&lt;&#x2F;p&gt;
+&lt;p&gt;这里刚刚部署完可能会提示“网页无法正常运作”
+请隔一会刷新一下，等待 wiki-js 服务响应&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;9.webp&quot; alt=&quot;9&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;出现了创建管理员界面，请自行创建用户&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;10.webp&quot; alt=&quot;10&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Install 后 wiki-js 可能会出现无响应，请等待片刻（此时服务器在初始化数据库，并构建页面树）&lt;&#x2F;p&gt;
+&lt;p&gt;下图即是主界面（Home Page）&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;11.webp&quot; alt=&quot;11&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;下图是登录界面&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;12.webp&quot; alt=&quot;12&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;通过下图操作来设置中文&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;13.webp&quot; alt=&quot;13&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;&lt;strong&gt;至此，wiki-js 部署完毕！&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;下面是使用 HetrixTools 监控 wiki-js 网站 实现保活的教程&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;hetrixtools-shang-de-cao-zuo&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#hetrixtools-shang-de-cao-zuo&quot; aria-label=&quot;Anchor link for: hetrixtools-shang-de-cao-zuo&quot;&gt;HetrixTools 上的操作：&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;p&gt;看图自行操作，不多说明&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-render-deploy-wiki-js&#x2F;14.webp&quot; alt=&quot;14&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;fu-lu&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#fu-lu&quot; aria-label=&quot;Anchor link for: fu-lu&quot;&gt;附录：&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;https:&#x2F;&#x2F;github.com&#x2F;requarks&#x2F;wiki&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Hello Hugo!</title>
+        <published>2023-08-06T00:00:00+00:00</published>
+        <updated>2023-08-06T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.yon.im/posts/hello-world-hugo/"/>
+        <id>https://blog.yon.im/posts/hello-world-hugo/</id>
+        
+        <content type="html" xml:base="https://blog.yon.im/posts/hello-world-hugo/">&lt;p&gt;你好,世界!这是我在Hugo中的第一篇文章。&lt;&#x2F;p&gt;
+&lt;p&gt;我很兴奋可以开始使用这个强大的静态网站生成器来构建我的新网站。&lt;&#x2F;p&gt;
+&lt;p&gt;Hugo让我可以快速简单地创建内容,并且完全自定义我的网站样式。&lt;&#x2F;p&gt;
+&lt;p&gt;默认的模板和主题提供了很好的起点,所以我不需要从零开始构建。&lt;&#x2F;p&gt;
+&lt;p&gt;我迫不及待地要写更多文章,与世界分享我的知识!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>没有希望，没有绝望</title>
+        <published>2023-03-13T00:00:00+00:00</published>
+        <updated>2023-03-13T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.yon.im/posts/no-hope-no-despair/"/>
+        <id>https://blog.yon.im/posts/no-hope-no-despair/</id>
+        
+        <content type="html" xml:base="https://blog.yon.im/posts/no-hope-no-despair/">&lt;link rel=&quot;stylesheet&quot; href=&quot;&#x2F;css&#x2F;audio.min.css&quot; &#x2F;&gt;
+&lt;figure class=&quot;figure-center&quot;&gt;
+  &lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;no-hope-no-despair&#x2F;To the Moon (Original Game Soundtrack).jpg&quot; alt=&quot;To the Moon (Original Game Soundtrack).jpg&quot;&gt;
+  &lt;figcaption&gt;For River - Piano (Johnny&#x27;s Version)&lt;&#x2F;figcaption&gt;
+  &lt;audio class=&quot;audio-control&quot; controls&gt;
+    &lt;source src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;audio&#x2F;For%20River%20-%20Piano%20%28Johnny%27s%20Version%29.mp3&quot; type=&quot;audio&#x2F;mpeg&quot;&gt;
+    您的浏览器不支持 audio 元素。
+  &lt;&#x2F;audio&gt;
+&lt;&#x2F;figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;　　希望是什么?是娼妓：&lt;&#x2F;p&gt;
+&lt;p&gt;　　她对谁都蛊惑，将一切都献给;&lt;&#x2F;p&gt;
+&lt;p&gt;　　待你牺牲了极多的宝贝——&lt;&#x2F;p&gt;
+&lt;p&gt;　　你的青春——她就弃掉你。&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;加缪曾言：「没有对生活的绝望，就没有对生活的热爱。」今日，余将其语稍作更改：「没有对生活的希望，就没有对生活的绝望。」&lt;&#x2F;p&gt;
+&lt;p&gt;固然，希望予人以一时的欣喜与动力。它来自生活遭遇中一点鼓舞人心的发展进步，其背后源自古老基因赋予动物的「环境适应性」。行为结果看似不错，即表明这样的行为有利于所处环境下谋生，于是希望产生，希望又塑造行为，经行轮转，运作不息。然而环境是不断变化的，倘若行为结果不受环境认可，一次又一次，希望幻灭，造就行为调整，再经受环境考验......这个过程既是循环语句，又蕴含无数判断语句，基因自我编程也不过是以大量的基本语句构成。错误与纠正，进化与退化，肯定与否定穿插其间，如同《谜》一文中所写：「我不知道自己在寻找什么，我小心翼翼地为之命名，我收回说过的话，我重复自己的话，我退退进进。」希望便诞生与毁灭在这一次又一次的荒谬经历与不断变化的周边环境之中。「悖谬卷伏在事务深层，如果我侧耳倾听其话语，它就会慢慢地显出身形，眨一眨清澈的小眼睛说：『要怎样生活？且只当......』尽管我寻寻觅觅，所求得的知识却不外如此。」《一体两面》中加缪绝对地向《谜》给出自我回答，也启发了余深入思考。&lt;&#x2F;p&gt;
+&lt;p&gt;那么，这希望何尝不是绝望的前奏？当一个人事业发展，家庭美满，生活蒸蒸日上时，却在某时某刻感到了一丝匮乏感。这匮乏感犹如「海啸前风平浪静」般黯潮涌动，如同《重返提帕萨》所叙：「当一个人好运来临，可以尽情去爱的时候，他的生命就会在尝试重新获得那种激情与启迪的过程中一点点地消磨过去。」这丝匮乏感，即是对当下希望的警觉一瞥：生怕这令人欣喜的进步与发展在新环境下无法持续。然而「人有悲欢离合，月有阴晴圆缺」但凡生活境遇遭受变故，绝望即大概率地滋生于先前令人满怀希望的事物之中。不得不继续书写判断句、循环句，再多体验一点荒谬，积蓄一点经验。「After all, tomorrow is another day.」怀着激励自我的想法渴求再一点希望。&lt;&#x2F;p&gt;
+&lt;p&gt;我们寻寻觅觅，侧耳倾听那来自童年时期即已充斥耳畔的话语：「你长大了要当什么？」「你的梦想是什么？」「如果你成为了XXX，那该多好啊！」「只要上了重点学校，就......」「只要我的儿子&#x2F;女儿，找到好工作，我就舒服了。」「只要你长大了，你就明白了XXX。」周边人常常在想象之中预设着美好未来，并播撒希望之种。这群体的愚昧记忆至今仍传递着，演绎着，利用有限的希望来限制个体的完善，囚禁精神之自由。芸芸众生深陷希望的茧房之中，一个又一个「只要XXX，我就XXX」的渴念经绝不息，慰藉自我。殊不知人生的大好年华便磨灭在眼前苟且轮回着的希望与绝望。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Put your dreams to sleep for some time because dreams come from past experience of life. Our future should have nothing to do with our past, otherwise we will just recycle the past and think it is the future. Most people&#x27;s idea of future is to take a piece of past, apply make up on it and think it is future, a little improved. &lt;&#x2F;p&gt;
+&lt;p&gt;让你的梦想再沉睡一些时间，因为梦想都是基于过往的生命体验。我们的未来和我们的过往不该有任何关系，否则我们只是在循环过往，却还以为那是未来。很多人对未来的概念就是：取一小块过往的碎片，在上面化点妆，然后这就是未来了——一点点改进而已。&lt;&#x2F;p&gt;
+&lt;p&gt;I want to destroy your dreams. Let them be destroyed, so that you aspire to just grow yourself to your full potential.&lt;&#x2F;p&gt;
+&lt;p&gt;我想要摧毁你的梦，让它们被摧毁掉吧，这样你会渴望只是去成长，实现你的全部潜能。&lt;&#x2F;p&gt;
+&lt;p&gt;——Sadhguru&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;存在于想象中的希望是局限的， 若以局限之物来塑造人的行为，那么完全的个人发展便无从谈起。而绝望也不过是有限累积下生命不满之咆哮，那丝阴魂不散的匮乏感终将到来并支配渴求希望的执迷之徒。&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>关于记忆的一点思绪</title>
+        <published>2022-10-20T00:00:00+00:00</published>
+        <updated>2022-10-20T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.yon.im/posts/thoughs-about-memories/"/>
+        <id>https://blog.yon.im/posts/thoughs-about-memories/</id>
+        
+        <content type="html" xml:base="https://blog.yon.im/posts/thoughs-about-memories/">&lt;link rel=&quot;stylesheet&quot; href=&quot;&#x2F;css&#x2F;audio.min.css&quot; &#x2F;&gt;
+&lt;figure class=&quot;figure-center&quot;&gt;
+  &lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;thoughs-about-memories&#x2F;g.y.m-the-right-path%28g.y.m-bootleg%29.jpg&quot; alt=&quot;g.y.m-the-right-path(g.y.m-bootleg)&quot;&gt;
+  &lt;figcaption&gt;Thomas Greenberg-The Right Path(G.Y.M Bootleg)（G.Y.M Remix）&lt;&#x2F;figcaption&gt;
+  &lt;audio class=&quot;audio-control&quot; controls&gt;
+    &lt;source src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;audio&#x2F;Thomas%20Greenberg-The%20Right%20Path%28G.Y.M%20Bootleg%29%EF%BC%88G.Y.M%20Remix%EF%BC%89%20-%20G.Y.M.mp3&quot; type=&quot;audio&#x2F;mpeg&quot;&gt;
+    您的浏览器不支持 audio 元素。
+  &lt;&#x2F;audio&gt;
+&lt;&#x2F;figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&quot;The ordinary everyday consciousness that we have leaves out more than it takes in. And because of this, it leaves out things that are terribly important. It leaves out things that would—if we did know them—allay our anxieties, and fears, and horrors, and if we could extend our awareness, you see, to include those things that we leave out, we would have a deep interior peace.&quot;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;genius.com&#x2F;Alan-watts-the-web-of-life-part-1-what-did-you-forget-annotated&quot;&gt;The Web of Life, Part 1: What Did You Forget?&lt;&#x2F;a&gt;——Alan Watts&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;从前，余以为人的记忆是牢靠的，这大抵是源于昔日那个年少轻狂，忘乎所以之人的局限认知：旧日经历历历在目，今日所见见后即逝。残垣断壁般的记忆倏地火花迸现，曾读过一段话：“有的人，75岁死，但在25岁已经埋了。为什么？因为大部分人只有在人生前段真正活过，后段不过是在不断重复过去的自己。”也许你偶时也有同样的感受：曾经热爱的，为之疯狂的，如今已经退烧，不再感冒；曾经令你惊奇得&quot;Unbelievable&quot;的，现在再碰见却没什么感觉了。余的想法是：人生的大部分时间的确是在不断重复曾经的体验与过去的行为。然而，正是经历了太多同样或类似的事物，这个不断重复的过程便在逐渐消磨着人的意志，进而使你的意识带着越来越少的投入，最终达到做某些事不经思考便可以无意识地完成。而在缺乏意识的进程中，记忆便失去效力。就像人在睡眠时，有一大段无意识的时间中不会有任何记忆，在日常生活中无意识&quot;神游&quot;般地度过，这段时间也不会带着清晰、深刻的记忆。这便是残垣断壁般的记忆形成之缘故。&lt;&#x2F;p&gt;
+&lt;p&gt;所以，当你正以漫不经心的态度带着微弱意识做事情时，就是在助长破碎记忆的形成，令其向支离破碎的方向发展。短时看来不会有多大影响，然而长此以往，由于某些时刻记忆的缺失，你不经意之中遗漏了一些事物，一些可能很重要的事物。而正是这些重要的细节，可能就会对事情的成败起着举足轻重的作用。无意识的行为好比是在高速路上闭眼开车，碰撞与破裂即是不可避免的结果。&lt;&#x2F;p&gt;
+&lt;p&gt;有时，你被安排做着不情愿的事情，或者不得不去做并不自发喜欢的事情。这类情况通常都导向同一个结果：那就是你将带着更少的投入、更少的意识、更少的记忆去执行。不断重复，重复再重复，再热忱的心也会被浇灭，再精力充沛的人也将垂头丧气，疲于应付。这就是人记忆与激情磨灭的概述。&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Linux 安装 Java 通法</title>
+        <published>2022-04-03T00:00:00+00:00</published>
+        <updated>2022-04-03T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.yon.im/posts/linux-install-java/"/>
+        <id>https://blog.yon.im/posts/linux-install-java/</id>
+        
+        <content type="html" xml:base="https://blog.yon.im/posts/linux-install-java/">&lt;hr &#x2F;&gt;
+&lt;p&gt;本文更新于2023&#x2F;12&#x2F;28：更换为最新的 Java 下载链接；&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;&lt;strong&gt;本文以安装 JDK 8, JDK 17 为例&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;jdk-8&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#jdk-8&quot; aria-label=&quot;Anchor link for: jdk-8&quot;&gt;JDK 8:&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;首先，为 JDK 8 创建一个目录。&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;mkdir &#x2F;usr&#x2F;local&#x2F;java-8
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;其次，下载 JDK 8&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;wget https:&#x2F;&#x2F;download.bell-sw.com&#x2F;java&#x2F;8u392+9&#x2F;bellsoft-jdk8u392+9-linux-amd64.tar.gz
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;之后，使用&lt;a href=&quot;http:&#x2F;&#x2F;www.runoob.com&#x2F;linux&#x2F;linux-comm-tar.html&quot;&gt;tar命令&lt;&#x2F;a&gt;将&lt;code&gt;bellsoft-jdk8u392+9-linux-amd64.tar.gz&lt;&#x2F;code&gt;文件解压缩到先前创建的目录：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;tar -zxvf bellsoft-jdk8u392+9-linux-amd64.tar.gz -C &#x2F;usr&#x2F;local&#x2F;java-8
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;最后，运行以下命令以创建新的替代方案：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;update-alternatives --install &amp;quot;&#x2F;usr&#x2F;bin&#x2F;java&amp;quot; &amp;quot;java&amp;quot; &amp;quot;&#x2F;usr&#x2F;local&#x2F;java-8&#x2F;jdk8u392&#x2F;bin&#x2F;java&amp;quot; 1500
+&lt;&#x2F;span&gt;&lt;span&gt;update-alternatives --install &amp;quot;&#x2F;usr&#x2F;bin&#x2F;javac&amp;quot; &amp;quot;javac&amp;quot; &amp;quot;&#x2F;usr&#x2F;local&#x2F;java-8&#x2F;jdk8u392&#x2F;bin&#x2F;javac&amp;quot; 1500
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;jdk-17&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#jdk-17&quot; aria-label=&quot;Anchor link for: jdk-17&quot;&gt;JDK 17&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;首先，为 JDK 17 创建一个目录。&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;mkdir &#x2F;usr&#x2F;local&#x2F;java-17
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;其次，下载 JDK 17&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;wget https:&#x2F;&#x2F;download.bell-sw.com&#x2F;java&#x2F;17.0.9+11&#x2F;bellsoft-jdk17.0.9+11-linux-amd64.tar.gz
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;之后，使用&lt;a href=&quot;http:&#x2F;&#x2F;www.runoob.com&#x2F;linux&#x2F;linux-comm-tar.html&quot;&gt;tar命令&lt;&#x2F;a&gt;将&lt;code&gt;bellsoft-jdk17.0.9+11-linux-amd64.tar.gz&lt;&#x2F;code&gt;文件解压缩到先前创建的目录：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;tar -zxvf bellsoft-jdk17.0.9+11-linux-amd64.tar.gz -C &#x2F;usr&#x2F;local&#x2F;java-17
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;最后，运行以下命令以创建新的替代方案：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;update-alternatives --install &amp;quot;&#x2F;usr&#x2F;bin&#x2F;java&amp;quot; &amp;quot;java&amp;quot; &amp;quot;&#x2F;usr&#x2F;local&#x2F;java-17&#x2F;jdk-17.0.9&#x2F;bin&#x2F;java&amp;quot; 1600
+&lt;&#x2F;span&gt;&lt;span&gt;update-alternatives --install &amp;quot;&#x2F;usr&#x2F;bin&#x2F;javac&amp;quot; &amp;quot;javac&amp;quot; &amp;quot;&#x2F;usr&#x2F;local&#x2F;java-17&#x2F;jdk-17.0.9&#x2F;bin&#x2F;javac&amp;quot; 1600
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;DONE.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;fu-lu&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#fu-lu&quot; aria-label=&quot;Anchor link for: fu-lu&quot;&gt;附录：&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;https:&#x2F;&#x2F;github.com&#x2F;bell-sw&#x2F;Liberica&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Hello World!</title>
+        <published>2022-03-28T00:00:00+00:00</published>
+        <updated>2022-03-28T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.yon.im/posts/hello-world/"/>
+        <id>https://blog.yon.im/posts/hello-world/</id>
+        
+        <content type="html" xml:base="https://blog.yon.im/posts/hello-world/">&lt;p&gt;欢迎使用WordPress。这是您的第一篇文章。请编辑或删除它,然后开始写作!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Markdown Test</title>
+        <published>2022-01-01T00:00:00+00:00</published>
+        <updated>2022-01-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.yon.im/posts/markdown-test/"/>
+        <id>https://blog.yon.im/posts/markdown-test/</id>
+        
+        <content type="html" xml:base="https://blog.yon.im/posts/markdown-test/">&lt;h1 id=&quot;markdown-test&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#markdown-test&quot; aria-label=&quot;Anchor link for: markdown-test&quot;&gt;Markdown Test&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;basic-test&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#basic-test&quot; aria-label=&quot;Anchor link for: basic-test&quot;&gt;Basic-Test&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;code-block&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#code-block&quot; aria-label=&quot;Anchor link for: code-block&quot;&gt;Code Block&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;pre data-lang=&quot;rust&quot; style=&quot;background-color:#0f1419;color:#bfbab0;&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span style=&quot;color:#ff7733;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffb454;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span&gt;() {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f07178;&quot;&gt;println!&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#c2d94c;&quot;&gt;&amp;quot;Hello World&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bfbab0cc;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;quote&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#quote&quot; aria-label=&quot;Anchor link for: quote&quot;&gt;Quote&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Two things are infinite: the universe and human stupidity; and I&#x27;m not sure about the universe.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Albert Einstein&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;code-tags&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#code-tags&quot; aria-label=&quot;Anchor link for: code-tags&quot;&gt;Code tags&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;Lorem ipsum &lt;code&gt;dolor&lt;&#x2F;code&gt; sit amet, &lt;code&gt;consectetur adipiscing&lt;&#x2F;code&gt; elit.
+&lt;code&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;table-of-contents-test&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#table-of-contents-test&quot; aria-label=&quot;Anchor link for: table-of-contents-test&quot;&gt;Table-Of-Contents-Test&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;h1 id=&quot;heading-1&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#heading-1&quot; aria-label=&quot;Anchor link for: heading-1&quot;&gt;Heading 1&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;heading-2&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#heading-2&quot; aria-label=&quot;Anchor link for: heading-2&quot;&gt;Heading 2&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed mollis augue, vel efficitur lacus.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;heading-3&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#heading-3&quot; aria-label=&quot;Anchor link for: heading-3&quot;&gt;Heading 3&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed mollis augue, vel efficitur lacus. Pellentesque eu egestas mi.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;heading-4&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#heading-4&quot; aria-label=&quot;Anchor link for: heading-4&quot;&gt;Heading 4&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed mollis augue, vel efficitur lacus. Pellentesque eu egestas mi. Etiam ultrices lectus sit amet aliquet ullamcorper.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;math-symbols-test&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#math-symbols-test&quot; aria-label=&quot;Anchor link for: math-symbols-test&quot;&gt;Math-Symbols-Test&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;inline-math&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#inline-math&quot; aria-label=&quot;Anchor link for: inline-math&quot;&gt;Inline Math&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;$(a+b)^2$ = $a^2 + 2ab + b^2$&lt;&#x2F;li&gt;
+&lt;li&gt;A polynomial P of degree d over $\mathbb{F}_p$ is an expression of the form
+$P(s) = a_0 + a_1 . s + a_2 . s^2 + ... + a_d . s^d$ for some
+$a_0,..,a_d \in \mathbb{F}_p$&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;displayed-math&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#displayed-math&quot; aria-label=&quot;Anchor link for: displayed-math&quot;&gt;Displayed Math&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;$$
+p := (\sum_{k∈I}{c_k.v_k} + \delta_v.t(x))·(\sum_{k∈I}{c_k.w_k} + \delta_w.t(x)) − (\sum_{k∈I}{c_k.y_k} + \delta_y.t(x))
+$$&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
