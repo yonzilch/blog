@@ -3,6 +3,7 @@ title = "Yon Zilch"
 description = "This is Yon Zilch's Blog."
 build_search_index = false
 generate_feeds = true
+feed_filenames = ["atom.xml"]
 compile_sass = true
 minify_html = false
 
