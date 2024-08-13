@@ -4,6 +4,6 @@ description = "用电子罗盘，转赛博核桃，勘电磁风水，寻网络�
 weight = 7
 
 [extra]
-remote_image = "https://neo.lkt.icu/_matrix/media/r0/thumbnail/lkt.icu/ymSHRTuodBGBzznxzlDpmwrs?width=513&height=513&method=scale"
+remote_image = "https://avatars.githubusercontent.com/u/128880743"
 link_to = "https://blog.dich.ink/"
 +++
