@@ -5,8 +5,8 @@ date = "2023-02-26"
 
 <link rel="stylesheet" href="/css/audio.min.css" />
 <figure class="figure-center">
-  <img src="https://static.yon.im/image/blog/powered-by-albert-camus/Paragon.jpg" alt="aer">
-  <figcaption>with all my heart</figcaption>
+  <img src="https://static.yon.im/image/blog/powered-by-albert-camus/Paragon.jpg" alt="Paragon">
+  <figcaption>paragon</figcaption>
   <audio class="audio-control" controls>
     <source src="https://static.yon.im/audio/Paragon%20-%20A.N.O.%E3%80%81Shadowx.mp3" type="audio/mpeg">
     您的浏览器不支持 audio 元素。
