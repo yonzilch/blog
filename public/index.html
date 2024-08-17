@@ -51,13 +51,19 @@
     
     
         <link rel="stylesheet" type="text/css" href=https://blog.yon.im/theme/light.css />
-        <link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://blog.yon.im/theme/dark.css" />
+        <link rel="stylesheet" type="text/css" href="https://blog.yon.im/theme/dark.css" media="(prefers-color-scheme: dark)" />
     
     
     <!-- Set the correct theme in the script -->
     <script src=https://blog.yon.im/js/themetoggle.js></script>
     
-        <script>setTheme(getSavedTheme());</script>
+        <script>
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                setTheme("dark");
+            } else {
+                setTheme("light");
+            }
+        </script>
     
 
     <link rel="stylesheet" type="text/css" media="screen" href=https://blog.yon.im/main.css />
@@ -111,12 +117,6 @@
         <a href=https://blog.yon.im/search style="margin-left: 0.7em">&#x2F;search</a>
         
     
-        
-        <a id="dark-mode-toggle" onclick="toggleTheme(); event.preventDefault();" href="#">
-            <img src=https://blog.yon.im/feather/sun.svg id="sun-icon" style="filter: invert(1);" />
-            <img src=https://blog.yon.im/feather/moon.svg id="moon-icon" />
-        </a>
-        <script src=https://blog.yon.im/js/themetoggle.js></script>
         
     </nav>
 </header>
