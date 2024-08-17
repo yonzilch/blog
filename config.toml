@@ -15,7 +15,7 @@ highlight_theme = "ayu-dark"
 toc = true
 use_cdn = false
 favicon = "https://static.yon.im/image/avatar.webp"
-theme = "toggle" # light, dark, auto, toggle
+theme = "auto" # light, dark, auto, toggle
 # mathjax = true
 # mathjax_dollar_inline_enable = true
 
