@@ -389,30 +389,6 @@ Tip：可以临时放到 VScode 之类的文本编辑器里&lt;&#x2F;p&gt;
         
     </entry>
     <entry xml:lang="en">
-        <title>Hello Hugo!</title>
-        <published>2023-08-06T00:00:00+00:00</published>
-        <updated>2023-08-06T00:00:00+00:00</updated>
-        
-        <author>
-          <name>
-            
-              Unknown
-            
-          </name>
-        </author>
-        
-        <link rel="alternate" type="text/html" href="https://blog.yon.im/posts/hello-world-hugo/"/>
-        <id>https://blog.yon.im/posts/hello-world-hugo/</id>
-        
-        <content type="html" xml:base="https://blog.yon.im/posts/hello-world-hugo/">&lt;p&gt;你好,世界!这是我在Hugo中的第一篇文章。&lt;&#x2F;p&gt;
-&lt;p&gt;我很兴奋可以开始使用这个强大的静态网站生成器来构建我的新网站。&lt;&#x2F;p&gt;
-&lt;p&gt;Hugo让我可以快速简单地创建内容,并且完全自定义我的网站样式。&lt;&#x2F;p&gt;
-&lt;p&gt;默认的模板和主题提供了很好的起点,所以我不需要从零开始构建。&lt;&#x2F;p&gt;
-&lt;p&gt;我迫不及待地要写更多文章,与世界分享我的知识!&lt;&#x2F;p&gt;
-</content>
-        
-    </entry>
-    <entry xml:lang="en">
         <title>没有希望，没有绝望</title>
         <published>2023-03-13T00:00:00+00:00</published>
         <updated>2023-03-13T00:00:00+00:00</updated>
