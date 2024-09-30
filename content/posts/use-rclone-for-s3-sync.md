@@ -38,7 +38,7 @@ services:
       - /var/lib/docker/volumes/rclone/_data/config:/config
       - /var/lib/docker/volumes/rclone/_data/data:/data
     ports:
-      - 127.0.0.1:5572:5572
+      - 0.0.0.0:5572:5572
     entrypoint:
       - rclone
       - rcd
@@ -48,12 +48,6 @@ services:
       - --rc-user=xxxxxx
       - --rc-pass=xxxxxxxxxxxxxxxx
       ###- --rc-no-auth
-    networks:
-      - nginx
-
-networks:
-  nginx:
-    external: true
 
 ```
 
@@ -62,90 +56,7 @@ Notice: just replace [rc-user] and [rc-pass] at line 21, 22
 
 More reference to see how it works: [https://rclone.org/gui/](https://rclone.org/gui/)
 
-
-Configure NGINX config to make reserved proxy done.
-
-```
-rclone.conf
-```
-
-```
-server {
-    listen 80;
-    listen [::]:80;
-    server_name rclone.example.com;
-
-    # Uncomment to redirect HTTP to HTTPS
-    return 301 https://$host$request_uri;
-}
-
-server {
-    listen 443 ssl http2;
-    listen [::]:443 ssl http2;
-
-    server_name rclone.example.com;
-    #Do not use .pem format,otherwise NGINX will have errors
-    ssl_certificate		/www/server/nginx/cert/self-sign.cer;
-    ssl_certificate_key	/www/server/nginx/cert/private.key;
-    ssl_protocols TLSv1.2 TLSv1.3;
-    # HSTS (ngx_http_headers_module is required) (63072000 seconds)
-    add_header Strict-Transport-Security "max-age=63072000" always;
-
-
-    location / {
-
-    proxy_set_header    Host            $http_host;
-    proxy_set_header    X-Real-IP       $remote_addr;
-    proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_pass http://rclone:5572;
-
-    # Nginx by default only allows file uploads up to 1M in size
-    client_max_body_size 100M;
-
-    proxy_http_version 1.1;
-    proxy_redirect off;
-    # For WebSocket
-    proxy_set_header Upgrade $http_upgrade;
-    proxy_set_header Connection "upgrade";
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header X-Forwarded-Proto $scheme;
-    proxy_set_header X-Frame-Options SAMEORIGIN;
-
-    # Set as shown below. You can use other values for the numbers as you wish
-    proxy_headers_hash_max_size 512;
-    proxy_headers_hash_bucket_size 128;
-
-    # Cache settings
-    #proxy_cache cache1;
-    #proxy_cache_lock on;
-    #proxy_cache_use_stale updating;
-    #add_header X-Cache
-    #$upstream_cache_status;
-
-    proxy_connect_timeout 600s;
-    proxy_read_timeout 5400s;
-    proxy_send_timeout 600s;
-    send_timeout 5400s;
-    }
-
-    set_real_ip_from 127.0.0.1;
-    set_real_ip_from 0.0.0.0;
-    set_real_ip_from 173.249.206.186;
-    real_ip_header X-Forwarded-For;
-    real_ip_recursive on;
-
-    access_log  /www/server/nginx/logs/rclone.yzlab.eu.org.log;
-    error_log  /www/server/nginx/logs/rclone.yzlab.eu.org.log;
-}
-
-```
-
-
-
-Notice: just replace [rclone.example.com] at line 4, 28
-
-You can also use other reserved proxy program like Caddy, Traefik, and so on.
+Then configure reserved proxy programs like Nginx, Caddy, Traefik, and so on.
 
 Also, do not forget adding a DNS record.
 
