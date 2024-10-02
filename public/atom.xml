@@ -6,8 +6,194 @@
     <link rel="self" type="application/atom+xml" href="https://blog.yon.im/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://blog.yon.im"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2024-09-29T00:00:00+00:00</updated>
+    <updated>2024-10-02T00:00:00+00:00</updated>
     <id>https://blog.yon.im/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Use backrest for Linux full backup</title>
+        <published>2024-10-02T00:00:00+00:00</published>
+        <updated>2024-10-02T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.yon.im/posts/use-backrest-for-linux-full-backup/"/>
+        <id>https://blog.yon.im/posts/use-backrest-for-linux-full-backup/</id>
+        
+        <content type="html" xml:base="https://blog.yon.im/posts/use-backrest-for-linux-full-backup/">&lt;h3 id=&quot;needs&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#needs&quot; aria-label=&quot;Anchor link for: needs&quot;&gt;Needs&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;I am writing this post to record the effective method for establishing a automatic workflow that ensure my Linux desktop system is backed up correctly.&lt;&#x2F;p&gt;
+&lt;p&gt;With no pain, and no mess things, totally use open-source software make this work seamlessly after configuring the process.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;overview&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#overview&quot; aria-label=&quot;Anchor link for: overview&quot;&gt;Overview&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Prepare for the entire process&lt;&#x2F;li&gt;
+&lt;li&gt;Install backrest manually&lt;&#x2F;li&gt;
+&lt;li&gt;Configure backrest through webui&lt;&#x2F;li&gt;
+&lt;li&gt;Perform a full backup and attempt a restore for a reliability test&lt;&#x2F;li&gt;
+&lt;li&gt;Make it happen seamlessly&lt;&#x2F;li&gt;
+&lt;li&gt;Fix systemd-boot under LiveCD&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h2 id=&quot;before-you-go&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#before-you-go&quot; aria-label=&quot;Anchor link for: before-you-go&quot;&gt;Before you go&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;strong&gt;!WARNING!&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;The following operations are done in my &lt;a href=&quot;https:&#x2F;&#x2F;cachyos.org&#x2F;&quot;&gt;CachyOS&lt;&#x2F;a&gt; system, if you&#x27;re using other Linux Distros, I can not promise that would work.But I think the whole process could be reproduced because of the idea: &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Everything_is_a_file&quot;&gt;&quot;Everything is a file&quot;&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;prepare&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#prepare&quot; aria-label=&quot;Anchor link for: prepare&quot;&gt;Prepare&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Take me as an example, I install my CachyOS in an 240GB NVME disk, and I use &lt;a href=&quot;https:&#x2F;&#x2F;wiki.archlinux.org&#x2F;title&#x2F;Systemd-boot&quot;&gt;systemd-boot&lt;&#x2F;a&gt; rather than Grub as bootloader.Also, I set LUKS encryption for my root XFS disk volume.&lt;&#x2F;p&gt;
+&lt;p&gt;I installed a 500GB hard disk drive on the motherboard and later erase it into XFS file system.This disk will be as the backup volume, also I mount it at &lt;code&gt;&#x2F;run&#x2F;media&#x2F;admin&#x2F;715335b3-bd5e-4ee4-8cde-c1298fe669df&#x2F;&lt;&#x2F;code&gt; by KDE Device-Auto-Mount(715335b3-bd5e-4ee4-8cde-c1298fe669df is the UUID of the disk partition it can be found by &lt;code&gt;blkid&lt;&#x2F;code&gt; command ).&lt;&#x2F;p&gt;
+&lt;p&gt;Notice: You can also make backup disk mount automatically by configure &lt;code&gt;&#x2F;etc&#x2F;fstab&lt;&#x2F;code&gt;, but I won&#x27;t make a deep explanation here.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;install-backrest&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#install-backrest&quot; aria-label=&quot;Anchor link for: install-backrest&quot;&gt;Install backrest&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;There is an official &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;garethgeorge&#x2F;backrest?tab=readme-ov-file#installation&quot;&gt;installation&lt;&#x2F;a&gt; guide for installing backrest.&lt;&#x2F;p&gt;
+&lt;p&gt;Here I write a few command suitable for mostly Linux Distros to install it.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;mkdir ~&#x2F;Downloads
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;cd ~&#x2F;Downloads
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;curl -L https:&#x2F;&#x2F;github.com&#x2F;garethgeorge&#x2F;backrest&#x2F;releases&#x2F;latest&#x2F;download&#x2F;backrest_Linux_x86_64.tar.gz -o ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64.tar.gz
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;mkdir ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;tar -zxvf ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64.tar.gz -C ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;sudo cp ~&#x2F;Downloads&#x2F;backrest &#x2F;usr&#x2F;bin&#x2F;backrest
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;rm -rf ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Then input &lt;code&gt;backrest&lt;&#x2F;code&gt; in terminal to see if it works.&lt;&#x2F;p&gt;
+&lt;p&gt;After that, create a &lt;code&gt;backrest.service&lt;&#x2F;code&gt; to manage backrest by systemd.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;&#x2F;etc&#x2F;systemd&#x2F;system&#x2F;backrest.service&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;[Unit]
+&lt;&#x2F;span&gt;&lt;span&gt;Description=Backrest Service
+&lt;&#x2F;span&gt;&lt;span&gt;After=network.target
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;[Service]
+&lt;&#x2F;span&gt;&lt;span&gt;Type=simple
+&lt;&#x2F;span&gt;&lt;span&gt;User=root
+&lt;&#x2F;span&gt;&lt;span&gt;Group=root
+&lt;&#x2F;span&gt;&lt;span&gt;ExecStart=&#x2F;usr&#x2F;local&#x2F;bin&#x2F;backrest
+&lt;&#x2F;span&gt;&lt;span&gt;Environment=&amp;quot;BACKREST_PORT=127.0.0.1:9898&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;[Install]
+&lt;&#x2F;span&gt;&lt;span&gt;WantedBy=multi-user.target
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;PS: Here I set &lt;code&gt;User=root&lt;&#x2F;code&gt; make sure backrest could read all files.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;sudo systemctl daemon-reload
+&lt;&#x2F;span&gt;&lt;span&gt;sudo systemctl enable backrest --now
+&lt;&#x2F;span&gt;&lt;span&gt;sudo systemctl status backrest
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;configure-backrest&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#configure-backrest&quot; aria-label=&quot;Anchor link for: configure-backrest&quot;&gt;Configure backrest&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Browse to your backrest webui at localhost:9898&lt;&#x2F;p&gt;
+&lt;p&gt;Then you&#x27;ll see a interface to let you create the admin role of backrest.&lt;&#x2F;p&gt;
+&lt;p&gt;I just let [Disable Authentication] ✔️, but if your system isn&#x27;t under NAT, you ought to create username and input a strong password.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;add-repo&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#add-repo&quot; aria-label=&quot;Anchor link for: add-repo&quot;&gt;Add Repo:&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;p&gt;Click [+ Add Repo], here is my configuration:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-backrest-for-Linux-full-backup&#x2F;1.avif&quot; alt=&quot;1&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Explanation:&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;[Repo Name] is doesn&#x27;t matter what you set.&lt;&#x2F;li&gt;
+&lt;li&gt;[Repository URI] is the directory of the backup disk where you mount.(I set under &#x2F;CachyOS to make the location of backup folder not at the root directory of this disk volume.)&lt;&#x2F;li&gt;
+&lt;li&gt;[Password] should be set by yourself,it is like the passphrase for encryption.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h4 id=&quot;add-plan&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#add-plan&quot; aria-label=&quot;Anchor link for: add-plan&quot;&gt;Add Plan&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;p&gt;After [Submit] the configuration of Restic Repository, you need to click [+ Add Plan]&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-backrest-for-Linux-full-backup&#x2F;2.webp&quot; alt=&quot;2&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Explanation:&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;[Plan Name] is doesn&#x27;t matter what you set.&lt;&#x2F;li&gt;
+&lt;li&gt;[Repository] is just as [Repo Name]&lt;&#x2F;li&gt;
+&lt;li&gt;[Paths] should be set as root directory i.e. &#x2F; (So it could do a full backup)&lt;&#x2F;li&gt;
+&lt;li&gt;[Excludes] are the directories should not be backed up.(At least set as the example)&lt;&#x2F;li&gt;
+&lt;li&gt;[Backup Schedule] as the example it will automatically do a backup every 4 hours.(You can change it by yourself.)&lt;&#x2F;li&gt;
+&lt;li&gt;[Clock for schedule] just recommand to set as [Last Run Time]&lt;&#x2F;li&gt;
+&lt;li&gt;[Backup Flags] add &lt;code&gt;--one-file-system&lt;&#x2F;code&gt; so &#x2F;proc &#x2F;tmp and so on won&#x27;t be backuped.(More explanations here: &lt;a href=&quot;https:&#x2F;&#x2F;restic.readthedocs.io&#x2F;en&#x2F;latest&#x2F;040_backup.html#excluding-files&quot;&gt;https:&#x2F;&#x2F;restic.readthedocs.io&#x2F;en&#x2F;latest&#x2F;040_backup.html#excluding-files&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h4 id=&quot;test&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#test&quot; aria-label=&quot;Anchor link for: test&quot;&gt;Test&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-backrest-for-Linux-full-backup&#x2F;3.avif&quot; alt=&quot;3&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Click [Backup Now], wait the first long full backup process done.(Here I have backuped before, so just take a look the success result.)&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-backrest-for-Linux-full-backup&#x2F;4.webp&quot; alt=&quot;4&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Since now, the part of  &lt;code&gt;Configure backrest&lt;&#x2F;code&gt; have done right, it&#x27;ll automatically backup the whole system seamlessly in the background.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;restore&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#restore&quot; aria-label=&quot;Anchor link for: restore&quot;&gt;Restore&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Now, suppose your Linux system disk just explodes, only left your backup volume.&lt;&#x2F;p&gt;
+&lt;p&gt;Luckily, you have a disaster recovery because of the automatically backup by backrest.&lt;&#x2F;p&gt;
+&lt;p&gt;So let&#x27;s go to the LiveCD of your Linux Distro(as for me it is CachyOS LiveCD) , and make your system restore like before.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h4 id=&quot;first&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#first&quot; aria-label=&quot;Anchor link for: first&quot;&gt;First:&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;p&gt;Install backrest in LiveCD&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;mkdir ~&#x2F;Downloads
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;cd ~&#x2F;Downloads
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;curl -L https:&#x2F;&#x2F;github.com&#x2F;garethgeorge&#x2F;backrest&#x2F;releases&#x2F;latest&#x2F;download&#x2F;backrest_Linux_x86_64.tar.gz -o ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64.tar.gz
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;mkdir ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;tar -zxvf ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64.tar.gz -C ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;sudo cp ~&#x2F;Downloads&#x2F;backrest &#x2F;usr&#x2F;bin&#x2F;backrest
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;rm -rf ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Then change to root user to get full file access.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;sudo -i
+&lt;&#x2F;span&gt;&lt;span&gt;or
+&lt;&#x2F;span&gt;&lt;span&gt;su root
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Then input &lt;code&gt;backrest&lt;&#x2F;code&gt; in terminal, but this time, do not close &lt;code&gt;backrest&lt;&#x2F;code&gt; in terminal, and also no need of systemd-service.&lt;&#x2F;p&gt;
+&lt;p&gt;Just browse to your backrest webui localhost:9898&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-backrest-for-Linux-full-backup&#x2F;5.avif&quot; alt=&quot;5&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Then you need to restore your configuration like before manually.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-backrest-for-Linux-full-backup&#x2F;6.webp&quot; alt=&quot;6&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-backrest-for-Linux-full-backup&#x2F;7.webp&quot; alt=&quot;7&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;second&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#second&quot; aria-label=&quot;Anchor link for: second&quot;&gt;Second:&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;p&gt;Erase a new disk for your new Linux system disk, here use Gparted for a quick work.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-backrest-for-Linux-full-backup&#x2F;8.webp&quot; alt=&quot;8&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-backrest-for-Linux-full-backup&#x2F;9.webp&quot; alt=&quot;9&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-backrest-for-Linux-full-backup&#x2F;10.webp&quot; alt=&quot;10&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Notice: You should add [boot] &amp;amp; [esp] Flag to the Fat32 EFI volume.Click [Manage Flags] to do this.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-backrest-for-Linux-full-backup&#x2F;11.webp&quot; alt=&quot;11&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-backrest-for-Linux-full-backup&#x2F;12.webp&quot; alt=&quot;12&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;third&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#third&quot; aria-label=&quot;Anchor link for: third&quot;&gt;Third:&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;p&gt;Mount the new Linux system disk partition and EFI partition.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;sudo -i
+&lt;&#x2F;span&gt;&lt;span&gt;mkdir &#x2F;mnt&#x2F;boot
+&lt;&#x2F;span&gt;&lt;span&gt;mount &#x2F;dev&#x2F;sdc2 &#x2F;mnt
+&lt;&#x2F;span&gt;&lt;span&gt;mount &#x2F;dev&#x2F;sdc1 &#x2F;mnt&#x2F;boot
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;Notice: &#x2F;dev&#x2F;sdcX is define by your system environment, you can use command `lsblk` and `blkid` to see this.
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now you can excute restore command in backrest.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-backrest-for-Linux-full-backup&#x2F;13.webp&quot; alt=&quot;13&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Notice: This process may take a lot of time, but you need to be patient.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;finally&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#finally&quot; aria-label=&quot;Anchor link for: finally&quot;&gt;Finally:&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;p&gt;It&#x27;s almost done, just need to fix bootloader.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;genfstab -U &#x2F;mnt &amp;gt; &#x2F;mnt&#x2F;etc&#x2F;fstab
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;arch-chroot &#x2F;mnt
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;paru -S linux-cachyos
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;Notice: `paru -S linux-cachyos` is works only in CachyOS(or other Arch Linux), if you&amp;#39;re using other Linux Distro, you may needn&amp;#39;t run this command.
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;mkinitcpio -P
+&lt;&#x2F;span&gt;&lt;span&gt;mkinitcpio -V
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Notice: &#x2F;etc&#x2F;crypttab should be removed if your system once have LUKS crypt.&lt;&#x2F;p&gt;
+&lt;p&gt;Now, you could reboot, and boot into the formal system before the accident happened.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;more-about-luks-encryption&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#more-about-luks-encryption&quot; aria-label=&quot;Anchor link for: more-about-luks-encryption&quot;&gt;More About LUKS encryption&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;If you need LUKS encryption for root partition, you can create a crypt root volume before you restore.You can also enable LUKS in system after restore.However, due to space limitations, I won&#x27;t go into more detail.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;acknowledgements&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#acknowledgements&quot; aria-label=&quot;Anchor link for: acknowledgements&quot;&gt;Acknowledgements&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;restic&#x2F;restic&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;restic&#x2F;restic&lt;&#x2F;a&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;garethgeorge&#x2F;backrest&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;garethgeorge&#x2F;backrest&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
     <entry xml:lang="en">
         <title>Use rclone for s3 sync</title>
         <published>2024-09-29T00:00:00+00:00</published>
