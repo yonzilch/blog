@@ -81,7 +81,7 @@ Here I set `Name of this drive` as static-yon-4everland (it is my main s3 provid
 
 Then just fill in AWS Access Key ID, AWS Secret Access Key, Region, Endpoint by yourself.
 
-Also, set the other s3 provider as backup,here I set `static-yon-cloudflare`(Cloudflare R2).
+Also, set the other s3 provider as backup, here I set `static-yon-cloudflare`(Cloudflare R2).
 
 
 ![3](https://static.yon.im/image/blog/use-rclone-for-s3-sync/3.webp)
