@@ -50,7 +50,7 @@
 &lt;&#x2F;span&gt;&lt;span&gt;      - &#x2F;var&#x2F;lib&#x2F;docker&#x2F;volumes&#x2F;rclone&#x2F;_data&#x2F;config:&#x2F;config
 &lt;&#x2F;span&gt;&lt;span&gt;      - &#x2F;var&#x2F;lib&#x2F;docker&#x2F;volumes&#x2F;rclone&#x2F;_data&#x2F;data:&#x2F;data
 &lt;&#x2F;span&gt;&lt;span&gt;    ports:
-&lt;&#x2F;span&gt;&lt;span&gt;      - 127.0.0.1:5572:5572
+&lt;&#x2F;span&gt;&lt;span&gt;      - 0.0.0.0:5572:5572
 &lt;&#x2F;span&gt;&lt;span&gt;    entrypoint:
 &lt;&#x2F;span&gt;&lt;span&gt;      - rclone
 &lt;&#x2F;span&gt;&lt;span&gt;      - rcd
@@ -60,91 +60,11 @@
 &lt;&#x2F;span&gt;&lt;span&gt;      - --rc-user=xxxxxx
 &lt;&#x2F;span&gt;&lt;span&gt;      - --rc-pass=xxxxxxxxxxxxxxxx
 &lt;&#x2F;span&gt;&lt;span&gt;      ###- --rc-no-auth
-&lt;&#x2F;span&gt;&lt;span&gt;    networks:
-&lt;&#x2F;span&gt;&lt;span&gt;      - nginx
-&lt;&#x2F;span&gt;&lt;span&gt;
-&lt;&#x2F;span&gt;&lt;span&gt;networks:
-&lt;&#x2F;span&gt;&lt;span&gt;  nginx:
-&lt;&#x2F;span&gt;&lt;span&gt;    external: true
 &lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;Notice: just replace [rc-user] and [rc-pass] at line 21, 22&lt;&#x2F;p&gt;
 &lt;p&gt;More reference to see how it works: &lt;a href=&quot;https:&#x2F;&#x2F;rclone.org&#x2F;gui&#x2F;&quot;&gt;https:&#x2F;&#x2F;rclone.org&#x2F;gui&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
-&lt;p&gt;Configure NGINX config to make reserved proxy done.&lt;&#x2F;p&gt;
-&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;rclone.conf
-&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;server {
-&lt;&#x2F;span&gt;&lt;span&gt;    listen 80;
-&lt;&#x2F;span&gt;&lt;span&gt;    listen [::]:80;
-&lt;&#x2F;span&gt;&lt;span&gt;    server_name rclone.example.com;
-&lt;&#x2F;span&gt;&lt;span&gt;
-&lt;&#x2F;span&gt;&lt;span&gt;    # Uncomment to redirect HTTP to HTTPS
-&lt;&#x2F;span&gt;&lt;span&gt;    return 301 https:&#x2F;&#x2F;$host$request_uri;
-&lt;&#x2F;span&gt;&lt;span&gt;}
-&lt;&#x2F;span&gt;&lt;span&gt;
-&lt;&#x2F;span&gt;&lt;span&gt;server {
-&lt;&#x2F;span&gt;&lt;span&gt;    listen 443 ssl http2;
-&lt;&#x2F;span&gt;&lt;span&gt;    listen [::]:443 ssl http2;
-&lt;&#x2F;span&gt;&lt;span&gt;
-&lt;&#x2F;span&gt;&lt;span&gt;    server_name rclone.example.com;
-&lt;&#x2F;span&gt;&lt;span&gt;    #Do not use .pem format,otherwise NGINX will have errors
-&lt;&#x2F;span&gt;&lt;span&gt;    ssl_certificate		&#x2F;www&#x2F;server&#x2F;nginx&#x2F;cert&#x2F;self-sign.cer;
-&lt;&#x2F;span&gt;&lt;span&gt;    ssl_certificate_key	&#x2F;www&#x2F;server&#x2F;nginx&#x2F;cert&#x2F;private.key;
-&lt;&#x2F;span&gt;&lt;span&gt;    ssl_protocols TLSv1.2 TLSv1.3;
-&lt;&#x2F;span&gt;&lt;span&gt;    # HSTS (ngx_http_headers_module is required) (63072000 seconds)
-&lt;&#x2F;span&gt;&lt;span&gt;    add_header Strict-Transport-Security &amp;quot;max-age=63072000&amp;quot; always;
-&lt;&#x2F;span&gt;&lt;span&gt;
-&lt;&#x2F;span&gt;&lt;span&gt;
-&lt;&#x2F;span&gt;&lt;span&gt;    location &#x2F; {
-&lt;&#x2F;span&gt;&lt;span&gt;
-&lt;&#x2F;span&gt;&lt;span&gt;    proxy_set_header    Host            $http_host;
-&lt;&#x2F;span&gt;&lt;span&gt;    proxy_set_header    X-Real-IP       $remote_addr;
-&lt;&#x2F;span&gt;&lt;span&gt;    proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
-&lt;&#x2F;span&gt;&lt;span&gt;    proxy_pass http:&#x2F;&#x2F;rclone:5572;
-&lt;&#x2F;span&gt;&lt;span&gt;
-&lt;&#x2F;span&gt;&lt;span&gt;    # Nginx by default only allows file uploads up to 1M in size
-&lt;&#x2F;span&gt;&lt;span&gt;    client_max_body_size 100M;
-&lt;&#x2F;span&gt;&lt;span&gt;
-&lt;&#x2F;span&gt;&lt;span&gt;    proxy_http_version 1.1;
-&lt;&#x2F;span&gt;&lt;span&gt;    proxy_redirect off;
-&lt;&#x2F;span&gt;&lt;span&gt;    # For WebSocket
-&lt;&#x2F;span&gt;&lt;span&gt;    proxy_set_header Upgrade $http_upgrade;
-&lt;&#x2F;span&gt;&lt;span&gt;    proxy_set_header Connection &amp;quot;upgrade&amp;quot;;
-&lt;&#x2F;span&gt;&lt;span&gt;    proxy_set_header X-Real-IP $remote_addr;
-&lt;&#x2F;span&gt;&lt;span&gt;    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-&lt;&#x2F;span&gt;&lt;span&gt;    proxy_set_header X-Forwarded-Proto $scheme;
-&lt;&#x2F;span&gt;&lt;span&gt;    proxy_set_header X-Frame-Options SAMEORIGIN;
-&lt;&#x2F;span&gt;&lt;span&gt;
-&lt;&#x2F;span&gt;&lt;span&gt;    # Set as shown below. You can use other values for the numbers as you wish
-&lt;&#x2F;span&gt;&lt;span&gt;    proxy_headers_hash_max_size 512;
-&lt;&#x2F;span&gt;&lt;span&gt;    proxy_headers_hash_bucket_size 128;
-&lt;&#x2F;span&gt;&lt;span&gt;
-&lt;&#x2F;span&gt;&lt;span&gt;    # Cache settings
-&lt;&#x2F;span&gt;&lt;span&gt;    #proxy_cache cache1;
-&lt;&#x2F;span&gt;&lt;span&gt;    #proxy_cache_lock on;
-&lt;&#x2F;span&gt;&lt;span&gt;    #proxy_cache_use_stale updating;
-&lt;&#x2F;span&gt;&lt;span&gt;    #add_header X-Cache
-&lt;&#x2F;span&gt;&lt;span&gt;    #$upstream_cache_status;
-&lt;&#x2F;span&gt;&lt;span&gt;
-&lt;&#x2F;span&gt;&lt;span&gt;    proxy_connect_timeout 600s;
-&lt;&#x2F;span&gt;&lt;span&gt;    proxy_read_timeout 5400s;
-&lt;&#x2F;span&gt;&lt;span&gt;    proxy_send_timeout 600s;
-&lt;&#x2F;span&gt;&lt;span&gt;    send_timeout 5400s;
-&lt;&#x2F;span&gt;&lt;span&gt;    }
-&lt;&#x2F;span&gt;&lt;span&gt;
-&lt;&#x2F;span&gt;&lt;span&gt;    set_real_ip_from 127.0.0.1;
-&lt;&#x2F;span&gt;&lt;span&gt;    set_real_ip_from 0.0.0.0;
-&lt;&#x2F;span&gt;&lt;span&gt;    set_real_ip_from 173.249.206.186;
-&lt;&#x2F;span&gt;&lt;span&gt;    real_ip_header X-Forwarded-For;
-&lt;&#x2F;span&gt;&lt;span&gt;    real_ip_recursive on;
-&lt;&#x2F;span&gt;&lt;span&gt;
-&lt;&#x2F;span&gt;&lt;span&gt;    access_log  &#x2F;www&#x2F;server&#x2F;nginx&#x2F;logs&#x2F;rclone.yzlab.eu.org.log;
-&lt;&#x2F;span&gt;&lt;span&gt;    error_log  &#x2F;www&#x2F;server&#x2F;nginx&#x2F;logs&#x2F;rclone.yzlab.eu.org.log;
-&lt;&#x2F;span&gt;&lt;span&gt;}
-&lt;&#x2F;span&gt;&lt;span&gt;
-&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;p&gt;Notice: just replace [rclone.example.com] at line 4, 28&lt;&#x2F;p&gt;
-&lt;p&gt;You can also use other reserved proxy program like Caddy, Traefik, and so on.&lt;&#x2F;p&gt;
+&lt;p&gt;Then configure reserved proxy programs like Nginx, Caddy, Traefik, and so on.&lt;&#x2F;p&gt;
 &lt;p&gt;Also, do not forget adding a DNS record.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;setup&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#setup&quot; aria-label=&quot;Anchor link for: setup&quot;&gt;Setup&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
 &lt;p&gt;Browse to your rclone domain(or ip:5572 if you deploy rclone locally)&lt;&#x2F;p&gt;
@@ -155,7 +75,7 @@
 &lt;p&gt;Here I set &lt;code&gt;Name of this drive&lt;&#x2F;code&gt; as static-yon-4everland (it is my main s3 provider currently)&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-rclone-for-s3-sync&#x2F;2.avif&quot; alt=&quot;2&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;Then just fill in AWS Access Key ID, AWS Secret Access Key, Region, Endpoint by yourself.&lt;&#x2F;p&gt;
-&lt;p&gt;Also, set the other s3 provider as backup,here I set &lt;code&gt;static-yon-cloudflare&lt;&#x2F;code&gt;(Cloudflare R2).&lt;&#x2F;p&gt;
+&lt;p&gt;Also, set the other s3 provider as backup, here I set &lt;code&gt;static-yon-cloudflare&lt;&#x2F;code&gt;(Cloudflare R2).&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-rclone-for-s3-sync&#x2F;3.webp&quot; alt=&quot;3&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;More reference to see how it works:&lt;&#x2F;p&gt;
 &lt;ul&gt;
