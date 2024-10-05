@@ -43,7 +43,7 @@ Notice: You can also make backup disk mount automatically by configure `/etc/fst
 
 There is an official [installation](https://github.com/garethgeorge/backrest?tab=readme-ov-file#installation) guide for installing backrest.
 
-Here I write a few command suitable for mostly Linux Distros to install it.
+Here I write a few commands suitable for mostly Linux Distros to install it.
 
 ```
 mkdir ~/Downloads
@@ -174,7 +174,7 @@ rm -rf ~/Downloads/backrest_Linux_x86_64
 
 ```
 
-Then change to root user to get full file access.
+Then change to the root user to get full file access.
 
 ```
 sudo -i
@@ -225,7 +225,7 @@ Notice: /dev/sdcX is define by your system environment, you can use command `lsb
 
 ```
 
-Now you can excute restore command in backrest.
+Now you can execute restore command in backrest.
 
 ![13](https://static.yon.im/image/blog/use-backrest-for-Linux-full-backup/13.webp)
 
