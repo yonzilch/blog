@@ -260,5 +260,5 @@ If you need LUKS encryption for root partition, you can create a crypt root volu
 
 ## Acknowledgements
 
-[https://github.com/restic/restic](https://github.com/restic/restic)
-[https://github.com/garethgeorge/backrest](https://github.com/garethgeorge/backrest)
+- [https://github.com/restic/restic](https://github.com/restic/restic)
+- [https://github.com/garethgeorge/backrest](https://github.com/garethgeorge/backrest)

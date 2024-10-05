@@ -189,8 +189,10 @@
 &lt;h3 id=&quot;more-about-luks-encryption&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#more-about-luks-encryption&quot; aria-label=&quot;Anchor link for: more-about-luks-encryption&quot;&gt;More About LUKS encryption&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
 &lt;p&gt;If you need LUKS encryption for root partition, you can create a crypt root volume before you restore.You can also enable LUKS in system after restore.However, due to space limitations, I won&#x27;t go into more detail.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;acknowledgements&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#acknowledgements&quot; aria-label=&quot;Anchor link for: acknowledgements&quot;&gt;Acknowledgements&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
-&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;restic&#x2F;restic&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;restic&#x2F;restic&lt;&#x2F;a&gt;
-&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;garethgeorge&#x2F;backrest&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;garethgeorge&#x2F;backrest&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;restic&#x2F;restic&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;restic&#x2F;restic&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;garethgeorge&#x2F;backrest&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;garethgeorge&#x2F;backrest&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
 </content>
         
     </entry>
