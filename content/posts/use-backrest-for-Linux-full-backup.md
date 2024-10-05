@@ -117,7 +117,7 @@ Click [+ Add Repo], here is my configuration:
 
 
 
-#### Add Plan
+#### Add Plan:
 
 After [Submit] the configuration of Restic Repository, you need to click [+ Add Plan]
 
@@ -134,7 +134,7 @@ After [Submit] the configuration of Restic Repository, you need to click [+ Add 
 - [Backup Flags] add `--one-file-system` so /proc /tmp and so on won't be backuped.(More explanations here: [https://restic.readthedocs.io/en/latest/040_backup.html#excluding-files](https://restic.readthedocs.io/en/latest/040_backup.html#excluding-files)
 
 
-#### Test
+#### Test:
 
 ![3](https://static.yon.im/image/blog/use-backrest-for-Linux-full-backup/3.avif)
 
