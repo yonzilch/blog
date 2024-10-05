@@ -98,7 +98,7 @@
 &lt;li&gt;[Repository URI] is the directory of the backup disk where you mount.(I set under &#x2F;CachyOS to make the location of backup folder not at the root directory of this disk volume.)&lt;&#x2F;li&gt;
 &lt;li&gt;[Password] should be set by yourself,it is like the passphrase for encryption.&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
-&lt;h4 id=&quot;add-plan&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#add-plan&quot; aria-label=&quot;Anchor link for: add-plan&quot;&gt;Add Plan&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;h4 id=&quot;add-plan&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#add-plan&quot; aria-label=&quot;Anchor link for: add-plan&quot;&gt;Add Plan:&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
 &lt;p&gt;After [Submit] the configuration of Restic Repository, you need to click [+ Add Plan]&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-backrest-for-Linux-full-backup&#x2F;2.webp&quot; alt=&quot;2&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;strong&gt;Explanation:&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
@@ -111,7 +111,7 @@
 &lt;li&gt;[Clock for schedule] just recommand to set as [Last Run Time]&lt;&#x2F;li&gt;
 &lt;li&gt;[Backup Flags] add &lt;code&gt;--one-file-system&lt;&#x2F;code&gt; so &#x2F;proc &#x2F;tmp and so on won&#x27;t be backuped.(More explanations here: &lt;a href=&quot;https:&#x2F;&#x2F;restic.readthedocs.io&#x2F;en&#x2F;latest&#x2F;040_backup.html#excluding-files&quot;&gt;https:&#x2F;&#x2F;restic.readthedocs.io&#x2F;en&#x2F;latest&#x2F;040_backup.html#excluding-files&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
-&lt;h4 id=&quot;test&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#test&quot; aria-label=&quot;Anchor link for: test&quot;&gt;Test&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;h4 id=&quot;test&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#test&quot; aria-label=&quot;Anchor link for: test&quot;&gt;Test:&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
 &lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-backrest-for-Linux-full-backup&#x2F;3.avif&quot; alt=&quot;3&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;Click [Backup Now], wait the first long full backup process done.(Here I have backuped before, so just take a look the success result.)&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;use-backrest-for-Linux-full-backup&#x2F;4.webp&quot; alt=&quot;4&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
