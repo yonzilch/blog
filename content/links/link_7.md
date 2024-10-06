@@ -5,5 +5,5 @@ weight = 7
 
 [extra]
 remote_image = "https://avatars.githubusercontent.com/u/128880743"
-link_to = "https://blog.dich.ink/"
+link_to = "https://blog.dich.bid/"
 +++
