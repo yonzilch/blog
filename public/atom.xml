@@ -56,9 +56,9 @@
 &lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;span&gt;tar -zxvf ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64.tar.gz -C ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64
 &lt;&#x2F;span&gt;&lt;span&gt;
-&lt;&#x2F;span&gt;&lt;span&gt;sudo cp ~&#x2F;Downloads&#x2F;backrest &#x2F;usr&#x2F;bin&#x2F;backrest
+&lt;&#x2F;span&gt;&lt;span&gt;sudo cp ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64&#x2F;backrest &#x2F;usr&#x2F;bin&#x2F;backrest
 &lt;&#x2F;span&gt;&lt;span&gt;
-&lt;&#x2F;span&gt;&lt;span&gt;rm -rf ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64
+&lt;&#x2F;span&gt;&lt;span&gt;rm -rf ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64 &amp;amp;&amp;amp; ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64.tar.gz
 &lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;Then input &lt;code&gt;backrest&lt;&#x2F;code&gt; in terminal to see if it works.&lt;&#x2F;p&gt;
@@ -133,9 +133,9 @@
 &lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;span&gt;tar -zxvf ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64.tar.gz -C ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64
 &lt;&#x2F;span&gt;&lt;span&gt;
-&lt;&#x2F;span&gt;&lt;span&gt;sudo cp ~&#x2F;Downloads&#x2F;backrest &#x2F;usr&#x2F;bin&#x2F;backrest
+&lt;&#x2F;span&gt;&lt;span&gt;sudo cp ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64&#x2F;backrest &#x2F;usr&#x2F;bin&#x2F;backrest
 &lt;&#x2F;span&gt;&lt;span&gt;
-&lt;&#x2F;span&gt;&lt;span&gt;rm -rf ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64
+&lt;&#x2F;span&gt;&lt;span&gt;rm -rf ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64 &amp;amp;&amp;amp; ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64.tar.gz
 &lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;Then change to the root user to get full file access.&lt;&#x2F;p&gt;
@@ -176,18 +176,19 @@
 &lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;span&gt;arch-chroot &#x2F;mnt
 &lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;bootctl install
+&lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;span&gt;paru -S linux-cachyos
 &lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;span&gt;Notice: `paru -S linux-cachyos` is works only in CachyOS(or other Arch Linux), if you&amp;#39;re using other Linux Distro, you may needn&amp;#39;t run this command.
 &lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;span&gt;mkinitcpio -P
-&lt;&#x2F;span&gt;&lt;span&gt;mkinitcpio -V
 &lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;p&gt;Notice: &#x2F;etc&#x2F;crypttab should be removed if your system once have LUKS crypt.&lt;&#x2F;p&gt;
+&lt;p&gt;Notice: &#x2F;etc&#x2F;crypttab should be reconfigured if your system once have LUKS crypt.&lt;&#x2F;p&gt;
 &lt;p&gt;Now, you could reboot, and boot into the formal system before the accident happened.&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;more-about-luks-encryption&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#more-about-luks-encryption&quot; aria-label=&quot;Anchor link for: more-about-luks-encryption&quot;&gt;More About LUKS encryption&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
-&lt;p&gt;If you need LUKS encryption for root partition, you can create a crypt root volume before you restore.You can also enable LUKS in system after restore.However, due to space limitations, I won&#x27;t go into more detail.&lt;&#x2F;p&gt;
+&lt;p&gt;If you need LUKS encryption for root partition, you need to create a crypt root volume before you restore.However, due to space limitations, I won&#x27;t go into more detail.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;acknowledgements&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#acknowledgements&quot; aria-label=&quot;Anchor link for: acknowledgements&quot;&gt;Acknowledgements&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;restic&#x2F;restic&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;restic&#x2F;restic&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
