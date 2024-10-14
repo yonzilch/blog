@@ -56,9 +56,9 @@ mkdir ~/Downloads/backrest_Linux_x86_64
 
 tar -zxvf ~/Downloads/backrest_Linux_x86_64.tar.gz -C ~/Downloads/backrest_Linux_x86_64
 
-sudo cp ~/Downloads/backrest /usr/bin/backrest
+sudo cp ~/Downloads/backrest_Linux_x86_64/backrest /usr/bin/backrest
 
-rm -rf ~/Downloads/backrest_Linux_x86_64
+rm -rf ~/Downloads/backrest_Linux_x86_64 && ~/Downloads/backrest_Linux_x86_64.tar.gz
 
 ```
 
@@ -168,9 +168,9 @@ mkdir ~/Downloads/backrest_Linux_x86_64
 
 tar -zxvf ~/Downloads/backrest_Linux_x86_64.tar.gz -C ~/Downloads/backrest_Linux_x86_64
 
-sudo cp ~/Downloads/backrest /usr/bin/backrest
+sudo cp ~/Downloads/backrest_Linux_x86_64/backrest /usr/bin/backrest
 
-rm -rf ~/Downloads/backrest_Linux_x86_64
+rm -rf ~/Downloads/backrest_Linux_x86_64 && ~/Downloads/backrest_Linux_x86_64.tar.gz
 
 ```
 
@@ -240,22 +240,23 @@ genfstab -U /mnt > /mnt/etc/fstab
 
 arch-chroot /mnt
 
+bootctl install
+
 paru -S linux-cachyos
 
 Notice: `paru -S linux-cachyos` is works only in CachyOS(or other Arch Linux), if you're using other Linux Distro, you may needn't run this command.
 
 mkinitcpio -P
-mkinitcpio -V
 
 ```
 
-Notice: /etc/crypttab should be removed if your system once have LUKS crypt.
+Notice: /etc/crypttab should be reconfigured if your system once have LUKS crypt.
 
 Now, you could reboot, and boot into the formal system before the accident happened.
 
 ### More About LUKS encryption
 
-If you need LUKS encryption for root partition, you can create a crypt root volume before you restore.You can also enable LUKS in system after restore.However, due to space limitations, I won't go into more detail.
+If you need LUKS encryption for root partition, you need to create a crypt root volume before you restore.However, due to space limitations, I won't go into more detail.
 
 
 ## Acknowledgements

@@ -286,9 +286,9 @@
 </span><span>
 </span><span>tar -zxvf ~/Downloads/backrest_Linux_x86_64.tar.gz -C ~/Downloads/backrest_Linux_x86_64
 </span><span>
-</span><span>sudo cp ~/Downloads/backrest /usr/bin/backrest
+</span><span>sudo cp ~/Downloads/backrest_Linux_x86_64/backrest /usr/bin/backrest
 </span><span>
-</span><span>rm -rf ~/Downloads/backrest_Linux_x86_64
+</span><span>rm -rf ~/Downloads/backrest_Linux_x86_64 &amp;&amp; ~/Downloads/backrest_Linux_x86_64.tar.gz
 </span><span>
 </span></code></pre>
 <p>Then input <code>backrest</code> in terminal to see if it works.</p>
@@ -363,9 +363,9 @@
 </span><span>
 </span><span>tar -zxvf ~/Downloads/backrest_Linux_x86_64.tar.gz -C ~/Downloads/backrest_Linux_x86_64
 </span><span>
-</span><span>sudo cp ~/Downloads/backrest /usr/bin/backrest
+</span><span>sudo cp ~/Downloads/backrest_Linux_x86_64/backrest /usr/bin/backrest
 </span><span>
-</span><span>rm -rf ~/Downloads/backrest_Linux_x86_64
+</span><span>rm -rf ~/Downloads/backrest_Linux_x86_64 &amp;&amp; ~/Downloads/backrest_Linux_x86_64.tar.gz
 </span><span>
 </span></code></pre>
 <p>Then change to the root user to get full file access.</p>
@@ -406,18 +406,19 @@
 </span><span>
 </span><span>arch-chroot /mnt
 </span><span>
+</span><span>bootctl install
+</span><span>
 </span><span>paru -S linux-cachyos
 </span><span>
 </span><span>Notice: `paru -S linux-cachyos` is works only in CachyOS(or other Arch Linux), if you&#39;re using other Linux Distro, you may needn&#39;t run this command.
 </span><span>
 </span><span>mkinitcpio -P
-</span><span>mkinitcpio -V
 </span><span>
 </span></code></pre>
-<p>Notice: /etc/crypttab should be removed if your system once have LUKS crypt.</p>
+<p>Notice: /etc/crypttab should be reconfigured if your system once have LUKS crypt.</p>
 <p>Now, you could reboot, and boot into the formal system before the accident happened.</p>
 <h3 id="more-about-luks-encryption"><a class="zola-anchor" href="#more-about-luks-encryption" aria-label="Anchor link for: more-about-luks-encryption">More About LUKS encryption</a></h3>
-<p>If you need LUKS encryption for root partition, you can create a crypt root volume before you restore.You can also enable LUKS in system after restore.However, due to space limitations, I won't go into more detail.</p>
+<p>If you need LUKS encryption for root partition, you need to create a crypt root volume before you restore.However, due to space limitations, I won't go into more detail.</p>
 <h2 id="acknowledgements"><a class="zola-anchor" href="#acknowledgements" aria-label="Anchor link for: acknowledgements">Acknowledgements</a></h2>
 <ul>
 <li><a href="https://github.com/restic/restic">https://github.com/restic/restic</a></li>
