@@ -256,7 +256,7 @@
         <section class="body">
             <h3 id="needs"><a class="zola-anchor" href="#needs" aria-label="Anchor link for: needs">Needs</a></h3>
 <p>I am writing this post to record the effective method for establishing a automatic workflow that ensure my Linux desktop system is backed up correctly.</p>
-<p>With no pain, and no mess things, totally use open-source software make this work seamlessly after configuring the process.</p>
+<p>With no pain, and no messy things, totally use open-source software make this work seamlessly after configuring the process.</p>
 <h2 id="overview"><a class="zola-anchor" href="#overview" aria-label="Anchor link for: overview">Overview</a></h2>
 <ol>
 <li>Prepare for the entire process</li>
@@ -270,11 +270,11 @@
 <p><strong>!WARNING!</strong></p>
 <p><strong>The following operations are done in my <a href="https://cachyos.org/">CachyOS</a> system, if you're using other Linux Distros, I can not promise that would work.But I think the whole process could be reproduced because of the idea: <a href="https://en.wikipedia.org/wiki/Everything_is_a_file">"Everything is a file"</a></strong></p>
 <h2 id="prepare"><a class="zola-anchor" href="#prepare" aria-label="Anchor link for: prepare">Prepare</a></h2>
-<p>Take me as an example, I install my CachyOS in an 240GB NVME disk, and I use <a href="https://wiki.archlinux.org/title/Systemd-boot">systemd-boot</a> rather than Grub as bootloader.Also, I set LUKS encryption for my root XFS disk volume.</p>
-<p>I installed a 500GB hard disk drive on the motherboard and later erase it into XFS file system.This disk will be as the backup volume, also I mount it at <code>/run/media/admin/715335b3-bd5e-4ee4-8cde-c1298fe669df/</code> by KDE Device-Auto-Mount(715335b3-bd5e-4ee4-8cde-c1298fe669df is the UUID of the disk partition it can be found by <code>blkid</code> command ).</p>
+<p>Take me as an example, I install my CachyOS in an 240GB NVME disk, and I use <a href="https://wiki.archlinux.org/title/Systemd-boot">systemd-boot</a> rather than Grub as bootloader.Also, I have set LUKS encryption for my root XFS disk volume.</p>
+<p>I installed a 500GB hard disk drive on the motherboard and later erase it into XFS file system.This disk will serve as the backup volume, mounted at <code>/run/media/admin/715335b3-bd5e-4ee4-8cde-c1298fe669df/</code> by KDE Device-Auto-Mount(715335b3-bd5e-4ee4-8cde-c1298fe669df is the UUID of the disk partition it can be found by <code>blkid</code> command ).</p>
 <p>Notice: You can also make backup disk mount automatically by configure <code>/etc/fstab</code>, but I won't make a deep explanation here.</p>
 <h2 id="install-backrest"><a class="zola-anchor" href="#install-backrest" aria-label="Anchor link for: install-backrest">Install backrest</a></h2>
-<p>There is an official <a href="https://github.com/garethgeorge/backrest?tab=readme-ov-file#installation">installation</a> guide for installing backrest.</p>
+<p>There is an official <a href="https://github.com/garethgeorge/backrest?tab=readme-ov-file#installation">guide</a> for installing backrest.</p>
 <p>Here I write a few commands suitable for mostly Linux Distros to install it.</p>
 <pre style="background-color:#0f1419;color:#bfbab0;"><code><span>mkdir ~/Downloads
 </span><span>
@@ -309,7 +309,7 @@
 </span><span>WantedBy=multi-user.target
 </span><span>
 </span></code></pre>
-<p>PS: Here I set <code>User=root</code> make sure backrest could read all files.</p>
+<p>PS: Here I set <code>User=root</code> to make sure backrest could read all files.</p>
 <pre style="background-color:#0f1419;color:#bfbab0;"><code><span>sudo systemctl daemon-reload
 </span><span>sudo systemctl enable backrest --now
 </span><span>sudo systemctl status backrest
@@ -345,7 +345,7 @@
 <p><img src="https://static.yon.im/image/blog/use-backrest-for-Linux-full-backup/3.avif" alt="3" /></p>
 <p>Click [Backup Now], wait the first long full backup process done.(Here I have backuped before, so just take a look the success result.)</p>
 <p><img src="https://static.yon.im/image/blog/use-backrest-for-Linux-full-backup/4.webp" alt="4" /></p>
-<p>Since now, the part of  <code>Configure backrest</code> have done right, it'll automatically backup the whole system seamlessly in the background.</p>
+<p>At this point, the configuration of backrest is complete. It will automatically backup the whole system seamlessly in the background.</p>
 <h2 id="restore"><a class="zola-anchor" href="#restore" aria-label="Anchor link for: restore">Restore</a></h2>
 <p>Now, suppose your Linux system disk just explodes, only left your backup volume.</p>
 <p>Luckily, you have a disaster recovery because of the automatically backup by backrest.</p>
@@ -368,7 +368,7 @@
 </span><span>rm -rf ~/Downloads/backrest_Linux_x86_64 &amp;&amp; ~/Downloads/backrest_Linux_x86_64.tar.gz
 </span><span>
 </span></code></pre>
-<p>Then change to the root user to get full file access.</p>
+<p>Switch to the root user to get full file access.</p>
 <pre style="background-color:#0f1419;color:#bfbab0;"><code><span>sudo -i
 </span><span>or
 </span><span>su root
@@ -384,7 +384,7 @@
 <p><img src="https://static.yon.im/image/blog/use-backrest-for-Linux-full-backup/8.webp" alt="8" /></p>
 <p><img src="https://static.yon.im/image/blog/use-backrest-for-Linux-full-backup/9.webp" alt="9" /></p>
 <p><img src="https://static.yon.im/image/blog/use-backrest-for-Linux-full-backup/10.webp" alt="10" /></p>
-<p>Notice: You should add [boot] &amp; [esp] Flag to the Fat32 EFI volume.Click [Manage Flags] to do this.</p>
+<p>Notice: You should add [boot] &amp; [esp] flags to the Fat32 EFI volume.Click [Manage Flags] to do this.</p>
 <p><img src="https://static.yon.im/image/blog/use-backrest-for-Linux-full-backup/11.webp" alt="11" /></p>
 <p><img src="https://static.yon.im/image/blog/use-backrest-for-Linux-full-backup/12.webp" alt="12" /></p>
 <h4 id="third"><a class="zola-anchor" href="#third" aria-label="Anchor link for: third">Third:</a></h4>
@@ -418,7 +418,7 @@
 <p>Notice: /etc/crypttab should be reconfigured if your system once have LUKS crypt.</p>
 <p>Now, you could reboot, and boot into the formal system before the accident happened.</p>
 <h3 id="more-about-luks-encryption"><a class="zola-anchor" href="#more-about-luks-encryption" aria-label="Anchor link for: more-about-luks-encryption">More About LUKS encryption</a></h3>
-<p>If you need LUKS encryption for root partition, you need to create a crypt root volume before you restore.However, due to space limitations, I won't go into more detail.</p>
+<p>If you need LUKS encryption for the root partition, you need to create an encrypted root volume before restoring.However, due to space limitations, I won't go into more detail.</p>
 <h2 id="acknowledgements"><a class="zola-anchor" href="#acknowledgements" aria-label="Anchor link for: acknowledgements">Acknowledgements</a></h2>
 <ul>
 <li><a href="https://github.com/restic/restic">https://github.com/restic/restic</a></li>

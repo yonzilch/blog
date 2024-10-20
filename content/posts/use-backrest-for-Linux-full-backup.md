@@ -9,8 +9,7 @@ date = "2024-10-02"
 ### Needs
 I am writing this post to record the effective method for establishing a automatic workflow that ensure my Linux desktop system is backed up correctly.
 
-With no pain, and no mess things, totally use open-source software make this work seamlessly after configuring the process.
-
+With no pain, and no messy things, totally use open-source software make this work seamlessly after configuring the process.
 
 ## Overview
 
@@ -33,15 +32,15 @@ With no pain, and no mess things, totally use open-source software make this wor
 
 ## Prepare
 
-Take me as an example, I install my CachyOS in an 240GB NVME disk, and I use [systemd-boot](https://wiki.archlinux.org/title/Systemd-boot) rather than Grub as bootloader.Also, I set LUKS encryption for my root XFS disk volume.
+Take me as an example, I install my CachyOS in an 240GB NVME disk, and I use [systemd-boot](https://wiki.archlinux.org/title/Systemd-boot) rather than Grub as bootloader.Also, I have set LUKS encryption for my root XFS disk volume.
 
-I installed a 500GB hard disk drive on the motherboard and later erase it into XFS file system.This disk will be as the backup volume, also I mount it at `/run/media/admin/715335b3-bd5e-4ee4-8cde-c1298fe669df/` by KDE Device-Auto-Mount(715335b3-bd5e-4ee4-8cde-c1298fe669df is the UUID of the disk partition it can be found by `blkid` command ).
+I installed a 500GB hard disk drive on the motherboard and later erase it into XFS file system.This disk will serve as the backup volume, mounted at `/run/media/admin/715335b3-bd5e-4ee4-8cde-c1298fe669df/` by KDE Device-Auto-Mount(715335b3-bd5e-4ee4-8cde-c1298fe669df is the UUID of the disk partition it can be found by `blkid` command ).
 
 Notice: You can also make backup disk mount automatically by configure `/etc/fstab`, but I won't make a deep explanation here.
 
 ## Install backrest
 
-There is an official [installation](https://github.com/garethgeorge/backrest?tab=readme-ov-file#installation) guide for installing backrest.
+There is an official [guide](https://github.com/garethgeorge/backrest?tab=readme-ov-file#installation) for installing backrest.
 
 Here I write a few commands suitable for mostly Linux Distros to install it.
 
@@ -85,7 +84,7 @@ WantedBy=multi-user.target
 
 ```
 
-PS: Here I set `User=root` make sure backrest could read all files.
+PS: Here I set `User=root` to make sure backrest could read all files.
 
 ```
 sudo systemctl daemon-reload
@@ -142,7 +141,7 @@ Click [Backup Now], wait the first long full backup process done.(Here I have ba
 
 ![4](https://static.yon.im/image/blog/use-backrest-for-Linux-full-backup/4.webp)
 
-Since now, the part of  `Configure backrest` have done right, it'll automatically backup the whole system seamlessly in the background.
+At this point, the configuration of backrest is complete. It will automatically backup the whole system seamlessly in the background.
 
 ## Restore
 
@@ -174,7 +173,7 @@ rm -rf ~/Downloads/backrest_Linux_x86_64 && ~/Downloads/backrest_Linux_x86_64.ta
 
 ```
 
-Then change to the root user to get full file access.
+Switch to the root user to get full file access.
 
 ```
 sudo -i
@@ -205,7 +204,7 @@ Erase a new disk for your new Linux system disk, here use Gparted for a quick wo
 
 ![10](https://static.yon.im/image/blog/use-backrest-for-Linux-full-backup/10.webp)
 
-Notice: You should add [boot] & [esp] Flag to the Fat32 EFI volume.Click [Manage Flags] to do this.
+Notice: You should add [boot] & [esp] flags to the Fat32 EFI volume.Click [Manage Flags] to do this.
 
 ![11](https://static.yon.im/image/blog/use-backrest-for-Linux-full-backup/11.webp)
 
@@ -256,7 +255,7 @@ Now, you could reboot, and boot into the formal system before the accident happe
 
 ### More About LUKS encryption
 
-If you need LUKS encryption for root partition, you need to create a crypt root volume before you restore.However, due to space limitations, I won't go into more detail.
+If you need LUKS encryption for the root partition, you need to create an encrypted root volume before restoring.However, due to space limitations, I won't go into more detail.
 
 
 ## Acknowledgements
