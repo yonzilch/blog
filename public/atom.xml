@@ -72,7 +72,7 @@
 &lt;&#x2F;span&gt;&lt;span&gt;Type=simple
 &lt;&#x2F;span&gt;&lt;span&gt;User=root
 &lt;&#x2F;span&gt;&lt;span&gt;Group=root
-&lt;&#x2F;span&gt;&lt;span&gt;ExecStart=&#x2F;usr&#x2F;local&#x2F;bin&#x2F;backrest
+&lt;&#x2F;span&gt;&lt;span&gt;ExecStart=&#x2F;usr&#x2F;bin&#x2F;backrest
 &lt;&#x2F;span&gt;&lt;span&gt;Environment=&amp;quot;BACKREST_PORT=127.0.0.1:9898&amp;quot;
 &lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;span&gt;[Install]

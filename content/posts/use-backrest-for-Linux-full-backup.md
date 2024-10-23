@@ -76,7 +76,7 @@ After=network.target
 Type=simple
 User=root
 Group=root
-ExecStart=/usr/local/bin/backrest
+ExecStart=/usr/bin/backrest
 Environment="BACKREST_PORT=127.0.0.1:9898"
 
 [Install]
