@@ -57,7 +57,7 @@ tar -zxvf ~/Downloads/backrest_Linux_x86_64.tar.gz -C ~/Downloads/backrest_Linux
 
 sudo cp ~/Downloads/backrest_Linux_x86_64/backrest /usr/bin/backrest
 
-rm -rf ~/Downloads/backrest_Linux_x86_64 && ~/Downloads/backrest_Linux_x86_64.tar.gz
+rm -rf ~/Downloads/backrest_Linux_x86_64 ~/Downloads/backrest_Linux_x86_64.tar.gz
 
 ```
 
@@ -169,7 +169,7 @@ tar -zxvf ~/Downloads/backrest_Linux_x86_64.tar.gz -C ~/Downloads/backrest_Linux
 
 sudo cp ~/Downloads/backrest_Linux_x86_64/backrest /usr/bin/backrest
 
-rm -rf ~/Downloads/backrest_Linux_x86_64 && ~/Downloads/backrest_Linux_x86_64.tar.gz
+rm -rf ~/Downloads/backrest_Linux_x86_64 ~/Downloads/backrest_Linux_x86_64.tar.gz
 
 ```
 
