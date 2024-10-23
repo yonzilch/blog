@@ -58,7 +58,7 @@
 &lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;span&gt;sudo cp ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64&#x2F;backrest &#x2F;usr&#x2F;bin&#x2F;backrest
 &lt;&#x2F;span&gt;&lt;span&gt;
-&lt;&#x2F;span&gt;&lt;span&gt;rm -rf ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64 &amp;amp;&amp;amp; ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64.tar.gz
+&lt;&#x2F;span&gt;&lt;span&gt;rm -rf ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64 ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64.tar.gz
 &lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;Then input &lt;code&gt;backrest&lt;&#x2F;code&gt; in terminal to see if it works.&lt;&#x2F;p&gt;
@@ -135,7 +135,7 @@
 &lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;span&gt;sudo cp ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64&#x2F;backrest &#x2F;usr&#x2F;bin&#x2F;backrest
 &lt;&#x2F;span&gt;&lt;span&gt;
-&lt;&#x2F;span&gt;&lt;span&gt;rm -rf ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64 &amp;amp;&amp;amp; ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64.tar.gz
+&lt;&#x2F;span&gt;&lt;span&gt;rm -rf ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64 ~&#x2F;Downloads&#x2F;backrest_Linux_x86_64.tar.gz
 &lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;Switch to the root user to get full file access.&lt;&#x2F;p&gt;
