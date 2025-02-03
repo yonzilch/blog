@@ -23,8 +23,12 @@ date = "2022-10-20"
 
 有时，你被安排做着不情愿的事情，或者不得不去做并不自发喜欢的事情。这类情况通常都导向同一个结果：那就是你将带着更少的投入、更少的意识、更少的记忆去执行。不断重复，重复再重复，再热忱的心也会被浇灭，再精力充沛的人也将垂头丧气，疲于应付。这就是人记忆与激情磨灭的概述。
 
-> 有选择的生活就是有意识的生活。
 > A life lived of choice is a life of conscious action.
-> 随意的生活是没有意识创造的生活。
+>
+> 有选择的生活就是有意识的生活。
+>
 > A life lived of chance is a life of unconscious creation.
+>
+> 随意的生活是没有意识创造的生活。
+>
 > ——Neale Donald Walsch
