@@ -1,5 +1,5 @@
 {
-  description = "A Nix-flake-based Zola development environment";
+  description = "A Nix-flake-based Pagefind & Zola development environment";
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   outputs = { self, nixpkgs }:
     let
@@ -12,6 +12,7 @@
       devShells = forEachSupportedSystem ({ pkgs }: {
         default = pkgs.mkShell {
           packages = with pkgs; [
+            pagefind
             zola
           ];
         };
