@@ -4,5 +4,4 @@
 
 # build site
 build:
-  zola build && npx pagefind --site public
-
+  zola build && pagefind --site public
