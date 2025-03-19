@@ -1,9 +1,9 @@
 +++
-title = "Purkit's Blog"
-description = "若知是梦何须醒 不比真如一相会"
+title = "nanimonai's Blog"
+description = "吾魂兮无求乎永生，竭尽兮人事之所能"
 weight = 5
 
 [extra]
-remote_image = "https://s3.tebi.io/img.purkit.ml/avater.jpg"
-link_to = "https://purkit.lockey.icu/"
+remote_image = "https://img.nanimonai.org/headimg.jpg"
+link_to = "https://blog.nanimonai.org/"
 +++
