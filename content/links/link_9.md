@@ -1,9 +1,9 @@
 +++
-title = "Tony's Blog"
-description = "一个萌新的博客"
+title = "ZhenYu's Blog"
+description = "Stay hungry, stay foolish."
 weight = 9
 
 [extra]
-remote_image = "https://blog.iamsjy.com/assets/favicon.jpg"
-link_to = "https://blog.iamsjy.com"
+remote_image = "https://avatars.githubusercontent.com/u/27891011"
+link_to = "http://zhenyutongxue.com/"
 +++
