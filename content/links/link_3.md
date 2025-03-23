@@ -5,5 +5,5 @@ weight = 3
 
 [extra]
 remote_image = "https://cdn.jsdelivr.net/gh/Eurekaimer/MyIMGs@main/img/profile.jpg"
-link_to = "https://eurekaimer.github.io/"
+link_to = "https://www.eurekaimer.xyz"
 +++
