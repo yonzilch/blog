@@ -3,10 +3,8 @@ title = "Use backrest for Linux full backup"
 date = "2024-10-02"
 +++
 
-
-
-
 ### Needs
+
 I am writing this post to record the effective method for establishing a automatic workflow that ensure my Linux desktop system is backed up correctly.
 
 With no pain, and no messy things, totally use open-source software make this work seamlessly after configuring the process.

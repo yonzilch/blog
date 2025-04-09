@@ -30,7 +30,6 @@
   &lt;figcaption&gt;蓿 - 重返袖珍時光&lt;&#x2F;figcaption&gt;
   &lt;audio class=&quot;audio-control&quot; controls&gt;
     &lt;source src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;audio&#x2F;%E8%93%BF%20-%20%E9%87%8D%E8%BF%94%E8%A2%96%E7%8F%8D%E6%99%82%E5%85%89.mp3&quot; type=&quot;audio&#x2F;mpeg&quot;&gt;
-    Your browser does not support the audio element.
   &lt;&#x2F;audio&gt;
 &lt;&#x2F;figure&gt;
 &lt;h2 id=&quot;zhang-qi&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#zhang-qi&quot; aria-label=&quot;Anchor link for: zhang-qi&quot;&gt;章起&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
@@ -580,7 +579,6 @@
   &lt;figcaption&gt;with all my heart&lt;&#x2F;figcaption&gt;
   &lt;audio class=&quot;audio-control&quot; controls&gt;
     &lt;source src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;audio&#x2F;with all my heart - Wisp X.mp3&quot; type=&quot;audio&#x2F;mpeg&quot;&gt;
-    您的浏览器不支持 audio 元素。
   &lt;&#x2F;audio&gt;
 &lt;&#x2F;figure&gt;
 &lt;h2 id=&quot;intro&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#intro&quot; aria-label=&quot;Anchor link for: intro&quot;&gt;Intro&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
@@ -726,25 +724,25 @@
 &lt;p&gt;（其实一年下来看过的文章没几千篇，也有百来篇了）这里，我仅选取了对我影响最深的10篇文章。&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;strong&gt;一年中最想♥️感谢♥️的其实是这些深深触动并改变我的故事和文章：&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;justinyan.me&#x2F;post&#x2F;5790&quot;&gt;《每个人每天都只有24小时，希望我的选择真的是我的选择》&lt;&#x2F;a&gt;&lt;br &#x2F;&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;justinyan.me&#x2F;post&#x2F;5790&quot;&gt;《每个人每天都只有24小时，希望我的选择真的是我的选择》&lt;&#x2F;a&gt;
 让我反思人生之陷阱&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;blog.si-on.top&#x2F;2023&#x2F;key4read&#x2F;&quot;&gt;《电子阅读新语》&lt;&#x2F;a&gt;&lt;br &#x2F;&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;blog.si-on.top&#x2F;2023&#x2F;key4read&#x2F;&quot;&gt;《电子阅读新语》&lt;&#x2F;a&gt;
 使我彻悟读书的意义&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;justgoidea.com&#x2F;posts&#x2F;2022-019&#x2F;&quot;&gt;《2022 年值得持续阅读的内容平台》&lt;&#x2F;a&gt;&lt;br &#x2F;&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;justgoidea.com&#x2F;posts&#x2F;2022-019&#x2F;&quot;&gt;《2022 年值得持续阅读的内容平台》&lt;&#x2F;a&gt;
 助我收集精良的信息源&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;subnooc.com&#x2F;posts&#x2F;go-far-away&quot;&gt;《如果可以，请去远方看看》&lt;&#x2F;a&gt;&lt;br &#x2F;&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;subnooc.com&#x2F;posts&#x2F;go-far-away&quot;&gt;《如果可以，请去远方看看》&lt;&#x2F;a&gt;
 唤我以不一样的视角看世界&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;lutaonan.com&#x2F;blog&#x2F;7-days-meditation&#x2F;&quot;&gt;《在清迈冥想学习 7 天后，我不再「追求」幸福》&lt;&#x2F;a&gt;&lt;br &#x2F;&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;lutaonan.com&#x2F;blog&#x2F;7-days-meditation&#x2F;&quot;&gt;《在清迈冥想学习 7 天后，我不再「追求」幸福》&lt;&#x2F;a&gt;
 引我从内心找寻真正的自我&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;atpx.com&#x2F;blog&#x2F;escape-information-explosion&#x2F;&quot;&gt;《逃离爆炸的信息》&lt;&#x2F;a&gt;&lt;br &#x2F;&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;atpx.com&#x2F;blog&#x2F;escape-information-explosion&#x2F;&quot;&gt;《逃离爆炸的信息》&lt;&#x2F;a&gt;
 带我远离💥碎片的信息熵乱平台&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;archive.dianqk.blog&#x2F;2022&#x2F;04&#x2F;23&#x2F;archlinux-and-lineageos&#x2F;&quot;&gt;《将 Arch Linux 和 LineageOS 作为主力系统》&lt;&#x2F;a&gt;&lt;br &#x2F;&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;archive.dianqk.blog&#x2F;2022&#x2F;04&#x2F;23&#x2F;archlinux-and-lineageos&#x2F;&quot;&gt;《将 Arch Linux 和 LineageOS 作为主力系统》&lt;&#x2F;a&gt;
 予我开源软件之实践&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.pseudoyu.com&#x2F;zh&#x2F;2022&#x2F;06&#x2F;28&#x2F;weekly_review_20220626&#x2F;&quot;&gt;《周报 #01 - 情感、安全感与认真生活》&lt;&#x2F;a&gt;&lt;br &#x2F;&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.pseudoyu.com&#x2F;zh&#x2F;2022&#x2F;06&#x2F;28&#x2F;weekly_review_20220626&#x2F;&quot;&gt;《周报 #01 - 情感、安全感与认真生活》&lt;&#x2F;a&gt;
 献我生活的多维度视角&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.zackwu.com&#x2F;posts&#x2F;2021-11-26-bigger-world-and-inner-peace&#x2F;&quot;&gt;《二十二岁，追寻更大的世界与更平和的内心》&lt;&#x2F;a&gt;&lt;br &#x2F;&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.zackwu.com&#x2F;posts&#x2F;2021-11-26-bigger-world-and-inner-peace&#x2F;&quot;&gt;《二十二岁，追寻更大的世界与更平和的内心》&lt;&#x2F;a&gt;
 激我未来之希冀&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;liuguo.eth.limo&#x2F;13271-%E4%BF%A1%E6%81%AF%E8%87%AA%E7%94%B1%E7%9A%84%E4%B9%8C%E6%89%98%E9%82%A6%E4%B8%8E%E7%8E%B0%E5%AE%9E&#x2F;&quot;&gt;《信息自由的乌托邦与现实》&lt;&#x2F;a&gt;&lt;br &#x2F;&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;liuguo.eth.limo&#x2F;13271-%E4%BF%A1%E6%81%AF%E8%87%AA%E7%94%B1%E7%9A%84%E4%B9%8C%E6%89%98%E9%82%A6%E4%B8%8E%E7%8E%B0%E5%AE%9E&#x2F;&quot;&gt;《信息自由的乌托邦与现实》&lt;&#x2F;a&gt;
 领我看清信息技术的现实面目&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;h2 id=&quot;fin&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#fin&quot; aria-label=&quot;Anchor link for: fin&quot;&gt;Fin&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
@@ -960,14 +958,14 @@ Tip：可以临时放到 VScode 之类的文本编辑器里&lt;&#x2F;p&gt;
   &lt;figcaption&gt;For River - Piano (Johnny&#x27;s Version)&lt;&#x2F;figcaption&gt;
   &lt;audio class=&quot;audio-control&quot; controls&gt;
     &lt;source src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;audio&#x2F;For%20River%20-%20Piano%20%28Johnny%27s%20Version%29.mp3&quot; type=&quot;audio&#x2F;mpeg&quot;&gt;
-    您的浏览器不支持 audio 元素。
   &lt;&#x2F;audio&gt;
 &lt;&#x2F;figure&gt;
 &lt;blockquote&gt;
-&lt;p&gt;　　希望是什么?是娼妓：&lt;&#x2F;p&gt;
-&lt;p&gt;　　她对谁都蛊惑，将一切都献给;&lt;&#x2F;p&gt;
+&lt;p&gt;　　希望是什么? 是娼妓：&lt;&#x2F;p&gt;
+&lt;p&gt;　　她对谁都蛊惑，将一切都献给&lt;&#x2F;p&gt;
 &lt;p&gt;　　待你牺牲了极多的宝贝——&lt;&#x2F;p&gt;
 &lt;p&gt;　　你的青春——她就弃掉你。&lt;&#x2F;p&gt;
+&lt;p&gt;　　——Sándor Petőfi&lt;&#x2F;p&gt;
 &lt;&#x2F;blockquote&gt;
 &lt;p&gt;加缪曾言：「没有对生活的绝望，就没有对生活的热爱。」今日，余将其语稍作更改：「没有对生活的希望，就没有对生活的绝望。」&lt;&#x2F;p&gt;
 &lt;p&gt;固然，希望予人以一时的欣喜与动力。它来自生活遭遇中一点鼓舞人心的发展进步，其背后源自古老基因赋予动物的「环境适应性」。行为结果看似不错，即表明这样的行为有利于所处环境下谋生，于是希望产生，希望又塑造行为，经行轮转，运作不息。然而环境是不断变化的，倘若行为结果不受环境认可，一次又一次，希望幻灭，造就行为调整，再经受环境考验......这个过程既是循环语句，又蕴含无数判断语句，基因自我编程也不过是以大量的基本语句构成。错误与纠正，进化与退化，肯定与否定穿插其间，如同《谜》一文中所写：「我不知道自己在寻找什么，我小心翼翼地为之命名，我收回说过的话，我重复自己的话，我退退进进。」希望便诞生与毁灭在这一次又一次的荒谬经历与不断变化的周边环境之中。「悖谬卷伏在事务深层，如果我侧耳倾听其话语，它就会慢慢地显出身形，眨一眨清澈的小眼睛说：『要怎样生活？且只当......』尽管我寻寻觅觅，所求得的知识却不外如此。」《一体两面》中加缪绝对地向《谜》给出自我回答，也启发了余深入思考。&lt;&#x2F;p&gt;
@@ -1006,7 +1004,6 @@ Tip：可以临时放到 VScode 之类的文本编辑器里&lt;&#x2F;p&gt;
   &lt;figcaption&gt;Paragon&lt;&#x2F;figcaption&gt;
   &lt;audio class=&quot;audio-control&quot; controls&gt;
     &lt;source src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;audio&#x2F;Paragon%20-%20A.N.O.%E3%80%81Shadowx.mp3&quot; type=&quot;audio&#x2F;mpeg&quot;&gt;
-    您的浏览器不支持 audio 元素。
   &lt;&#x2F;audio&gt;
 &lt;&#x2F;figure&gt;
 &lt;h3 id=&quot;di-yu-zhong-de-pu-luo-mi-xiu-si&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#di-yu-zhong-de-pu-luo-mi-xiu-si&quot; aria-label=&quot;Anchor link for: di-yu-zhong-de-pu-luo-mi-xiu-si&quot;&gt;《地狱中的普罗米修斯》&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
@@ -1160,7 +1157,6 @@ Tip：可以临时放到 VScode 之类的文本编辑器里&lt;&#x2F;p&gt;
   &lt;figcaption&gt;Thomas Greenberg-The Right Path(G.Y.M Bootleg)（G.Y.M Remix）&lt;&#x2F;figcaption&gt;
   &lt;audio class=&quot;audio-control&quot; controls&gt;
     &lt;source src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;audio&#x2F;Thomas%20Greenberg-The%20Right%20Path%28G.Y.M%20Bootleg%29%EF%BC%88G.Y.M%20Remix%EF%BC%89%20-%20G.Y.M.mp3&quot; type=&quot;audio&#x2F;mpeg&quot;&gt;
-    您的浏览器不支持 audio 元素。
   &lt;&#x2F;audio&gt;
 &lt;&#x2F;figure&gt;
 &lt;blockquote&gt;
