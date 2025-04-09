@@ -5,7 +5,6 @@ date = "2022-01-01"
 
 # Markdown Test
 
-
 ## Basic-Test
 
 ### Code Block
@@ -24,7 +23,7 @@ fn main() {
 
 ### Code tags
 
-Lorem ipsum `dolor` sit amet, `consectetur adipiscing` elit. 
+Lorem ipsum `dolor` sit amet, `consectetur adipiscing` elit.
 `Lorem ipsum dolor sit amet, consectetur adipiscing elit.`
 
 ---
@@ -59,4 +58,3 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed mollis augue
 $$
 p := (\sum_{k∈I}{c_k.v_k} + \delta_v.t(x))·(\sum_{k∈I}{c_k.w_k} + \delta_w.t(x)) − (\sum_{k∈I}{c_k.y_k} + \delta_y.t(x))
 $$
-

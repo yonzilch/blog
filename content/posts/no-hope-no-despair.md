@@ -9,17 +9,18 @@ date = "2023-03-13"
   <figcaption>For River - Piano (Johnny's Version)</figcaption>
   <audio class="audio-control" controls>
     <source src="https://static.yon.im/audio/For%20River%20-%20Piano%20%28Johnny%27s%20Version%29.mp3" type="audio/mpeg">
-    您的浏览器不支持 audio 元素。
   </audio>
 </figure>
 
->　　希望是什么?是娼妓：
+>　　希望是什么? 是娼妓：
 >
->　　她对谁都蛊惑，将一切都献给;
+>　　她对谁都蛊惑，将一切都献给
 >
 >　　待你牺牲了极多的宝贝——
 >
 >　　你的青春——她就弃掉你。
+>
+>　　——Sándor Petőfi
 
 加缪曾言：「没有对生活的绝望，就没有对生活的热爱。」今日，余将其语稍作更改：「没有对生活的希望，就没有对生活的绝望。」
 
@@ -30,13 +31,13 @@ date = "2023-03-13"
 我们寻寻觅觅，侧耳倾听那来自童年时期即已充斥耳畔的话语：「你长大了要当什么？」「你的梦想是什么？」「如果你成为了XXX，那该多好啊！」「只要上了重点学校，就......」「只要我的儿子/女儿，找到好工作，我就舒服了。」「只要你长大了，你就明白了XXX。」周边人常常在想象之中预设着美好未来，并播撒希望之种。这群体的愚昧记忆至今仍传递着，演绎着，利用有限的希望来限制个体的完善，囚禁精神之自由。芸芸众生深陷希望的茧房之中，一个又一个「只要XXX，我就XXX」的渴念经绝不息，慰藉自我。殊不知人生的大好年华便磨灭在眼前苟且轮回着的希望与绝望。
 
 > Put your dreams to sleep for some time because dreams come from past experience of life. Our future should have nothing to do with our past, otherwise we will just recycle the past and think it is the future. Most people's idea of future is to take a piece of past, apply make up on it and think it is future, a little improved. 
-> 
+>
 > 让你的梦想再沉睡一些时间，因为梦想都是基于过往的生命体验。我们的未来和我们的过往不该有任何关系，否则我们只是在循环过往，却还以为那是未来。很多人对未来的概念就是：取一小块过往的碎片，在上面化点妆，然后这就是未来了——一点点改进而已。
-> 
+>
 > I want to destroy your dreams. Let them be destroyed, so that you aspire to just grow yourself to your full potential.
-> 
+>
 > 我想要摧毁你的梦，让它们被摧毁掉吧，这样你会渴望只是去成长，实现你的全部潜能。
-> 
+>
 > ——Sadhguru
 
 存在于想象中的希望是局限的， 若以局限之物来塑造人的行为，那么完全的个人发展便无从谈起。而绝望也不过是有限累积下生命不满之咆哮，那丝阴魂不散的匮乏感终将到来并支配渴求希望的执迷之徒。
