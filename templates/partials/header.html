@@ -69,36 +69,6 @@
         <link rel="icon" type="image/png" href={{ config.extra.favicon }} />
     {% endif %}
 
-    {# Analytics #}
-    {% if config.extra.analytics.enabled %}
-        {% if config.extra.analytics.umami.website_id %}
-            {% set website_id = config.extra.analytics.umami.website_id %}
-            {% set host_url = config.extra.analytics.umami.host_url | default(value="https://analytics.eu.umami.is") %}
-
-            <script>
-                (function () {
-                  var el = document.createElement('script');
-                  el.setAttribute('src', '/js/imamu.js');
-                  el.setAttribute('data-website-id', '{{ website_id }}');
-                  el.setAttribute('data-host-url', '{{ host_url }}');
-                  document.body.appendChild(el);
-                })();
-              </script>
-            <script async src="/js/imamu.js" data-website-id="{{ website_id }}" data-host-url="{{ host_url }}"></script>
-        {% endif %}
-
-        {% if config.extra.analytics.goatcounter.user %}
-            {% set user = config.extra.analytics.goatcounter.user %}
-            {% set host = config.extra.analytics.goatcounter.host | default(value="goatcounter.com") %}
-
-            <script data-goatcounter="https://{{ user }}.{{ host }}/count" async src="{{ get_url(path="js/count.js") }}"></script>
-            <noscript>
-                {# EasyList blocks '.com/count?', so we have to use '.com//count' #}
-                <img src="https://{{ user }}.{{ host }}//count?p={{ current_path }}&t={{ page.title | default(value=config.title) }}">
-            </noscript>
-        {% endif %}
-    {% endif %}
-
 
     {% if config.extra.mathjax | default(value=false) %}
         {% if config.extra.mathjax_dollar_inline_enable | default(value=false) %}
@@ -115,42 +85,15 @@
         </script>
     {% endif %}
 
+
     {# RSS #}
     <link rel="alternate" type="application/atom+xml" title="{{ config.title }}" href="{{ get_url(path="atom.xml", trailing_slash=false) }}">
 
 
     {% set theme = config.extra.theme %}
-    {% if theme == "dark" %}
         <link rel="stylesheet" type="text/css" href="{{ get_url(path='theme/dark.css') }}" />
-    {% elif theme == "light" %}
-        <link rel="stylesheet" type="text/css" href={{ get_url(path="theme/light.css") }} />
-    {% elif theme == "auto" %}
-        <link rel="stylesheet" type="text/css" href={{ get_url(path="theme/light.css") }} />
-        <link rel="stylesheet" type="text/css" href="{{ get_url(path='theme/dark.css') }}" media="(prefers-color-scheme: dark)" />
-    {% elif theme == "toggle" %}
-        <link rel="stylesheet" type="text/css" href={{ get_url(path="theme/light.css") }} />
-        <link id="darkModeStyle" rel="stylesheet" type="text/css" href="{{ get_url(path='theme/dark.css') }}" />
-    {% endif %}
-    
-    <!-- Set the correct theme in the script -->
-    <script src={{ get_url(path="js/themetoggle.js") }}></script>
-    {% if theme == "dark" %}
-        <script>setTheme("dark");</script>
-    {% elif theme == "light" %}
-        <script>setTheme("light");</script>
-    {% elif theme == "auto" %}
-        <script>
-            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                setTheme("dark");
-            } else {
-                setTheme("light");
-            }
-        </script>
-    {% else %}
-        <script>setTheme(getSavedTheme());</script>
-    {% endif %}
+        <link rel="stylesheet" type="text/css" media="screen" href={{ get_url(path="main.css") }} />
 
-    <link rel="stylesheet" type="text/css" media="screen" href={{ get_url(path="main.css") }} />
 
     {% if config.extra.stylesheets %}
         {% for stylesheet in config.extra.stylesheets %}
