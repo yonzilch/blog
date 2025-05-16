@@ -1,9 +1,9 @@
 +++
-title = "Purkit's Blog"
-description = "若知是梦何须醒 不比真如一相会"
+title = "Fovir.FYI"
+description = ""
 weight = 6
 
 [extra]
-remote_image = "https://s3.tebi.io/img.purkit.ml/avater.jpg"
-link_to = "https://purkit.lockey.icu/"
+remote_image = "https://avatars.githubusercontent.com/u/175422207"
+link_to = "https://www.fovir.fyi/"
 +++
