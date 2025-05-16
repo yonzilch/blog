@@ -1,6 +1,6 @@
 +++
 title = "世纪大道 | 春风少年兄"
-description = ""
+description = "你在世纪大道东门"
 weight = 2
 
 [extra]
