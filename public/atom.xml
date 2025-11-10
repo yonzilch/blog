@@ -151,7 +151,7 @@
 &lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
 极简主义：记录生命中的重要事物&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
-反社交网络:从网络梗到大灾祸&lt;&#x2F;li&gt;
+反社交网络：从网络梗到大灾祸&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;h3 id=&quot;yin-le&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#yin-le&quot; aria-label=&quot;Anchor link for: yin-le&quot;&gt;音乐&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
 &lt;p&gt;我的本地音乐库曲目数量已经接近 4000 首，并且这个数字还在增加，库存的音乐有各种各样的曲风门类：Techno、House、Phonk、Chill-out、ACG OST、梦核、梦泡、碎核、自赏、后搖、后朋克、黑金属、乡村民谣、纯音乐、钢琴曲、实验音乐......&lt;&#x2F;p&gt;
@@ -185,7 +185,7 @@
 &lt;p&gt;多数时候是处于一种远程工作的模式，与朋友异步进行技术研究与学习，常交流心得并总结得失，总体而言效率不错。我将一个个 CS、SE 知识点分解消化，按优先级顺序一步一行地攻克，虽然学习内容看似大杂烩，但实际上每一块知识都在我的技术学习版图中找到了自己的位置。&lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;继续探索技术前沿的 Web3 生态、区块链技术中的明星项目&lt;&#x2F;li&gt;
-&lt;li&gt;将另一部手机刷为更为纯净的 LineageOS 并隔离了下国内外的一些应用&lt;&#x2F;li&gt;
+&lt;li&gt;将另一部手机刷成更为纯净的 LineageOS 并隔离了下国内外的一些应用&lt;&#x2F;li&gt;
 &lt;li&gt;将路由器刷了 OpenWRT 系统，可惜暂时没有能力解决驱动问题移植 &lt;a href=&quot;https:&#x2F;&#x2F;gti.telent.net&#x2F;dan&#x2F;liminix&quot;&gt;Liminix&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;li&gt;补充网络工程的相关知识，且在 VPS 上实践一番，成功将几台服务器组建成小集群。&lt;&#x2F;li&gt;
 &lt;li&gt;使用 &lt;a href=&quot;https:&#x2F;&#x2F;clan.lol&#x2F;&quot;&gt;Clan&lt;&#x2F;a&gt; 构建了自己的 &quot;Dark Net&quot;，将所有的服务器以及自己的电脑统统重装成可靠且方便管理的 NixOS。&lt;&#x2F;li&gt;
