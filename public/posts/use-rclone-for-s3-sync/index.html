@@ -235,15 +235,14 @@
 <pre style="background-color:#0f1419;color:#bfbab0;"><code><span>docker exec rclone rclone sync static-yon-4everland: static-yon-cloudflare:
 </span></code></pre>
 <p>then files in <code>static-yon-4everland</code> will sync to <code>static-yon-cloudflare</code></p>
-<p>So you just need set a cronjob make it run regularly.</p>
+<p>So you just need to set a cronjob so that it would run regularly.</p>
 <p>e.g.</p>
 <pre style="background-color:#0f1419;color:#bfbab0;"><code><span>crontab -e
 </span><span>
 </span><span>0 */2 * * * bash -c &#39;docker exec rclone rclone sync static-yon-4everland: static-yon-cloudflare:&#39;
 </span></code></pre>
 <h2 id="acknowledgements"><a class="zola-anchor" href="#acknowledgements" aria-label="Anchor link for: acknowledgements">Acknowledgements</a></h2>
-<p><a href="https://github.com/rclone/rclone">https://github.com/rclone/rclone</a>
-<a href="https://github.com/nginx/nginx">https://github.com/nginx/nginx</a></p>
+<p><a href="https://github.com/rclone/rclone">https://github.com/rclone/rclone</a></p>
 
         </section>
 

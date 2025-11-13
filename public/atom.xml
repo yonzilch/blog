@@ -545,15 +545,14 @@
 &lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;docker exec rclone rclone sync static-yon-4everland: static-yon-cloudflare:
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;then files in &lt;code&gt;static-yon-4everland&lt;&#x2F;code&gt; will sync to &lt;code&gt;static-yon-cloudflare&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
-&lt;p&gt;So you just need set a cronjob make it run regularly.&lt;&#x2F;p&gt;
+&lt;p&gt;So you just need to set a cronjob so that it would run regularly.&lt;&#x2F;p&gt;
 &lt;p&gt;e.g.&lt;&#x2F;p&gt;
 &lt;pre style=&quot;background-color:#0f1419;color:#bfbab0;&quot;&gt;&lt;code&gt;&lt;span&gt;crontab -e
 &lt;&#x2F;span&gt;&lt;span&gt;
 &lt;&#x2F;span&gt;&lt;span&gt;0 *&#x2F;2 * * * bash -c &amp;#39;docker exec rclone rclone sync static-yon-4everland: static-yon-cloudflare:&amp;#39;
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;h2 id=&quot;acknowledgements&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#acknowledgements&quot; aria-label=&quot;Anchor link for: acknowledgements&quot;&gt;Acknowledgements&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
-&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;rclone&#x2F;rclone&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;rclone&#x2F;rclone&lt;&#x2F;a&gt;
-&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;nginx&#x2F;nginx&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;nginx&#x2F;nginx&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;rclone&#x2F;rclone&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;rclone&#x2F;rclone&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 </content>
         
     </entry>

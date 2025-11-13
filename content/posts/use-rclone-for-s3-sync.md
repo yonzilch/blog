@@ -104,7 +104,7 @@ docker exec rclone rclone sync static-yon-4everland: static-yon-cloudflare:
 
 then files in `static-yon-4everland` will sync to `static-yon-cloudflare`
 
-So you just need set a cronjob make it run regularly.
+So you just need to set a cronjob so that it would run regularly.
 
 e.g.
 
@@ -117,4 +117,3 @@ crontab -e
 ## Acknowledgements
 
 [https://github.com/rclone/rclone](https://github.com/rclone/rclone)
-[https://github.com/nginx/nginx](https://github.com/nginx/nginx)
