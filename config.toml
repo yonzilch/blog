@@ -7,15 +7,11 @@ feed_filenames = ["atom.xml"]
 compile_sass = true
 minify_html = false
 
-[markdown]
-highlight_code = true
-highlight_theme = "ayu-dark"
-
 [extra]
 toc = true
 use_cdn = false
-favicon = "https://static.yon.im/image/avatar.webp"
-theme = "auto" # light, dark, auto, toggle
+favicon = "https://static.yon.im/image/avatar.avif"
+theme = "dark" # light, dark, auto, toggle
 # mathjax = true
 # mathjax_dollar_inline_enable = true
 
