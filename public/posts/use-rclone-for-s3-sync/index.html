@@ -36,7 +36,7 @@
 
     
     
-        <link rel="icon" type="image/png" href=https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;avatar.webp />
+        <link rel="icon" type="image/png" href=https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;avatar.avif />
     
 
 
@@ -185,38 +185,38 @@
 <h2 id="environment"><a class="zola-anchor" href="#environment" aria-label="Anchor link for: environment">Environment</a></h2>
 <p>Here, I deploy rclone on my personal VPS server.</p>
 <p><code>docker-compose.yaml</code></p>
-<pre style="background-color:#0f1419;color:#bfbab0;"><code><span>version: &quot;3&quot;
-</span><span>
-</span><span>services:
-</span><span>  rclone:
-</span><span>    container_name: rclone
-</span><span>    image: &quot;rclone/rclone:latest&quot;
-</span><span>    restart: unless-stopped
-</span><span>    stdin_open: true
-</span><span>    tty: true
-</span><span>    volumes:
-</span><span>      - /var/lib/docker/volumes/rclone/_data/config:/config
-</span><span>      - /var/lib/docker/volumes/rclone/_data/data:/data
-</span><span>    ports:
-</span><span>      - 0.0.0.0:5572:5572
-</span><span>    entrypoint:
-</span><span>      - rclone
-</span><span>      - rcd
-</span><span>      - --rc-web-gui
-</span><span>      - --rc-web-gui-no-open-browser
-</span><span>      - --rc-addr=0.0.0.0:5572
-</span><span>      - --rc-user=xxxxxx
-</span><span>      - --rc-pass=xxxxxxxxxxxxxxxx
-</span><span>      ###- --rc-no-auth
-</span><span>
-</span></code></pre>
+<pre><code>version: &quot;3&quot;
+
+services:
+  rclone:
+    container_name: rclone
+    image: &quot;rclone/rclone:latest&quot;
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    volumes:
+      - /var/lib/docker/volumes/rclone/_data/config:/config
+      - /var/lib/docker/volumes/rclone/_data/data:/data
+    ports:
+      - 0.0.0.0:5572:5572
+    entrypoint:
+      - rclone
+      - rcd
+      - --rc-web-gui
+      - --rc-web-gui-no-open-browser
+      - --rc-addr=0.0.0.0:5572
+      - --rc-user=xxxxxx
+      - --rc-pass=xxxxxxxxxxxxxxxx
+      ###- --rc-no-auth
+
+</code></pre>
 <p>Notice: just replace [rc-user] and [rc-pass] at line 21, 22</p>
-<p>More reference to see how it works: <a href="https://rclone.org/gui/">https://rclone.org/gui/</a></p>
+<p>More reference to see how it works: <a rel="external" href="https://rclone.org/gui/">https://rclone.org/gui/</a></p>
 <p>Then configure reserved proxy programs like Nginx, Caddy, Traefik, and so on.</p>
 <p>Also, do not forget adding a DNS record.</p>
 <h2 id="setup"><a class="zola-anchor" href="#setup" aria-label="Anchor link for: setup">Setup</a></h2>
 <p>Browse to your rclone domain(or ip:5572 if you deploy rclone locally)</p>
-<p>When you get into Rclone Webui after insert [rc-user] and [rc-pass], open link <a href="https://rclone.example.com/#/newdrive">https://rclone.example.com/#/newdrive</a> to add backend remote storage.</p>
+<p>When you get into Rclone Webui after insert [rc-user] and [rc-pass], open link <a rel="external" href="https://rclone.example.com/#/newdrive">https://rclone.example.com/#/newdrive</a> to add backend remote storage.</p>
 <p>Notice: you can also click <code>Configs</code> &gt; <code>Create a New Config</code> to get in this page.</p>
 <p>Like this:</p>
 <p><img src="https://static.yon.im/image/blog/use-rclone-for-s3-sync/1.avif" alt="1" /></p>
@@ -227,22 +227,22 @@
 <p><img src="https://static.yon.im/image/blog/use-rclone-for-s3-sync/3.webp" alt="3" /></p>
 <p>More reference to see how it works:</p>
 <ul>
-<li><a href="https://rclone.org/overview/">https://rclone.org/overview/</a></li>
-<li><a href="https://rclone.org/commands/rclone_config/">https://rclone.org/commands/rclone_config/</a></li>
+<li><a rel="external" href="https://rclone.org/overview/">https://rclone.org/overview/</a></li>
+<li><a rel="external" href="https://rclone.org/commands/rclone_config/">https://rclone.org/commands/rclone_config/</a></li>
 </ul>
 <h2 id="trigger"><a class="zola-anchor" href="#trigger" aria-label="Anchor link for: trigger">Trigger</a></h2>
 <p>After setting up two S3 backend storage providers, just run this command:</p>
-<pre style="background-color:#0f1419;color:#bfbab0;"><code><span>docker exec rclone rclone sync static-yon-4everland: static-yon-cloudflare:
-</span></code></pre>
+<pre><code>docker exec rclone rclone sync static-yon-4everland: static-yon-cloudflare:
+</code></pre>
 <p>then files in <code>static-yon-4everland</code> will sync to <code>static-yon-cloudflare</code></p>
 <p>So you just need to set a cronjob so that it would run regularly.</p>
 <p>e.g.</p>
-<pre style="background-color:#0f1419;color:#bfbab0;"><code><span>crontab -e
-</span><span>
-</span><span>0 */2 * * * bash -c &#39;docker exec rclone rclone sync static-yon-4everland: static-yon-cloudflare:&#39;
-</span></code></pre>
+<pre><code>crontab -e
+
+0 */2 * * * bash -c &#39;docker exec rclone rclone sync static-yon-4everland: static-yon-cloudflare:&#39;
+</code></pre>
 <h2 id="acknowledgements"><a class="zola-anchor" href="#acknowledgements" aria-label="Anchor link for: acknowledgements">Acknowledgements</a></h2>
-<p><a href="https://github.com/rclone/rclone">https://github.com/rclone/rclone</a></p>
+<p><a rel="external" href="https://github.com/rclone/rclone">https://github.com/rclone/rclone</a></p>
 
         </section>
 

@@ -36,7 +36,7 @@
 
     
     
-        <link rel="icon" type="image/png" href=https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;avatar.webp />
+        <link rel="icon" type="image/png" href=https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;avatar.avif />
     
 
 
@@ -163,32 +163,32 @@
 <p><strong>本文以安装 JDK 8, JDK 17 为例</strong></p>
 <h3 id="jdk-8"><a class="zola-anchor" href="#jdk-8" aria-label="Anchor link for: jdk-8">JDK 8:</a></h3>
 <p>首先，为 JDK 8 创建一个目录。</p>
-<pre style="background-color:#0f1419;color:#bfbab0;"><code><span>mkdir /usr/local/java-8
-</span></code></pre>
+<pre><code>mkdir /usr/local/java-8
+</code></pre>
 <p>其次，下载 JDK 8</p>
-<pre style="background-color:#0f1419;color:#bfbab0;"><code><span>wget https://download.bell-sw.com/java/8u392+9/bellsoft-jdk8u392+9-linux-amd64.tar.gz
-</span></code></pre>
-<p>之后，使用<a href="http://www.runoob.com/linux/linux-comm-tar.html">tar命令</a>将<code>bellsoft-jdk8u392+9-linux-amd64.tar.gz</code>文件解压缩到先前创建的目录：</p>
-<pre style="background-color:#0f1419;color:#bfbab0;"><code><span>tar -zxvf bellsoft-jdk8u392+9-linux-amd64.tar.gz -C /usr/local/java-8
-</span></code></pre>
+<pre><code>wget https://download.bell-sw.com/java/8u392+9/bellsoft-jdk8u392+9-linux-amd64.tar.gz
+</code></pre>
+<p>之后，使用<a rel="external" href="http://www.runoob.com/linux/linux-comm-tar.html">tar命令</a>将<code>bellsoft-jdk8u392+9-linux-amd64.tar.gz</code>文件解压缩到先前创建的目录：</p>
+<pre><code>tar -zxvf bellsoft-jdk8u392+9-linux-amd64.tar.gz -C /usr/local/java-8
+</code></pre>
 <p>最后，运行以下命令以创建新的替代方案：</p>
-<pre style="background-color:#0f1419;color:#bfbab0;"><code><span>update-alternatives --install &quot;/usr/bin/java&quot; &quot;java&quot; &quot;/usr/local/java-8/jdk8u392/bin/java&quot; 1500
-</span><span>update-alternatives --install &quot;/usr/bin/javac&quot; &quot;javac&quot; &quot;/usr/local/java-8/jdk8u392/bin/javac&quot; 1500
-</span></code></pre>
+<pre><code>update-alternatives --install &quot;/usr/bin/java&quot; &quot;java&quot; &quot;/usr/local/java-8/jdk8u392/bin/java&quot; 1500
+update-alternatives --install &quot;/usr/bin/javac&quot; &quot;javac&quot; &quot;/usr/local/java-8/jdk8u392/bin/javac&quot; 1500
+</code></pre>
 <h3 id="jdk-17"><a class="zola-anchor" href="#jdk-17" aria-label="Anchor link for: jdk-17">JDK 17</a></h3>
 <p>首先，为 JDK 17 创建一个目录。</p>
-<pre style="background-color:#0f1419;color:#bfbab0;"><code><span>mkdir /usr/local/java-17
-</span></code></pre>
+<pre><code>mkdir /usr/local/java-17
+</code></pre>
 <p>其次，下载 JDK 17</p>
-<pre style="background-color:#0f1419;color:#bfbab0;"><code><span>wget https://download.bell-sw.com/java/17.0.9+11/bellsoft-jdk17.0.9+11-linux-amd64.tar.gz
-</span></code></pre>
-<p>之后，使用<a href="http://www.runoob.com/linux/linux-comm-tar.html">tar命令</a>将<code>bellsoft-jdk17.0.9+11-linux-amd64.tar.gz</code>文件解压缩到先前创建的目录：</p>
-<pre style="background-color:#0f1419;color:#bfbab0;"><code><span>tar -zxvf bellsoft-jdk17.0.9+11-linux-amd64.tar.gz -C /usr/local/java-17
-</span></code></pre>
+<pre><code>wget https://download.bell-sw.com/java/17.0.9+11/bellsoft-jdk17.0.9+11-linux-amd64.tar.gz
+</code></pre>
+<p>之后，使用<a rel="external" href="http://www.runoob.com/linux/linux-comm-tar.html">tar命令</a>将<code>bellsoft-jdk17.0.9+11-linux-amd64.tar.gz</code>文件解压缩到先前创建的目录：</p>
+<pre><code>tar -zxvf bellsoft-jdk17.0.9+11-linux-amd64.tar.gz -C /usr/local/java-17
+</code></pre>
 <p>最后，运行以下命令以创建新的替代方案：</p>
-<pre style="background-color:#0f1419;color:#bfbab0;"><code><span>update-alternatives --install &quot;/usr/bin/java&quot; &quot;java&quot; &quot;/usr/local/java-17/jdk-17.0.9/bin/java&quot; 1600
-</span><span>update-alternatives --install &quot;/usr/bin/javac&quot; &quot;javac&quot; &quot;/usr/local/java-17/jdk-17.0.9/bin/javac&quot; 1600
-</span></code></pre>
+<pre><code>update-alternatives --install &quot;/usr/bin/java&quot; &quot;java&quot; &quot;/usr/local/java-17/jdk-17.0.9/bin/java&quot; 1600
+update-alternatives --install &quot;/usr/bin/javac&quot; &quot;javac&quot; &quot;/usr/local/java-17/jdk-17.0.9/bin/javac&quot; 1600
+</code></pre>
 <p>DONE.</p>
 <h2 id="fu-lu"><a class="zola-anchor" href="#fu-lu" aria-label="Anchor link for: fu-lu">附录：</a></h2>
 <p>https://github.com/bell-sw/Liberica</p>
