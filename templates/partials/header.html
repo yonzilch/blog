@@ -91,9 +91,10 @@
 
 
     {% set theme = config.extra.theme %}
-        <link rel="stylesheet" type="text/css" href="{{ get_url(path='theme/dark.css') }}" />
-        <link rel="stylesheet" type="text/css" media="screen" href={{ get_url(path="main.css") }} />
-
+    <style>
+      {% set css = load_data(path="main.css") %}
+      {{ css | safe }}
+    </style>
 
     {% if config.extra.stylesheets %}
         {% for stylesheet in config.extra.stylesheets %}
