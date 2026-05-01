@@ -1,0 +1,25 @@
+{% set player_id = "hls_" ~ id %}
+<div class="hls-player-container">
+    <video
+        id="{{ player_id }}"
+        controls
+        preload="metadata"
+        style="width: 100%"
+    ></video>
+</div>
+
+<script src="{{ get_url(path='js/hls.min.v1.6.16.js') }}"></script>
+<script>
+    (function () {
+        var video = document.getElementById("{{ player_id }}");
+        var src = "{{ url }}";
+
+        if (Hls.isSupported()) {
+            var hls = new Hls();
+            hls.loadSource(src);
+            hls.attachMedia(video);
+        } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+            video.src = src;
+        }
+    })();
+</script>
