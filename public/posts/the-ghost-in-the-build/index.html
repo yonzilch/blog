@@ -157,7 +157,7 @@
                     </li>
                 
                     <li>
-                        <a href="https://blog.yon.im/posts/the-ghost-in-the-build/#what-changes-in-enginnering-practice">What changes in enginnering practice</a>
+                        <a href="https://blog.yon.im/posts/the-ghost-in-the-build/#what-changes-in-engineering-practice">What changes in engineering practice</a>
                         
                     </li>
                 
@@ -239,12 +239,12 @@
 </code></pre>
 <p>That long string of characters is not a label. It's a proof. Change any input — even one byte — and the hash changes, and the path changes with it. There are no silent mutations. There is nowhere for a ghost to hide.</p>
 <blockquote>
-<p>In addtional:
+<p>In addition:
 In software engineering, <code>random()</code> is typically introduced for security—to prevent predictive attacks or generate cryptographic keys.</p>
 <p>But when embedded into the compilation and build phase, it mutates into a 'ghost in the build,' rendering reproducible builds structurally impossible.</p>
 </blockquote>
 <hr />
-<h2 id="what-changes-in-enginnering-practice"><a class="zola-anchor" href="#what-changes-in-enginnering-practice" aria-label="Anchor link for: what-changes-in-enginnering-practice">What changes in enginnering practice</a></h2>
+<h2 id="what-changes-in-engineering-practice"><a class="zola-anchor" href="#what-changes-in-engineering-practice" aria-label="Anchor link for: what-changes-in-engineering-practice">What changes in engineering practice</a></h2>
 <p>With Guix, developers independently build Bitcoin Core from source. Not on shared infrastructure. On completely independent machines — potentially different hardware, different countries, different operational histories. If the process is sound, they all arrive at the same hash.</p>
 <p>They submit that hash alongside a cryptographic signature — a mathematical seal that binds the result irrevocably to their identity. The collection of these signed attestations is public and auditable.</p>
 <p><strong>Before (Gitian):</strong></p>

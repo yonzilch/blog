@@ -86,7 +86,7 @@ The outputs are stored with content-addressed naming: a binary's path in the sys
 
 That long string of characters is not a label. It's a proof. Change any input — even one byte — and the hash changes, and the path changes with it. There are no silent mutations. There is nowhere for a ghost to hide.
 
->In addtional:
+>In addition:
 >In software engineering, `random()` is typically introduced for security—to prevent predictive attacks or generate cryptographic keys.
 >
 >But when embedded into the compilation and build phase, it mutates into a 'ghost in the build,' rendering reproducible builds structurally impossible.
@@ -94,7 +94,7 @@ That long string of characters is not a label. It's a proof. Change any input �
 
 ---
 
-## What changes in enginnering practice
+## What changes in engineering practice
 
 With Guix, developers independently build Bitcoin Core from source. Not on shared infrastructure. On completely independent machines — potentially different hardware, different countries, different operational histories. If the process is sound, they all arrive at the same hash.
 
