@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<html class="dark light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+
+    
+    
+    
+    <title>
+         构建中的幽灵
+        
+    </title>
+
+        
+            <meta property="og:title" content="构建中的幽灵" />
+        
+     
+
+     
+         
+             <meta property="og:description" content="This is Yon Zilch&#x27;s Blog." />
+         
+     
+
+     
+         
+             <meta name="description" content="This is Yon Zilch&#x27;s Blog." />
+         
+    
+
+    
+    
+        <link rel="icon" type="image/png" href=https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;avatar.avif />
+    
+
+
+    
+
+
+    
+    <link rel="alternate" type="application/atom+xml" title="Yon Zilch" href="https://blog.yon.im/atom.xml">
+
+
+    
+    <style>
+      
+      code{background-color:var(--bg-1);padding:.1em .2em;border-radius:5px;border:1px solid var(--border-color)}pre{border-radius:5px;border:1px solid var(--border-color);line-height:1.4;overflow-x:auto;padding:1em}pre code{background-color:rgba(0,0,0,0);color:inherit;font-size:100%;padding:0;border:0}pre{position:relative;-webkit-overflow-scrolling:touch}pre code[class*=language-]{-webkit-overflow-scrolling:touch}pre code[class*=language-]::before{background:#000;border-radius:0 0 .25rem .25rem;color:#fff;font-size:12px;letter-spacing:.025rem;padding:.1rem .5rem;position:absolute;right:.1rem;margin-top:.1rem;text-align:right;text-transform:uppercase;top:0}pre code[class=language-javaScript]::before,pre code[class=language-js]::before{content:"js";background:#f7df1e;color:#000}pre code[class*=language-yml]::before,pre code[class*=language-yaml]::before{content:"yaml";background:#f71e6a;color:#fff}pre code[class*=language-shell]::before,pre code[class*=language-bash]::before,pre code[class*=language-sh]::before{content:"shell";background:green;color:#fff}pre code[class*=language-json]::before{content:"json";background:#1e90ff;color:#000}pre code[class*=language-python]::before,pre code[class*=language-py]::before{content:"py";background:blue;color:#ff0}pre code[class*=language-css]::before{content:"css";background:aqua;color:#000}pre code[class*=language-go]::before{content:"Go";background:aqua;color:#4169e1}pre code[class*=language-md]::before,pre code[class*=language-md]::before{content:"Markdown";background:#4169e1;color:#f5f5f5}pre code[class*=language-rust]::before,pre code[class*=language-rs]::before{content:"rust";background:#fff8f6;color:#ff4647}.page-header{font-size:2.5em;line-height:100%;margin:4rem 0px 1rem 0px}.centered-header{position:absolute;top:40%;left:50%;transform:translate(-50%, -50%);text-align:center;font-size:4em}header{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;padding:1em 0}header .main{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:12px;font-size:1.5rem;margin-bottom:10px}.socials{flex-grow:0;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:flex-start;align-items:flex-end;gap:6px}.social{border-bottom:unset;background-image:unset;padding:2px}.social>img{border:unset;width:24px;height:24px}.meta{color:#14c8c8;letter-spacing:-.5px}#dark-mode-toggle>img{display:none;width:15px;height:15px;border:unset}h1,h2,h3,h4,h5,h6{font-size:1.2rem;margin-top:2em}h1::before{color:var(--primary-color);content:"# "}h2::before{color:var(--primary-color);content:"## "}h3::before{color:var(--primary-color);content:"### "}h4::before{color:var(--primary-color);content:"#### "}h5::before{color:var(--primary-color);content:"##### "}h6::before{color:var(--primary-color);content:"###### "}.card{display:flex;grid-template-rows:auto;gap:24px;padding:12px 0}.card-image{border:unset;max-width:100px;max-height:100px;object-fit:cover;aspect-ratio:1/1}.card-title{margin-top:1em}img{border:3px solid #ececec;max-width:100%}figure{box-sizing:border-box;display:inline-block;margin:0;max-width:100%}figure img{max-height:500px}@media screen and (min-width: 600px){figure{padding:0 40px}}figure h4{font-size:1rem;margin:0;margin-bottom:1em}figure h4::before{content:"↳ "}svg{max-height:15px}.primary-color{color:var(--primary-color)}.draft-label{color:var(--hover-color);text-decoration:none;padding:2px 4px;border-radius:4px;margin-left:6px;background-color:var(--primary-color)}::-moz-selection{background:var(--primary-color);color:var(--hover-color);text-shadow:none}::selection{background:var(--primary-color);color:var(--hover-color)}p{line-height:1.5}hr{border:0;border-top:3px solid var(--border-color);margin:1em 0}blockquote{border-left:3px solid var(--border-color);color:#737373;margin:0;padding-left:1em}a{border-bottom:3px solid var(--primary-color);color:inherit;text-decoration:none}a:hover{background-color:var(--primary-color);color:var(--hover-color)}time{color:#fff}.list>ul{margin:0;padding:1rem 0 0 0}.list-item{margin-bottom:30px}@media all and (max-width: 640px){.post-header{display:grid;grid-template-rows:auto 1fr}.post-header h1{margin-top:0}.post-header h1 a{border-bottom:none}}@media all and (min-width: 640px){.post-header{display:grid;gap:1rem;grid-row-gap:1.5rem;grid-template-columns:auto 1fr}.post-header h1{margin:0;font-size:130%}.post-header h1 a{border-bottom:none}}#dark-mode-toggle{border-bottom:none}#dark-mode-toggle:hover{background-color:rgba(0,0,0,0)}table{border-spacing:0;border-collapse:collapse}table th{padding:6px 13px;border:1px solid #dfe2e5;font-size:large}table td{padding:6px 13px;border:1px solid #dfe2e5}.tags li::before{content:"🏷 "}.tags a{border-bottom:3px solid var(--primary-color)}.tags a:hover{color:var(--hover_color);background-color:var(--primary-color)}:root.dark{--text-0: rgba(255, 255, 255, 87%);--text-1: rgba(255, 255, 255, 60%);--bg-0: #121212;--bg-1: rgba(255, 255, 255, 5%);--bg-2: rgba(23, 23, 23, 100%);--primary-color: #3555b3;--hover-color: white}:root.dark .social>img{filter:invert(1)}:root{--border-color: var(--bg-1);}html{background-color:var(--bg-0);color:var(--text-0);line-height:1.6em}.content{max-width:1000px;margin:0 auto;padding:0 24px;word-wrap:break-word}@media all and (min-width: 640px){html{font-size:16.5px}}@media all and (min-width: 720px){html{font-size:17px}}@media all and (min-width: 960px){html{font-size:18px}}
+    </style>
+
+    
+</head>
+
+
+<body>
+    <div class="content">
+        <header>
+    <div class="main">
+        <a href=https:&#x2F;&#x2F;blog.yon.im>Yon Zilch</a>
+
+        <div class="socials">
+            
+            <a rel="me noopener noreferrer" href="&#x2F;atom.xml" target="_blank" class="social">
+                <img alt=rss src=https://blog.yon.im/social_icons/rss.svg>
+            </a>
+            
+            <a rel="me noopener noreferrer" href="https:&#x2F;&#x2F;codeberg.org&#x2F;yonzilch" target="_blank" class="social">
+                <img alt=CodeBerg src=https://blog.yon.im/social_icons/codeberg.svg>
+            </a>
+            
+            <a rel="me noopener noreferrer" href="https:&#x2F;&#x2F;github.com&#x2F;yonzilch" target="_blank" class="social">
+                <img alt=GitHub src=https://blog.yon.im/social_icons/github.svg>
+            </a>
+            
+            <a rel="me noopener noreferrer" href="https:&#x2F;&#x2F;mastodon.social&#x2F;@yonzilch" target="_blank" class="social">
+                <img alt=Mastodon src=https://blog.yon.im/social_icons/mastodon.svg>
+            </a>
+            
+            <a rel="me noopener noreferrer" href="https:&#x2F;&#x2F;matrix.to&#x2F;#&#x2F;@yonzilch:matrix.org" target="_blank" class="social">
+                <img alt=matrix src=https://blog.yon.im/social_icons/matrix.svg>
+            </a>
+            
+            <a rel="me noopener noreferrer" href="https:&#x2F;&#x2F;t.me&#x2F;yonzilch" target="_blank" class="social">
+                <img alt=Telegram src=https://blog.yon.im/social_icons/telegram.svg>
+            </a>
+            
+        </div>
+    </div>
+
+    <nav>
+        
+        <a href=https://blog.yon.im/posts style="margin-left: 0.7em">posts</a>
+        
+        <a href=https://blog.yon.im/links style="margin-left: 0.7em">links</a>
+        
+        <a href=https://blog.yon.im/about style="margin-left: 0.7em">about</a>
+        
+        <a href=https://blog.yon.im/search style="margin-left: 0.7em">search</a>
+        
+    </nav>
+</header>
+
+
+        
+        
+    
+<main>
+    <article>
+        <div class="title">
+            
+            
+    <div class="page-header">
+        构建中的幽灵<span class="primary-color" style="font-size: 1.6em">.</span>
+    </div>
+
+
+                <div class="meta">
+                    
+                        Posted on <time>2026-05-29</time>
+                    
+
+                    
+                </div>
+        </div>
+
+        
+
+        
+        
+            
+                <h1>Table of Contents</h1>
+                <ul>
+                
+                    <li>
+                        <a href="https://blog.yon.im/posts/the-ghost-in-the-build-zh-cn/#yin-ru">引入</a>
+                        
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.yon.im/posts/the-ghost-in-the-build-zh-cn/#jia-tan-nai-xin-neng-cheng-jiu-shen-me">Jia Tan： 耐心能成就什么</a>
+                        
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.yon.im/posts/the-ghost-in-the-build-zh-cn/#gitian-shi-dai-dang-shi-zui-hao-de-da-an">Gitian 时代：当时最好的答案</a>
+                        
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.yon.im/posts/the-ghost-in-the-build-zh-cn/#guix-chun-cui-zhuang-tai-de-gou-jian">Guix：纯粹状态的构建</a>
+                        
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.yon.im/posts/the-ghost-in-the-build-zh-cn/#zai-gong-cheng-shi-jian-zhong-gai-bian-liao-shen-me">在工程实践中改变了什么</a>
+                        
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.yon.im/posts/the-ghost-in-the-build-zh-cn/#nix-de-shi-yong-zhu-yi-yu-guix-de-xin-ren-zhe-xue">Nix 的实用主义与 Guix 的信任哲学</a>
+                        
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.yon.im/posts/the-ghost-in-the-build-zh-cn/#you-ling-bing-wei-chi-qu-ta-zhi-shi-zhuan-yi-liao">幽灵并未离去，它只是转移了</a>
+                        
+                            <ul>
+                                
+                                    <li>
+                                        <a href="https://blog.yon.im/posts/the-ghost-in-the-build-zh-cn/#bonus-part-1-fu-jia-bu-fen-1">Bonus Part (1) | 附加部分（1）</a>
+                                    </li>
+
+                                    
+                                
+                            </ul>
+                        
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.yon.im/posts/the-ghost-in-the-build-zh-cn/#zhe-yuan-bu-zhi-yu-bitcoin-core">这远不止于 Bitcoin Core</a>
+                        
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.yon.im/posts/the-ghost-in-the-build-zh-cn/#can-kao-zhi-xie">参考致谢</a>
+                        
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.yon.im/posts/the-ghost-in-the-build-zh-cn/#can-kao-wen-xian">参考文献</a>
+                        
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.yon.im/posts/the-ghost-in-the-build-zh-cn/#sheng-ming-cheng-qing">声明 &#x2F; 澄清</a>
+                        
+                            <ul>
+                                
+                                    <li>
+                                        <a href="https://blog.yon.im/posts/the-ghost-in-the-build-zh-cn/#bonus-part-encore-fu-jia-bu-fen-an-ke-qu">Bonus Part (Encore) | 附加部分（安可曲）</a>
+                                    </li>
+
+                                    
+                                
+                                    <li>
+                                        <a href="https://blog.yon.im/posts/the-ghost-in-the-build-zh-cn/#yuan-dai-ma-yi-tu-yu-er-jin-zhi-chan-wu-zhi-jian-na-ge-bu-ke-jian-de-wei-bei-shen-ji-de-qie-bi-xu-bei-xin-ren-de-chai-zhi">“源代码意图与二进制产物之间，那个不可见的、未被审计的、且必须被信任的差值。”</a>
+                                    </li>
+
+                                    
+                                    <ul>
+                                        
+                                            <li>
+                                                <a href="https://blog.yon.im/posts/the-ghost-in-the-build-zh-cn/#1-guo-cheng-de-bu-ke-zhi-xing">1. 过程的不可知性</a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="https://blog.yon.im/posts/the-ghost-in-the-build-zh-cn/#2-xin-ren-de-wu-xian-hou-tui">2. 信任的无限后退</a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="https://blog.yon.im/posts/the-ghost-in-the-build-zh-cn/#3-shang-yu-fu-za-xing">3. 熵与复杂性</a>
+                                            </li>
+                                        
+                                    </ul>
+                                    
+                                
+                                    <li>
+                                        <a href="https://blog.yon.im/posts/the-ghost-in-the-build-zh-cn/#zong-jie">总结</a>
+                                    </li>
+
+                                    
+                                
+                            </ul>
+                        
+                    </li>
+                
+                </ul>
+            
+        
+
+        <section class="body">
+            <p><strong>本文包含大量专业术语，可使用 AI 辅助理解。若阅读过程感到不适，建议直接关闭。</strong></p>
+<h2 id="yin-ru"><a class="zola-anchor" href="#yin-ru" aria-label="Anchor link for: yin-ru">引入</a></h2>
+<p>你安装过的每一款软件，究其根本，都是一次盲目的托付。</p>
+<p>这份托付并非针对代码本身 —— 代码你可以阅读，可以审计，可以逐行拆解。它针对的是更深不可测的东西：代码在变成你机器上运行的程序之前，所经过的那一长串交接的手。有人在某处、某个系统上、用某些工具编译了它。你不在场，你没有亲眼目睹。你只是点了安装，然后继续你的一天。</p>
+<p>对大多数软件而言，这是一笔合理的交易。但对 <strong>Bitcoin Core</strong> 而言，这是不可接受的。该项目存在的一个重要目的在于：通过消除对人际信任的依赖，从而尽可能地抵制腐败。</p>
+<hr />
+<h2 id="jia-tan-nai-xin-neng-cheng-jiu-shen-me"><a class="zola-anchor" href="#jia-tan-nai-xin-neng-cheng-jiu-shen-me" aria-label="Anchor link for: jia-tan-nai-xin-neng-cheng-jiu-shen-me">Jia Tan： 耐心能成就什么</a></h2>
+<p>2024 年春天，一位名叫 Andres Freund 的微软工程师注意到，Debian 系统上的 SSH 登录比正常情况慢了大约半秒。这种异常，大多数人会归咎于网络抖动，然后抛之脑后。但 Freund 没有忘记，他顺藤摸瓜，一查到底。</p>
+<p>他在 XZ Utils 深处发现了一个工艺极为精湛的后门。XZ Utils 是一个极其平凡的压缩库，以至于大多数 Linux 用户甚至叫不出它的名字。这个后门耗时近两年精心布局，由一个仅被称为 Jia Tan 的贡献者循序渐进、有条不紊地植入。</p>
+<p>那可能是一个假名，但其手段却无比真实。</p>
+<p>Jia Tan 于 2021 年底以普通贡献者的身份出现在 XZ Utils 仓库中，提交了一些微小而实用的补丁。他们热心，响应迅速。现在回想起来，他们的耐心才是整个故事中最令人不寒而栗的细节。那不是热情，而是算计。数月间，他们借助项目现有的维护者 —— 一个在公开场合苦苦应对职业倦怠的孤军开发者 —— 一步步将其诱导，直到对方授予提交权限。一旦得手，他们引入恶意载荷的方式，并非明显地篡改源代码，而是藏在看似普通的测试文件之中：那些混淆的二进制数据块（Binary Blobs），只有构建脚本才能正确处理。</p>
+<p>代码是干净的。仓库是干净的。毒药完全寄居在构建过程之中。</p>
+<p>让这个故事真正令人不安的，并不是技术上的巧思。而是 Jia Tan 利用的，并非我们大多数人通常认知中的技术漏洞。他们利用的是<strong>善意</strong>。开源社区的运转建立在一种对彼此怀有善意的隐性信念之上 —— 人们因为想帮忙而贡献，社区因为需要帮助而接受贡献。 Jia Tan 将这种信念当作伪装穿上身，走过了它开启的每一道门。</p>
+<p>四年前，攻击者从外部做到了同样的事。2020 年的 SolarWinds 事件无需数年的社区信任积累，无需社会工程学，也无需耐心。攻击者入侵了将源代码转化为可交付产品的自动化流水线，并在软件“离开大楼”（即正式发布）前，直接将后门植入官方二进制文件。一万八千个组织下载了这一结果，其中包括美国财政部、国务院和国土安全部。它们运行的都是经过签名、官方的二进制文件，其中却包含着其供应商从未编写过的代码。</p>
+<p>两次攻击，途径截然相反。一个从外部寻找破绽，另一个从内部渗透。但两者最终汇聚在完全相同的盲区：构建过程 —— 那条连接着开发者编写的代码与用户运行的程序之间的漆黑通道。</p>
+<hr />
+<h2 id="gitian-shi-dai-dang-shi-zui-hao-de-da-an"><a class="zola-anchor" href="#gitian-shi-dai-dang-shi-zui-hao-de-da-an" aria-label="Anchor link for: gitian-shi-dai-dang-shi-zui-hao-de-da-an">Gitian 时代：当时最好的答案</a></h2>
+<p>要理解 Bitcoin Core 正走向何方，必须先了解它曾经历过什么。</p>
+<p>在其历史的大部分时间里，Bitcoin Core 使用一个名为 Gitian 的工具来解决所谓的"可复现构建"问题。问题在于：如果我编译 Bitcoin Core 的源代码，而你也编译同一份源代码，我们理应产生字节码完全一致的二进制文件。如果结果不一致，则要么是我们其中一台机器的行为有所不同，要么是某个环节被某个人做了篡改。</p>
+<p>Gitian 的实现方式是让多位开发者在完全相同的虚拟机内进行构建 —— 相同的 Ubuntu 快照、相同的容器配置 —— 然后比对各自的结果。如果每位构建者都产生了相同的密码学哈希值，该二进制文件就被宣布为可信 —— 这在早期就已经认识到：签名证明有赖于独立构建结果的收敛，即便构建环境本身仍然是一团迷雾。</p>
+<p>这并非一项小成就。近十年来，Gitian 稳定运行，将 Bitcoin Core 的安全防御态势提升到了远超行业标准的水平。开发和维护它的开发者们，早在大多数组织听说"软件供应链"这个词之前，就已经在深入思考这个问题了。这份功绩理应得到应有的赞誉。</p>
+<p>但 Gitian 有一个固有的缺陷，这个缺陷可以用一个词来概括：<strong>隐式（implicit）</strong>。</p>
+<p>Gitian 在虚拟机中执行脚本。它假设基础操作系统快照是干净的。它会继承运行中的 Unix 系统环境：偶然存在的动态链接库、语言环境设置、PATH 变量，以及任何长期运行的系统中积累的无数不可见因素。这些环境未被声明，也未被验证。它就那么自然地<strong>存在</strong>着，如同天气的存在一样。</p>
+<p>把它想象成口述菜谱与实验室标准规程之间的区别。口述菜谱依赖隐式变量：<strong>“加一撮盐，用灶台上现有的任意一口锅。”<strong>在软件工程中，这些未写明的指令 —— 比如继承周边环境的 PATH，或链接一个"碰巧"安装在系统上的库 —— 就是未声明的依赖项。两位称职的厨师按照同一份口述菜谱，能做出味道相似的菜肴，正如两台机器可能编译出相似的二进制文件。但</strong>相似</strong>不是<strong>相同</strong>，<strong>相似</strong>在技术上也无法做到<em>可证明</em>的完全一致。厨房是有“历史”的 —— 它呼吸着历次烹饪留下的残余气息，正如构建环境会默默继承宿主系统的周边状态。</p>
+<p>在 Gitian 模式下，构建环境同样拥有历史。而在那段隐式、宏大且大多未经审视的历史中，攻击者有机可乘。</p>
+<hr />
+<h2 id="guix-chun-cui-zhuang-tai-de-gou-jian"><a class="zola-anchor" href="#guix-chun-cui-zhuang-tai-de-gou-jian" aria-label="Anchor link for: guix-chun-cui-zhuang-tai-de-gou-jian">Guix：纯粹状态的构建</a></h2>
+<p>Bitcoin Core 在 2019 年首次合并的一项提案中引入了 GNU Guix 以取代 Gitian。这场转变在演变为技术革新之前，首先是一场哲学层面的演进。</p>
+<p>Guix 将构建过程视为一个<strong>纯函数（pure function）</strong> —— 没有记忆、没有副作用、没有环境状态的函数。如果你写过面向对象的代码，你对其反面一定再熟悉不过：悄悄读取 <code>this.config</code> 的方法，行为取决于从未作为参数声明的环境变量的函数，输出结果随程序早期运行情况而变化的过程。纯函数没有这些。你给它确切的输入，它给你确切的输出。无论在任何机器上、在任何时间点，构建结果始终一致。</p>
+<p>这正是 Guix 在整个软件构建规模上强制施加的特性：</p>
+<pre><code>output = f(all inputs)
+</code></pre>
+<p>构建所需的一切 —— 每一个编译器、每一个依赖库、每一个工具 —— 都必须被<strong>显式声明</strong>。如果没有声明，它在构建过程中就根本不存在。不是“可能很难找到”，而是从结构上根本无法存在，因为宿主系统被完全屏蔽了。网络访问被彻底禁用。时间戳被固定为已知常量。PATH 被清空，仅使用已声明的内容从零重建。</p>
+<p>在 Guix 的语言（Scheme）中，一个包声明类似于这样：</p>
+<pre><code data-lang="scheme">(inputs
+  (list gcc glibc openssl))
+</code></pre>
+<p>那个列表就是整个环境的全部。不存在"系统刚好装了这个"的情况，也没有任何历史状态的累积。每一种原料都被命名、称量并记录在案，正如化学实验室的标准规程会明确指定每一种试剂和每一种反应条件 —— 这并不是因为化学家有什么执念，而是因为<strong>结果的可复现性完全取决于此</strong>。</p>
+<p>输出结果采用内容寻址（content-addressed）的方式命名存储：二进制文件在系统中的路径，由其内容及所有声明依赖项的密码学哈希值共同推导而来。</p>
+<pre><code>/gnu/store/qx7l4fl3pj8y...-bitcoin-core-27.0/
+</code></pre>
+<p>那串长长的字符不是标签，而是铁证。更改任何输入 —— 哪怕只有一个字节 —— 哈希值就会改变，路径也随之改变。没有任何悄然发生的突变。幽灵无处遁形。</p>
+<blockquote>
+<p>补充澄清：
+在软件工程中，<code>random()</code> 通常是为了带来安全性（比如防止预测攻击、生成加密密钥）。</p>
+<p>但如果把它用在了编译构建期，它也会变成了一种“构建中的幽灵”，因为它让可重现构建（Reproducible Builds）变得不可行</p>
+</blockquote>
+<hr />
+<h2 id="zai-gong-cheng-shi-jian-zhong-gai-bian-liao-shen-me"><a class="zola-anchor" href="#zai-gong-cheng-shi-jian-zhong-gai-bian-liao-shen-me" aria-label="Anchor link for: zai-gong-cheng-shi-jian-zhong-gai-bian-liao-shen-me">在工程实践中改变了什么</a></h2>
+<p>借助 Guix，开发者可以独立从源代码构建 Bitcoin Core。不是在共享的基础设施上，而是在完全独立的机器上 —— 可能拥有不同的硬件、身处不同的国家、具备截然不同的系统运行历史。如果构建过程没有瑕疵，他们最终都会得到完全相同的哈希值。</p>
+<p>他们将这个哈希值连同密码学签名一起提交 —— 这是一个在数学上将构建结果与其身份不可撤销地绑定在一起的印记。这些经签名的证明记录集合是公开的，且可供审计。</p>
+<p><strong>之前（Gitian）：</strong></p>
+<pre><code>开发者构建 → 对二进制文件签名 → 用户下载并信任该签名
+</code></pre>
+<p>用户信任的是一个具体的人、那个人的构建环境，以及所有能够访问该环境的人。</p>
+<p><strong>之后（Guix）：</strong></p>
+<pre><code>多位开发者独立进行构建
+        ↓
+构建结果收敛于同一个哈希值
+        ↓
+这种&quot;收敛&quot;本身成为凭证
+        ↓
+用户验证这一收敛结果
+</code></pre>
+<p>签名已不再是信任的基准。<strong>独立见证者</strong>之间的共识才是。如果某台验证节点遭到入侵，其生成的哈希值就会与其他所有节点的哈希值产生偏差。此类安全漏洞并非通过事件响应或取证调查被揭露，而是通过验证流程的正常运作自然显现 —— 就像当你将作弊的秤与大多数诚实的秤进行比对时，作弊行为便会立即暴露无遗。<strong>（这也与区块链共识节点防作弊机制的运作殊途同归）</strong></p>
+<h2 id="nix-de-shi-yong-zhu-yi-yu-guix-de-xin-ren-zhe-xue"><a class="zola-anchor" href="#nix-de-shi-yong-zhu-yi-yu-guix-de-xin-ren-zhe-xue" aria-label="Anchor link for: nix-de-shi-yong-zhu-yi-yu-guix-de-xin-ren-zhe-xue">Nix 的实用主义与 Guix 的信任哲学</a></h2>
+<p>NixOS 的用户会对这一切感到似曾相识 —— Nix 拥有完全相同的底层洞察、相同的 <code>/store</code> 存储模型，以及对"构建即纯函数"的相同执念。然而，这两个项目在一条关键的分叉路口做出了截然不同的押注。Nix 优先选择了易用性，默认情况下高度依赖大型二进制缓存：你不需要从头编译一切，直接从受信任的服务器下载预先构建好的产物即可。对大多数用户来说，这是完全正确的决定。编译极其缓慢，一个开箱即用的系统比一个纯粹的哲学追求更有价值。</p>
+<p>Guix 选择了另一条路。秉持一种近似 Gentoo 的理念，并加以严格的函数式约束，<strong>Guix + GNU Mes</strong> 坚持从源码构建一切。对于 Bitcoin Core 而言，这种区别至关重要。Guix 将一条严密的链条一路追溯到它所谓的<strong>全源码自举（Full-Source Bootstrap）</strong>：一个仅有约 357 字节机器代码的最小信任锚点，整个工具链 —— 编译器、链接器、标准库，所有的一切 —— 全部基于这个锚点一步步编译而来，没有任何先入为主的假设，也没有任何预先构建的黑盒。信任一个二进制缓存包 (package)，就等于信任打包它的幕后之人。Bitcoin Core 的威胁模型中没有空间容纳这种盲目的信任。</p>
+<p>这一信任锚点已被完全地精简，使得在复杂的软件工程项目中，开发者能花费更少精力却更有效地对构建产物进行核查。这正是 Guix 选择 <strong>Full-Source Bootstrap</strong> 的立项押注，亦是 Bitcoin Core 选择 <strong>Guix + GNU Mes</strong> 作为构建方案的根本原因：信任的根基必须足够精简，因而开发者能容易理解构建过程并验证其正确性，而非因贪图便利，对看不见的黑盒盲目盖章放行。</p>
+<hr />
+<h2 id="you-ling-bing-wei-chi-qu-ta-zhi-shi-zhuan-yi-liao"><a class="zola-anchor" href="#you-ling-bing-wei-chi-qu-ta-zhi-shi-zhuan-yi-liao" aria-label="Anchor link for: you-ling-bing-wei-chi-qu-ta-zhi-shi-zhuan-yi-liao">幽灵并未离去，它只是转移了</a></h2>
+<p>叙写到这里，坦诚的叙述开始变得错综复杂。</p>
+<p>Guix 大幅收缩了隐式信任的攻击面。但它并没有消灭信任。</p>
+<p>换言之，Guix 逼近了信任的极限，但没有达到 <strong>“零信任”</strong> (Zero Trust) 的<strong>极点</strong>程度。</p>
+<p>设想一个思想实验。某个拥有 Jia Tan 般耐心与技术造诣的人，目标不是 Bitcoin Core 的源代码，而是 Guix 自身的某个底层依赖 —— 工具链深处所有构建者共享的某个核心组件，引入过程足够缓慢，以至于没有触发任何警报。那么结果将会是：一个完美可复现的二进制文件，获得全球所有独立构建者的公证与签名。所有人都会跑出完全相同的哈希值。用户验证了这种收敛，然后在安全感中高枕无忧。</p>
+<p><img src="https://static.yon.im/image/blog/the-ghost-in-the-build/1.webp" alt="1" /></p>
+<blockquote>
+<p>（由 ChatGPT Images 生成）</p>
+</blockquote>
+<p>确定性保证了可复现性。它无法保证<strong>正确性</strong>。它只能确保每个人构建的是同一个东西 —— 却无法保证这个东西本身是干净的。Guix 转移了攻击面，但它没有让攻击面凭空蒸发。</p>
+<p><strong>全源码自举</strong>在最底层应对了这一挑战：从足够小、可供审计之物开始，一路向上编译。但“小到可供审计”并不等同于“已经被彻底审计”。</p>
+<p>这在工程上构成了一座倒悬的金字塔：「现代软件世界那惊人庞大的依赖生态成了最沉重的塔顶，而那区区 357 字节的机器代码，则是承载起整座巨构的唯一支点。在这个结构中，每一层向上繁衍的代码巨石，都以其下方所有基石的绝对正确为物理先决条件。信任链条随着每一个新增的依赖项而无限拉长，底层的任何一处微瑕、任何一个未被察觉的幽灵，都会沿着结构应力向上传导，最终在最顶端放大为整座帝国的灾难性崩塌。」</p>
+<p>这一切都不是倒退回 Gitian 的理由。它只是提醒我们精确地认识 Guix 究竟做到了什么：它用一个狭窄、光线充足的攻击面，取代了一个宽泛、昏暗的攻击面。这是极具意义的进步。但这绝非已完全得到解决的问题 —— 构建中的幽灵👻依旧存在。</p>
+<hr />
+<h3 id="bonus-part-1-fu-jia-bu-fen-1"><a class="zola-anchor" href="#bonus-part-1-fu-jia-bu-fen-1" aria-label="Anchor link for: bonus-part-1-fu-jia-bu-fen-1">Bonus Part (1) | 附加部分（1）</a></h3>
+<p><strong>注：此部分仅本篇文章的中文版本包含</strong></p>
+<blockquote>
+<p>{ Pasted the whole formal context } | 粘贴上文</p>
+<p>Prompt with: | 提示词：</p>
+<p>{ 我联想到了三体中的 “猜疑链” 概念 }</p>
+</blockquote>
+<ul>
+<li>🤔 Resoning By Gemini:</li>
+</ul>
+<p>《三体》中的猜疑链（Chain of Suspicion）是因为文明之间宇宙级的空间距离和文化差异，导致双方永远无法证实对方的善意或恶意，只能陷入无限叠加的无底洞：“我知道你怎么想，你知道我知道你怎么想……”。</p>
+<p>而在软件供应链和可重现构建中，你遇到的则是它的逆向镜像——一种“技术决定论下的信任链”。它们之间有着精妙的共同点与决定性的区别：</p>
+<p>共同点：都在面对“无法自证的深渊”
+在传统的软件生态里，确实存在类似“猜疑链”的困境：</p>
+<blockquote>
+<p>你： “我怎么知道这个 Bitcoin Core 二进制文件是干净的？”</p>
+<p>官方： “因为它是我们在干净的服务器上，用官方的 GCC 编译器编译出来的。”</p>
+<p>你： “那我怎么知道你们的服务器没被黑？怎么知道你们的 GCC 没有被植入后门？”</p>
+<p>官方： “因为我们的 GCC 也是用更上游、更干净的编译器编译出来的……”</p>
+</blockquote>
+<p>这种追问可以无限延伸。在没有 Guix 和全源码自举之前，传统的软件信任就是一条无法自我证明的死循环，每一层都像黑盒一样对立，黑客就隐藏在这些层与层之间的缝隙（黑盒）里。</p>
+<p>这种因代码层层嵌套、导致信任源头不断后退的现象，像极了《三体》中宇宙文明之间因无法证实对方善恶而陷入的猜疑链（Chain of Suspicion）。在没有全源码自举前，传统的软件工程同样面临类似的死循环：“你如何证明二进制文件安全？因为上游编译器安全。如何证明上游编译器安全？因为编译该编译器的更上游编译器安全……”</p>
+<p>然而，两者的走向却截然不同。宇宙中的猜疑链由于不可知论和空间的无垠，永远无法向心坍缩，只能走向自我毁灭的黑暗森林；而软件工程的信任链，则在 Guix 固执的唯物主义解构下，被这 357 字节的机器码截断了。它通过数学、硬隔离以及全源码自举，将一个可能滑向虚无主义、需要无限盲信的深渊，强行压缩成了人类肉眼可审计的终极确定性。</p>
+<p>还有一个更不易察觉的问题。只有当存在大量相互独立的构建者时，这种验证模型才能真正生效。但在实践中，究竟是谁在执行这些构建？是那些拥有技术能力、硬件资源和充裕时间的人。见证者网络是真实的，但它规模有限，且具有自我筛选的性质。这些参与者彼此相识，共享着同样的邮件列表、技术会议和职业履历。在技术层面上，"独立"确实成立 —— 不同的机器、不同的环境 —— 但社会学赋予了这个词另一层含义，而这两层含义并不总是能达成共识。</p>
+<p>......</p>
+<hr />
+<h2 id="zhe-yuan-bu-zhi-yu-bitcoin-core"><a class="zola-anchor" href="#zhe-yuan-bu-zhi-yu-bitcoin-core" aria-label="Anchor link for: zhe-yuan-bu-zhi-yu-bitcoin-core">这远不止于 Bitcoin Core</a></h2>
+<p>Bitcoin Core 的使用场景极为极端。这款软件为那些从根本上不信任中介的用户捍卫着金融主权。大多数软件不需要承载如此沉重的负担。</p>
+<p>然而，这种底层的脆弱性远不止存在于比特币之中。你管理的每一台服务器、部署流水线中的每一个工具、默默运行的每一个后台库 —— 它们无一例外都经历了一场你未曾亲眼目睹的构建过程，运行在你从未见过的机器上，出自你素不相识的人之手。SolarWinds 事件的受害者对此同样一无所知。而 Andres Freund 捕获 Jia Tan 的阴谋，不过是侥幸之举。</p>
+<p>"侥幸"正是问题的核心。阻止 XZ 后门的，不过是一位工程师在某个周五下午对 SSH 登录延迟产生的偶然好奇 —— 这是一种转瞬即逝的敏锐，几乎不可能以完全相同的形式再次复现。让灾难踩下刹车的不是什么安全系统，而是运气。而运气，对于承载整个世界的数字基础设施而言，是一个脆弱得令人不寒而栗的根基......</p>
+<p>Guix 所体现的原则，在两个方向上都可以扩展。</p>
+<ul>
+<li>
+<p>在基础的层面，将 <a rel="external" href="https://direnv.net">direnv</a> 与 <a rel="external" href="https://nixos.wiki/wiki/Flakes">Nix flakes</a> 结合，能让任何项目显式声明并锁定其完整的开发环境：无论在什么机器上、在哪一年，编译器、依赖库版本乃至运行行为都完全一致。两位身处不同大洲的开发者，克隆同一个代码仓库，将获得完全一模一样的工具链。"在我的机器上明明好使"这一著名困境，将从架构层面被彻底根除，而不再是一个需要项目组长期应付的顽疾。这只需要不多的配置时间，任何严肃对待工程质量的项目都应将其纳入标准规范。</p>
+</li>
+<li>
+<p>再往供应链上层，构建流水线可以重新配置，使其完全基于显式声明、版本锁定的输入进行构建，而不是盲目信任编译服务器上碰巧安装的任何工具 —— "凭感觉下料"的口述菜谱模式，至少在部分环节上被精准可控的实验室规程所取代。GNU Guix 连同 Bitcoin Core 所践行的完整可复现构建，代表了这条光谱上最为极致的一端：声明一切，验证一切，将信任最小化到真正可以审视的程度。并非每个项目都需要将安全屏障拉到这种极限，但每个项目都会因知道这个天花板的存在而受益。每一次显式声明、每一个锁定的依赖、每一次经过验证的构建，都在蚕食着那些不可见之物赖以藏身的领地。</p>
+</li>
+</ul>
+<p>你永远都在信任某些东西。Guix 提出的问题 —— 也是它给出答案的问题 —— 是：那个"某些东西"，能被压缩到多小。</p>
+<p>幽灵并未离去。但它藏身的空间，越来越小了。</p>
+<hr />
+<h2 id="can-kao-zhi-xie"><a class="zola-anchor" href="#can-kao-zhi-xie" aria-label="Anchor link for: can-kao-zhi-xie">参考致谢</a></h2>
+<p><strong>Bitcoin Core's Guix contribution guide：<a rel="external" href="https://github.com/bitcoin/bitcoin/blob/master/contrib/guix/README.md">github.com/bitcoin/bitcoin/blob/master/contrib/guix/README.md</a></strong></p>
+<p><strong>GNU Guix：<a rel="external" href="https://guix.gnu.org/">guix.gnu.org</a></strong></p>
+<p><strong>Nix Flakes：<a rel="external" href="https://nixos.wiki/wiki/Flakes">nixos.wiki/wiki/Flakes</a></strong></p>
+<p><strong>Reproducible Builds：<a rel="external" href="https://reproducible-builds.org">reproducible-builds.org</a></strong></p>
+<p><strong>GNU Mes: <a rel="external" href="https://nlnet.nl/project/GNUMes-fullsource/">nlnet.nl/project/GNUMes-fullsource</a></strong></p>
+<hr />
+<h2 id="can-kao-wen-xian"><a class="zola-anchor" href="#can-kao-wen-xian" aria-label="Anchor link for: can-kao-wen-xian">参考文献</a></h2>
+<ul>
+<li>
+<p><strong>[1]</strong> Freund, A. (2024). <em>backdoor in upstream xz/liblzma leading to sshd compromise</em>. Open Source Security 邮件列表. <a rel="external" href="https://www.openwall.com/lists/oss-security/2024/03/29/4">查看档案</a></p>
+</li>
+<li>
+<p><strong>[2]</strong> CISA. (2020). <em>Advanced Persistent Threat Compromise of Government Agencies, Critical Infrastructure, and Private Sector Organizations</em> (Alert AA20-352A). <a rel="external" href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa20-352a">查看警报</a></p>
+</li>
+<li>
+<p><strong>[3]</strong> Thompson, K. (1984). Reflections on trusting trust. <em>Communications of the ACM</em>, 27(8), 761–763. <a rel="external" href="https://dl.acm.org/doi/10.1145/358198.358210">doi:10.1145/358198.358210</a></p>
+</li>
+<li>
+<p><strong>[4]</strong> Dong, C. (2019). <em>bitcoin/bitcoin PR #15277: Add Guix-based release build system</em>. GitHub. <a rel="external" href="https://github.com/bitcoin/bitcoin/pull/15277">查看 Pull Request</a></p>
+</li>
+<li>
+<p><strong>[5]</strong> Courtès, L., &amp; Nieuwenhuizen, J. (2023). <em>The Full-Source Bootstrap: Building from source all the way down</em>. GNU Guix 博客. <a rel="external" href="https://guix.gnu.org/blog/2023/the-full-source-bootstrap-building-from-source-all-the-way-down/">查看文章</a></p>
+</li>
+<li>
+<p><strong>[6]</strong> Zero trust architecture. (2024). <em>Wikipedia</em>. 维基百科上的“零信任”词条. <a rel="external" href="https://zh.wikipedia.org/wiki/%E9%9B%B6%E4%BF%A1%E4%BB%BB%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B">查看百科</a></p>
+</li>
+</ul>
+<hr />
+<h2 id="sheng-ming-cheng-qing"><a class="zola-anchor" href="#sheng-ming-cheng-qing" aria-label="Anchor link for: sheng-ming-cheng-qing">声明 / 澄清</a></h2>
+<blockquote>
+<p>本文是一次个人向的 Vibe Writing 实践，是在与多个大型语言模型（LLMs）进行无数轮对话，并对每一个词和句子进行细致校对与润色之后完成的 —— 尤其是在中英互译的过程中。整个过程耗时约连续 12 小时。</p>
+<p>参与模型提供商包括 Claude、GLM、Gemini、GPT、Grok、DeepSeek 与 Mistral（按估计 Token 用量排序）。</p>
+<p>资料信息、研究方向、编辑判断、行文风格、整体取舍等重要部分均由本人把关</p>
+<p>文中所陈述的每个事实均经过人为核实，以尽可能规避模型幻觉。</p>
+</blockquote>
+<hr />
+<h3 id="bonus-part-encore-fu-jia-bu-fen-an-ke-qu"><a class="zola-anchor" href="#bonus-part-encore-fu-jia-bu-fen-an-ke-qu" aria-label="Anchor link for: bonus-part-encore-fu-jia-bu-fen-an-ke-qu">Bonus Part (Encore) | 附加部分（安可曲）</a></h3>
+<p><strong>注：此部分仅本篇文章的中文版本包含</strong></p>
+<blockquote>
+<p>{ Pasted the whole formal context by user }  | 粘贴上文</p>
+<p>Prompt with: | 提示词：</p>
+<p>{ 你会发现，全文没有完整地对 The Ghost in the Build 中的 Ghost 明确地下定义。</p>
+<p>请谈谈你认为“构建中的幽灵”到底是什么？  }</p>
+</blockquote>
+<ul>
+<li>🤔 Resoning By GLM-5:</li>
+</ul>
+<p>这是一个非常敏锐的观察。确实，文中虽然反复提及“幽灵”，并将其作为核心意象，但始终没有给出一行明确代码式的定义。这并非疏漏，而是有意为之——因为“幽灵”并非一个具体的漏洞，而是一种<strong>状态</strong>。</p>
+<p>基于全文的逻辑脉络，我认为“构建中的幽灵”可以被定义为：</p>
+<h3 id="yuan-dai-ma-yi-tu-yu-er-jin-zhi-chan-wu-zhi-jian-na-ge-bu-ke-jian-de-wei-bei-shen-ji-de-qie-bi-xu-bei-xin-ren-de-chai-zhi"><a class="zola-anchor" href="#yuan-dai-ma-yi-tu-yu-er-jin-zhi-chan-wu-zhi-jian-na-ge-bu-ke-jian-de-wei-bei-shen-ji-de-qie-bi-xu-bei-xin-ren-de-chai-zhi" aria-label="Anchor link for: yuan-dai-ma-yi-tu-yu-er-jin-zhi-chan-wu-zhi-jian-na-ge-bu-ke-jian-de-wei-bei-shen-ji-de-qie-bi-xu-bei-xin-ren-de-chai-zhi"><strong>“源代码意图与二进制产物之间，那个不可见的、未被审计的、且必须被信任的差值。”</strong></a></h3>
+<p>它是我们为了获得可运行的软件，不得不向“黑暗”让渡的那一部分主权。具体来说，这个“幽灵”由三个层面的阴影交织而成：</p>
+<h4 id="1-guo-cheng-de-bu-ke-zhi-xing"><a class="zola-anchor" href="#1-guo-cheng-de-bu-ke-zhi-xing" aria-label="Anchor link for: 1-guo-cheng-de-bu-ke-zhi-xing">1. 过程的不可知性</a></h4>
+<p>文中提到：“代码你可以阅读……它针对的是更深不可测的东西：代码在变成你机器上运行的程序之前，所经过的那一长串交接的手。”
+<strong>幽灵就是那个“交接过程”。</strong>
+当源代码经过编译器、链接器、标准库，最终变成二进制文件时，这是一个有损且有噪的信道。你读的是源代码（白盒），但你运行的是二进制（黑盒）。在这两者之间，有一整条你无法用肉眼审视的转化链条。只要这个转化过程不是完全透明、确定且可复现的，幽灵就栖身于其中的模糊地带。</p>
+<ul>
+<li>在 Gitian 时代，幽灵是那团模糊的环境变量和隐式依赖。</li>
+<li>在 Guix 时代，幽灵被压缩到了那 357 字节的机器码及其未被彻底审计的可能性中。</li>
+</ul>
+<h4 id="2-xin-ren-de-wu-xian-hou-tui"><a class="zola-anchor" href="#2-xin-ren-de-wu-xian-hou-tui" aria-label="Anchor link for: 2-xin-ren-de-wu-xian-hou-tui">2. 信任的无限后退</a></h4>
+<p>文中引用了“倒悬的金字塔”和《三体》中的“猜疑链”。
+<strong>幽灵是信任链条断裂处的那个“盲信点”。</strong>
+你信任二进制，是因为信任编译器；信任编译器，是因为信任上一个编译器……这条链条如果不被截断，就会陷入虚无主义。幽灵就是那个迫使你说出“我相信它是干净的，但我无法证明”的时刻。
+Guix 通过全源码自举将这个幽灵压缩到了极小的 357 字节，但这 357 字节依然是“幽灵”——因为“小到可供审计”并不等于“已经被审计”。它是数学上必然存在的那个“非零”的信任残值。</p>
+<h4 id="3-shang-yu-fu-za-xing"><a class="zola-anchor" href="#3-shang-yu-fu-za-xing" aria-label="Anchor link for: 3-shang-yu-fu-za-xing">3. 熵与复杂性</a></h4>
+<p>文中提到 Jia Tan 利用了“善意”和“复杂性”。
+<strong>幽灵也是软件生态系统中必然积累的熵。</strong>
+现代软件金字塔倒悬的结构，意味着底层的任何微小扰动都会在顶层引发风暴。幽灵不仅是恶意的攻击者，也是无意的 Bug、未被发现的边缘情况、以及人类认知能力的局限。即使没有 Jia Tan，构建系统中复杂的依赖关系本身就是一种“幽灵”——它庞大、相互纠缠，以至于没有单个人类能完全掌控它。</p>
+<hr />
+<h3 id="zong-jie"><a class="zola-anchor" href="#zong-jie" aria-label="Anchor link for: zong-jie">总结</a></h3>
+<p>如果非要用一句话在文中给“幽灵”下一个明确的定义，我会这样写：</p>
+<blockquote>
+<p><strong>“所谓构建中的幽灵，就是那些我们不得不信任，却永远无法在数学上彻底证明其清白的事物。它栖息在代码与二进制之间的巨大缝隙中，利用人类认知的局限和软件栈的复杂性，在每一次编译中悄无声息地繁殖。”</strong></p>
+</blockquote>
+<p>Guix 没有杀死幽灵，它只是把幽灵从一整座宫殿（整个 OS 环境）驱逐到了一个仅容转身的角落（最小信任锚点）。幽灵永远不会离去，因为<strong>绝对的零信任在物理世界和人类社会中是不存在的</strong>。只要我们还需要把思想（代码）转化为行动（程序），我们就必须接受幽灵的存在，并时刻保持对它的警惕。</p>
+<hr />
+
+        </section>
+
+        
+
+    </article>
+</main>
+
+
+    </div>
+</body>
+
+</html>

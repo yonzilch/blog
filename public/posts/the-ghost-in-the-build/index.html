@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<html class="dark light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+
+    
+    
+    
+    <title>
+         The Ghost in the Build
+        
+    </title>
+
+        
+            <meta property="og:title" content="The Ghost in the Build" />
+        
+     
+
+     
+         
+             <meta property="og:description" content="This is Yon Zilch&#x27;s Blog." />
+         
+     
+
+     
+         
+             <meta name="description" content="This is Yon Zilch&#x27;s Blog." />
+         
+    
+
+    
+    
+        <link rel="icon" type="image/png" href=https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;avatar.avif />
+    
+
+
+    
+
+
+    
+    <link rel="alternate" type="application/atom+xml" title="Yon Zilch" href="https://blog.yon.im/atom.xml">
+
+
+    
+    <style>
+      
+      code{background-color:var(--bg-1);padding:.1em .2em;border-radius:5px;border:1px solid var(--border-color)}pre{border-radius:5px;border:1px solid var(--border-color);line-height:1.4;overflow-x:auto;padding:1em}pre code{background-color:rgba(0,0,0,0);color:inherit;font-size:100%;padding:0;border:0}pre{position:relative;-webkit-overflow-scrolling:touch}pre code[class*=language-]{-webkit-overflow-scrolling:touch}pre code[class*=language-]::before{background:#000;border-radius:0 0 .25rem .25rem;color:#fff;font-size:12px;letter-spacing:.025rem;padding:.1rem .5rem;position:absolute;right:.1rem;margin-top:.1rem;text-align:right;text-transform:uppercase;top:0}pre code[class=language-javaScript]::before,pre code[class=language-js]::before{content:"js";background:#f7df1e;color:#000}pre code[class*=language-yml]::before,pre code[class*=language-yaml]::before{content:"yaml";background:#f71e6a;color:#fff}pre code[class*=language-shell]::before,pre code[class*=language-bash]::before,pre code[class*=language-sh]::before{content:"shell";background:green;color:#fff}pre code[class*=language-json]::before{content:"json";background:#1e90ff;color:#000}pre code[class*=language-python]::before,pre code[class*=language-py]::before{content:"py";background:blue;color:#ff0}pre code[class*=language-css]::before{content:"css";background:aqua;color:#000}pre code[class*=language-go]::before{content:"Go";background:aqua;color:#4169e1}pre code[class*=language-md]::before,pre code[class*=language-md]::before{content:"Markdown";background:#4169e1;color:#f5f5f5}pre code[class*=language-rust]::before,pre code[class*=language-rs]::before{content:"rust";background:#fff8f6;color:#ff4647}.page-header{font-size:2.5em;line-height:100%;margin:4rem 0px 1rem 0px}.centered-header{position:absolute;top:40%;left:50%;transform:translate(-50%, -50%);text-align:center;font-size:4em}header{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;padding:1em 0}header .main{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:12px;font-size:1.5rem;margin-bottom:10px}.socials{flex-grow:0;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:flex-start;align-items:flex-end;gap:6px}.social{border-bottom:unset;background-image:unset;padding:2px}.social>img{border:unset;width:24px;height:24px}.meta{color:#14c8c8;letter-spacing:-.5px}#dark-mode-toggle>img{display:none;width:15px;height:15px;border:unset}h1,h2,h3,h4,h5,h6{font-size:1.2rem;margin-top:2em}h1::before{color:var(--primary-color);content:"# "}h2::before{color:var(--primary-color);content:"## "}h3::before{color:var(--primary-color);content:"### "}h4::before{color:var(--primary-color);content:"#### "}h5::before{color:var(--primary-color);content:"##### "}h6::before{color:var(--primary-color);content:"###### "}.card{display:flex;grid-template-rows:auto;gap:24px;padding:12px 0}.card-image{border:unset;max-width:100px;max-height:100px;object-fit:cover;aspect-ratio:1/1}.card-title{margin-top:1em}img{border:3px solid #ececec;max-width:100%}figure{box-sizing:border-box;display:inline-block;margin:0;max-width:100%}figure img{max-height:500px}@media screen and (min-width: 600px){figure{padding:0 40px}}figure h4{font-size:1rem;margin:0;margin-bottom:1em}figure h4::before{content:"↳ "}svg{max-height:15px}.primary-color{color:var(--primary-color)}.draft-label{color:var(--hover-color);text-decoration:none;padding:2px 4px;border-radius:4px;margin-left:6px;background-color:var(--primary-color)}::-moz-selection{background:var(--primary-color);color:var(--hover-color);text-shadow:none}::selection{background:var(--primary-color);color:var(--hover-color)}p{line-height:1.5}hr{border:0;border-top:3px solid var(--border-color);margin:1em 0}blockquote{border-left:3px solid var(--border-color);color:#737373;margin:0;padding-left:1em}a{border-bottom:3px solid var(--primary-color);color:inherit;text-decoration:none}a:hover{background-color:var(--primary-color);color:var(--hover-color)}time{color:#fff}.list>ul{margin:0;padding:1rem 0 0 0}.list-item{margin-bottom:30px}@media all and (max-width: 640px){.post-header{display:grid;grid-template-rows:auto 1fr}.post-header h1{margin-top:0}.post-header h1 a{border-bottom:none}}@media all and (min-width: 640px){.post-header{display:grid;gap:1rem;grid-row-gap:1.5rem;grid-template-columns:auto 1fr}.post-header h1{margin:0;font-size:130%}.post-header h1 a{border-bottom:none}}#dark-mode-toggle{border-bottom:none}#dark-mode-toggle:hover{background-color:rgba(0,0,0,0)}table{border-spacing:0;border-collapse:collapse}table th{padding:6px 13px;border:1px solid #dfe2e5;font-size:large}table td{padding:6px 13px;border:1px solid #dfe2e5}.tags li::before{content:"🏷 "}.tags a{border-bottom:3px solid var(--primary-color)}.tags a:hover{color:var(--hover_color);background-color:var(--primary-color)}:root.dark{--text-0: rgba(255, 255, 255, 87%);--text-1: rgba(255, 255, 255, 60%);--bg-0: #121212;--bg-1: rgba(255, 255, 255, 5%);--bg-2: rgba(23, 23, 23, 100%);--primary-color: #3555b3;--hover-color: white}:root.dark .social>img{filter:invert(1)}:root{--border-color: var(--bg-1);}html{background-color:var(--bg-0);color:var(--text-0);line-height:1.6em}.content{max-width:1000px;margin:0 auto;padding:0 24px;word-wrap:break-word}@media all and (min-width: 640px){html{font-size:16.5px}}@media all and (min-width: 720px){html{font-size:17px}}@media all and (min-width: 960px){html{font-size:18px}}
+    </style>
+
+    
+</head>
+
+
+<body>
+    <div class="content">
+        <header>
+    <div class="main">
+        <a href=https:&#x2F;&#x2F;blog.yon.im>Yon Zilch</a>
+
+        <div class="socials">
+            
+            <a rel="me noopener noreferrer" href="&#x2F;atom.xml" target="_blank" class="social">
+                <img alt=rss src=https://blog.yon.im/social_icons/rss.svg>
+            </a>
+            
+            <a rel="me noopener noreferrer" href="https:&#x2F;&#x2F;codeberg.org&#x2F;yonzilch" target="_blank" class="social">
+                <img alt=CodeBerg src=https://blog.yon.im/social_icons/codeberg.svg>
+            </a>
+            
+            <a rel="me noopener noreferrer" href="https:&#x2F;&#x2F;github.com&#x2F;yonzilch" target="_blank" class="social">
+                <img alt=GitHub src=https://blog.yon.im/social_icons/github.svg>
+            </a>
+            
+            <a rel="me noopener noreferrer" href="https:&#x2F;&#x2F;mastodon.social&#x2F;@yonzilch" target="_blank" class="social">
+                <img alt=Mastodon src=https://blog.yon.im/social_icons/mastodon.svg>
+            </a>
+            
+            <a rel="me noopener noreferrer" href="https:&#x2F;&#x2F;matrix.to&#x2F;#&#x2F;@yonzilch:matrix.org" target="_blank" class="social">
+                <img alt=matrix src=https://blog.yon.im/social_icons/matrix.svg>
+            </a>
+            
+            <a rel="me noopener noreferrer" href="https:&#x2F;&#x2F;t.me&#x2F;yonzilch" target="_blank" class="social">
+                <img alt=Telegram src=https://blog.yon.im/social_icons/telegram.svg>
+            </a>
+            
+        </div>
+    </div>
+
+    <nav>
+        
+        <a href=https://blog.yon.im/posts style="margin-left: 0.7em">posts</a>
+        
+        <a href=https://blog.yon.im/links style="margin-left: 0.7em">links</a>
+        
+        <a href=https://blog.yon.im/about style="margin-left: 0.7em">about</a>
+        
+        <a href=https://blog.yon.im/search style="margin-left: 0.7em">search</a>
+        
+    </nav>
+</header>
+
+
+        
+        
+    
+<main>
+    <article>
+        <div class="title">
+            
+            
+    <div class="page-header">
+        The Ghost in the Build<span class="primary-color" style="font-size: 1.6em">.</span>
+    </div>
+
+
+                <div class="meta">
+                    
+                        Posted on <time>2026-05-29</time>
+                    
+
+                    
+                </div>
+        </div>
+
+        
+
+        
+        
+            
+                <h1>Table of Contents</h1>
+                <ul>
+                
+                    <li>
+                        <a href="https://blog.yon.im/posts/the-ghost-in-the-build/#intro">Intro</a>
+                        
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.yon.im/posts/the-ghost-in-the-build/#jia-tan-what-patience-can-accomplish">Jia Tan: what patience can accomplish</a>
+                        
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.yon.im/posts/the-ghost-in-the-build/#the-gitian-era-the-best-answer-anyone-had">The Gitian era: the best answer anyone had</a>
+                        
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.yon.im/posts/the-ghost-in-the-build/#guix-a-pure-state-of-build">Guix: A Pure State of Build</a>
+                        
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.yon.im/posts/the-ghost-in-the-build/#what-changes-in-enginnering-practice">What changes in enginnering practice</a>
+                        
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.yon.im/posts/the-ghost-in-the-build/#nix-s-pragmatism-and-guix-s-philosophy-of-trust">Nix&#x27;s Pragmatism and Guix&#x27;s Philosophy of Trust</a>
+                        
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.yon.im/posts/the-ghost-in-the-build/#the-ghost-hasn-t-gone-away-it-moves">The ghost hasn&#x27;t gone away, it moves</a>
+                        
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.yon.im/posts/the-ghost-in-the-build/#this-matters-past-bitcoin-core">This matters past Bitcoin Core</a>
+                        
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.yon.im/posts/the-ghost-in-the-build/#acknowledgments">Acknowledgments</a>
+                        
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.yon.im/posts/the-ghost-in-the-build/#references">References</a>
+                        
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.yon.im/posts/the-ghost-in-the-build/#declaration-statement">Declaration &#x2F; Statement</a>
+                        
+                    </li>
+                
+                </ul>
+            
+        
+
+        <section class="body">
+            <p><strong>This article contains a significant amount of technical terminology. You may use AI to aid your understanding. If you feel uncomfortable while reading, it's recommend closing the page immediately.</strong></p>
+<h2 id="intro"><a class="zola-anchor" href="#intro" aria-label="Anchor link for: intro">Intro</a></h2>
+<p>Every piece of software you've ever installed is, at its core, an act of faith.</p>
+<p>Not faith in the code itself — you can read the code, audit it, tear it apart line by line. Faith in something murkier: the chain of hands that code passed through before becoming the program running on your machine. Someone compiled it somewhere, on some system, using some tools. You weren't there. You didn't watch. You clicked install anyway, and moved on with your day.</p>
+<p>For most software, this is a reasonable bargain. For <strong>Bitcoin Core</strong>, it is unacceptable. The project exists for one significant purpose: to resist corruption by removing the necessity of human trust as much as possible.</p>
+<hr />
+<h2 id="jia-tan-what-patience-can-accomplish"><a class="zola-anchor" href="#jia-tan-what-patience-can-accomplish" aria-label="Anchor link for: jia-tan-what-patience-can-accomplish">Jia Tan: what patience can accomplish</a></h2>
+<p>In the spring of 2024, a Microsoft engineer named Andres Freund noticed that SSH logins on a Debian system were taking about half a second longer than they should. It was the kind of anomaly most people would blame on a network hiccup and forget. Freund did not forget. He pulled the thread.</p>
+<p>What he found, buried inside XZ Utils — a compression library so mundane that most Linux users couldn't have named it — was a backdoor of extraordinary craftsmanship. It had been nearly two years in the making, introduced gradually, methodically, by a contributor known only as Jia Tan.</p>
+<p>That maybe a fake name. What is real is the method.</p>
+<p>Jia Tan appeared in the XZ Utils repository in late 2021 as an ordinary contributor, submitting small, useful patches. They were helpful. They were responsive. In retrospect, their patience is the most chilling detail of the whole story. It was not enthusiasm; it was calculation. Over months, they exploited the project's existing maintainer — a single overworked developer publicly wrestling with burnout — gradually nudging him toward granting commit access. Once they had it, they introduced the malicious payload not through any obvious tampering with the source code, but through what appeared to be test files: obfuscated binary blobs that only the build scripts would process correctly.</p>
+<p>The code was clean. The repository was clean. The poison lived entirely in the build process.</p>
+<p>What makes this story genuinely unsettling is not the technical ingenuity. It's that Jia Tan exploited nothing that most of us would recognize as a vulnerability. They exploited *<em>care</em>. The open-source community runs on an implicit belief in mutual goodwill — people contribute because they want to help, and the community accepts help because it needs it. Jia Tan wore that belief like a costume and walked through every door it opened.</p>
+<p>Four years earlier, attackers had done the same thing from the outside. The SolarWinds breach of 2020 required no years of community trust-building, no social engineering, no patience. The attackers compromised the automated pipeline that turns source code into a shippable product — and inserted a backdoor directly into the official binary before it ever left the building. Eighteen thousand organizations downloaded the result, including the US Treasury, the State Department, and the Department of Homeland Security. All of them were running a signed, official binary containing code their vendor had never written.</p>
+<p>Two attacks. Opposite approaches. One found the crack from the outside; the other from within. However, both converged on exactly the same blind spot: the build process — that dark passage between the code a developer writes and the program a user runs.</p>
+<hr />
+<h2 id="the-gitian-era-the-best-answer-anyone-had"><a class="zola-anchor" href="#the-gitian-era-the-best-answer-anyone-had" aria-label="Anchor link for: the-gitian-era-the-best-answer-anyone-had">The Gitian era: the best answer anyone had</a></h2>
+<p>To understand where Bitcoin Core is going, you first have to appreciate where it has been.</p>
+<p>For most of its history, Bitcoin Core used a tool called Gitian to solve what's known as the reproducible builds problem. Here's the problem: if I compile the Bitcoin Core source code and you compile the same source code, we should produce bit-for-bit identical binaries. If we don't, then either one of our machines is doing something different — or something has been tampered with, somewhere, by someone.</p>
+<p>Gitian achieved this by having multiple developers build inside identical virtual machines — the same Ubuntu snapshot, the same container configuration — and then comparing their results. If every builder produced the same cryptographic hash, the binary was declared trustworthy — an early recognition that attestation relies on independent convergence, even if the build environment itself remained murky.</p>
+<p>This was not a small achievement. For almost a decade, Gitian functioned reliably and raised Bitcoin Core's security posture far above the industry standard. The developers who built and maintained it were thinking about software supply chains long before most organizations knew the phrase existed. That work deserves its due credit.</p>
+<p>But Gitian has an inherent problem, and the problem is the word *<em>implicit</em>.</p>
+<p>Gitian runs scripts inside a virtual machine. It assumes the base operating system snapshot is clean. It inherits the ambient environment of a running Unix system: the libraries that happen to be present, the locale settings, the PATH variables, the hundred invisible things that accumulate in any long-lived system. That environment is not declared. It is not verified. It simply *<em>is</em>, the way the weather simply is.</p>
+<p>Think of it as the difference between an oral recipe and a laboratory protocol. An oral recipe relies on implicit variables: <strong>add a pinch of salt, use whatever pan happens to be on the stove.</strong> In software terms, those unwritten instructions — like inheriting the ambient PATH or linking a library that "happens" to be installed — are undeclared dependencies. Two competent cooks following an oral recipe will produce similar dishes, just as two machines might compile similar binaries. But <strong>similar</strong> is not *<em>identical</em>, and <strong>similar</strong> is not <strong>provably</strong> identical. The kitchen has a history — it breathes with the residue of past meals, just as a build environment inherits the ambient state of its host system.</p>
+<p>The build environment, under Gitian, had a history too. And in that history — implicit, vast, and largely unexamined — an attacker has room to work.</p>
+<hr />
+<h2 id="guix-a-pure-state-of-build"><a class="zola-anchor" href="#guix-a-pure-state-of-build" aria-label="Anchor link for: guix-a-pure-state-of-build">Guix: A Pure State of Build</a></h2>
+<p>Bitcoin Core introduced GNU Guix — in a proposal first merged in 2019 — to replace Gitian. The shift is philosophical before it is technical.</p>
+<p>Guix treats the build process as a <strong>pure function</strong> — that has no memory, no side effects, and no ambient state. If you've written object-oriented code, you know the opposite intimately: methods that silently reach into <code>this.config</code>, functions that behave differently depending on environment variables they never declared as parameters, procedures whose output changes based on what happened earlier in the program's life. A pure function has none of that. You give it exactly these inputs; it gives you exactly this output of building. This holds true every time, on any machine, in any time.</p>
+<p>This is the property Guix enforces at the scale of an entire software build:</p>
+<pre><code>output = f(all inputs)
+</code></pre>
+<p>Everything the build needs — every compiler, every library, every tool — must be *<em>explicitly declared</em>. If it isn't declared, it doesn't exist within the build process. Not "it probably won't be found." It structurally cannot exist, because the host system is entirely invisible. Network access is disabled. Timestamps are fixed to a known value. The PATH is wiped and reconstructed from scratch using only what's been declared.</p>
+<p>In Guix's language (Scheme), a package declaration looks like this:</p>
+<pre><code data-lang="scheme">(inputs
+  (list gcc glibc openssl))
+</code></pre>
+<p>That list is the entire environment. There is no "the system happened to have this." There is no accumulation of prior state. Every ingredient is named, weighed, and catalogued, the way a chemistry lab protocol specifies every reagent and every condition — not because chemists are pedantic, but because *<em>the reproducibility of the result depends on it</em>.</p>
+<p>The outputs are stored with content-addressed naming: a binary's path in the system is derived from the cryptographic hash of its contents and all of its declared dependencies.</p>
+<pre><code>/gnu/store/qx7l4fl3pj8y...-bitcoin-core-27.0/
+</code></pre>
+<p>That long string of characters is not a label. It's a proof. Change any input — even one byte — and the hash changes, and the path changes with it. There are no silent mutations. There is nowhere for a ghost to hide.</p>
+<blockquote>
+<p>In addtional:
+In software engineering, <code>random()</code> is typically introduced for security—to prevent predictive attacks or generate cryptographic keys.</p>
+<p>But when embedded into the compilation and build phase, it mutates into a 'ghost in the build,' rendering reproducible builds structurally impossible.</p>
+</blockquote>
+<hr />
+<h2 id="what-changes-in-enginnering-practice"><a class="zola-anchor" href="#what-changes-in-enginnering-practice" aria-label="Anchor link for: what-changes-in-enginnering-practice">What changes in enginnering practice</a></h2>
+<p>With Guix, developers independently build Bitcoin Core from source. Not on shared infrastructure. On completely independent machines — potentially different hardware, different countries, different operational histories. If the process is sound, they all arrive at the same hash.</p>
+<p>They submit that hash alongside a cryptographic signature — a mathematical seal that binds the result irrevocably to their identity. The collection of these signed attestations is public and auditable.</p>
+<p><strong>Before (Gitian):</strong></p>
+<pre><code>Developer builds → Signs the binary → User downloads and trusts the signature
+</code></pre>
+<p>The user is trusting a person, and that person's build environment, and everyone who had access to it.</p>
+<p><strong>After (Guix):</strong></p>
+<pre><code>Many developers build independently
+        ↓
+Results converge on the same hash
+        ↓
+The convergence itself becomes the attestation
+        ↓
+User verifies the convergence
+</code></pre>
+<p>Signatures are no longer the benchmark of trust. Consensus among independent witnesses is. If a machine is compromised, the hashes it generates will diverge from those of all other nodes. Such security breaches are not uncovered through incident response or forensic investigations, but are naturally revealed through the normal operation of the validation process—just as when you compare a rigged scale with the majority of honest scales, the cheating is immediately exposed.<strong>(This is essentially the same as how anti-cheating mechanisms operate in blockchain consensus nodes.)</strong></p>
+<hr />
+<h2 id="nix-s-pragmatism-and-guix-s-philosophy-of-trust"><a class="zola-anchor" href="#nix-s-pragmatism-and-guix-s-philosophy-of-trust" aria-label="Anchor link for: nix-s-pragmatism-and-guix-s-philosophy-of-trust">Nix's Pragmatism and Guix's Philosophy of Trust</a></h2>
+<p>Users of NixOS will find all of this familiar — Nix shares the same foundational insight, the same <code>/store</code> model, the same devotion to builds as pure functions. But the two projects made a different wager at a crucial fork in the road. Nix, choosing usability, relies heavily on large binary caches by default: rather than compile everything from source, you download pre-built artifacts from a trusted server. For most users, this is the right call. Compilation is slow, and a working system is worth more than a philosophical one.</p>
+<p>Guix chose differently. Driven by a philosophy akin to Gentoo but enforced with strict functional guarantees, <strong>Guix + GNU Mes</strong> insists on building everything from source. For Bitcoin Core, this distinction is critical. Guix traces an unbroken chain back to what it calls the <strong>Full-Source Bootstrap</strong>: a minimal trust anchor of roughly 357 bytes of machine code from which the entire toolchain — compilers, linkers, standard libraries, all of it — is compiled step by step, with nothing assumed and nothing pre-built. To trust a binary cache package is to trust whoever populated it. Bitcoin Core's threat model offers no room for that kind of faith.</p>
+<p>This trust anchor has been fully streamlined, enabling developers in complex software engineering projects to verify build artifacts more effectively with less effort. This is Guix's founding wager on Full-Source Bootstrap, and the fundamental reason Bitcoin Core adopted Guix + GNU Mes as its build solution: the root of trust must be sufficiently minimal to allow developers to easily comprehend the build process and verify its correctness, rather than blindly rubber-stamping invisible black boxes out of convenience.</p>
+<hr />
+<h2 id="the-ghost-hasn-t-gone-away-it-moves"><a class="zola-anchor" href="#the-ghost-hasn-t-gone-away-it-moves" aria-label="Anchor link for: the-ghost-hasn-t-gone-away-it-moves">The ghost hasn't gone away, it moves</a></h2>
+<p>Here is where the honest account gets complicated.</p>
+<p>Guix dramatically shrinks the surface of implicit trust. But it does not eliminate trust.</p>
+<p>In other words, Guix approaches the mathematical limit of trust, yet never reaches the <strong>absolute zero</strong> of <strong>Zero Trust</strong>.</p>
+<p>Consider a thought experiment. Someone with Jia Tan's patience and technical sophistication targets not Bitcoin Core's source code, but a low-level dependency of Guix itself — something deep in the toolchain that all builders share, introduced slowly enough not to raise alarms. The result would be: a perfectly reproducible binary, universally attested, signed by every independent builder. They would all produce the same hash. Users would verify the convergence and feel secure.</p>
+<p><img src="https://static.yon.im/image/blog/the-ghost-in-the-build/1.webp" alt="1" /></p>
+<blockquote>
+<p>(Generated by ChatGPT Images)</p>
+</blockquote>
+<p>Determinism guarantees reproducibility. It does not guarantee <strong>correctness</strong>. It ensures that everyone is building the same thing — it cannot guarantee that the thing being built is clean. Guix moves the attack surface; it does not dissolve it.</p>
+<p>The <strong>Full-Source Bootstrap</strong> addresses this challenge at the absolute bedrock: starting from something small enough to be auditable, and compiling all the way up. Yet, being 'small enough to be audited' is not the same as 'having been thoroughly audited.'</p>
+<p>This erects an inverted pyramid of engineering: the staggering, massive dependency ecosystem of the modern software world forms the heavy precipice, while those mere 357 bytes of machine code serve as the precarious fulcrum holding up the entire superstructure. Within this formation, every block of code stacked upward requires the absolute mathematical integrity of every stone beneath it as a physical prerequisite. The chain of trust stretches endlessly with every added dependency; any micro-flaw or unexamined ghost at the bottom propagates upward through the structural stress, amplifying at the apex into a catastrophic collapse of the entire empire.</p>
+<p>There is also a quieter problem. The verification model works when many independent builders exist. In practice, who performs these builds? People with the technical capability, the hardware, the time. The network of witnesses is real, but it is small and self-selecting. The participants know each other. They share mailing lists, conferences, professional histories. "Independent" is true in the technical sense — separate machines, separate environments — but sociology has its own meaning for the word, and the two meanings do not always agree.</p>
+<p>None of this is a reason to prefer Gitian. It is a reason to be precise about what Guix actually achieves: it replaces a wide, murky attack surface with a narrow, well-lit one. That is meaningful progress. But this is by no means a problem that has been fully resolved — the ghost 👻 of the build process still lingers.</p>
+<hr />
+<h2 id="this-matters-past-bitcoin-core"><a class="zola-anchor" href="#this-matters-past-bitcoin-core" aria-label="Anchor link for: this-matters-past-bitcoin-core">This matters past Bitcoin Core</a></h2>
+<p>The Bitcoin Core use case is extreme. The software manages financial sovereignty for people who, by design, distrust intermediaries. Most software does not bear this burden.</p>
+<p>But this underlying vulnerability extends far beyond Bitcoin. Every server you administer, every tool in your deployment pipeline, every background library — all of them passed through a build process you did not witness, on machines you have never seen, by people you do not know. The victims of SolarWinds didn't know either. Andres Freund only barely caught Jia Tan.</p>
+<p>That "barely" is the critical point. What stopped the XZ backdoor was one engineer's curiosity about SSH latency on a Friday afternoon — a fleeting moment of attention that cannot be relied upon to repeat. It wasn't a system that stopped the breach. It was luck. And luck is a terrifyingly fragile foundation for digital infrastructure......</p>
+<p>The principles Guix embodies scale in both directions.</p>
+<ul>
+<li>
+<p>At the baseline, combining a tool like <a rel="external" href="https://direnv.net">direnv</a> with <a rel="external" href="https://nixos.wiki/wiki/Flakes">Nix flakes</a> lets any project declare and pin its entire development environment: same compiler, same library versions, same behavior — regardless of the machine or the year. Two developers on different continents, checking out the same repository, get identical toolchains. The "works on my machine" problem becomes architecturally impossible rather than perennially managed.</p>
+</li>
+<li>
+<p>Setting this up requires only a modest amount of configuration time, and it belongs in any serious project. Further up the chain, build pipelines can be reconfigured to work from explicitly declared, version-locked inputs rather than trusting whatever the runner happens to have installed — the oral-recipe model replaced, at least partially, by the laboratory protocol. Guix, and Bitcoin Core's full reproducible build process, represents the far end of the spectrum: declare everything, verify everything, minimize trust to what can actually be inspected. Not every project needs that ceiling. Every project benefits from knowing it exists. Each explicit declaration, each pinned dependency, each verified build shrinks the territory where the unobserved can hide.</p>
+</li>
+</ul>
+<p>You will always be trusting something. The question Guix asks — and answers — is how small that something can be made.</p>
+<p>The ghost doesn't leave. But it has less room to hide.</p>
+<hr />
+<h2 id="acknowledgments"><a class="zola-anchor" href="#acknowledgments" aria-label="Anchor link for: acknowledgments">Acknowledgments</a></h2>
+<p><strong>Bitcoin Core's Guix contribution guide: <a rel="external" href="https://github.com/bitcoin/bitcoin/blob/master/contrib/guix/README.md">github.com/bitcoin/bitcoin/blob/master/contrib/guix/README.md</a></strong></p>
+<p><strong>GNU Guix: <a rel="external" href="https://guix.gnu.org/">guix.gnu.org</a></strong></p>
+<p><strong>Nix Flakes: <a rel="external" href="https://nixos.wiki/wiki/Flakes">nixos.wiki/wiki/Flakes</a></strong></p>
+<p><strong>Reproducible Builds: <a rel="external" href="https://reproducible-builds.org">reproducible-builds.org</a></strong></p>
+<p><strong>GNU Mes: <a rel="external" href="https://nlnet.nl/project/GNUMes-fullsource/">nlnet.nl/project/GNUMes-fullsource</a></strong></p>
+<hr />
+<h2 id="references"><a class="zola-anchor" href="#references" aria-label="Anchor link for: references">References</a></h2>
+<ul>
+<li>
+<p><strong>[1]</strong> Freund, A. (2024). <em>backdoor in upstream xz/liblzma leading to sshd compromise</em>. Open Source Security mailing list. <a rel="external" href="https://www.openwall.com/lists/oss-security/2024/03/29/4">View archive</a></p>
+</li>
+<li>
+<p><strong>[2]</strong> CISA. (2020). <em>Advanced Persistent Threat Compromise of Government Agencies, Critical Infrastructure, and Private Sector Organizations</em> (Alert AA20-352A). <a rel="external" href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa20-352a">View alert</a></p>
+</li>
+<li>
+<p><strong>[3]</strong> Thompson, K. (1984). Reflections on trusting trust. <em>Communications of the ACM</em>, 27(8), 761–763. <a rel="external" href="https://dl.acm.org/doi/10.1145/358198.358210">doi:10.1145/358198.358210</a></p>
+</li>
+<li>
+<p><strong>[4]</strong> Dong, C. (2019). <em>bitcoin/bitcoin PR #15277: Add Guix-based release build system</em>. GitHub. <a rel="external" href="https://github.com/bitcoin/bitcoin/pull/15277">View pull request</a></p>
+</li>
+<li>
+<p><strong>[5]</strong> Courtès, L., &amp; Nieuwenhuizen, J. (2023). <em>The Full-Source Bootstrap: Building from source all the way down</em>. GNU Guix Blog. <a rel="external" href="https://guix.gnu.org/blog/2023/the-full-source-bootstrap-building-from-source-all-the-way-down/">View post</a></p>
+</li>
+<li>
+<p><strong>[6]</strong> Zero trust architecture. (2024). <em>Wikipedia</em>. The "Zero Trust" entry on Wikipedia. <a rel="external" href="https://en.wikipedia.org/wiki/Zero_trust_architecture/">View wiki</a></p>
+</li>
+</ul>
+<hr />
+<h2 id="declaration-statement"><a class="zola-anchor" href="#declaration-statement" aria-label="Anchor link for: declaration-statement">Declaration / Statement</a></h2>
+<blockquote>
+<p>This article is a personal exercise in Vibe Writing. It was completed after countless rounds of dialogue with multiple large language models (LLMs) and meticulous review and polishing of every word and sentence—particularly during the process of translating between Chinese and English. The entire process took approximately 12 consecutive hours.</p>
+<p>Participating model providers include Claude, GLM, Gemini, GPT, Grok, DeepSeek, and Mistral (listed in order of estimated token usage).</p>
+<p>The research direction, editorial judgments, and overall decisions were made by myself; the language was refined through iterative human-machine collaboration.</p>
+<p>Every fact stated in this article has been manually verified to minimize model hallucinations as much as possible.</p>
+</blockquote>
+
+        </section>
+
+        
+
+    </article>
+</main>
+
+
+    </div>
+</body>
+
+</html>

@@ -6,8 +6,387 @@
     <link rel="self" type="application/atom+xml" href="https://blog.yon.im/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://blog.yon.im"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2026-03-09T00:00:00+00:00</updated>
+    <updated>2026-05-29T00:00:00+00:00</updated>
     <id>https://blog.yon.im/atom.xml</id>
+    <entry xml:lang="en">
+        <title>构建中的幽灵</title>
+        <published>2026-05-29T00:00:00+00:00</published>
+        <updated>2026-05-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.yon.im/posts/the-ghost-in-the-build-zh-cn/"/>
+        <id>https://blog.yon.im/posts/the-ghost-in-the-build-zh-cn/</id>
+        
+        <content type="html" xml:base="https://blog.yon.im/posts/the-ghost-in-the-build-zh-cn/">&lt;p&gt;&lt;strong&gt;本文包含大量专业术语，可使用 AI 辅助理解。若阅读过程感到不适，建议直接关闭。&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;yin-ru&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#yin-ru&quot; aria-label=&quot;Anchor link for: yin-ru&quot;&gt;引入&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;你安装过的每一款软件，究其根本，都是一次盲目的托付。&lt;&#x2F;p&gt;
+&lt;p&gt;这份托付并非针对代码本身 —— 代码你可以阅读，可以审计，可以逐行拆解。它针对的是更深不可测的东西：代码在变成你机器上运行的程序之前，所经过的那一长串交接的手。有人在某处、某个系统上、用某些工具编译了它。你不在场，你没有亲眼目睹。你只是点了安装，然后继续你的一天。&lt;&#x2F;p&gt;
+&lt;p&gt;对大多数软件而言，这是一笔合理的交易。但对 &lt;strong&gt;Bitcoin Core&lt;&#x2F;strong&gt; 而言，这是不可接受的。该项目存在的一个重要目的在于：通过消除对人际信任的依赖，从而尽可能地抵制腐败。&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;jia-tan-nai-xin-neng-cheng-jiu-shen-me&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#jia-tan-nai-xin-neng-cheng-jiu-shen-me&quot; aria-label=&quot;Anchor link for: jia-tan-nai-xin-neng-cheng-jiu-shen-me&quot;&gt;Jia Tan： 耐心能成就什么&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;2024 年春天，一位名叫 Andres Freund 的微软工程师注意到，Debian 系统上的 SSH 登录比正常情况慢了大约半秒。这种异常，大多数人会归咎于网络抖动，然后抛之脑后。但 Freund 没有忘记，他顺藤摸瓜，一查到底。&lt;&#x2F;p&gt;
+&lt;p&gt;他在 XZ Utils 深处发现了一个工艺极为精湛的后门。XZ Utils 是一个极其平凡的压缩库，以至于大多数 Linux 用户甚至叫不出它的名字。这个后门耗时近两年精心布局，由一个仅被称为 Jia Tan 的贡献者循序渐进、有条不紊地植入。&lt;&#x2F;p&gt;
+&lt;p&gt;那可能是一个假名，但其手段却无比真实。&lt;&#x2F;p&gt;
+&lt;p&gt;Jia Tan 于 2021 年底以普通贡献者的身份出现在 XZ Utils 仓库中，提交了一些微小而实用的补丁。他们热心，响应迅速。现在回想起来，他们的耐心才是整个故事中最令人不寒而栗的细节。那不是热情，而是算计。数月间，他们借助项目现有的维护者 —— 一个在公开场合苦苦应对职业倦怠的孤军开发者 —— 一步步将其诱导，直到对方授予提交权限。一旦得手，他们引入恶意载荷的方式，并非明显地篡改源代码，而是藏在看似普通的测试文件之中：那些混淆的二进制数据块（Binary Blobs），只有构建脚本才能正确处理。&lt;&#x2F;p&gt;
+&lt;p&gt;代码是干净的。仓库是干净的。毒药完全寄居在构建过程之中。&lt;&#x2F;p&gt;
+&lt;p&gt;让这个故事真正令人不安的，并不是技术上的巧思。而是 Jia Tan 利用的，并非我们大多数人通常认知中的技术漏洞。他们利用的是&lt;strong&gt;善意&lt;&#x2F;strong&gt;。开源社区的运转建立在一种对彼此怀有善意的隐性信念之上 —— 人们因为想帮忙而贡献，社区因为需要帮助而接受贡献。 Jia Tan 将这种信念当作伪装穿上身，走过了它开启的每一道门。&lt;&#x2F;p&gt;
+&lt;p&gt;四年前，攻击者从外部做到了同样的事。2020 年的 SolarWinds 事件无需数年的社区信任积累，无需社会工程学，也无需耐心。攻击者入侵了将源代码转化为可交付产品的自动化流水线，并在软件“离开大楼”（即正式发布）前，直接将后门植入官方二进制文件。一万八千个组织下载了这一结果，其中包括美国财政部、国务院和国土安全部。它们运行的都是经过签名、官方的二进制文件，其中却包含着其供应商从未编写过的代码。&lt;&#x2F;p&gt;
+&lt;p&gt;两次攻击，途径截然相反。一个从外部寻找破绽，另一个从内部渗透。但两者最终汇聚在完全相同的盲区：构建过程 —— 那条连接着开发者编写的代码与用户运行的程序之间的漆黑通道。&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;gitian-shi-dai-dang-shi-zui-hao-de-da-an&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#gitian-shi-dai-dang-shi-zui-hao-de-da-an&quot; aria-label=&quot;Anchor link for: gitian-shi-dai-dang-shi-zui-hao-de-da-an&quot;&gt;Gitian 时代：当时最好的答案&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;要理解 Bitcoin Core 正走向何方，必须先了解它曾经历过什么。&lt;&#x2F;p&gt;
+&lt;p&gt;在其历史的大部分时间里，Bitcoin Core 使用一个名为 Gitian 的工具来解决所谓的&quot;可复现构建&quot;问题。问题在于：如果我编译 Bitcoin Core 的源代码，而你也编译同一份源代码，我们理应产生字节码完全一致的二进制文件。如果结果不一致，则要么是我们其中一台机器的行为有所不同，要么是某个环节被某个人做了篡改。&lt;&#x2F;p&gt;
+&lt;p&gt;Gitian 的实现方式是让多位开发者在完全相同的虚拟机内进行构建 —— 相同的 Ubuntu 快照、相同的容器配置 —— 然后比对各自的结果。如果每位构建者都产生了相同的密码学哈希值，该二进制文件就被宣布为可信 —— 这在早期就已经认识到：签名证明有赖于独立构建结果的收敛，即便构建环境本身仍然是一团迷雾。&lt;&#x2F;p&gt;
+&lt;p&gt;这并非一项小成就。近十年来，Gitian 稳定运行，将 Bitcoin Core 的安全防御态势提升到了远超行业标准的水平。开发和维护它的开发者们，早在大多数组织听说&quot;软件供应链&quot;这个词之前，就已经在深入思考这个问题了。这份功绩理应得到应有的赞誉。&lt;&#x2F;p&gt;
+&lt;p&gt;但 Gitian 有一个固有的缺陷，这个缺陷可以用一个词来概括：&lt;strong&gt;隐式（implicit）&lt;&#x2F;strong&gt;。&lt;&#x2F;p&gt;
+&lt;p&gt;Gitian 在虚拟机中执行脚本。它假设基础操作系统快照是干净的。它会继承运行中的 Unix 系统环境：偶然存在的动态链接库、语言环境设置、PATH 变量，以及任何长期运行的系统中积累的无数不可见因素。这些环境未被声明，也未被验证。它就那么自然地&lt;strong&gt;存在&lt;&#x2F;strong&gt;着，如同天气的存在一样。&lt;&#x2F;p&gt;
+&lt;p&gt;把它想象成口述菜谱与实验室标准规程之间的区别。口述菜谱依赖隐式变量：&lt;strong&gt;“加一撮盐，用灶台上现有的任意一口锅。”&lt;strong&gt;在软件工程中，这些未写明的指令 —— 比如继承周边环境的 PATH，或链接一个&quot;碰巧&quot;安装在系统上的库 —— 就是未声明的依赖项。两位称职的厨师按照同一份口述菜谱，能做出味道相似的菜肴，正如两台机器可能编译出相似的二进制文件。但&lt;&#x2F;strong&gt;相似&lt;&#x2F;strong&gt;不是&lt;strong&gt;相同&lt;&#x2F;strong&gt;，&lt;strong&gt;相似&lt;&#x2F;strong&gt;在技术上也无法做到&lt;em&gt;可证明&lt;&#x2F;em&gt;的完全一致。厨房是有“历史”的 —— 它呼吸着历次烹饪留下的残余气息，正如构建环境会默默继承宿主系统的周边状态。&lt;&#x2F;p&gt;
+&lt;p&gt;在 Gitian 模式下，构建环境同样拥有历史。而在那段隐式、宏大且大多未经审视的历史中，攻击者有机可乘。&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;guix-chun-cui-zhuang-tai-de-gou-jian&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#guix-chun-cui-zhuang-tai-de-gou-jian&quot; aria-label=&quot;Anchor link for: guix-chun-cui-zhuang-tai-de-gou-jian&quot;&gt;Guix：纯粹状态的构建&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Bitcoin Core 在 2019 年首次合并的一项提案中引入了 GNU Guix 以取代 Gitian。这场转变在演变为技术革新之前，首先是一场哲学层面的演进。&lt;&#x2F;p&gt;
+&lt;p&gt;Guix 将构建过程视为一个&lt;strong&gt;纯函数（pure function）&lt;&#x2F;strong&gt; —— 没有记忆、没有副作用、没有环境状态的函数。如果你写过面向对象的代码，你对其反面一定再熟悉不过：悄悄读取 &lt;code&gt;this.config&lt;&#x2F;code&gt; 的方法，行为取决于从未作为参数声明的环境变量的函数，输出结果随程序早期运行情况而变化的过程。纯函数没有这些。你给它确切的输入，它给你确切的输出。无论在任何机器上、在任何时间点，构建结果始终一致。&lt;&#x2F;p&gt;
+&lt;p&gt;这正是 Guix 在整个软件构建规模上强制施加的特性：&lt;&#x2F;p&gt;
+&lt;pre&gt;&lt;code&gt;output = f(all inputs)
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;构建所需的一切 —— 每一个编译器、每一个依赖库、每一个工具 —— 都必须被&lt;strong&gt;显式声明&lt;&#x2F;strong&gt;。如果没有声明，它在构建过程中就根本不存在。不是“可能很难找到”，而是从结构上根本无法存在，因为宿主系统被完全屏蔽了。网络访问被彻底禁用。时间戳被固定为已知常量。PATH 被清空，仅使用已声明的内容从零重建。&lt;&#x2F;p&gt;
+&lt;p&gt;在 Guix 的语言（Scheme）中，一个包声明类似于这样：&lt;&#x2F;p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;scheme&quot;&gt;(inputs
+  (list gcc glibc openssl))
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;那个列表就是整个环境的全部。不存在&quot;系统刚好装了这个&quot;的情况，也没有任何历史状态的累积。每一种原料都被命名、称量并记录在案，正如化学实验室的标准规程会明确指定每一种试剂和每一种反应条件 —— 这并不是因为化学家有什么执念，而是因为&lt;strong&gt;结果的可复现性完全取决于此&lt;&#x2F;strong&gt;。&lt;&#x2F;p&gt;
+&lt;p&gt;输出结果采用内容寻址（content-addressed）的方式命名存储：二进制文件在系统中的路径，由其内容及所有声明依赖项的密码学哈希值共同推导而来。&lt;&#x2F;p&gt;
+&lt;pre&gt;&lt;code&gt;&#x2F;gnu&#x2F;store&#x2F;qx7l4fl3pj8y...-bitcoin-core-27.0&#x2F;
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;那串长长的字符不是标签，而是铁证。更改任何输入 —— 哪怕只有一个字节 —— 哈希值就会改变，路径也随之改变。没有任何悄然发生的突变。幽灵无处遁形。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;补充澄清：
+在软件工程中，&lt;code&gt;random()&lt;&#x2F;code&gt; 通常是为了带来安全性（比如防止预测攻击、生成加密密钥）。&lt;&#x2F;p&gt;
+&lt;p&gt;但如果把它用在了编译构建期，它也会变成了一种“构建中的幽灵”，因为它让可重现构建（Reproducible Builds）变得不可行&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;zai-gong-cheng-shi-jian-zhong-gai-bian-liao-shen-me&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#zai-gong-cheng-shi-jian-zhong-gai-bian-liao-shen-me&quot; aria-label=&quot;Anchor link for: zai-gong-cheng-shi-jian-zhong-gai-bian-liao-shen-me&quot;&gt;在工程实践中改变了什么&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;借助 Guix，开发者可以独立从源代码构建 Bitcoin Core。不是在共享的基础设施上，而是在完全独立的机器上 —— 可能拥有不同的硬件、身处不同的国家、具备截然不同的系统运行历史。如果构建过程没有瑕疵，他们最终都会得到完全相同的哈希值。&lt;&#x2F;p&gt;
+&lt;p&gt;他们将这个哈希值连同密码学签名一起提交 —— 这是一个在数学上将构建结果与其身份不可撤销地绑定在一起的印记。这些经签名的证明记录集合是公开的，且可供审计。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;之前（Gitian）：&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;pre&gt;&lt;code&gt;开发者构建 → 对二进制文件签名 → 用户下载并信任该签名
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;用户信任的是一个具体的人、那个人的构建环境，以及所有能够访问该环境的人。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;之后（Guix）：&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;pre&gt;&lt;code&gt;多位开发者独立进行构建
+        ↓
+构建结果收敛于同一个哈希值
+        ↓
+这种&amp;quot;收敛&amp;quot;本身成为凭证
+        ↓
+用户验证这一收敛结果
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;签名已不再是信任的基准。&lt;strong&gt;独立见证者&lt;&#x2F;strong&gt;之间的共识才是。如果某台验证节点遭到入侵，其生成的哈希值就会与其他所有节点的哈希值产生偏差。此类安全漏洞并非通过事件响应或取证调查被揭露，而是通过验证流程的正常运作自然显现 —— 就像当你将作弊的秤与大多数诚实的秤进行比对时，作弊行为便会立即暴露无遗。&lt;strong&gt;（这也与区块链共识节点防作弊机制的运作殊途同归）&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;nix-de-shi-yong-zhu-yi-yu-guix-de-xin-ren-zhe-xue&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#nix-de-shi-yong-zhu-yi-yu-guix-de-xin-ren-zhe-xue&quot; aria-label=&quot;Anchor link for: nix-de-shi-yong-zhu-yi-yu-guix-de-xin-ren-zhe-xue&quot;&gt;Nix 的实用主义与 Guix 的信任哲学&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;NixOS 的用户会对这一切感到似曾相识 —— Nix 拥有完全相同的底层洞察、相同的 &lt;code&gt;&#x2F;store&lt;&#x2F;code&gt; 存储模型，以及对&quot;构建即纯函数&quot;的相同执念。然而，这两个项目在一条关键的分叉路口做出了截然不同的押注。Nix 优先选择了易用性，默认情况下高度依赖大型二进制缓存：你不需要从头编译一切，直接从受信任的服务器下载预先构建好的产物即可。对大多数用户来说，这是完全正确的决定。编译极其缓慢，一个开箱即用的系统比一个纯粹的哲学追求更有价值。&lt;&#x2F;p&gt;
+&lt;p&gt;Guix 选择了另一条路。秉持一种近似 Gentoo 的理念，并加以严格的函数式约束，&lt;strong&gt;Guix + GNU Mes&lt;&#x2F;strong&gt; 坚持从源码构建一切。对于 Bitcoin Core 而言，这种区别至关重要。Guix 将一条严密的链条一路追溯到它所谓的&lt;strong&gt;全源码自举（Full-Source Bootstrap）&lt;&#x2F;strong&gt;：一个仅有约 357 字节机器代码的最小信任锚点，整个工具链 —— 编译器、链接器、标准库，所有的一切 —— 全部基于这个锚点一步步编译而来，没有任何先入为主的假设，也没有任何预先构建的黑盒。信任一个二进制缓存包 (package)，就等于信任打包它的幕后之人。Bitcoin Core 的威胁模型中没有空间容纳这种盲目的信任。&lt;&#x2F;p&gt;
+&lt;p&gt;这一信任锚点已被完全地精简，使得在复杂的软件工程项目中，开发者能花费更少精力却更有效地对构建产物进行核查。这正是 Guix 选择 &lt;strong&gt;Full-Source Bootstrap&lt;&#x2F;strong&gt; 的立项押注，亦是 Bitcoin Core 选择 &lt;strong&gt;Guix + GNU Mes&lt;&#x2F;strong&gt; 作为构建方案的根本原因：信任的根基必须足够精简，因而开发者能容易理解构建过程并验证其正确性，而非因贪图便利，对看不见的黑盒盲目盖章放行。&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;you-ling-bing-wei-chi-qu-ta-zhi-shi-zhuan-yi-liao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#you-ling-bing-wei-chi-qu-ta-zhi-shi-zhuan-yi-liao&quot; aria-label=&quot;Anchor link for: you-ling-bing-wei-chi-qu-ta-zhi-shi-zhuan-yi-liao&quot;&gt;幽灵并未离去，它只是转移了&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;叙写到这里，坦诚的叙述开始变得错综复杂。&lt;&#x2F;p&gt;
+&lt;p&gt;Guix 大幅收缩了隐式信任的攻击面。但它并没有消灭信任。&lt;&#x2F;p&gt;
+&lt;p&gt;换言之，Guix 逼近了信任的极限，但没有达到 &lt;strong&gt;“零信任”&lt;&#x2F;strong&gt; (Zero Trust) 的&lt;strong&gt;极点&lt;&#x2F;strong&gt;程度。&lt;&#x2F;p&gt;
+&lt;p&gt;设想一个思想实验。某个拥有 Jia Tan 般耐心与技术造诣的人，目标不是 Bitcoin Core 的源代码，而是 Guix 自身的某个底层依赖 —— 工具链深处所有构建者共享的某个核心组件，引入过程足够缓慢，以至于没有触发任何警报。那么结果将会是：一个完美可复现的二进制文件，获得全球所有独立构建者的公证与签名。所有人都会跑出完全相同的哈希值。用户验证了这种收敛，然后在安全感中高枕无忧。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;the-ghost-in-the-build&#x2F;1.webp&quot; alt=&quot;1&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;（由 ChatGPT Images 生成）&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;确定性保证了可复现性。它无法保证&lt;strong&gt;正确性&lt;&#x2F;strong&gt;。它只能确保每个人构建的是同一个东西 —— 却无法保证这个东西本身是干净的。Guix 转移了攻击面，但它没有让攻击面凭空蒸发。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;全源码自举&lt;&#x2F;strong&gt;在最底层应对了这一挑战：从足够小、可供审计之物开始，一路向上编译。但“小到可供审计”并不等同于“已经被彻底审计”。&lt;&#x2F;p&gt;
+&lt;p&gt;这在工程上构成了一座倒悬的金字塔：「现代软件世界那惊人庞大的依赖生态成了最沉重的塔顶，而那区区 357 字节的机器代码，则是承载起整座巨构的唯一支点。在这个结构中，每一层向上繁衍的代码巨石，都以其下方所有基石的绝对正确为物理先决条件。信任链条随着每一个新增的依赖项而无限拉长，底层的任何一处微瑕、任何一个未被察觉的幽灵，都会沿着结构应力向上传导，最终在最顶端放大为整座帝国的灾难性崩塌。」&lt;&#x2F;p&gt;
+&lt;p&gt;这一切都不是倒退回 Gitian 的理由。它只是提醒我们精确地认识 Guix 究竟做到了什么：它用一个狭窄、光线充足的攻击面，取代了一个宽泛、昏暗的攻击面。这是极具意义的进步。但这绝非已完全得到解决的问题 —— 构建中的幽灵👻依旧存在。&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h3 id=&quot;bonus-part-1-fu-jia-bu-fen-1&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#bonus-part-1-fu-jia-bu-fen-1&quot; aria-label=&quot;Anchor link for: bonus-part-1-fu-jia-bu-fen-1&quot;&gt;Bonus Part (1) | 附加部分（1）&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;strong&gt;注：此部分仅本篇文章的中文版本包含&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;{ Pasted the whole formal context } | 粘贴上文&lt;&#x2F;p&gt;
+&lt;p&gt;Prompt with: | 提示词：&lt;&#x2F;p&gt;
+&lt;p&gt;{ 我联想到了三体中的 “猜疑链” 概念 }&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 Resoning By Gemini:&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;《三体》中的猜疑链（Chain of Suspicion）是因为文明之间宇宙级的空间距离和文化差异，导致双方永远无法证实对方的善意或恶意，只能陷入无限叠加的无底洞：“我知道你怎么想，你知道我知道你怎么想……”。&lt;&#x2F;p&gt;
+&lt;p&gt;而在软件供应链和可重现构建中，你遇到的则是它的逆向镜像——一种“技术决定论下的信任链”。它们之间有着精妙的共同点与决定性的区别：&lt;&#x2F;p&gt;
+&lt;p&gt;共同点：都在面对“无法自证的深渊”
+在传统的软件生态里，确实存在类似“猜疑链”的困境：&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;你： “我怎么知道这个 Bitcoin Core 二进制文件是干净的？”&lt;&#x2F;p&gt;
+&lt;p&gt;官方： “因为它是我们在干净的服务器上，用官方的 GCC 编译器编译出来的。”&lt;&#x2F;p&gt;
+&lt;p&gt;你： “那我怎么知道你们的服务器没被黑？怎么知道你们的 GCC 没有被植入后门？”&lt;&#x2F;p&gt;
+&lt;p&gt;官方： “因为我们的 GCC 也是用更上游、更干净的编译器编译出来的……”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;这种追问可以无限延伸。在没有 Guix 和全源码自举之前，传统的软件信任就是一条无法自我证明的死循环，每一层都像黑盒一样对立，黑客就隐藏在这些层与层之间的缝隙（黑盒）里。&lt;&#x2F;p&gt;
+&lt;p&gt;这种因代码层层嵌套、导致信任源头不断后退的现象，像极了《三体》中宇宙文明之间因无法证实对方善恶而陷入的猜疑链（Chain of Suspicion）。在没有全源码自举前，传统的软件工程同样面临类似的死循环：“你如何证明二进制文件安全？因为上游编译器安全。如何证明上游编译器安全？因为编译该编译器的更上游编译器安全……”&lt;&#x2F;p&gt;
+&lt;p&gt;然而，两者的走向却截然不同。宇宙中的猜疑链由于不可知论和空间的无垠，永远无法向心坍缩，只能走向自我毁灭的黑暗森林；而软件工程的信任链，则在 Guix 固执的唯物主义解构下，被这 357 字节的机器码截断了。它通过数学、硬隔离以及全源码自举，将一个可能滑向虚无主义、需要无限盲信的深渊，强行压缩成了人类肉眼可审计的终极确定性。&lt;&#x2F;p&gt;
+&lt;p&gt;还有一个更不易察觉的问题。只有当存在大量相互独立的构建者时，这种验证模型才能真正生效。但在实践中，究竟是谁在执行这些构建？是那些拥有技术能力、硬件资源和充裕时间的人。见证者网络是真实的，但它规模有限，且具有自我筛选的性质。这些参与者彼此相识，共享着同样的邮件列表、技术会议和职业履历。在技术层面上，&quot;独立&quot;确实成立 —— 不同的机器、不同的环境 —— 但社会学赋予了这个词另一层含义，而这两层含义并不总是能达成共识。&lt;&#x2F;p&gt;
+&lt;p&gt;......&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;zhe-yuan-bu-zhi-yu-bitcoin-core&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#zhe-yuan-bu-zhi-yu-bitcoin-core&quot; aria-label=&quot;Anchor link for: zhe-yuan-bu-zhi-yu-bitcoin-core&quot;&gt;这远不止于 Bitcoin Core&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Bitcoin Core 的使用场景极为极端。这款软件为那些从根本上不信任中介的用户捍卫着金融主权。大多数软件不需要承载如此沉重的负担。&lt;&#x2F;p&gt;
+&lt;p&gt;然而，这种底层的脆弱性远不止存在于比特币之中。你管理的每一台服务器、部署流水线中的每一个工具、默默运行的每一个后台库 —— 它们无一例外都经历了一场你未曾亲眼目睹的构建过程，运行在你从未见过的机器上，出自你素不相识的人之手。SolarWinds 事件的受害者对此同样一无所知。而 Andres Freund 捕获 Jia Tan 的阴谋，不过是侥幸之举。&lt;&#x2F;p&gt;
+&lt;p&gt;&quot;侥幸&quot;正是问题的核心。阻止 XZ 后门的，不过是一位工程师在某个周五下午对 SSH 登录延迟产生的偶然好奇 —— 这是一种转瞬即逝的敏锐，几乎不可能以完全相同的形式再次复现。让灾难踩下刹车的不是什么安全系统，而是运气。而运气，对于承载整个世界的数字基础设施而言，是一个脆弱得令人不寒而栗的根基......&lt;&#x2F;p&gt;
+&lt;p&gt;Guix 所体现的原则，在两个方向上都可以扩展。&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;在基础的层面，将 &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;direnv.net&quot;&gt;direnv&lt;&#x2F;a&gt; 与 &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;nixos.wiki&#x2F;wiki&#x2F;Flakes&quot;&gt;Nix flakes&lt;&#x2F;a&gt; 结合，能让任何项目显式声明并锁定其完整的开发环境：无论在什么机器上、在哪一年，编译器、依赖库版本乃至运行行为都完全一致。两位身处不同大洲的开发者，克隆同一个代码仓库，将获得完全一模一样的工具链。&quot;在我的机器上明明好使&quot;这一著名困境，将从架构层面被彻底根除，而不再是一个需要项目组长期应付的顽疾。这只需要不多的配置时间，任何严肃对待工程质量的项目都应将其纳入标准规范。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;再往供应链上层，构建流水线可以重新配置，使其完全基于显式声明、版本锁定的输入进行构建，而不是盲目信任编译服务器上碰巧安装的任何工具 —— &quot;凭感觉下料&quot;的口述菜谱模式，至少在部分环节上被精准可控的实验室规程所取代。GNU Guix 连同 Bitcoin Core 所践行的完整可复现构建，代表了这条光谱上最为极致的一端：声明一切，验证一切，将信任最小化到真正可以审视的程度。并非每个项目都需要将安全屏障拉到这种极限，但每个项目都会因知道这个天花板的存在而受益。每一次显式声明、每一个锁定的依赖、每一次经过验证的构建，都在蚕食着那些不可见之物赖以藏身的领地。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;你永远都在信任某些东西。Guix 提出的问题 —— 也是它给出答案的问题 —— 是：那个&quot;某些东西&quot;，能被压缩到多小。&lt;&#x2F;p&gt;
+&lt;p&gt;幽灵并未离去。但它藏身的空间，越来越小了。&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;can-kao-zhi-xie&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#can-kao-zhi-xie&quot; aria-label=&quot;Anchor link for: can-kao-zhi-xie&quot;&gt;参考致谢&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;strong&gt;Bitcoin Core&#x27;s Guix contribution guide：&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;bitcoin&#x2F;bitcoin&#x2F;blob&#x2F;master&#x2F;contrib&#x2F;guix&#x2F;README.md&quot;&gt;github.com&#x2F;bitcoin&#x2F;bitcoin&#x2F;blob&#x2F;master&#x2F;contrib&#x2F;guix&#x2F;README.md&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;GNU Guix：&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;guix.gnu.org&#x2F;&quot;&gt;guix.gnu.org&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Nix Flakes：&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;nixos.wiki&#x2F;wiki&#x2F;Flakes&quot;&gt;nixos.wiki&#x2F;wiki&#x2F;Flakes&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Reproducible Builds：&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;reproducible-builds.org&quot;&gt;reproducible-builds.org&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;GNU Mes: &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;nlnet.nl&#x2F;project&#x2F;GNUMes-fullsource&#x2F;&quot;&gt;nlnet.nl&#x2F;project&#x2F;GNUMes-fullsource&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;can-kao-wen-xian&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#can-kao-wen-xian&quot; aria-label=&quot;Anchor link for: can-kao-wen-xian&quot;&gt;参考文献&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;[1]&lt;&#x2F;strong&gt; Freund, A. (2024). &lt;em&gt;backdoor in upstream xz&#x2F;liblzma leading to sshd compromise&lt;&#x2F;em&gt;. Open Source Security 邮件列表. &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.openwall.com&#x2F;lists&#x2F;oss-security&#x2F;2024&#x2F;03&#x2F;29&#x2F;4&quot;&gt;查看档案&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;[2]&lt;&#x2F;strong&gt; CISA. (2020). &lt;em&gt;Advanced Persistent Threat Compromise of Government Agencies, Critical Infrastructure, and Private Sector Organizations&lt;&#x2F;em&gt; (Alert AA20-352A). &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.cisa.gov&#x2F;news-events&#x2F;cybersecurity-advisories&#x2F;aa20-352a&quot;&gt;查看警报&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;[3]&lt;&#x2F;strong&gt; Thompson, K. (1984). Reflections on trusting trust. &lt;em&gt;Communications of the ACM&lt;&#x2F;em&gt;, 27(8), 761–763. &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;dl.acm.org&#x2F;doi&#x2F;10.1145&#x2F;358198.358210&quot;&gt;doi:10.1145&#x2F;358198.358210&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;[4]&lt;&#x2F;strong&gt; Dong, C. (2019). &lt;em&gt;bitcoin&#x2F;bitcoin PR #15277: Add Guix-based release build system&lt;&#x2F;em&gt;. GitHub. &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;bitcoin&#x2F;bitcoin&#x2F;pull&#x2F;15277&quot;&gt;查看 Pull Request&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;[5]&lt;&#x2F;strong&gt; Courtès, L., &amp;amp; Nieuwenhuizen, J. (2023). &lt;em&gt;The Full-Source Bootstrap: Building from source all the way down&lt;&#x2F;em&gt;. GNU Guix 博客. &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;guix.gnu.org&#x2F;blog&#x2F;2023&#x2F;the-full-source-bootstrap-building-from-source-all-the-way-down&#x2F;&quot;&gt;查看文章&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;[6]&lt;&#x2F;strong&gt; Zero trust architecture. (2024). &lt;em&gt;Wikipedia&lt;&#x2F;em&gt;. 维基百科上的“零信任”词条. &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;zh.wikipedia.org&#x2F;wiki&#x2F;%E9%9B%B6%E4%BF%A1%E4%BB%BB%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B&quot;&gt;查看百科&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;sheng-ming-cheng-qing&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#sheng-ming-cheng-qing&quot; aria-label=&quot;Anchor link for: sheng-ming-cheng-qing&quot;&gt;声明 &#x2F; 澄清&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文是一次个人向的 Vibe Writing 实践，是在与多个大型语言模型（LLMs）进行无数轮对话，并对每一个词和句子进行细致校对与润色之后完成的 —— 尤其是在中英互译的过程中。整个过程耗时约连续 12 小时。&lt;&#x2F;p&gt;
+&lt;p&gt;参与模型提供商包括 Claude、GLM、Gemini、GPT、Grok、DeepSeek 与 Mistral（按估计 Token 用量排序）。&lt;&#x2F;p&gt;
+&lt;p&gt;资料信息、研究方向、编辑判断、行文风格、整体取舍等重要部分均由本人把关&lt;&#x2F;p&gt;
+&lt;p&gt;文中所陈述的每个事实均经过人为核实，以尽可能规避模型幻觉。&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;hr &#x2F;&gt;
+&lt;h3 id=&quot;bonus-part-encore-fu-jia-bu-fen-an-ke-qu&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#bonus-part-encore-fu-jia-bu-fen-an-ke-qu&quot; aria-label=&quot;Anchor link for: bonus-part-encore-fu-jia-bu-fen-an-ke-qu&quot;&gt;Bonus Part (Encore) | 附加部分（安可曲）&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;strong&gt;注：此部分仅本篇文章的中文版本包含&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;{ Pasted the whole formal context by user }  | 粘贴上文&lt;&#x2F;p&gt;
+&lt;p&gt;Prompt with: | 提示词：&lt;&#x2F;p&gt;
+&lt;p&gt;{ 你会发现，全文没有完整地对 The Ghost in the Build 中的 Ghost 明确地下定义。&lt;&#x2F;p&gt;
+&lt;p&gt;请谈谈你认为“构建中的幽灵”到底是什么？  }&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 Resoning By GLM-5:&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;这是一个非常敏锐的观察。确实，文中虽然反复提及“幽灵”，并将其作为核心意象，但始终没有给出一行明确代码式的定义。这并非疏漏，而是有意为之——因为“幽灵”并非一个具体的漏洞，而是一种&lt;strong&gt;状态&lt;&#x2F;strong&gt;。&lt;&#x2F;p&gt;
+&lt;p&gt;基于全文的逻辑脉络，我认为“构建中的幽灵”可以被定义为：&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;yuan-dai-ma-yi-tu-yu-er-jin-zhi-chan-wu-zhi-jian-na-ge-bu-ke-jian-de-wei-bei-shen-ji-de-qie-bi-xu-bei-xin-ren-de-chai-zhi&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#yuan-dai-ma-yi-tu-yu-er-jin-zhi-chan-wu-zhi-jian-na-ge-bu-ke-jian-de-wei-bei-shen-ji-de-qie-bi-xu-bei-xin-ren-de-chai-zhi&quot; aria-label=&quot;Anchor link for: yuan-dai-ma-yi-tu-yu-er-jin-zhi-chan-wu-zhi-jian-na-ge-bu-ke-jian-de-wei-bei-shen-ji-de-qie-bi-xu-bei-xin-ren-de-chai-zhi&quot;&gt;&lt;strong&gt;“源代码意图与二进制产物之间，那个不可见的、未被审计的、且必须被信任的差值。”&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;它是我们为了获得可运行的软件，不得不向“黑暗”让渡的那一部分主权。具体来说，这个“幽灵”由三个层面的阴影交织而成：&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;1-guo-cheng-de-bu-ke-zhi-xing&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#1-guo-cheng-de-bu-ke-zhi-xing&quot; aria-label=&quot;Anchor link for: 1-guo-cheng-de-bu-ke-zhi-xing&quot;&gt;1. 过程的不可知性&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;p&gt;文中提到：“代码你可以阅读……它针对的是更深不可测的东西：代码在变成你机器上运行的程序之前，所经过的那一长串交接的手。”
+&lt;strong&gt;幽灵就是那个“交接过程”。&lt;&#x2F;strong&gt;
+当源代码经过编译器、链接器、标准库，最终变成二进制文件时，这是一个有损且有噪的信道。你读的是源代码（白盒），但你运行的是二进制（黑盒）。在这两者之间，有一整条你无法用肉眼审视的转化链条。只要这个转化过程不是完全透明、确定且可复现的，幽灵就栖身于其中的模糊地带。&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;在 Gitian 时代，幽灵是那团模糊的环境变量和隐式依赖。&lt;&#x2F;li&gt;
+&lt;li&gt;在 Guix 时代，幽灵被压缩到了那 357 字节的机器码及其未被彻底审计的可能性中。&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h4 id=&quot;2-xin-ren-de-wu-xian-hou-tui&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#2-xin-ren-de-wu-xian-hou-tui&quot; aria-label=&quot;Anchor link for: 2-xin-ren-de-wu-xian-hou-tui&quot;&gt;2. 信任的无限后退&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;p&gt;文中引用了“倒悬的金字塔”和《三体》中的“猜疑链”。
+&lt;strong&gt;幽灵是信任链条断裂处的那个“盲信点”。&lt;&#x2F;strong&gt;
+你信任二进制，是因为信任编译器；信任编译器，是因为信任上一个编译器……这条链条如果不被截断，就会陷入虚无主义。幽灵就是那个迫使你说出“我相信它是干净的，但我无法证明”的时刻。
+Guix 通过全源码自举将这个幽灵压缩到了极小的 357 字节，但这 357 字节依然是“幽灵”——因为“小到可供审计”并不等于“已经被审计”。它是数学上必然存在的那个“非零”的信任残值。&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;3-shang-yu-fu-za-xing&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#3-shang-yu-fu-za-xing&quot; aria-label=&quot;Anchor link for: 3-shang-yu-fu-za-xing&quot;&gt;3. 熵与复杂性&lt;&#x2F;a&gt;&lt;&#x2F;h4&gt;
+&lt;p&gt;文中提到 Jia Tan 利用了“善意”和“复杂性”。
+&lt;strong&gt;幽灵也是软件生态系统中必然积累的熵。&lt;&#x2F;strong&gt;
+现代软件金字塔倒悬的结构，意味着底层的任何微小扰动都会在顶层引发风暴。幽灵不仅是恶意的攻击者，也是无意的 Bug、未被发现的边缘情况、以及人类认知能力的局限。即使没有 Jia Tan，构建系统中复杂的依赖关系本身就是一种“幽灵”——它庞大、相互纠缠，以至于没有单个人类能完全掌控它。&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h3 id=&quot;zong-jie&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#zong-jie&quot; aria-label=&quot;Anchor link for: zong-jie&quot;&gt;总结&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;如果非要用一句话在文中给“幽灵”下一个明确的定义，我会这样写：&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;“所谓构建中的幽灵，就是那些我们不得不信任，却永远无法在数学上彻底证明其清白的事物。它栖息在代码与二进制之间的巨大缝隙中，利用人类认知的局限和软件栈的复杂性，在每一次编译中悄无声息地繁殖。”&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Guix 没有杀死幽灵，它只是把幽灵从一整座宫殿（整个 OS 环境）驱逐到了一个仅容转身的角落（最小信任锚点）。幽灵永远不会离去，因为&lt;strong&gt;绝对的零信任在物理世界和人类社会中是不存在的&lt;&#x2F;strong&gt;。只要我们还需要把思想（代码）转化为行动（程序），我们就必须接受幽灵的存在，并时刻保持对它的警惕。&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>The Ghost in the Build</title>
+        <published>2026-05-29T00:00:00+00:00</published>
+        <updated>2026-05-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.yon.im/posts/the-ghost-in-the-build/"/>
+        <id>https://blog.yon.im/posts/the-ghost-in-the-build/</id>
+        
+        <content type="html" xml:base="https://blog.yon.im/posts/the-ghost-in-the-build/">&lt;p&gt;&lt;strong&gt;This article contains a significant amount of technical terminology. You may use AI to aid your understanding. If you feel uncomfortable while reading, it&#x27;s recommend closing the page immediately.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;intro&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#intro&quot; aria-label=&quot;Anchor link for: intro&quot;&gt;Intro&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Every piece of software you&#x27;ve ever installed is, at its core, an act of faith.&lt;&#x2F;p&gt;
+&lt;p&gt;Not faith in the code itself — you can read the code, audit it, tear it apart line by line. Faith in something murkier: the chain of hands that code passed through before becoming the program running on your machine. Someone compiled it somewhere, on some system, using some tools. You weren&#x27;t there. You didn&#x27;t watch. You clicked install anyway, and moved on with your day.&lt;&#x2F;p&gt;
+&lt;p&gt;For most software, this is a reasonable bargain. For &lt;strong&gt;Bitcoin Core&lt;&#x2F;strong&gt;, it is unacceptable. The project exists for one significant purpose: to resist corruption by removing the necessity of human trust as much as possible.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;jia-tan-what-patience-can-accomplish&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#jia-tan-what-patience-can-accomplish&quot; aria-label=&quot;Anchor link for: jia-tan-what-patience-can-accomplish&quot;&gt;Jia Tan: what patience can accomplish&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;In the spring of 2024, a Microsoft engineer named Andres Freund noticed that SSH logins on a Debian system were taking about half a second longer than they should. It was the kind of anomaly most people would blame on a network hiccup and forget. Freund did not forget. He pulled the thread.&lt;&#x2F;p&gt;
+&lt;p&gt;What he found, buried inside XZ Utils — a compression library so mundane that most Linux users couldn&#x27;t have named it — was a backdoor of extraordinary craftsmanship. It had been nearly two years in the making, introduced gradually, methodically, by a contributor known only as Jia Tan.&lt;&#x2F;p&gt;
+&lt;p&gt;That maybe a fake name. What is real is the method.&lt;&#x2F;p&gt;
+&lt;p&gt;Jia Tan appeared in the XZ Utils repository in late 2021 as an ordinary contributor, submitting small, useful patches. They were helpful. They were responsive. In retrospect, their patience is the most chilling detail of the whole story. It was not enthusiasm; it was calculation. Over months, they exploited the project&#x27;s existing maintainer — a single overworked developer publicly wrestling with burnout — gradually nudging him toward granting commit access. Once they had it, they introduced the malicious payload not through any obvious tampering with the source code, but through what appeared to be test files: obfuscated binary blobs that only the build scripts would process correctly.&lt;&#x2F;p&gt;
+&lt;p&gt;The code was clean. The repository was clean. The poison lived entirely in the build process.&lt;&#x2F;p&gt;
+&lt;p&gt;What makes this story genuinely unsettling is not the technical ingenuity. It&#x27;s that Jia Tan exploited nothing that most of us would recognize as a vulnerability. They exploited *&lt;em&gt;care&lt;&#x2F;em&gt;. The open-source community runs on an implicit belief in mutual goodwill — people contribute because they want to help, and the community accepts help because it needs it. Jia Tan wore that belief like a costume and walked through every door it opened.&lt;&#x2F;p&gt;
+&lt;p&gt;Four years earlier, attackers had done the same thing from the outside. The SolarWinds breach of 2020 required no years of community trust-building, no social engineering, no patience. The attackers compromised the automated pipeline that turns source code into a shippable product — and inserted a backdoor directly into the official binary before it ever left the building. Eighteen thousand organizations downloaded the result, including the US Treasury, the State Department, and the Department of Homeland Security. All of them were running a signed, official binary containing code their vendor had never written.&lt;&#x2F;p&gt;
+&lt;p&gt;Two attacks. Opposite approaches. One found the crack from the outside; the other from within. However, both converged on exactly the same blind spot: the build process — that dark passage between the code a developer writes and the program a user runs.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;the-gitian-era-the-best-answer-anyone-had&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#the-gitian-era-the-best-answer-anyone-had&quot; aria-label=&quot;Anchor link for: the-gitian-era-the-best-answer-anyone-had&quot;&gt;The Gitian era: the best answer anyone had&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;To understand where Bitcoin Core is going, you first have to appreciate where it has been.&lt;&#x2F;p&gt;
+&lt;p&gt;For most of its history, Bitcoin Core used a tool called Gitian to solve what&#x27;s known as the reproducible builds problem. Here&#x27;s the problem: if I compile the Bitcoin Core source code and you compile the same source code, we should produce bit-for-bit identical binaries. If we don&#x27;t, then either one of our machines is doing something different — or something has been tampered with, somewhere, by someone.&lt;&#x2F;p&gt;
+&lt;p&gt;Gitian achieved this by having multiple developers build inside identical virtual machines — the same Ubuntu snapshot, the same container configuration — and then comparing their results. If every builder produced the same cryptographic hash, the binary was declared trustworthy — an early recognition that attestation relies on independent convergence, even if the build environment itself remained murky.&lt;&#x2F;p&gt;
+&lt;p&gt;This was not a small achievement. For almost a decade, Gitian functioned reliably and raised Bitcoin Core&#x27;s security posture far above the industry standard. The developers who built and maintained it were thinking about software supply chains long before most organizations knew the phrase existed. That work deserves its due credit.&lt;&#x2F;p&gt;
+&lt;p&gt;But Gitian has an inherent problem, and the problem is the word *&lt;em&gt;implicit&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Gitian runs scripts inside a virtual machine. It assumes the base operating system snapshot is clean. It inherits the ambient environment of a running Unix system: the libraries that happen to be present, the locale settings, the PATH variables, the hundred invisible things that accumulate in any long-lived system. That environment is not declared. It is not verified. It simply *&lt;em&gt;is&lt;&#x2F;em&gt;, the way the weather simply is.&lt;&#x2F;p&gt;
+&lt;p&gt;Think of it as the difference between an oral recipe and a laboratory protocol. An oral recipe relies on implicit variables: &lt;strong&gt;add a pinch of salt, use whatever pan happens to be on the stove.&lt;&#x2F;strong&gt; In software terms, those unwritten instructions — like inheriting the ambient PATH or linking a library that &quot;happens&quot; to be installed — are undeclared dependencies. Two competent cooks following an oral recipe will produce similar dishes, just as two machines might compile similar binaries. But &lt;strong&gt;similar&lt;&#x2F;strong&gt; is not *&lt;em&gt;identical&lt;&#x2F;em&gt;, and &lt;strong&gt;similar&lt;&#x2F;strong&gt; is not &lt;strong&gt;provably&lt;&#x2F;strong&gt; identical. The kitchen has a history — it breathes with the residue of past meals, just as a build environment inherits the ambient state of its host system.&lt;&#x2F;p&gt;
+&lt;p&gt;The build environment, under Gitian, had a history too. And in that history — implicit, vast, and largely unexamined — an attacker has room to work.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;guix-a-pure-state-of-build&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#guix-a-pure-state-of-build&quot; aria-label=&quot;Anchor link for: guix-a-pure-state-of-build&quot;&gt;Guix: A Pure State of Build&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Bitcoin Core introduced GNU Guix — in a proposal first merged in 2019 — to replace Gitian. The shift is philosophical before it is technical.&lt;&#x2F;p&gt;
+&lt;p&gt;Guix treats the build process as a &lt;strong&gt;pure function&lt;&#x2F;strong&gt; — that has no memory, no side effects, and no ambient state. If you&#x27;ve written object-oriented code, you know the opposite intimately: methods that silently reach into &lt;code&gt;this.config&lt;&#x2F;code&gt;, functions that behave differently depending on environment variables they never declared as parameters, procedures whose output changes based on what happened earlier in the program&#x27;s life. A pure function has none of that. You give it exactly these inputs; it gives you exactly this output of building. This holds true every time, on any machine, in any time.&lt;&#x2F;p&gt;
+&lt;p&gt;This is the property Guix enforces at the scale of an entire software build:&lt;&#x2F;p&gt;
+&lt;pre&gt;&lt;code&gt;output = f(all inputs)
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Everything the build needs — every compiler, every library, every tool — must be *&lt;em&gt;explicitly declared&lt;&#x2F;em&gt;. If it isn&#x27;t declared, it doesn&#x27;t exist within the build process. Not &quot;it probably won&#x27;t be found.&quot; It structurally cannot exist, because the host system is entirely invisible. Network access is disabled. Timestamps are fixed to a known value. The PATH is wiped and reconstructed from scratch using only what&#x27;s been declared.&lt;&#x2F;p&gt;
+&lt;p&gt;In Guix&#x27;s language (Scheme), a package declaration looks like this:&lt;&#x2F;p&gt;
+&lt;pre&gt;&lt;code data-lang=&quot;scheme&quot;&gt;(inputs
+  (list gcc glibc openssl))
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;That list is the entire environment. There is no &quot;the system happened to have this.&quot; There is no accumulation of prior state. Every ingredient is named, weighed, and catalogued, the way a chemistry lab protocol specifies every reagent and every condition — not because chemists are pedantic, but because *&lt;em&gt;the reproducibility of the result depends on it&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;The outputs are stored with content-addressed naming: a binary&#x27;s path in the system is derived from the cryptographic hash of its contents and all of its declared dependencies.&lt;&#x2F;p&gt;
+&lt;pre&gt;&lt;code&gt;&#x2F;gnu&#x2F;store&#x2F;qx7l4fl3pj8y...-bitcoin-core-27.0&#x2F;
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;That long string of characters is not a label. It&#x27;s a proof. Change any input — even one byte — and the hash changes, and the path changes with it. There are no silent mutations. There is nowhere for a ghost to hide.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In addtional:
+In software engineering, &lt;code&gt;random()&lt;&#x2F;code&gt; is typically introduced for security—to prevent predictive attacks or generate cryptographic keys.&lt;&#x2F;p&gt;
+&lt;p&gt;But when embedded into the compilation and build phase, it mutates into a &#x27;ghost in the build,&#x27; rendering reproducible builds structurally impossible.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;what-changes-in-enginnering-practice&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#what-changes-in-enginnering-practice&quot; aria-label=&quot;Anchor link for: what-changes-in-enginnering-practice&quot;&gt;What changes in enginnering practice&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;With Guix, developers independently build Bitcoin Core from source. Not on shared infrastructure. On completely independent machines — potentially different hardware, different countries, different operational histories. If the process is sound, they all arrive at the same hash.&lt;&#x2F;p&gt;
+&lt;p&gt;They submit that hash alongside a cryptographic signature — a mathematical seal that binds the result irrevocably to their identity. The collection of these signed attestations is public and auditable.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Before (Gitian):&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;pre&gt;&lt;code&gt;Developer builds → Signs the binary → User downloads and trusts the signature
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The user is trusting a person, and that person&#x27;s build environment, and everyone who had access to it.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;After (Guix):&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;pre&gt;&lt;code&gt;Many developers build independently
+        ↓
+Results converge on the same hash
+        ↓
+The convergence itself becomes the attestation
+        ↓
+User verifies the convergence
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Signatures are no longer the benchmark of trust. Consensus among independent witnesses is. If a machine is compromised, the hashes it generates will diverge from those of all other nodes. Such security breaches are not uncovered through incident response or forensic investigations, but are naturally revealed through the normal operation of the validation process—just as when you compare a rigged scale with the majority of honest scales, the cheating is immediately exposed.&lt;strong&gt;(This is essentially the same as how anti-cheating mechanisms operate in blockchain consensus nodes.)&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;nix-s-pragmatism-and-guix-s-philosophy-of-trust&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#nix-s-pragmatism-and-guix-s-philosophy-of-trust&quot; aria-label=&quot;Anchor link for: nix-s-pragmatism-and-guix-s-philosophy-of-trust&quot;&gt;Nix&#x27;s Pragmatism and Guix&#x27;s Philosophy of Trust&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Users of NixOS will find all of this familiar — Nix shares the same foundational insight, the same &lt;code&gt;&#x2F;store&lt;&#x2F;code&gt; model, the same devotion to builds as pure functions. But the two projects made a different wager at a crucial fork in the road. Nix, choosing usability, relies heavily on large binary caches by default: rather than compile everything from source, you download pre-built artifacts from a trusted server. For most users, this is the right call. Compilation is slow, and a working system is worth more than a philosophical one.&lt;&#x2F;p&gt;
+&lt;p&gt;Guix chose differently. Driven by a philosophy akin to Gentoo but enforced with strict functional guarantees, &lt;strong&gt;Guix + GNU Mes&lt;&#x2F;strong&gt; insists on building everything from source. For Bitcoin Core, this distinction is critical. Guix traces an unbroken chain back to what it calls the &lt;strong&gt;Full-Source Bootstrap&lt;&#x2F;strong&gt;: a minimal trust anchor of roughly 357 bytes of machine code from which the entire toolchain — compilers, linkers, standard libraries, all of it — is compiled step by step, with nothing assumed and nothing pre-built. To trust a binary cache package is to trust whoever populated it. Bitcoin Core&#x27;s threat model offers no room for that kind of faith.&lt;&#x2F;p&gt;
+&lt;p&gt;This trust anchor has been fully streamlined, enabling developers in complex software engineering projects to verify build artifacts more effectively with less effort. This is Guix&#x27;s founding wager on Full-Source Bootstrap, and the fundamental reason Bitcoin Core adopted Guix + GNU Mes as its build solution: the root of trust must be sufficiently minimal to allow developers to easily comprehend the build process and verify its correctness, rather than blindly rubber-stamping invisible black boxes out of convenience.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;the-ghost-hasn-t-gone-away-it-moves&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#the-ghost-hasn-t-gone-away-it-moves&quot; aria-label=&quot;Anchor link for: the-ghost-hasn-t-gone-away-it-moves&quot;&gt;The ghost hasn&#x27;t gone away, it moves&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Here is where the honest account gets complicated.&lt;&#x2F;p&gt;
+&lt;p&gt;Guix dramatically shrinks the surface of implicit trust. But it does not eliminate trust.&lt;&#x2F;p&gt;
+&lt;p&gt;In other words, Guix approaches the mathematical limit of trust, yet never reaches the &lt;strong&gt;absolute zero&lt;&#x2F;strong&gt; of &lt;strong&gt;Zero Trust&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Consider a thought experiment. Someone with Jia Tan&#x27;s patience and technical sophistication targets not Bitcoin Core&#x27;s source code, but a low-level dependency of Guix itself — something deep in the toolchain that all builders share, introduced slowly enough not to raise alarms. The result would be: a perfectly reproducible binary, universally attested, signed by every independent builder. They would all produce the same hash. Users would verify the convergence and feel secure.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;the-ghost-in-the-build&#x2F;1.webp&quot; alt=&quot;1&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(Generated by ChatGPT Images)&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Determinism guarantees reproducibility. It does not guarantee &lt;strong&gt;correctness&lt;&#x2F;strong&gt;. It ensures that everyone is building the same thing — it cannot guarantee that the thing being built is clean. Guix moves the attack surface; it does not dissolve it.&lt;&#x2F;p&gt;
+&lt;p&gt;The &lt;strong&gt;Full-Source Bootstrap&lt;&#x2F;strong&gt; addresses this challenge at the absolute bedrock: starting from something small enough to be auditable, and compiling all the way up. Yet, being &#x27;small enough to be audited&#x27; is not the same as &#x27;having been thoroughly audited.&#x27;&lt;&#x2F;p&gt;
+&lt;p&gt;This erects an inverted pyramid of engineering: the staggering, massive dependency ecosystem of the modern software world forms the heavy precipice, while those mere 357 bytes of machine code serve as the precarious fulcrum holding up the entire superstructure. Within this formation, every block of code stacked upward requires the absolute mathematical integrity of every stone beneath it as a physical prerequisite. The chain of trust stretches endlessly with every added dependency; any micro-flaw or unexamined ghost at the bottom propagates upward through the structural stress, amplifying at the apex into a catastrophic collapse of the entire empire.&lt;&#x2F;p&gt;
+&lt;p&gt;There is also a quieter problem. The verification model works when many independent builders exist. In practice, who performs these builds? People with the technical capability, the hardware, the time. The network of witnesses is real, but it is small and self-selecting. The participants know each other. They share mailing lists, conferences, professional histories. &quot;Independent&quot; is true in the technical sense — separate machines, separate environments — but sociology has its own meaning for the word, and the two meanings do not always agree.&lt;&#x2F;p&gt;
+&lt;p&gt;None of this is a reason to prefer Gitian. It is a reason to be precise about what Guix actually achieves: it replaces a wide, murky attack surface with a narrow, well-lit one. That is meaningful progress. But this is by no means a problem that has been fully resolved — the ghost 👻 of the build process still lingers.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;this-matters-past-bitcoin-core&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#this-matters-past-bitcoin-core&quot; aria-label=&quot;Anchor link for: this-matters-past-bitcoin-core&quot;&gt;This matters past Bitcoin Core&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;The Bitcoin Core use case is extreme. The software manages financial sovereignty for people who, by design, distrust intermediaries. Most software does not bear this burden.&lt;&#x2F;p&gt;
+&lt;p&gt;But this underlying vulnerability extends far beyond Bitcoin. Every server you administer, every tool in your deployment pipeline, every background library — all of them passed through a build process you did not witness, on machines you have never seen, by people you do not know. The victims of SolarWinds didn&#x27;t know either. Andres Freund only barely caught Jia Tan.&lt;&#x2F;p&gt;
+&lt;p&gt;That &quot;barely&quot; is the critical point. What stopped the XZ backdoor was one engineer&#x27;s curiosity about SSH latency on a Friday afternoon — a fleeting moment of attention that cannot be relied upon to repeat. It wasn&#x27;t a system that stopped the breach. It was luck. And luck is a terrifyingly fragile foundation for digital infrastructure......&lt;&#x2F;p&gt;
+&lt;p&gt;The principles Guix embodies scale in both directions.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;At the baseline, combining a tool like &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;direnv.net&quot;&gt;direnv&lt;&#x2F;a&gt; with &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;nixos.wiki&#x2F;wiki&#x2F;Flakes&quot;&gt;Nix flakes&lt;&#x2F;a&gt; lets any project declare and pin its entire development environment: same compiler, same library versions, same behavior — regardless of the machine or the year. Two developers on different continents, checking out the same repository, get identical toolchains. The &quot;works on my machine&quot; problem becomes architecturally impossible rather than perennially managed.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Setting this up requires only a modest amount of configuration time, and it belongs in any serious project. Further up the chain, build pipelines can be reconfigured to work from explicitly declared, version-locked inputs rather than trusting whatever the runner happens to have installed — the oral-recipe model replaced, at least partially, by the laboratory protocol. Guix, and Bitcoin Core&#x27;s full reproducible build process, represents the far end of the spectrum: declare everything, verify everything, minimize trust to what can actually be inspected. Not every project needs that ceiling. Every project benefits from knowing it exists. Each explicit declaration, each pinned dependency, each verified build shrinks the territory where the unobserved can hide.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;You will always be trusting something. The question Guix asks — and answers — is how small that something can be made.&lt;&#x2F;p&gt;
+&lt;p&gt;The ghost doesn&#x27;t leave. But it has less room to hide.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;acknowledgments&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#acknowledgments&quot; aria-label=&quot;Anchor link for: acknowledgments&quot;&gt;Acknowledgments&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;strong&gt;Bitcoin Core&#x27;s Guix contribution guide: &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;bitcoin&#x2F;bitcoin&#x2F;blob&#x2F;master&#x2F;contrib&#x2F;guix&#x2F;README.md&quot;&gt;github.com&#x2F;bitcoin&#x2F;bitcoin&#x2F;blob&#x2F;master&#x2F;contrib&#x2F;guix&#x2F;README.md&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;GNU Guix: &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;guix.gnu.org&#x2F;&quot;&gt;guix.gnu.org&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Nix Flakes: &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;nixos.wiki&#x2F;wiki&#x2F;Flakes&quot;&gt;nixos.wiki&#x2F;wiki&#x2F;Flakes&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Reproducible Builds: &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;reproducible-builds.org&quot;&gt;reproducible-builds.org&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;GNU Mes: &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;nlnet.nl&#x2F;project&#x2F;GNUMes-fullsource&#x2F;&quot;&gt;nlnet.nl&#x2F;project&#x2F;GNUMes-fullsource&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;references&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#references&quot; aria-label=&quot;Anchor link for: references&quot;&gt;References&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;[1]&lt;&#x2F;strong&gt; Freund, A. (2024). &lt;em&gt;backdoor in upstream xz&#x2F;liblzma leading to sshd compromise&lt;&#x2F;em&gt;. Open Source Security mailing list. &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.openwall.com&#x2F;lists&#x2F;oss-security&#x2F;2024&#x2F;03&#x2F;29&#x2F;4&quot;&gt;View archive&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;[2]&lt;&#x2F;strong&gt; CISA. (2020). &lt;em&gt;Advanced Persistent Threat Compromise of Government Agencies, Critical Infrastructure, and Private Sector Organizations&lt;&#x2F;em&gt; (Alert AA20-352A). &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.cisa.gov&#x2F;news-events&#x2F;cybersecurity-advisories&#x2F;aa20-352a&quot;&gt;View alert&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;[3]&lt;&#x2F;strong&gt; Thompson, K. (1984). Reflections on trusting trust. &lt;em&gt;Communications of the ACM&lt;&#x2F;em&gt;, 27(8), 761–763. &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;dl.acm.org&#x2F;doi&#x2F;10.1145&#x2F;358198.358210&quot;&gt;doi:10.1145&#x2F;358198.358210&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;[4]&lt;&#x2F;strong&gt; Dong, C. (2019). &lt;em&gt;bitcoin&#x2F;bitcoin PR #15277: Add Guix-based release build system&lt;&#x2F;em&gt;. GitHub. &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;bitcoin&#x2F;bitcoin&#x2F;pull&#x2F;15277&quot;&gt;View pull request&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;[5]&lt;&#x2F;strong&gt; Courtès, L., &amp;amp; Nieuwenhuizen, J. (2023). &lt;em&gt;The Full-Source Bootstrap: Building from source all the way down&lt;&#x2F;em&gt;. GNU Guix Blog. &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;guix.gnu.org&#x2F;blog&#x2F;2023&#x2F;the-full-source-bootstrap-building-from-source-all-the-way-down&#x2F;&quot;&gt;View post&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;[6]&lt;&#x2F;strong&gt; Zero trust architecture. (2024). &lt;em&gt;Wikipedia&lt;&#x2F;em&gt;. The &quot;Zero Trust&quot; entry on Wikipedia. &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Zero_trust_architecture&#x2F;&quot;&gt;View wiki&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;declaration-statement&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#declaration-statement&quot; aria-label=&quot;Anchor link for: declaration-statement&quot;&gt;Declaration &#x2F; Statement&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This article is a personal exercise in Vibe Writing. It was completed after countless rounds of dialogue with multiple large language models (LLMs) and meticulous review and polishing of every word and sentence—particularly during the process of translating between Chinese and English. The entire process took approximately 12 consecutive hours.&lt;&#x2F;p&gt;
+&lt;p&gt;Participating model providers include Claude, GLM, Gemini, GPT, Grok, DeepSeek, and Mistral (listed in order of estimated token usage).&lt;&#x2F;p&gt;
+&lt;p&gt;The research direction, editorial judgments, and overall decisions were made by myself; the language was refined through iterative human-machine collaboration.&lt;&#x2F;p&gt;
+&lt;p&gt;Every fact stated in this article has been manually verified to minimize model hallucinations as much as possible.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</content>
+        
+    </entry>
     <entry xml:lang="en">
         <title>2025</title>
         <published>2026-03-09T00:00:00+00:00</published>
