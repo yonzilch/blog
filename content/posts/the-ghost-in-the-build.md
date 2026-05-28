@@ -59,7 +59,7 @@ The build environment, under Gitian, had a history too. And in that history — 
 
 Bitcoin Core introduced GNU Guix — in a proposal first merged in 2019 — to replace Gitian. The shift is philosophical before it is technical.
 
-Guix treats the build process as a **pure function** — that has no memory, no side effects, and no ambient state. If you've written object-oriented code, you know the opposite intimately: methods that silently reach into `this.config`, functions that behave differently depending on environment variables they never declared as parameters, procedures whose output changes based on what happened earlier in the program's life. A pure function has none of that. You give it exactly these inputs; it gives you exactly this output of building. This holds true every time, on any machine, in any time.
+Guix treats the build process as a **pure function** — that has no memory, no side effects, and no ambient state. If you've written object-oriented code, you know the opposite intimately: methods that silently reach into `this.config`, functions that behave differently depending on environment variables they never declared as parameters, procedures whose output changes based on what happened earlier in the program's life. A pure function has none of that. You give it exactly these inputs; it gives you exactly this output of building. This holds true every time, on any machine, at any time.
 
 This is the property Guix enforces at the scale of an entire software build:
 
