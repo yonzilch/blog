@@ -41,7 +41,7 @@ To understand where Bitcoin Core is going, you first have to appreciate where it
 
 For most of its history, Bitcoin Core used a tool called Gitian to solve what's known as the **"Reproducible Builds"** problem. Here's the problem: if I compile the Bitcoin Core source code and you compile the same source code, we should produce bit-for-bit identical binaries. If we don't, then either one of our machines is doing something different — or something has been tampered with, somewhere, by someone.
 
-Gitian achieved this by having multiple developers build inside identical virtual machines — the same Ubuntu snapshot, the same container configuration — and then comparing their results. If every builder produced the same cryptographic hash, the binary was declared trustworthy. In the early days, developers recognized that signature attestation relies on the convergence of independent build results, even if the build environment itself remained murky.
+Gitian achieved this by having multiple developers build inside identical virtual machines: use the same Ubuntu snapshot, the same container configuration, and then comparing their results. If every builder produced the same cryptographic hash, the binary was declared trustworthy. In the early days, developers recognized that signature attestation relies on the convergence of independent build results, even if the build environment itself remained murky.
 
 In fact, this was not a small achievement. For almost a decade, Gitian functioned reliably and raised Bitcoin Core's security posture far above the industry standard. The developers who built and maintained it were thinking about **Software Supply Chains** long before most organizations knew the phrase existed. That foresight should not go unrecognized.
 
@@ -176,7 +176,7 @@ In fact, the defensive approach offered by Guix is not limited to extreme scenar
 
 - Further up the chain, build pipelines can be reconfigured to work from explicitly declared, version-locked inputs rather than trusting whatever the runner happens to have installed — the oral-recipe model replaced, at least partially, by the laboratory protocol. Guix, and Bitcoin Core's full reproducible build process, represents the far end of the spectrum: declare everything, verify everything, minimize trust to what can actually be inspected. Not every project needs that ceiling. Every project benefits from knowing it exists. Each explicit declaration, each pinned dependency, each verified build shrinks the territory where the unobserved can hide.
 
-You will always be trusting something. The question Guix asks — and answers — is how small that something can be made.
+You will always be trusting something. The question Guix asks — and answers: is how small that something can be made.
 
 The ghost doesn't leave. But it has less room to hide.
 
