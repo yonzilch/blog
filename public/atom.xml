@@ -63,9 +63,9 @@
 &lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;那个列表就是整个环境的全部。不存在类似 “系统刚好装了这个” 的情况，也没有任何历史状态的累积。每一种原料都被命名、称量并记录在案，正如化学实验室的标准规程会明确指定每一种试剂和每一种反应条件 —— 这并不是因为化学家有什么执念，而是因为&lt;strong&gt;结果的可复现性完全取决于此&lt;&#x2F;strong&gt;。&lt;&#x2F;p&gt;
 &lt;p&gt;输出结果采用 &lt;strong&gt;内容寻址（Content-Addressed）&lt;&#x2F;strong&gt; 的方式命名存储： 二进制文件在系统中的路径，由其内容及所有声明依赖项的密码学哈希值共同推导而来。&lt;&#x2F;p&gt;
-&lt;pre&gt;&lt;code&gt;&#x2F;gnu&#x2F;store&#x2F;sj1g7xxaiwkyn...-bitcoin-core-31.0
+&lt;pre&gt;&lt;code&gt;&#x2F;gnu&#x2F;store&#x2F;0rv3fmddli5rfrswkm6b5yhnxvn35nha-bitcoin-core-30.0.drv
 &lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;p&gt;那串长长的字符不是标签，而是铁证。更改任何输入，哪怕只有一个字节，哈希值就会改变，路径也随之改变。没有任何悄然发生的突变。幽灵无处遁形。&lt;&#x2F;p&gt;
+&lt;p&gt;那串长长的字符不是标签，而是铁证。更改任何输入，哪怕只有一个字节，哈希值就会改变，路径也随之改变。没有任何悄然发生的突变 —— 幽灵无处遁形。&lt;&#x2F;p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;补充澄清：&lt;&#x2F;p&gt;
 &lt;p&gt;在软件工程中，引入 &lt;code&gt;random()&lt;&#x2F;code&gt; 通常是出于安全考量（例如防御预测攻击、生成加密密钥）&lt;&#x2F;p&gt;
@@ -303,9 +303,9 @@ Guix 通过全源码自举将这个幽灵压缩到极小的 357 字节，但这 
 &lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;That list is the entire environment. There is no situation like: &quot;the system happened to have this.&quot; There is no accumulation of prior state. Every ingredient is named, weighed, and catalogued, the way a chemistry lab protocol specifies every reagent and every condition — not because chemists are pedantic, but because *&lt;em&gt;the reproducibility of the result depends on it&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
 &lt;p&gt;The outputs are stored with &lt;strong&gt;Content-Addressed&lt;&#x2F;strong&gt; naming: a binary&#x27;s path in the system is derived from the cryptographic hash of its contents and all of its declared dependencies.&lt;&#x2F;p&gt;
-&lt;pre&gt;&lt;code&gt;&#x2F;gnu&#x2F;store&#x2F;sj1g7xxaiwkynwgnw...-bitcoin-core-31.0
+&lt;pre&gt;&lt;code&gt;&#x2F;gnu&#x2F;store&#x2F;0rv3fmddli5rfrswkm6b5yhnxvn35nha-bitcoin-core-30.0.drv
 &lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;p&gt;That long string of characters is not a label. It&#x27;s a proof. Change the input by a single byte, and the hash shifts, taking the path with it. There are no silent mutations. There is nowhere for a ghost to hide.&lt;&#x2F;p&gt;
+&lt;p&gt;That long string of characters is not a label. It&#x27;s a proof. Change the input by a single byte, and the hash shifts, taking the path with it. There are no silent mutations — there is nowhere for a ghost to hide.&lt;&#x2F;p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;In addition:&lt;&#x2F;p&gt;
 &lt;p&gt;In software engineering, introducing &lt;code&gt;random()&lt;&#x2F;code&gt; is typically done for security purposes — such as preventing predictive attacks or generating cryptographic keys.&lt;&#x2F;p&gt;

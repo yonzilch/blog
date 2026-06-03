@@ -81,10 +81,10 @@ That list is the entire environment. There is no situation like: "the system hap
 The outputs are stored with **Content-Addressed** naming: a binary's path in the system is derived from the cryptographic hash of its contents and all of its declared dependencies.
 
 ```
-/gnu/store/sj1g7xxaiwkynwgnw...-bitcoin-core-31.0
+/gnu/store/0rv3fmddli5rfrswkm6b5yhnxvn35nha-bitcoin-core-30.0.drv
 ```
 
-That long string of characters is not a label. It's a proof. Change the input by a single byte, and the hash shifts, taking the path with it. There are no silent mutations. There is nowhere for a ghost to hide.
+That long string of characters is not a label. It's a proof. Change the input by a single byte, and the hash shifts, taking the path with it. There are no silent mutations — there is nowhere for a ghost to hide.
 
 >In addition:
 >

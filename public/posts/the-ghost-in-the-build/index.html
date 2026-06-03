@@ -231,9 +231,9 @@
 </code></pre>
 <p>That list is the entire environment. There is no situation like: "the system happened to have this." There is no accumulation of prior state. Every ingredient is named, weighed, and catalogued, the way a chemistry lab protocol specifies every reagent and every condition — not because chemists are pedantic, but because *<em>the reproducibility of the result depends on it</em>.</p>
 <p>The outputs are stored with <strong>Content-Addressed</strong> naming: a binary's path in the system is derived from the cryptographic hash of its contents and all of its declared dependencies.</p>
-<pre><code>/gnu/store/sj1g7xxaiwkynwgnw...-bitcoin-core-31.0
+<pre><code>/gnu/store/0rv3fmddli5rfrswkm6b5yhnxvn35nha-bitcoin-core-30.0.drv
 </code></pre>
-<p>That long string of characters is not a label. It's a proof. Change the input by a single byte, and the hash shifts, taking the path with it. There are no silent mutations. There is nowhere for a ghost to hide.</p>
+<p>That long string of characters is not a label. It's a proof. Change the input by a single byte, and the hash shifts, taking the path with it. There are no silent mutations — there is nowhere for a ghost to hide.</p>
 <blockquote>
 <p>In addition:</p>
 <p>In software engineering, introducing <code>random()</code> is typically done for security purposes — such as preventing predictive attacks or generating cryptographic keys.</p>
