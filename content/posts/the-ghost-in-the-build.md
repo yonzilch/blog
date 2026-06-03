@@ -19,13 +19,13 @@ For most software, this is a reasonable bargain. For **Bitcoin Core**, it is una
 
 In the spring of 2024, a Microsoft engineer named Andres Freund noticed that SSH logins on a Debian system were taking about half a second longer than they should. It was the kind of anomaly most people would blame on a network hiccup and forget. Freund did not forget. He pulled the thread.
 
-What he found, buried inside XZ Utils — a compression library so mundane that most Linux users couldn't have named it — was a backdoor of extraordinary craftsmanship. It had been nearly two years in the making, introduced gradually, methodically, by a contributor known only as Jia Tan.
+What he found, buried inside XZ Utils (A compression library so mundane that most Linux users couldn't have named it) — was a backdoor of extraordinary craftsmanship. It had been nearly two years in the making, introduced gradually, methodically, by a contributor known only as Jia Tan.
 
 That maybe a fake name. What is real is the method.
 
 Jia Tan appeared in the XZ Utils repository in late 2021 as an ordinary contributor, submitting small, useful patches. They were helpful. They were responsive. In retrospect, their patience is the most chilling detail of the whole story. It was not enthusiasm; it was calculation. Over months, they gradually manipulated the project’s existing maintainer — a lone developer who had publicly spoken about struggling with mental health issues, until he granted Jia Tan commit access. With the long-term groundwork laid, they executed a true covert payload injection. The tradecraft was exceedingly sophisticated: the malicious code bypassed direct modifications to the source code entirely, nestled instead deep within routine test files. These obfuscated binary blobs left zero footprint during static analysis, designed to be parsed and triggered as a backdoor only when the build scripts executed specific automated pipelines.
 
-The code was clean. The repository was clean. The poison was completely hidden in the build process.
+The code was clean, also the repository was clean. The poison was completely hidden in the build process.
 
 What makes this story genuinely unsettling is not the technical ingenuity. It's that Jia Tan exploited nothing that most of us would recognize as a vulnerability. They exploited **care*. The open-source community runs on an implicit belief in mutual goodwill — people contribute because they want to help, and the community accepts help because it needs it. Jia Tan wore that belief like a costume and walked through every door it opened.
 
@@ -81,7 +81,7 @@ That list is the entire environment. There is no situation like: "the system hap
 The outputs are stored with **Content-Addressed** naming: a binary's path in the system is derived from the cryptographic hash of its contents and all of its declared dependencies.
 
 ```
-/gnu/store/qx7l4fl3pj8y...-bitcoin-core-27.0/
+/gnu/store/sj1g7xxaiwkynwgnw...-bitcoin-core-31.0
 ```
 
 That long string of characters is not a label. It's a proof. Change the input by a single byte, and the hash shifts, taking the path with it. There are no silent mutations. There is nowhere for a ghost to hide.
