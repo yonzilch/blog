@@ -23,13 +23,13 @@ What he found, buried inside XZ Utils — a compression library so mundane that 
 
 That maybe a fake name. What is real is the method.
 
-Jia Tan appeared in the XZ Utils repository in late 2021 as an ordinary contributor, submitting small, useful patches. They were helpful. They were responsive. In retrospect, their patience is the most chilling detail of the whole story. It was not enthusiasm; it was calculation. Over months, they gradually manipulated the project’s existing maintainer — a lone developer who had publicly spoken about struggling with burnout, until he granted Jia Tan commit access. With the long-term groundwork laid, they executed a true covert payload injection. The tradecraft was exceedingly sophisticated: the malicious code bypassed direct modifications to the source code entirely, nestled instead deep within routine test files. These obfuscated binary blobs left zero footprint during static analysis, designed to be parsed and triggered as a backdoor only when the build scripts executed specific automated pipelines.
+Jia Tan appeared in the XZ Utils repository in late 2021 as an ordinary contributor, submitting small, useful patches. They were helpful. They were responsive. In retrospect, their patience is the most chilling detail of the whole story. It was not enthusiasm; it was calculation. Over months, they gradually manipulated the project’s existing maintainer — a lone developer who had publicly spoken about struggling with mental health issues, until he granted Jia Tan commit access. With the long-term groundwork laid, they executed a true covert payload injection. The tradecraft was exceedingly sophisticated: the malicious code bypassed direct modifications to the source code entirely, nestled instead deep within routine test files. These obfuscated binary blobs left zero footprint during static analysis, designed to be parsed and triggered as a backdoor only when the build scripts executed specific automated pipelines.
 
 The code was clean. The repository was clean. The poison was completely hidden in the build process.
 
 What makes this story genuinely unsettling is not the technical ingenuity. It's that Jia Tan exploited nothing that most of us would recognize as a vulnerability. They exploited **care*. The open-source community runs on an implicit belief in mutual goodwill — people contribute because they want to help, and the community accepts help because it needs it. Jia Tan wore that belief like a costume and walked through every door it opened.
 
-Four years earlier, attackers had done the same thing from the outside. The SolarWinds breach of 2020 required no years of community trust-building, no social engineering, no patience. The attackers compromised the automated pipeline that turns source code into a shippable product — and inserted a backdoor directly into the official binary before it ever left the building. Eighteen thousand organizations downloaded the file, including the US Treasury, the State Department, and the Department of Homeland Security. All of them were running a signed, official binary containing code their vendor had never written.
+Four years earlier, attackers had done the same thing from the outside. The SolarWinds breach of 2020 required no years of community trust-building, no social engineering, no patience. The attackers compromised the automated pipeline that turns source code into a shippable product — and inserted a backdoor directly into the official binary before it ever left the building. Eighteen thousand organizations have downloaded this document, including the U.S. Department of the Treasury, the State Department, and even the Nuclear Security Administration, as well as numerous Fortune 500 companies, renowned universities, and major medical institutions around the world. All of them were running a signed, official binary containing code their vendor had never written.
 
 Two attacks. Opposite approaches. One found the crack from the outside; the other from within. However, both converged on exactly the same blind spot: the build process — that dark passage between the code a developer writes and the program a user runs.
 
@@ -78,7 +78,7 @@ In Guix's language (Scheme), a package declaration looks like this:
 
 That list is the entire environment. There is no situation like: "the system happened to have this." There is no accumulation of prior state. Every ingredient is named, weighed, and catalogued, the way a chemistry lab protocol specifies every reagent and every condition — not because chemists are pedantic, but because **the reproducibility of the result depends on it*.
 
-The outputs are stored with content-addressed naming: a binary's path in the system is derived from the cryptographic hash of its contents and all of its declared dependencies.
+The outputs are stored with **Content-Addressed** naming: a binary's path in the system is derived from the cryptographic hash of its contents and all of its declared dependencies.
 
 ```
 /gnu/store/qx7l4fl3pj8y...-bitcoin-core-27.0/
@@ -158,13 +158,15 @@ This erects an inverted pyramid of engineering: the staggering, massive dependen
 
 There is also a quieter problem. The verification model works when many independent builders exist. In practice, who performs these builds? People with the technical capability, the hardware, the time. The network of witnesses is real, but it is small and self-selecting. The participants know each other. They share mailing lists, conferences, professional histories. "Independent" is true in the technical sense — separate machines, separate environments — but sociology has its own meaning for the word, and the two meanings do not always agree.
 
-None of this is a reason to prefer Gitian. It is a reason to be precise about what Guix actually achieves: it replaces a wide, murky, and relatively opaque, difficult-to-audit attack surface with a narrow, well-lit, and transparent, easily auditable one. That is meaningful progress. But "the absolute trustworthiness of the build process" is by no means a fully resolved problem — the ghost 👻 in the build still lingers.
+None of this is a reason to prefer Gitian. It is a reason to be precise about what Guix actually achieves: it replaces a wide, murky, and relatively opaque, difficult-to-audit attack surface with a narrow, well-lit, and transparent, easily auditable one. That is meaningful progress, but "the absolute trustworthiness of the build process" is by no means a fully resolved problem.
+
+**The ghost 👻 in the build — still lingers on.**
 
 ---
 
 ## This matters past Bitcoin Core
 
-The Bitcoin Core use case is extreme. The software manages financial sovereignty for people who, by design, distrust intermediaries. Most software does not bear this burden.
+The use cases for Bitcoin Core are extreme, primarily because the software defends financial sovereignty for users who fundamentally distrust intermediaries, whereas most of the software we use on a daily basis does not need to shoulder such a heavy burden.
 
 But this underlying vulnerability extends far beyond Bitcoin. Every server you administer, every tool in your deployment pipeline, every background library — all of them passed through a build process you did not witness, on machines you have never seen, by people you do not know. The victims of SolarWinds didn't know either. Andres Freund only barely caught Jia Tan.
 
@@ -172,7 +174,7 @@ That "barely" is the critical point. What stopped the XZ backdoor was one engine
 
 In fact, the defensive approach offered by Guix is not limited to extreme scenarios — the principles it embodies scale in both directions:
 
-- At the baseline, combine tools that align with the concept of **"Reproducible Builds"**  — such as **[direnv](https://direnv.net) and [Nix Flakes](https://nixos.wiki/wiki/Flakes)**, enables developers to explicitly declare engineering project dependencies and lock down the entire development environment. This ensures the exact same compiler, identical library versions, and a consistent **Runtime Environment**, regardless of the machine or the year. Developers on different continents, using different operating systems, can all access toolchains driven by the same **Declarative** specification, fully **Explicit** on their respective platforms. The **"It just works on my machine"** — **wellknown problem** becomes architecturally impossible rather than perennially managed. Setting this up does require some configuration time, but it is well worth incorporating into the standard practices of any project that takes engineering quality seriously.
+- At the baseline, combine tools that align with the concept of **"Reproducible Builds"**  — such as **[direnv](https://direnv.net) and [Nix Flakes](https://nixos.wiki/wiki/Flakes)**, enables developers to explicitly declare engineering project dependencies and lock down the entire development environment. This ensures the exact same compiler, identical library versions, and a consistent **Runtime Environment**, regardless of the machine or the year. Developers located in different countries and regions, using different operating systems, can all access toolchains driven by the same **Declarative** specification, fully **Explicit** on their respective platforms. The **"It just works on my machine"** — **wellknown problem** becomes architecturally impossible rather than perennially managed. Setting this up does require some configuration time, but it is well worth incorporating into the standard practices of any project that takes engineering quality seriously.
 
 - Further up the chain, build pipelines can be reconfigured to work from explicitly declared, version-locked inputs rather than trusting whatever the runner happens to have installed — the oral-recipe model replaced, at least partially, by the laboratory protocol. Guix, and Bitcoin Core's full reproducible build process, represents the far end of the spectrum: declare everything, verify everything, minimize trust to what can actually be inspected. Not every project needs that ceiling. Every project benefits from knowing it exists. Each explicit declaration, each pinned dependency, each verified build shrinks the territory where the unobserved can hide.
 
