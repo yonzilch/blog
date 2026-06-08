@@ -142,7 +142,7 @@ Here is where the honest account gets complicated.
 
 Guix dramatically shrinks the surface of implicit trust. But it does not eliminate trust.
 
-In other words, Guix approaches the mathematical limit of trust, yet never reaches the **absolute zero** of **Zero Trust**.
+In other words, Guix approaches the mathematical limit of trust, yet never cools down to the **absolute zero** of **Zero Trust**.
 
 Consider a thought experiment: someone with Jia Tan's patience and technical sophistication targets not Bitcoin Core's source code, but a low-level dependency of Guix itself — something deep in the toolchain that all builders share. Were the progress of infiltration slow and stealthy enough not to raise alarms. The result would be: a perfectly reproducible binary, universally attested, signed by every independent builder. Everyone would all produce the same hash; users would verify the convergence and then rest easy, feeling secure.
 
