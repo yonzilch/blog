@@ -7,11 +7,11 @@ date = "2026-05-29"
 
 ## Intro
 
-Every piece of software you've ever installed is, at its core, an act of faith.
+Every piece of software you've ever installed is, at its core, a leap of blind faith.
 
-Not faith in the code itself — you can read the code, audit it, tear it apart line by line. Faith in something murkier: the chain of hands that code passed through before becoming the program running on your machine. Someone compiled it somewhere, on some system, using some tools. You weren't there. You didn't watch. You clicked install anyway, and moved on with your day.
+This faith is not placed in the code itself — code can be read, audited, and torn apart line by line. It targets a far deeper, more inscrutable blind spot: the chain of hands that code passed through before becoming the program running on your machine. Someone compiled it somewhere, on some system, using some toolchain. You weren't there; you didn't witness it firsthand. You simply clicked install, and moved on with your day.
 
-For most software, this is a reasonable bargain. For **Bitcoin Core**, it is unacceptable. The project exists for one significant purpose: to resist corruption or tampering by removing the necessity of human trust as much as possible.
+For most software, this blind adherence to a black-box approach is a necessary but reasonable trade-off — exchanging trust for convenience. But for the **Bitcoin Core** project, it is unacceptable. The project exists for one significant purpose: to resist corruption or tampering by removing the necessity of human trust as much as possible.
 
 ---
 
@@ -49,9 +49,9 @@ But Gitian has an inherent flaw, which can be summarized in one word: **Implicit
 
 Gitian runs scripts inside a virtual machine. It assumes the base operating system snapshot is clean. It inherits the ambient environment of a running Unix system: the libraries that happen to be present, the locale settings, the PATH variables, the hundred invisible things that accumulate in any long-lived system. That environment is not declared. It is not verified. It simply **is*, the way the weather simply is.
 
-Think of it as the difference between an oral recipe and a laboratory protocol. An oral recipe relies on implicit variables: add a pinch of salt, use whatever pan happens to be on the stove. In software engineering, these unstated instructions (such as inheriting the PATH from the surrounding environment or linking to a library that 'happens' to be installed on the system) constitute undeclared dependencies. Two competent cooks following an oral recipe will produce similar dishes, just as two machines might compile similar binaries. But **similar** is not **identical*, and **similar** is not **provably** identical. The kitchen has a history — it **"breathes"** with the residue of past meals, just as a build environment silently inherits the ambient state of its host system.
+Let’s simply compare the entire build process to the format of a spoken recipe. An oral recipe relies on implicit variables: spoken recipes rely on implicit variables, such as the phrase **「add a pinch of salt, use whatever pan happens to be on the stove.」** In software engineering, these unstated instructions (such as inheriting the PATH from the surrounding environment or linking to a library that 'happens' to be installed on the system) constitute undeclared dependencies. Two competent cooks following an oral recipe will produce similar dishes, just as two machines might compile similar binaries. But **similar** is not **identical*, and **similar** is not **provably** identical. The kitchen has a history — it **"breathes"** with the residue of past meals, just as a build environment silently inherits the ambient state of its host system.
 
-The build environment, under Gitian, had a history too. And in that history — implicit, vast, and largely unexamined — an attacker has **room to work**.
+The build environment, under Gitian, had a history too. And in that history — implicit, vast, and largely unexamined — an attacker has room to work.
 
 ---
 
@@ -144,7 +144,7 @@ Guix dramatically shrinks the surface of implicit trust. But it does not elimina
 
 In other words, Guix approaches the mathematical limit of trust, yet never reaches the **absolute zero** of **Zero Trust**.
 
-Consider a thought experiment. Someone with Jia Tan's patience and technical sophistication targets not Bitcoin Core's source code, but a low-level dependency of Guix itself — something deep in the toolchain that all builders share, the progress of infiltration slowly enough not to raise alarms. The result would be: a perfectly reproducible binary, universally attested, signed by every independent builder. They would all produce the same hash. Users would verify the convergence and feel secure.
+Consider a thought experiment: someone with Jia Tan's patience and technical sophistication targets not Bitcoin Core's source code, but a low-level dependency of Guix itself — something deep in the toolchain that all builders share. The progress of infiltration was slow and stealthy enough not to raise alarms. The result would be: a perfectly reproducible binary, universally attested, signed by every independent builder. Everyone would all produce the same hash; users would verify the convergence and then rest easy, feeling secure.
 
 ![1](https://static.yon.im/image/blog/the-ghost-in-the-build/1.webp)
 
@@ -168,7 +168,7 @@ None of this is a reason to prefer Gitian. It is a reason to be precise about wh
 
 The use cases for Bitcoin Core are extreme, primarily because the software defends financial sovereignty for users who fundamentally distrust intermediaries, whereas most of the software we use on a daily basis does not need to shoulder such a heavy burden.
 
-But this underlying vulnerability extends far beyond Bitcoin. Every server you administer, every tool in your deployment pipeline, every background library — all of them passed through a build process you did not witness, on machines you have never seen, by people you do not know. The victims of SolarWinds didn't know either. Andres Freund only barely caught Jia Tan.
+But this underlying vulnerability extends far beyond Bitcoin. Every server you administer, every tool in your deployment pipeline, every background library — all of them passed through a build process you did not witness, on machines you have never seen, by people you do not know. The victims of SolarWinds didn't know either; Andres Freund only barely caught Jia Tan.
 
 That "barely" is the critical point. What stopped the XZ backdoor was one engineer's curiosity about SSH latency on a Friday afternoon — a fleeting moment of attention that cannot be relied upon to repeat. It wasn't a system that stopped the breach. And as for so-called coincidence. And coincidence is a terrifyingly fragile foundation for digital infrastructure......
 
@@ -176,7 +176,7 @@ In fact, the defensive approach offered by Guix is not limited to extreme scenar
 
 - At the baseline, combine tools that align with the concept of **"Reproducible Builds"**  — such as **[direnv](https://direnv.net) and [Nix Flakes](https://nixos.wiki/wiki/Flakes)**, enables developers to explicitly declare engineering project dependencies and lock down the entire development environment. This ensures the exact same compiler, identical library versions, and a consistent **Runtime Environment**, regardless of the machine or the year. Developers located in different countries and regions, using different operating systems, can all access toolchains driven by the same **Declarative** specification, fully **Explicit** on their respective platforms. The **"works on my machine"** — **wellknown problem** becomes architecturally impossible rather than perennially managed. Setting this up does require some configuration time, but it is well worth incorporating into the standard practices of any project that takes engineering quality seriously.
 
-- Further up the chain, build pipelines can be reconfigured to work from explicitly declared, version-locked inputs rather than trusting whatever the runner happens to have installed — the oral-recipe model replaced, at least partially, by the laboratory protocol. Guix, and Bitcoin Core's full reproducible build process, represents the far end of the spectrum: declare everything, verify everything, minimize trust to what can actually be inspected. Not every project needs that ceiling. Every project benefits from knowing it exists. Each explicit declaration, each pinned dependency, each verified build shrinks the territory where the unobserved can hide.
+- Further up the chain, build pipelines can be reconfigured to work from explicitly declared, version-locked inputs rather than trusting whatever the runner happens to have installed — the oral-recipe model replaced, at least partially, by the laboratory protocol. Guix, and Bitcoin Core's full reproducible build process, represents the far end of the spectrum: declare everything, verify everything, minimize trust to what can actually be inspected. While not every project requires pushing its security boundaries to such limits, any project stands to benefit from knowing this ceiling exists. Each explicit declaration, each pinned dependency, each verified build shrinks the territory where the unobserved can hide.
 
 You will always be trusting something. The question Guix asks — and answers: is how small that something can be made.
 
