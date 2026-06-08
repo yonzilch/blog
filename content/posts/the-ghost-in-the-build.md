@@ -140,7 +140,7 @@ This trust anchor has been fully streamlined, enabling developers in complex sof
 
 Here is where the honest account gets complicated.
 
-Guix dramatically shrinks the surface of implicit trust. But it does not eliminate trust.
+Guix dramatically shrinks the surface of implicit trust, but it does not eliminate trust.
 
 In other words, Guix approaches the mathematical limit of trust, yet never cools down to the **absolute zero** point of **Zero Trust**.
 

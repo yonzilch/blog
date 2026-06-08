@@ -99,7 +99,7 @@
 &lt;hr &#x2F;&gt;
 &lt;h2 id=&quot;you-ling-bing-wei-chi-qu-ta-zhi-shi-zhuan-yi-liao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#you-ling-bing-wei-chi-qu-ta-zhi-shi-zhuan-yi-liao&quot; aria-label=&quot;Anchor link for: you-ling-bing-wei-chi-qu-ta-zhi-shi-zhuan-yi-liao&quot;&gt;幽灵并未离去，它只是转移了&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
 &lt;p&gt;叙写到这里，坦诚的叙述开始变得错综复杂。&lt;&#x2F;p&gt;
-&lt;p&gt;Guix 大幅收缩了隐式信任的攻击面。但它并没有消灭信任。&lt;&#x2F;p&gt;
+&lt;p&gt;Guix 大幅收缩了隐式信任的攻击面，但它并没有消灭信任。&lt;&#x2F;p&gt;
 &lt;p&gt;换言之，Guix 逼近信任的极限，却永远无法降至 &lt;strong&gt;零信任&lt;&#x2F;strong&gt; (Zero Trust) 的极点 —— &lt;strong&gt;绝对零度&lt;&#x2F;strong&gt;（Absolute Zero）&lt;&#x2F;p&gt;
 &lt;p&gt;设想一个思想实验： 某个拥有 Jia Tan 般耐心与技术造诣的人，目标不是 Bitcoin Core 的源代码，而是 Guix 自身的某个底层依赖 —— 工具链深处所有构建者共享的某个核心组件。其渗透过程足够缓慢隐蔽，以至于没有触发任何警报。那么结果将会是：一个完美可复现的二进制文件，获得全球所有独立构建者的公证与签名。所有人都会跑出完全相同的哈希值； 用户验证了收敛结果一致，然后在安全感中高枕无忧。&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;the-ghost-in-the-build&#x2F;1.webp&quot; alt=&quot;1&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
@@ -339,7 +339,7 @@ User verifies the convergence
 &lt;hr &#x2F;&gt;
 &lt;h2 id=&quot;the-ghost-hasn-t-gone-away-it-moves&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#the-ghost-hasn-t-gone-away-it-moves&quot; aria-label=&quot;Anchor link for: the-ghost-hasn-t-gone-away-it-moves&quot;&gt;The ghost hasn&#x27;t gone away, it moves&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
 &lt;p&gt;Here is where the honest account gets complicated.&lt;&#x2F;p&gt;
-&lt;p&gt;Guix dramatically shrinks the surface of implicit trust. But it does not eliminate trust.&lt;&#x2F;p&gt;
+&lt;p&gt;Guix dramatically shrinks the surface of implicit trust, but it does not eliminate trust.&lt;&#x2F;p&gt;
 &lt;p&gt;In other words, Guix approaches the mathematical limit of trust, yet never cools down to the &lt;strong&gt;absolute zero&lt;&#x2F;strong&gt; point of &lt;strong&gt;Zero Trust&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
 &lt;p&gt;Consider a thought experiment: someone with Jia Tan&#x27;s patience and technical sophistication targets not Bitcoin Core&#x27;s source code, but a low-level dependency of Guix itself — something deep in the toolchain that all builders share. Were the progress of infiltration slow and stealthy enough not to raise alarms. The result would be: a perfectly reproducible binary, universally attested, signed by every independent builder. Everyone would all produce the same hash; users would verify the convergence and then rest easy, feeling secure.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;static.yon.im&#x2F;image&#x2F;blog&#x2F;the-ghost-in-the-build&#x2F;1.webp&quot; alt=&quot;1&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
