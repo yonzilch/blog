@@ -49,7 +49,7 @@ But Gitian has an inherent flaw, which can be summarized in one word: **Implicit
 
 Gitian runs scripts inside a virtual machine. It assumes the base operating system snapshot is clean. It inherits the ambient environment of a running Unix system: the libraries that happen to be present, the locale settings, the PATH variables, the hundred invisible things that accumulate in any long-lived system. That environment is not declared. It is not verified. It simply **is*, the way the weather simply is.
 
-Let’s simply compare the entire build process to the format of a spoken recipe. An oral recipe relies on implicit variables: spoken recipes rely on implicit variables, such as the phrase **「add a pinch of salt, use whatever pan happens to be on the stove.」** In software engineering, these unstated instructions (such as inheriting the PATH from the surrounding environment or linking to a library that 'happens' to be installed on the system) constitute undeclared dependencies. Two competent cooks following an oral recipe will produce similar dishes, just as two machines might compile similar binaries. But **similar** is not **identical*, and **similar** is not **provably** identical. The kitchen has a history — it **"breathes"** with the residue of past meals, just as a build environment silently inherits the ambient state of its host system.
+Let’s simply compare the entire build process to the format of a spoken recipe. An oral recipe relies on implicit variables: such as the phrase **「add a pinch of salt, use whatever pan happens to be on the stove.」** In software engineering, these unstated instructions (such as inheriting the PATH from the surrounding environment or linking to a library that 'happens' to be installed on the system) constitute undeclared dependencies. Two competent cooks following an oral recipe will produce similar dishes, just as two machines might compile similar binaries. But **similar** is not **identical*, and **similar** is not **provably** identical. The kitchen has a history — it **"breathes"** with the residue of past meals, just as a build environment silently inherits the ambient state of its host system.
 
 The build environment, under Gitian, had a history too. And in that history — implicit, vast, and largely unexamined — an attacker has room to work.
 
@@ -67,7 +67,7 @@ This is the property Guix enforces at the scale of an entire software build:
 output = f(all inputs)
 ```
 
-Everything the build needs: every compiler, every library, every tool, must be ***Explicitly** declared. If it isn't declared, it doesn't exist within the build process. Not "it probably won't be found." It structurally cannot exist, because the host system is entirely invisible. Network access is disabled. Timestamps are fixed to a known value. The `PATH` is wiped and reconstructed from scratch using only what's been declared.
+Everything the build needs: every compiler, every library, every tool, must be **Explicitly** declared. If it isn't declared, it doesn't exist within the build process. Not "it probably won't be found." It structurally cannot exist, because the host system is entirely invisible. Network access is disabled. Timestamps are fixed to a known value. The `PATH` is wiped and reconstructed from scratch using only what's been declared.
 
 In Guix's language (Scheme), a package declaration looks like this:
 
@@ -144,7 +144,7 @@ Guix dramatically shrinks the surface of implicit trust. But it does not elimina
 
 In other words, Guix approaches the mathematical limit of trust, yet never reaches the **absolute zero** of **Zero Trust**.
 
-Consider a thought experiment: someone with Jia Tan's patience and technical sophistication targets not Bitcoin Core's source code, but a low-level dependency of Guix itself — something deep in the toolchain that all builders share. The progress of infiltration was slow and stealthy enough not to raise alarms. The result would be: a perfectly reproducible binary, universally attested, signed by every independent builder. Everyone would all produce the same hash; users would verify the convergence and then rest easy, feeling secure.
+Consider a thought experiment: someone with Jia Tan's patience and technical sophistication targets not Bitcoin Core's source code, but a low-level dependency of Guix itself — something deep in the toolchain that all builders share. Were the progress of infiltration slow and stealthy enough not to raise alarms. The result would be: a perfectly reproducible binary, universally attested, signed by every independent builder. Everyone would all produce the same hash; users would verify the convergence and then rest easy, feeling secure.
 
 ![1](https://static.yon.im/image/blog/the-ghost-in-the-build/1.webp)
 
