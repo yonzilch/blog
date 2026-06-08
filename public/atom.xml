@@ -141,7 +141,7 @@
 &lt;h2 id=&quot;zhe-yuan-bu-zhi-yu-bitcoin-core&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#zhe-yuan-bu-zhi-yu-bitcoin-core&quot; aria-label=&quot;Anchor link for: zhe-yuan-bu-zhi-yu-bitcoin-core&quot;&gt;这远不止于 Bitcoin Core&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
 &lt;p&gt;Bitcoin Core 的使用场景极为极端，这主要是因为该软件旨在为那些从根本上不信任中介机构的用户捍卫金融主权，而我们日常使用的大多数软件并不需要承担如此沉重的负担。&lt;&#x2F;p&gt;
 &lt;p&gt;然而，这种底层的脆弱性远不止存在于比特币之中。你管理的每一台服务器、部署流水线中的每一个工具、默默运行的每一个后台库 —— 它们无一例外都经历过一场你未曾亲眼目睹的构建过程，运行在你从未见过的机器上，出自你素不相识的人之手。SolarWinds 事件的受害者对此同样一无所知； 而 Andres Freund 捕获 Jia Tan 的阴谋，不过是&lt;strong&gt;侥幸&lt;&#x2F;strong&gt;之举。&lt;&#x2F;p&gt;
-&lt;p&gt;“侥幸”正是问题的核心。阻止 XZ 后门的，不过是一位工程师在某个周五下午对 SSH 登录延迟产生的偶然好奇 —— 这是一种转瞬即逝的敏锐，几乎不可能以完全相同的形式再次复现。让灾难踩下刹车的不是什么安全系统，而是巧合。而所谓的巧合，对于承载整个世界的数字基础设施而言，是一个脆弱得令人不寒而栗的根基......&lt;&#x2F;p&gt;
+&lt;p&gt;“侥幸”正是问题的核心。阻止 XZ 后门的，不过是一位工程师在某个周五下午对 SSH 登录延迟产生的偶然好奇 —— 这是一种转瞬即逝的敏锐，几乎不可能以完全相同的形式再次复现。让灾难踩下刹车的不是什么安全系统，而仅仅是巧合。可所谓的巧合，对于承载整个世界的数字基础设施而言，是一个脆弱得令人不寒而栗的根基......&lt;&#x2F;p&gt;
 &lt;p&gt;实际上，Guix 提供的防御思路并不局限于极端场景 —— 它所体现的原则在两个方向上可进行扩展：&lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -356,7 +356,7 @@ User verifies the convergence
 &lt;h2 id=&quot;this-matters-past-bitcoin-core&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#this-matters-past-bitcoin-core&quot; aria-label=&quot;Anchor link for: this-matters-past-bitcoin-core&quot;&gt;This matters past Bitcoin Core&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
 &lt;p&gt;The use cases for Bitcoin Core are extreme, primarily because the software defends financial sovereignty for users who fundamentally distrust intermediaries, whereas most of the software we use on a daily basis does not need to shoulder such a heavy burden.&lt;&#x2F;p&gt;
 &lt;p&gt;But this underlying vulnerability extends far beyond Bitcoin. Every server you administer, every tool in your deployment pipeline, every background library — all of them passed through a build process you did not witness, on machines you have never seen, by people you do not know. The victims of SolarWinds didn&#x27;t know either; Andres Freund only barely caught Jia Tan.&lt;&#x2F;p&gt;
-&lt;p&gt;That &quot;barely&quot; is the critical point. What stopped the XZ backdoor was one engineer&#x27;s curiosity about SSH latency on a Friday afternoon — a fleeting moment of attention that cannot be relied upon to repeat. It wasn&#x27;t a system that stopped the breach. And as for so-called coincidence. And coincidence is a terrifyingly fragile foundation for digital infrastructure......&lt;&#x2F;p&gt;
+&lt;p&gt;That &quot;barely&quot; is the critical point. What stopped the XZ backdoor was one engineer&#x27;s curiosity about SSH latency on a Friday afternoon — a fleeting moment of attention that cannot be relied upon to repeat. It wasn&#x27;t a safety system that stopped the breach, but just coincidence. As for so-called coincidence is a terrifyingly fragile foundation for digital infrastructure...&lt;&#x2F;p&gt;
 &lt;p&gt;In fact, the defensive approach offered by Guix is not limited to extreme scenarios — the principles it embodies scale in both directions:&lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;

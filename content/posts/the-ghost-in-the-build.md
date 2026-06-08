@@ -170,7 +170,7 @@ The use cases for Bitcoin Core are extreme, primarily because the software defen
 
 But this underlying vulnerability extends far beyond Bitcoin. Every server you administer, every tool in your deployment pipeline, every background library — all of them passed through a build process you did not witness, on machines you have never seen, by people you do not know. The victims of SolarWinds didn't know either; Andres Freund only barely caught Jia Tan.
 
-That "barely" is the critical point. What stopped the XZ backdoor was one engineer's curiosity about SSH latency on a Friday afternoon — a fleeting moment of attention that cannot be relied upon to repeat. It wasn't a system that stopped the breach. And as for so-called coincidence. And coincidence is a terrifyingly fragile foundation for digital infrastructure......
+That "barely" is the critical point. What stopped the XZ backdoor was one engineer's curiosity about SSH latency on a Friday afternoon — a fleeting moment of attention that cannot be relied upon to repeat. It wasn't a safety system that stopped the breach, but just coincidence. As for so-called coincidence is a terrifyingly fragile foundation for digital infrastructure...
 
 In fact, the defensive approach offered by Guix is not limited to extreme scenarios — the principles it embodies scale in both directions:
 
