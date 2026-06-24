@@ -1,0 +1,597 @@
+/* =========================================================================
+   components.css — .page-header, .not-found-header, .meta, .post-list,
+   .tag-list, .list-item, .post-header, .pagination, .icon-button, .tags,
+   .authors, .post-tags, .tag.
+   (sections 4, 6, 7, 15, 18 + the .post-tags piece of 20 from src/arata.css)
+   ========================================================================= */
+
+.page-header {
+    font-size: 2em;
+    line-height: 100%;
+    font-family: var(--header-font);
+    /* Fix 4: pin the page title to 700 so it stands out from the 400-weight
+     body copy. Previously both inherited 400 from `html` and looked
+     identical in weight (only the larger font-size distinguished them). */
+    font-weight: 700;
+    margin: 3rem 0px 1.1rem 0px;
+}
+
+.page-subtitle {
+    font-size: 1.36rem;
+    line-height: 1.5;
+    letter-spacing: 0.005em;
+    color: var(--header-font);
+    opacity: 0.95;
+}
+
+/* 404 header */
+.not-found-header {
+    font-family: var(--header-font);
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 3em;
+}
+.meta {
+    color: var(--text-2);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.15rem 0.35rem;
+    line-height: 1.6;
+    font-size: 0.95em;
+}
+
+.post-list .list-item,
+.tag-list .list-item {
+    margin-bottom: 1.5rem;
+    list-style-type: none;
+}
+
+/* Post title: bold so it stands out from the description below. */
+.post-list .post-header .title,
+.tag-list .post-header .title {
+    color: var(--text-0);
+    font-weight: 700;
+}
+
+.post-list .post-header a,
+.tag-list .post-header a {
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.18em;
+}
+
+.post-list .post-content {
+    color: var(--text-1);
+}
+
+/* Post card: each list-item wrapped as a bordered card with hover affordance
+   (Fix 3). The border + radius + shadow lift each entry off the page so the
+   list reads as discrete cards rather than a flat list. */
+.post-card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.post-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Post-list tags (Fix 3): pill-style tag chips rendered between the
+   `.post-header` and the `.post-content` description. Each tag links to its
+   `/tags/<name>` route; hovering picks up the primary color. */
+.post-list-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0.5rem 0;
+}
+
+.post-list-tag {
+    font-size: 0.75rem;
+    color: var(--text-1);
+    padding: 2px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    text-decoration: none;
+    transition:
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.post-list-tag:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.post-list .post-header,
+.tag-list .post-header {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+@media all and (max-width: 640px) {
+    .post-list .post-header,
+    .tag-list .post-header {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+@media all and (min-width: 640px) {
+    .post-list .post-header,
+    .tag-list .post-header {
+        gap: 1rem;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .post-list .post-header,
+    .tag-list .post-header {
+        margin: 1.6rem 0px;
+    }
+}
+
+.post-list .post-header h1,
+.tag-list .post-header h1 {
+    margin: 0;
+    font-weight: normal;
+    font-family: var(--header-font);
+}
+
+.post-list .post-header h1 a,
+.tag-list .post-header h1 a {
+    border-bottom: none;
+}
+
+.post-list .post-header time,
+.tag-list .post-header time {
+    font-family: var(--mono-text-font);
+    text-align: left;
+    margin: 0;
+}
+/* =========================================================================
+   7. Pagination  (class names from section.html / cards.html / talks.html)
+   ------------------------------------------------------------------------- */
+
+.pagination {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 1rem 0 0 0;
+}
+
+/* Page-jump input (Fix 2): a small, modern number input rendered as a third
+   pagination item so the user can type a page number and jump straight to
+   it. Styled with a border, radius, and a focus state that picks up the
+   primary color. */
+.page-jump {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 1rem;
+}
+
+.page-jump input {
+    width: 48px;
+    padding: 4px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--bg-1);
+    color: var(--text-0);
+    font-size: 0.9rem;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.page-jump input:focus {
+    border-color: var(--primary-color);
+}
+/* =========================================================================
+   15. Icon-button component  (sass/parts/_components.scss)
+   ------------------------------------------------------------------------- */
+
+.icon-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px;
+    gap: 3px;
+    background: var(--bg-2);
+    font-size: 0.75rem;
+    color: var(--text-color);
+
+    /* Ensure that the a tag has also a bottom border, which is by default hidden */
+    border: 1px solid var(--border-color) !important;
+    border-radius: 6px;
+}
+
+.icon-button svg,
+.icon-button img {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+}
+
+.icon-button img {
+    filter: var(--icon-filter);
+}
+
+.icon-button:hover {
+    cursor: pointer;
+    background: var(--bg-1);
+    color: var(--text-color);
+    /* FIXME: Exclude this in the `main a` tag which adds it's own underline */
+    border: 1px solid var(--border-color);
+}
+/* =========================================================================
+   18. Tags / authors shortcodes  (sass/parts/_tags.scss)
+   ------------------------------------------------------------------------- */
+
+.tags a::before {
+    content: "#";
+    display: inline;
+    white-space: nowrap !important;
+}
+
+.authors a::before {
+    content: "@";
+    display: inline;
+    white-space: nowrap !important;
+}
+/* Post tags in the right sidebar (above the TOC). The `.post-tags` row is a
+   flex-wrap container so tags flow onto multiple lines if needed, with a
+   consistent `gap` for spacing. `margin-bottom` separates the tag row from
+   the TOC below. Tags themselves are simple `<a class="tag">` links to
+   `/tags/<tag>`. The `.heading` child mirrors the TOC's heading and spans
+   the full width (via `flex-basis: 100%`) so the tag links wrap onto the
+   next line beneath it. */
+.right-content .post-tags {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.right-content .post-tags .heading {
+    flex-basis: 100%;
+    font-weight: 700;
+}
+
+.right-content .post-tags .tag {
+    display: inline-block;
+}
+
+/* Fix 9: hide the right-sidebar Tags row below 1365px so it stays consistent
+   with the `.toc` block (which `toc.css` hides below the same breakpoint).
+   Without this, the Tags row would remain visible while the ToC below it
+   vanishes, leaving an orphan heading in the sidebar. */
+@media only screen and (max-width: 1365px) {
+    .right-content .post-tags {
+        display: none;
+    }
+}
+
+.lightbox-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.82);
+}
+
+.lightbox-dialog {
+    position: relative;
+    max-width: min(96vw, 1200px);
+    max-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 82vh;
+    object-fit: contain;
+    border-radius: 0.75rem;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.45);
+}
+
+.lightbox-caption {
+    max-width: 80ch;
+    margin: 0;
+    color: #f8fafc;
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.lightbox-close {
+    all: unset;
+    position: absolute;
+    top: -0.75rem;
+    right: -0.75rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    color: #f8fafc;
+    background: rgba(15, 17, 21, 0.9);
+    border: 1px solid rgba(248, 250, 252, 0.25);
+    cursor: pointer;
+    font-size: 1.75rem;
+    line-height: 1;
+}
+
+/* =========================================================================
+   Lightbox
+   ------------------------------------------------------------------------- */
+
+/* Markdown body images are lightbox targets. */
+.body img {
+    cursor: zoom-in;
+}
+
+/* Full-screen overlay. */
+.lightbox-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.86);
+}
+
+/* Invisible full-screen close target behind the dialog.
+   Important: reset native button styles, otherwise browsers may paint a white
+   button across the whole viewport. */
+.lightbox-backdrop-close {
+    all: unset;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    display: block;
+    cursor: zoom-out;
+    background: transparent;
+}
+
+/* Dialog sits above the invisible backdrop-close button. */
+.lightbox-dialog {
+    position: relative;
+    z-index: 1;
+
+    max-width: min(96vw, 1200px);
+    max-height: 92vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Preview image. */
+.lightbox-image {
+    display: block;
+    max-width: 100%;
+    max-height: 82vh;
+    object-fit: contain;
+    cursor: zoom-out;
+    border-radius: 0.75rem;
+    background: var(--bg-0);
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.5);
+    animation: lightbox-image-fade 140ms ease;
+    will-change: opacity, transform;
+    backface-visibility: hidden;
+    contain: paint;
+}
+
+@keyframes lightbox-image-fade {
+    from {
+        opacity: 0;
+        transform: scale(0.985);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Optional caption from alt/title. */
+.lightbox-caption {
+    max-width: 80ch;
+    margin: 0;
+
+    color: #f8fafc;
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Close button. */
+.lightbox-close {
+    all: unset;
+    position: absolute;
+    top: -0.75rem;
+    right: -0.75rem;
+    z-index: 2;
+
+    width: 2.75rem;
+    height: 2.75rem;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    border-radius: 999px;
+    color: #f8fafc;
+    background: rgba(15, 17, 21, 0.92);
+    border: 1px solid rgba(248, 250, 252, 0.25);
+
+    font-size: 1.75rem;
+    line-height: 1;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus-visible {
+    background: rgba(31, 41, 55, 0.96);
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.lightbox-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    margin-top: 0.35rem;
+}
+
+/* Counter */
+.lightbox-counter {
+    min-width: 5.5rem;
+
+    text-align: center;
+
+    color: rgba(255, 255, 255, 0.92);
+
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1;
+
+    letter-spacing: 0.04em;
+}
+
+/* Shared nav button */
+.lightbox-nav {
+    all: unset;
+
+    width: 3rem;
+    height: 3rem;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 999px;
+
+    cursor: pointer;
+    user-select: none;
+
+    color: #ffffff;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.14),
+        rgba(255, 255, 255, 0.08)
+    );
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    transition:
+        transform 140ms ease,
+        background 140ms ease,
+        box-shadow 140ms ease,
+        opacity 140ms ease;
+
+    opacity: 0.9;
+}
+
+.lightbox-nav:hover {
+    opacity: 1;
+
+    transform: scale(1.06);
+
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.18),
+        rgba(255, 255, 255, 0.12)
+    );
+
+    box-shadow:
+        0 12px 36px rgba(0, 0, 0, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.lightbox-nav:active {
+    transform: scale(0.95);
+}
+
+.lightbox-nav:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
+}
+
+/* Arrow glyphs */
+.lightbox-nav::before {
+    font-size: 1.8rem;
+    line-height: 1;
+    font-weight: 300;
+}
+
+.lightbox-prev::before {
+    content: "‹";
+}
+
+.lightbox-next::before {
+    content: "›";
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .lightbox-footer {
+        gap: 0.75rem;
+    }
+
+    .lightbox-nav {
+        width: 2.75rem;
+        height: 2.75rem;
+
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    .lightbox-nav::before {
+        font-size: 1.55rem;
+    }
+
+    .lightbox-counter {
+        min-width: 4.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Scroll lock toggled by the lightbox FFI. */
+html.lightbox-open,
+body.lightbox-open {
+    overflow: hidden;
+}

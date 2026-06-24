@@ -1,0 +1,51 @@
+# Yon Zilch
+
+> This is Yonzilch's blog
+
+This file is a curated Markdown map of the site for large language models. Use the links below as canonical entry points for understanding the site, its posts, projects, pages, and related resources.
+
+## Core
+
+- [Home](https://blog.yon.im/) Homepage and primary site entry point.
+- [Posts](https://blog.yon.im/posts) Blog post index.
+- [Projects](https://blog.yon.im/projects) Project showcase index.
+- [Links](https://blog.yon.im/links) Friend links and external resources.
+- [Tags](https://blog.yon.im/tags) Tag index.
+- [Sitemap](https://blog.yon.im/sitemap.xml) XML sitemap for crawlable pages.
+
+## Posts
+
+- [构建中的幽灵](https://blog.yon.im/posts/the-ghost-in-the-build-zh-CN) 
+- [The Ghost in the Build](https://blog.yon.im/posts/the-ghost-in-the-build) 
+- [2025](https://blog.yon.im/posts/2025) 
+- [2024](https://blog.yon.im/posts/2024) 
+- [Use backrest for Linux full backup](https://blog.yon.im/posts/use-backrest-for-Linux-full-backup) 
+- [Use rclone for s3 sync](https://blog.yon.im/posts/use-rclone-for-s3-sync) 
+- [2023](https://blog.yon.im/posts/2023) 
+- [My App Defaults 2023](https://blog.yon.im/posts/my-app-defaults-2023) 
+- [利用 Render 部署 wiki.js](https://blog.yon.im/posts/use-render-deploy-wiki-js) 
+- [没有希望，没有绝望](https://blog.yon.im/posts/no-hope-no-despair) 
+- [Powered by Albert Camus](https://blog.yon.im/posts/powered-by-albert-camus) 
+- [关于记忆的一点思绪](https://blog.yon.im/posts/thoughs-about-memories) 
+- [Linux 安装 Java 通法](https://blog.yon.im/posts/linux-install-java) 
+- [Hello World!](https://blog.yon.im/posts/hello-world) 
+- [Markdown Test](https://blog.yon.im/posts/markdown-test) 
+
+## Pages
+
+- [](https://blog.yon.im/home) Standalone page.
+
+## External Links
+
+- [Ice Year の位面](https://blog.iceyear.eu.org/) External link.
+- [世纪大道 | 春风少年兄](https://blog.0pt.icu/) External link.
+- [Eurekaimer's Digital Garden](https://www.eurekaimer.icu/) External link.
+- [Milvoid](https://milvoid.com/) External link.
+- [nanimonai's Blog](https://blog.nanimonai.org/) External link.
+- [Fovir.FYI](https://www.fovir.fyi/) External link.
+- [Medi's Space](https://medihbt.github.io/) External link.
+- [Dich 的小站](https://blog.dich.bid/) External link.
+- [zenyarn](https://zenyarn.github.io/) External link.
+- [Tony's Blog](https://blog.iamsjy.com) External link.
+- [池塘](https://blog.clickfling.top/) External link.
+

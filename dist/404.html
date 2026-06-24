@@ -1,0 +1,3099 @@
+<!DOCTYPE html>
+<html lang='en' class='dark light'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Yon Zilch</title>
+  <meta name='description' content='This is Yonzilch's blog'>
+  <link rel='icon' href='/images/avatar.avif'>
+  <link rel='alternate' type='application/atom+xml' href='/atom.xml'>
+  <link rel='alternate' type='application/rss+xml' href='/rss.xml'>
+  <style id='arata-css'>
+/* src/css/base.css */
+/* =========================================================================
+   base.css — @font-face, theme variables, html/body, headings, links,
+   ::selection, responsive font-size scaling.
+   (sections 1, 2, 3, 5, and the link/global pieces of 6 from src/arata.css)
+   ========================================================================= */
+
+/*
+ * arata.css — hand-port of apollo's SCSS design system to plain CSS.
+ *
+ * Source files (apollo Zola theme, apollo/):
+ *   - sass/main.scss            (base resets, layout, body/content/left/right)
+ *   - sass/fonts.scss           (@font-face declarations)
+ *   - sass/theme/light.scss     (:root.light variables — here merged into :root)
+ *   - sass/theme/dark.scss      (:root.dark variables)
+ *   - sass/parts/_cards.scss
+ *   - sass/parts/_character.scss
+ *   - sass/parts/_code.scss     (incl. $language-colors map → .label-<lang>)
+ *   - sass/parts/_components.scss
+ *   - sass/parts/_header.scss
+ *   - sass/parts/_image.scss
+ *   - sass/parts/_mermaid.scss
+ *   - sass/parts/_misc.scss     (global base styles, a, headings, post-list)
+ *   - sass/parts/_note.scss
+ *   - sass/parts/_search.scss
+ *   - sass/parts/_table.scss
+ *   - sass/parts/_tags.scss
+ *   - sass/parts/_talks.scss
+ *   - sass/parts/_toc.scss
+ *   - static/giallo-light.css   (syntax theme "github-light" — inlined as base)
+ *   - static/giallo-dark.css    (syntax theme "github-dark" — inlined under :root.dark)
+ *
+ * Theming approach:
+ *   apollo uses `:root.light { ... }` and `:root.dark { ... }` and always
+ *   applies one of the two classes to <html>. arata instead defines the
+ *   LIGHT palette directly on `:root` (so light is the default with NO
+ *   class on <html>) and the DARK palette as overrides on `:root.dark`.
+ *   The Phase 10 theme toggle simply adds/removes the `dark` class on
+ *   <html> (the documentElement), and every theme-aware variable and
+ *   syntax-highlight color responds automatically.
+ *
+ * SCSS constructs expanded to plain CSS:
+ *   - All `$var` interpolations inlined as their pre-computed values
+ *     (darken/lighten results taken from RESEARCH_NOTES.md §D.1).
+ *   - The `@each $lang, $color-info in $language-colors { ... }` loop in
+ *     _code.scss expanded to one `.label-<lang>` rule per language (26
+ *     entries: 25 languages + `.label-default`).
+ *   - The `@mixin base-label-style($bg-color, $text-color)` mixin inlined
+ *     into every `.label-*` rule and `.code-label`.
+ *   - Nested selectors (e.g. `body { .content { ... } }`) flattened to
+ *     their fully-qualified form.
+ *   - `@media` queries nested inside rules are emitted as standalone
+ *     `@media { selector { ... } }` blocks (one per breakpoint cluster).
+ */
+/* =========================================================================
+   1. @font-face declarations  (from sass/fonts.scss)
+      Fix 9b: the "Jetbrains Mono" @font-face blocks were removed — the CSS
+      variables `--mono-text-font` and `--code-font` now default to a system
+      monospace stack (`ui-monospace`, Cascadia Code, Source Code Pro, Menlo,
+      Consolas) and the inline <style> override in arata.gleam swaps in the
+      configured `config.fonts.code` family. The TTF files are still on disk
+      under `static/fonts/JetbrainsMono/` but no longer loaded by the browser.
+   ------------------------------------------------------------------------- */
+
+@font-face {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/fonts/SpaceGrotesk/SpaceGrotesk-Regular.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 700;
+    src: url("/fonts/SpaceGrotesk/SpaceGrotesk-Bold.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ZedTextFtl";
+    src: url("/fonts/zed-fonts/ZedTextL-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ZedTextFtl";
+    src: url("/fonts/zed-fonts/ZedTextL-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ZedDisplayFtl";
+    src: url("/fonts/zed-fonts/ZedDisplayL-Heavy.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* =========================================================================
+   2. Theme variables  (sass/theme/light.scss + dark.scss + main.scss :root)
+      Light = default on :root;  Dark = overrides on :root.dark
+   ------------------------------------------------------------------------- */
+
+:root {
+    /* Fonts */
+    --font-size-base: 18.5px;
+    /* Fix 9b: default the monospace families to the system stack so the
+     browser uses the OS's native monospace (e.g. SF Mono on macOS, Cascadia
+     Code on Windows) instead of loading the bundled JetBrains Mono TTFs.
+     The inline <style> override in arata.gleam swaps in `config.fonts.code`
+     when configured. */
+    --mono-text-font:
+        ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
+        monospace;
+    --text-font: "ZedTextFtl";
+    --header-font: "ZedDisplayFtl", "Space Grotesk", "Helvetica", sans-serif;
+    --code-font:
+        ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
+        monospace;
+
+    /* Fix 5: semi-transparent body text color. Light theme uses a dark
+     near-opaque gray (#151515DE ≈ 87% alpha); dark theme overrides with a
+     light near-opaque gray (#F0F0F0DE). Headings/links/etc. still use
+     `--text-0` so only body copy is affected. */
+    --body-text: #151515de;
+
+    /* Layout & type scale */
+    --line-height: 1.5;
+    --page-width: 920px;
+
+    /* Light palette (higher contrast) */
+    --bg-0: #ffffff;
+    --bg-1: #f7f7f7;
+    --bg-2: #e5e7eb;
+
+    --text-0: #111827;
+    --text-1: #1f2937;
+    --text-2: #4b5563;
+
+    --border-color: #d1d5db;
+
+    --primary-color: #2f4fa3;
+    --hover-color: #f3f4f6;
+
+    --icon-filter: none;
+
+    /* Code-block label text color */
+    --label-color: #f8fafc;
+
+    /* Note shortcode */
+    --note-header-bg: var(--bg-2);
+    --note-header-color: var(--text-0);
+    --note-content-bg: var(--bg-1);
+
+    /* Code-block helper aliases */
+    --bg-primary: var(--bg-1);
+    --text-color: var(--text-0);
+}
+
+:root.dark {
+    /* Dark palette (higher contrast) */
+    --bg-0: #0f1115;
+    --bg-1: #171a21;
+    --bg-2: #242936;
+
+    --text-0: #f8fafc;
+    --text-1: #e5e7eb;
+    --text-2: #a1a1aa;
+
+    /* Body copy: readable but still slightly softened on dark backgrounds. */
+    --body-text: #f8fafce0;
+
+    --border-color: #374151;
+
+    /* Keep the arata blue, slightly brightened for dark backgrounds. */
+    --primary-color: #5f7eea;
+    --hover-color: #1f2937;
+
+    --icon-filter: invert(1);
+
+    /* Note shortcode */
+    --note-header-bg: var(--bg-2);
+    --note-header-color: var(--text-0);
+    --note-content-bg: var(--bg-1);
+
+    /* Code-block helper aliases */
+    --bg-primary: var(--bg-1);
+    --text-color: var(--text-0);
+}
+
+:root.dark .social > img,
+:root.dark .search-button > img {
+    filter: invert(1);
+}
+/* =========================================================================
+   3. html / body / layout  (sass/main.scss)
+   ------------------------------------------------------------------------- */
+
+html {
+    background-color: var(--bg-0);
+    /* Fix 5: body text color uses the semi-transparent --body-text variable
+     (light: #151515DE, dark: #F0F0F0DE) rather than the fully-opaque
+     --text-0, per the user's request. */
+    color: var(--body-text);
+    font-family: var(--text-font);
+    line-height: var(--line-height);
+    /* Fix 4 — reverted body font-weight back to 400 (normal). The earlier
+     bump to 500/600 made body text too heavy and visually competed with
+     headings; the user asked to return to the previous default weight.
+     Headings retain their own font-weight (700 via the @font-face Bold cut
+     and CSS) so they still stand out. */
+    font-weight: 400;
+}
+
+@media (max-width: 992px) {
+    html {
+        font-size: calc(var(--font-size-base) * 0.97);
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: calc(var(--font-size-base) * 0.95);
+    }
+}
+
+@media (max-width: 576px) {
+    html {
+        font-size: calc(var(--font-size-base) * 0.92);
+    }
+}
+
+/* =========================================================================
+   5. Headings h1–h6 + ::before prefix  (sass/parts/_header.scss)
+   ------------------------------------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--header-font);
+    font-size: 1.2rem;
+    margin-top: 2em;
+}
+
+h1::before {
+    color: var(--primary-color);
+    content: "# ";
+}
+
+h2::before {
+    color: var(--primary-color);
+    content: "## ";
+}
+
+h3::before {
+    color: var(--primary-color);
+    content: "### ";
+}
+
+h4::before {
+    color: var(--primary-color);
+    content: "#### ";
+}
+
+h5::before {
+    color: var(--primary-color);
+    content: "##### ";
+}
+
+h6::before {
+    color: var(--primary-color);
+    content: "###### ";
+}
+.primary-color {
+    color: var(--primary-color);
+}
+::-moz-selection {
+    background: var(--primary-color);
+    color: var(--hover-color);
+    text-shadow: none;
+}
+
+::selection {
+    background: var(--primary-color);
+    color: var(--hover-color);
+}
+
+hr {
+    /* Fix 10: explicit separator color (#6c7086) so horizontal rules read as
+     deliberate dividers rather than relying on the muted border-color. */
+    color: #6c7086;
+    background: none;
+    margin: 1.2rem auto;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* use colored hovering */
+a:hover {
+    background-color: var(--primary-color);
+    color: var(--hover-color);
+}
+
+/* hover link with child elements (e.g. code) */
+a:hover > code {
+    background-color: var(--primary-color);
+    color: var(--hover-color);
+    /* disable the border + vertical padding */
+    border: none;
+    padding: 0 0.2em;
+}
+
+/* disable colored hovering for video in /talks */
+a.talk-video:hover {
+    background-color: transparent;
+    color: inherit;
+}
+
+/* Only have colored links inside the text */
+main a {
+    border-bottom: 2px solid var(--primary-color);
+    /* Make sure the underline is at the top */
+    position: relative; /* needed for z-index */
+    z-index: 1;
+}
+
+/* Disable colored links in: .meta, header (socials, theme toggle), /talks, /projects, .post-header */
+main .meta a,
+main .talks-grid a,
+main .cards a,
+main .post-header a {
+    border-bottom: none;
+}
+
+/* Don't display border on zola internal links on headers */
+main .zola-anchor {
+    border-bottom: none;
+}
+
+time {
+    color: var(--text-1);
+}
+/* change the line-through color */
+del {
+    text-decoration-color: var(--primary-color);
+    text-decoration-thickness: 3px;
+}
+
+/* MathJax display containers — allow horizontal scroll on small screens */
+.MathJax_Display,
+.MJXc-display,
+.MathJax_SVG_Display {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.home-latest-post {
+    padding: 0.95rem 0;
+}
+
+.home-latest-post-date::after {
+    content: "";
+    display: inline-block;
+    width: 0.22rem;
+    height: 0.22rem;
+    margin-left: 0.42rem;
+    margin-right: 0.42rem;
+    vertical-align: middle;
+    border-radius: 999px;
+    background: currentColor;
+    opacity: 0.95;
+}
+
+.home-latest-post:last-child {
+    border-bottom: none;
+}
+
+.home-latest-post-title {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    font-size: 1rem;
+    font-weight: 580;
+    line-height: 1.45;
+    letter-spacing: -0.01em;
+    transition: color 120ms ease;
+}
+
+.home-latest-post-title:hover {
+    color: var(--hover-color);
+}
+
+.home-latest-post-meta {
+    margin-top: 0.32rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: var(--text-color-muted);
+}
+
+
+/* src/css/layout.css */
+/* =========================================================================
+   layout.css — .arata-shell, .content, .left-content, .right-content, nav,
+   .left-nav, .right-nav, .logo.
+   (section 3 layout pieces, section 4 nav + logo from src/arata.css)
+   ========================================================================= */
+
+/*
+ * apollo makes <body> the flex container for the 3-column layout. arata is a
+ * Lustre SPA mounted inside <div id="app">, so the single root element returned
+ * by the layout view carries the `arata-shell` class — we target it here instead
+ * of `body`. The `body` keeps only the base font/color/background from section 1.
+ */
+.arata-shell {
+  display: flex;
+  flex-grow: 1;
+  padding: 0.9rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  min-height: calc(100vh - 150px);
+}
+
+@media (min-width: 992px) {
+  .arata-shell {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+  }
+}
+
+.arata-shell .content {
+  width: 100%;
+  max-width: var(--page-width);
+  flex-shrink: 0;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  word-wrap: break-word;
+}
+
+.arata-shell .left-content {
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .arata-shell .left-content {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
+
+.arata-shell .right-content {
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .arata-shell .right-content {
+    flex: 1 1 0;
+    min-width: 0;
+    /* Don't move this to the TOC, it won't work — FIXME: find a workaround. */
+    position: sticky;
+    top: 60px;
+    padding: 1em;
+    overflow-y: auto;
+    max-height: calc(100vh - 100px);
+  }
+}
+/* =========================================================================
+   4. Header / nav  (sass/parts/_header.scss)
+   ------------------------------------------------------------------------- */
+
+nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0;
+  /* Fix 2 — sticky header navbar: keep the header pinned to the top of the
+     viewport while scrolling. `background: var(--bg-0)` prevents page content
+     from showing through the (otherwise transparent) header on scroll. */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg-0);
+}
+
+@media (max-width: 600px) {
+  /* Keep the nav as a row on small screens so the hamburger button stays
+     pinned to the right of the site title. The dropdown is handled by
+     `.right-nav.mobile-open` below. */
+  nav {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+}
+
+/* title and socials */
+nav .left-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  font-size: 1.75rem;
+}
+
+nav .left-nav .socials {
+  /* flex-container */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+nav .left-nav .socials .social {
+  padding: 2px;
+  display: inline-flex;
+  align-items: center;
+}
+
+nav .left-nav .socials .social img {
+  width: 28px;
+  height: 28px;
+}
+
+/* Don't display background on hover */
+nav .left-nav .socials a:hover {
+  background-color: transparent;
+}
+
+/* navigation + theme toggle */
+nav .right-nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 1.1rem;
+  gap: 0.25rem;
+}
+
+nav .right-nav a {
+  padding: 0.25rem 0.4rem;
+}
+
+nav .right-nav #dark-mode-toggle {
+  /* Plain icon button: no rounded "pill"/oval background. Icons are shown
+     as-is (no brightness/invert filter), and the button communicates hover
+     via opacity rather than a background fill. `appearance: none` overrides
+     the user-agent default button styling (which on some browsers paints a
+     rounded native background even when `background`/`border-radius` are
+     reset) — the real fix for the residual oval. */
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 4px;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+}
+
+nav .right-nav #dark-mode-toggle > img {
+  width: 24px;
+  height: 24px;
+  /* No filter — show the SVG icons as-is. */
+}
+
+nav .right-nav #dark-mode-toggle:hover {
+  opacity: 0.7;
+}
+
+/* Active nav item highlighting.
+   apollo does not highlight the active menu item; this is an arata addition
+   for wayfinding. The `active` class is added by view/header.gleam via
+   `attribute.classes([#("active", is_active(...))])` when the menu item's URL
+   matches the current route. */
+nav .right-nav a.active {
+  color: var(--primary-color);
+}
+
+/* TODO: Is this still used? */
+.logo {
+  border-bottom: unset;
+  background-image: unset;
+}
+
+.logo > img {
+  border: unset;
+  width: auto;
+  height: 24px;
+  vertical-align: middle;
+}
+
+.logo:hover {
+  background-color: transparent;
+}
+
+/* =========================================================================
+   Mobile hamburger menu (visible below 992px).
+   -------------------------------------------------------------------------
+   On desktop (>= 992px) the right-nav menu items (nav links, search button,
+   theme toggle) render inline in the navbar and the hamburger button is
+   `display: none`. Below 992px the inline right-nav collapses and a
+   hamburger button appears in its place; clicking it adds the `mobile-open`
+   class to the right-nav (toggled from arata.gleam via UserToggledMobileMenu),
+   which re-displays the right-nav as an absolute-positioned dropdown below
+   the navbar containing all the same items vertically. */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25rem 0.6rem;
+  color: var(--text-0);
+  align-self: center;
+  margin-left: auto;
+}
+
+.mobile-menu-btn:hover {
+  background-color: transparent;
+  color: var(--primary-color);
+}
+
+@media (max-width: 991px) {
+  /* Show the hamburger button on mobile. */
+  .mobile-menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Hide the inline right-nav by default. */
+  nav .right-nav {
+    display: none;
+  }
+
+  /* When toggled open, re-display right-nav as a vertical dropdown. */
+  nav .right-nav.mobile-open {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 0.25rem;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 200px;
+    background: var(--bg-0);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 0.75rem;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+  }
+
+  /* Make each dropdown item a full-width tap target. */
+  nav .right-nav.mobile-open > a,
+  nav .right-nav.mobile-open > button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 0.5rem 0.5rem;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  /* Reset the inline `margin-right` set on menu <a> tags by view_menu. */
+  nav .right-nav.mobile-open > a {
+    border-bottom: none;
+  }
+
+  nav .right-nav.mobile-open > a:hover,
+  nav .right-nav.mobile-open > button:hover {
+    background-color: var(--bg-2);
+    color: var(--text-0);
+  }
+
+  /* Theme toggle: drop the desktop-only left margin so it lines up with the
+     other items in the dropdown. */
+  nav .right-nav.mobile-open #dark-mode-toggle {
+    margin-left: 0;
+  }
+
+  /* The `.toc` rule in toc.css hides the TOC below 1365px. On mobile we
+     instead surface the tags + ToC in the right-content sidebar, which
+     stacks below the main content. Re-display the TOC there. */
+  .toc {
+    display: block;
+  }
+
+  /* Fix 1 — Tags/ToC sidebar display on desktop + mobile:
+     On desktop (>= 992px) the rule above sticks `.right-content` to the
+     viewport as a sidebar. On mobile (< 992px) the sidebar is NOT hidden
+     (the dropdown menu above only contains nav links/search/theme toggle);
+     instead `.right-content` is re-flowed as a static block below the
+     main content so the tags + ToC remain reachable. This is intentional
+     and verified working — no extra rules are needed for the mobile menu
+     dropdown to also surface tags/ToC, since they live in `.right-content`,
+     not `.right-nav`. */
+  .arata-shell .right-content {
+    display: block;
+    position: static;
+    max-height: none;
+    overflow: visible;
+    padding: 0 0 1.5rem 0;
+  }
+}
+
+
+/* src/css/components.css */
+/* =========================================================================
+   components.css — .page-header, .not-found-header, .meta, .post-list,
+   .tag-list, .list-item, .post-header, .pagination, .icon-button, .tags,
+   .authors, .post-tags, .tag.
+   (sections 4, 6, 7, 15, 18 + the .post-tags piece of 20 from src/arata.css)
+   ========================================================================= */
+
+.page-header {
+    font-size: 2em;
+    line-height: 100%;
+    font-family: var(--header-font);
+    /* Fix 4: pin the page title to 700 so it stands out from the 400-weight
+     body copy. Previously both inherited 400 from `html` and looked
+     identical in weight (only the larger font-size distinguished them). */
+    font-weight: 700;
+    margin: 3rem 0px 1.1rem 0px;
+}
+
+.page-subtitle {
+    font-size: 1.36rem;
+    line-height: 1.5;
+    letter-spacing: 0.005em;
+    color: var(--header-font);
+    opacity: 0.95;
+}
+
+/* 404 header */
+.not-found-header {
+    font-family: var(--header-font);
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 3em;
+}
+.meta {
+    color: var(--text-2);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.15rem 0.35rem;
+    line-height: 1.6;
+    font-size: 0.95em;
+}
+
+.post-list .list-item,
+.tag-list .list-item {
+    margin-bottom: 1.5rem;
+    list-style-type: none;
+}
+
+/* Post title: bold so it stands out from the description below. */
+.post-list .post-header .title,
+.tag-list .post-header .title {
+    color: var(--text-0);
+    font-weight: 700;
+}
+
+.post-list .post-header a,
+.tag-list .post-header a {
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.18em;
+}
+
+.post-list .post-content {
+    color: var(--text-1);
+}
+
+/* Post card: each list-item wrapped as a bordered card with hover affordance
+   (Fix 3). The border + radius + shadow lift each entry off the page so the
+   list reads as discrete cards rather than a flat list. */
+.post-card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.post-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Post-list tags (Fix 3): pill-style tag chips rendered between the
+   `.post-header` and the `.post-content` description. Each tag links to its
+   `/tags/<name>` route; hovering picks up the primary color. */
+.post-list-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0.5rem 0;
+}
+
+.post-list-tag {
+    font-size: 0.75rem;
+    color: var(--text-1);
+    padding: 2px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    text-decoration: none;
+    transition:
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.post-list-tag:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.post-list .post-header,
+.tag-list .post-header {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+@media all and (max-width: 640px) {
+    .post-list .post-header,
+    .tag-list .post-header {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+@media all and (min-width: 640px) {
+    .post-list .post-header,
+    .tag-list .post-header {
+        gap: 1rem;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .post-list .post-header,
+    .tag-list .post-header {
+        margin: 1.6rem 0px;
+    }
+}
+
+.post-list .post-header h1,
+.tag-list .post-header h1 {
+    margin: 0;
+    font-weight: normal;
+    font-family: var(--header-font);
+}
+
+.post-list .post-header h1 a,
+.tag-list .post-header h1 a {
+    border-bottom: none;
+}
+
+.post-list .post-header time,
+.tag-list .post-header time {
+    font-family: var(--mono-text-font);
+    text-align: left;
+    margin: 0;
+}
+/* =========================================================================
+   7. Pagination  (class names from section.html / cards.html / talks.html)
+   ------------------------------------------------------------------------- */
+
+.pagination {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 1rem 0 0 0;
+}
+
+/* Page-jump input (Fix 2): a small, modern number input rendered as a third
+   pagination item so the user can type a page number and jump straight to
+   it. Styled with a border, radius, and a focus state that picks up the
+   primary color. */
+.page-jump {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 1rem;
+}
+
+.page-jump input {
+    width: 48px;
+    padding: 4px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--bg-1);
+    color: var(--text-0);
+    font-size: 0.9rem;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.page-jump input:focus {
+    border-color: var(--primary-color);
+}
+/* =========================================================================
+   15. Icon-button component  (sass/parts/_components.scss)
+   ------------------------------------------------------------------------- */
+
+.icon-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px;
+    gap: 3px;
+    background: var(--bg-2);
+    font-size: 0.75rem;
+    color: var(--text-color);
+
+    /* Ensure that the a tag has also a bottom border, which is by default hidden */
+    border: 1px solid var(--border-color) !important;
+    border-radius: 6px;
+}
+
+.icon-button svg,
+.icon-button img {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+}
+
+.icon-button img {
+    filter: var(--icon-filter);
+}
+
+.icon-button:hover {
+    cursor: pointer;
+    background: var(--bg-1);
+    color: var(--text-color);
+    /* FIXME: Exclude this in the `main a` tag which adds it's own underline */
+    border: 1px solid var(--border-color);
+}
+/* =========================================================================
+   18. Tags / authors shortcodes  (sass/parts/_tags.scss)
+   ------------------------------------------------------------------------- */
+
+.tags a::before {
+    content: "#";
+    display: inline;
+    white-space: nowrap !important;
+}
+
+.authors a::before {
+    content: "@";
+    display: inline;
+    white-space: nowrap !important;
+}
+/* Post tags in the right sidebar (above the TOC). The `.post-tags` row is a
+   flex-wrap container so tags flow onto multiple lines if needed, with a
+   consistent `gap` for spacing. `margin-bottom` separates the tag row from
+   the TOC below. Tags themselves are simple `<a class="tag">` links to
+   `/tags/<tag>`. The `.heading` child mirrors the TOC's heading and spans
+   the full width (via `flex-basis: 100%`) so the tag links wrap onto the
+   next line beneath it. */
+.right-content .post-tags {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.right-content .post-tags .heading {
+    flex-basis: 100%;
+    font-weight: 700;
+}
+
+.right-content .post-tags .tag {
+    display: inline-block;
+}
+
+/* Fix 9: hide the right-sidebar Tags row below 1365px so it stays consistent
+   with the `.toc` block (which `toc.css` hides below the same breakpoint).
+   Without this, the Tags row would remain visible while the ToC below it
+   vanishes, leaving an orphan heading in the sidebar. */
+@media only screen and (max-width: 1365px) {
+    .right-content .post-tags {
+        display: none;
+    }
+}
+
+.lightbox-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.82);
+}
+
+.lightbox-dialog {
+    position: relative;
+    max-width: min(96vw, 1200px);
+    max-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 82vh;
+    object-fit: contain;
+    border-radius: 0.75rem;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.45);
+}
+
+.lightbox-caption {
+    max-width: 80ch;
+    margin: 0;
+    color: #f8fafc;
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.lightbox-close {
+    all: unset;
+    position: absolute;
+    top: -0.75rem;
+    right: -0.75rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    color: #f8fafc;
+    background: rgba(15, 17, 21, 0.9);
+    border: 1px solid rgba(248, 250, 252, 0.25);
+    cursor: pointer;
+    font-size: 1.75rem;
+    line-height: 1;
+}
+
+/* =========================================================================
+   Lightbox
+   ------------------------------------------------------------------------- */
+
+/* Markdown body images are lightbox targets. */
+.body img {
+    cursor: zoom-in;
+}
+
+/* Full-screen overlay. */
+.lightbox-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.86);
+}
+
+/* Invisible full-screen close target behind the dialog.
+   Important: reset native button styles, otherwise browsers may paint a white
+   button across the whole viewport. */
+.lightbox-backdrop-close {
+    all: unset;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    display: block;
+    cursor: zoom-out;
+    background: transparent;
+}
+
+/* Dialog sits above the invisible backdrop-close button. */
+.lightbox-dialog {
+    position: relative;
+    z-index: 1;
+
+    max-width: min(96vw, 1200px);
+    max-height: 92vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Preview image. */
+.lightbox-image {
+    display: block;
+    max-width: 100%;
+    max-height: 82vh;
+    object-fit: contain;
+    cursor: zoom-out;
+    border-radius: 0.75rem;
+    background: var(--bg-0);
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.5);
+    animation: lightbox-image-fade 140ms ease;
+    will-change: opacity, transform;
+    backface-visibility: hidden;
+    contain: paint;
+}
+
+@keyframes lightbox-image-fade {
+    from {
+        opacity: 0;
+        transform: scale(0.985);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Optional caption from alt/title. */
+.lightbox-caption {
+    max-width: 80ch;
+    margin: 0;
+
+    color: #f8fafc;
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Close button. */
+.lightbox-close {
+    all: unset;
+    position: absolute;
+    top: -0.75rem;
+    right: -0.75rem;
+    z-index: 2;
+
+    width: 2.75rem;
+    height: 2.75rem;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    border-radius: 999px;
+    color: #f8fafc;
+    background: rgba(15, 17, 21, 0.92);
+    border: 1px solid rgba(248, 250, 252, 0.25);
+
+    font-size: 1.75rem;
+    line-height: 1;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus-visible {
+    background: rgba(31, 41, 55, 0.96);
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.lightbox-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    margin-top: 0.35rem;
+}
+
+/* Counter */
+.lightbox-counter {
+    min-width: 5.5rem;
+
+    text-align: center;
+
+    color: rgba(255, 255, 255, 0.92);
+
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1;
+
+    letter-spacing: 0.04em;
+}
+
+/* Shared nav button */
+.lightbox-nav {
+    all: unset;
+
+    width: 3rem;
+    height: 3rem;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 999px;
+
+    cursor: pointer;
+    user-select: none;
+
+    color: #ffffff;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.14),
+        rgba(255, 255, 255, 0.08)
+    );
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    transition:
+        transform 140ms ease,
+        background 140ms ease,
+        box-shadow 140ms ease,
+        opacity 140ms ease;
+
+    opacity: 0.9;
+}
+
+.lightbox-nav:hover {
+    opacity: 1;
+
+    transform: scale(1.06);
+
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.18),
+        rgba(255, 255, 255, 0.12)
+    );
+
+    box-shadow:
+        0 12px 36px rgba(0, 0, 0, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.lightbox-nav:active {
+    transform: scale(0.95);
+}
+
+.lightbox-nav:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
+}
+
+/* Arrow glyphs */
+.lightbox-nav::before {
+    font-size: 1.8rem;
+    line-height: 1;
+    font-weight: 300;
+}
+
+.lightbox-prev::before {
+    content: "‹";
+}
+
+.lightbox-next::before {
+    content: "›";
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .lightbox-footer {
+        gap: 0.75rem;
+    }
+
+    .lightbox-nav {
+        width: 2.75rem;
+        height: 2.75rem;
+
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    .lightbox-nav::before {
+        font-size: 1.55rem;
+    }
+
+    .lightbox-counter {
+        min-width: 4.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Scroll lock toggled by the lightbox FFI. */
+html.lightbox-open,
+body.lightbox-open {
+    overflow: hidden;
+}
+
+
+/* src/css/post.css */
+/* =========================================================================
+   post.css — .draft-label, blockquote, .tldr, img/figure, table, .mermaid,
+   .note-*, .character-*, .code-label, .label-*, pre, code, .giallo-*,
+   .clipboard-button.
+   (section 6 draft-label + blockquote; sections 8–14 from src/arata.css)
+   ========================================================================= */
+
+.draft-label {
+    color: var(--hover-color);
+    text-decoration: none;
+    padding: 2px 4px;
+    border-radius: 4px;
+    margin-left: 6px;
+    background-color: var(--primary-color);
+}
+
+/* Fix 6: pin the post body (`.body` section) to font-weight 400 so the
+   content reads as normal text, distinct from the 700-weight h1/h2/h3
+   headings. With Fix 4 the html element is already 400, but stating it
+   explicitly here makes the intent obvious and insulates the post body
+   from future global font-weight changes. */
+.body {
+    font-weight: 420;
+}
+blockquote {
+    border-left: 3px solid var(--primary-color);
+    /* Fix 10: lifted the blockquote text color from the muted #737373 to a
+     brighter #BAC2DE so quoted text reads as part of the page rather than
+     fading into the background. */
+    color: #3555b3;
+    margin: 0;
+    padding-left: 1em;
+}
+/* =========================================================================
+   8. tl;dr box  (class name from page.html, _misc.scss has no rule)
+      Plain block style — apollo relies on default block formatting.
+   ------------------------------------------------------------------------- */
+
+.tldr {
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+    border-left: 3px solid var(--primary-color);
+    background: var(--bg-1);
+    border-radius: 4px;
+}
+/* =========================================================================
+   9. Image shortcode styles  (sass/parts/_image.scss)
+   ------------------------------------------------------------------------- */
+
+img {
+    max-width: 100%;
+    border-radius: 0.5rem;
+}
+
+figure {
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0;
+    max-width: 100%;
+}
+
+figure img {
+    max-height: 500px;
+}
+
+@media screen and (min-width: 600px) {
+    figure {
+        padding: 0 40px;
+    }
+}
+
+figure h4 {
+    font-size: 1rem;
+    margin: 0;
+    margin-bottom: 1em;
+}
+
+figure h4::before {
+    content: "↳ ";
+}
+/* =========================================================================
+   10. Tables  (sass/parts/_table.scss)
+   ------------------------------------------------------------------------- */
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+table th {
+    padding: 6px 13px;
+    border: 1px solid #dfe2e5;
+    font-size: large;
+}
+
+table td {
+    padding: 6px 13px;
+    border: 1px solid #dfe2e5;
+}
+/* =========================================================================
+   11. Mermaid diagrams  (sass/parts/_mermaid.scss)
+   ------------------------------------------------------------------------- */
+
+.mermaid {
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.mermaid strong {
+    font-weight: bold;
+}
+/* =========================================================================
+   12. Notes (static & dynamic)  (sass/parts/_note.scss)
+   ------------------------------------------------------------------------- */
+
+.note-container {
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 1em 0;
+    position: relative;
+    border-left: 3px solid var(--primary-color);
+    font-family: var(--text-font);
+}
+
+.note-toggle,
+.note-header {
+    color: var(--note-header-color);
+    background-color: var(--note-header-bg);
+    padding: 10px 25px;
+    text-align: left;
+    border: none;
+    width: 100%;
+    position: relative;
+    outline: none;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+.note-toggle p,
+.note-header p {
+    margin: 0;
+}
+
+.note-toggle .note-center,
+.note-header .note-center {
+    text-align: center;
+    padding-right: 50px;
+}
+
+.note-toggle .note-icon,
+.note-header .note-icon {
+    padding-left: 25px;
+}
+
+.note-toggle {
+    font-family: inherit;
+    padding: 10px 25px; /* Stop header intersecting with note-icon */
+    cursor: pointer;
+    position: relative;
+}
+
+.note-toggle::before {
+    content: "▼";
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.note-toggle:hover,
+.note-toggle:focus {
+    color: var(--note-header-color);
+    background-color: var(--note-header-bg);
+    outline: none;
+}
+
+.note-content {
+    padding: 10px 20px;
+    background-color: var(--note-content-bg);
+}
+
+.note-icon::before {
+    content: "✎";
+    color: var(--primary-color);
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+summary {
+    padding-left: 0.5em;
+}
+
+summary:hover {
+    background-color: var(--primary-color);
+    color: var(--hover-color);
+    cursor: pointer;
+}
+/* =========================================================================
+   13. Character shortcode  (sass/parts/_character.scss)
+   ------------------------------------------------------------------------- */
+
+.character-note {
+    display: flex;
+    flex-direction: row;
+    margin-block: 1.5rem;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+}
+
+.character-note.character-right {
+    flex-direction: row-reverse;
+}
+
+.character-note.character-right .character-avatar img {
+    transform: scaleX(-1);
+}
+
+.character-note.character-left {
+    flex-direction: row;
+}
+
+.character-note .character-avatar {
+    font-size: 2rem;
+    align-self: flex-start;
+    flex-shrink: 0;
+}
+
+.character-note .character-avatar img {
+    --head-size: 3.2em;
+    width: var(--head-size);
+    height: var(--head-size);
+}
+
+.character-note .character-content {
+    align-self: flex-start;
+    max-width: min(93%, 45em);
+    overflow: hidden;
+}
+
+.character-note .character-bubble {
+    --character-bubble-bg: var(--bg-1);
+    --character-bubble-border: var(--border-color);
+    --character-code-bg: var(--bg-0);
+
+    background: var(--character-bubble-bg);
+    border: 1px solid var(--character-bubble-border);
+    border-radius: 0.5rem;
+    padding-inline: 0.9em;
+    padding-block: 0.2em;
+}
+/* =========================================================================
+   14. Code blocks, language labels, clipboard button  (sass/parts/_code.scss)
+       The $language-colors SCSS map is expanded to one .label-<lang> rule
+       per entry (26 total: 25 languages + .label-default).
+   ------------------------------------------------------------------------- */
+
+.code-label {
+    background: #333;
+    color: var(--label-color);
+    border-radius: 0 0 0.25rem 0.25rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.1rem;
+}
+
+/* --- language color labels (one per entry in $language-colors) --- */
+
+.label-js {
+    background: #f7df1e;
+    color: var(--label-color);
+    border-radius: 0 0 0.25rem 0.25rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.1rem;
+}
+
+.label-yaml {
+    background: #f71e6a;
+    color: var(--label-color);
+    border-radius: 0 0 0.25rem 0.25rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.1rem;
+}
+
+.label-shell {
+    background: #4eaa25;
+    color: var(--label-color);
+    border-radius: 0 0 0.25rem 0.25rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.1rem;
+}
+
+.label-json {
+    background: dodgerblue;
+    color: var(--label-color);
+    border-radius: 0 0 0.25rem 0.25rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.1rem;
+}
+
+.label-python {
+    background: #3572a5;
+    color: var(--label-color);
+    border-radius: 0 0 0.25rem 0.25rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.1rem;
+}
+
+.label-css {
+    background: #264de4;
+    color: var(--label-color);
+    border-radius: 0 0 0.25rem 0.25rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.1rem;
+}
+
+.label-go {
+    background: #00add8;
+    color: var(--label-color);
+    border-radius: 0 0 0.25rem 0.25rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.1rem;
+}
+
+.label-markdown {
+    background: #0000ff;
+    color: var(--label-color);
+    border-radius: 0 0 0.25rem 0.25rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.1rem;
+}
+
+.label-rust {
+    background: #ff4647;
+    color: var(--label-color);
+    border-radius: 0 0 0.25rem 0.25rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.1rem;
+}
+
+.label-java {
+    background: #f89820;
+    color: var(--label-color);
+    border-radius: 0 0 0.25rem 0.25rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.1rem;
+}
+
+.label-csharp {
+    background: #178600;
+    color: var(--label-color);
+    border-radius: 0 0 0.25rem 0.25rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.1rem;
+}
+
+.label-ruby {
+    background: #701516;
+    color: var(--label-color);
+    border-radius: 0 0 0.25rem 0.25rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.1rem;
+}
+
+.label-swift {
+    background: #f05138;
+    color: var(--label-color);
+    border-radius: 0 0 0.25rem 0.25rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.1rem;
+}
+
+.label-php {
+    background: #777bb4;
+    color: var(--label-color);
+    border-radius: 0 0 0.25rem 0.25rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.1rem;
+}
+
+.label-typescript {
+    background: #3178c6;
+    color: var(--label-color);
+    border-radius: 0 0 0.25rem 0.25rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.1rem;
+}
+
+.label-scala {
+    background: #c22d40;
+    color: var(--label-color);
+    border-radius: 0 0 0.25rem 0.25rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.1rem;
+}
+
+.label-kotlin {
+    background: #f18e33;
+    color: var(--label-color);
+    border-radius: 0 0 0.25rem 0.25rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.1rem;
+}
+
+.label-lua {
+    background: #000080;
+    color: var(--label-color);
+    border-radius: 0 0 0.25rem 0.25rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.1rem;
+}
+
+.label-perl {
+    background: #0298c3;
+    color: var(--label-color);
+    border-radius: 0 0 0.25rem 0.25rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.1rem;
+}
+
+.label-haskell {
+    background: #5e5086;
+    color: var(--label-color);
+    border-radius: 0 0 0.25rem 0.25rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.1rem;
+}
+
+.label-r {
+    background: #198ce7;
+    color: var(--label-color);
+    border-radius: 0 0 0.25rem 0.25rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.1rem;
+}
+
+.label-dart {
+    background: #00d2b8;
+    color: var(--label-color);
+    border-radius: 0 0 0.25rem 0.25rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.1rem;
+}
+
+.label-elixir {
+    background: #6e4a7e;
+    color: var(--label-color);
+    border-radius: 0 0 0.25rem 0.25rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.1rem;
+}
+
+.label-clojure {
+    background: #5881d8;
+    color: var(--label-color);
+    border-radius: 0 0 0.25rem 0.25rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.1rem;
+}
+
+.label-bash {
+    background: #4eaa25;
+    color: var(--label-color);
+    border-radius: 0 0 0.25rem 0.25rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.1rem;
+}
+
+.label-default {
+    background: #333;
+    color: var(--label-color);
+    border-radius: 0 0 0.25rem 0.25rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.1rem;
+}
+
+/* --- inline code & pre --- */
+
+code {
+    background-color: var(--bg-primary);
+    padding: 0.1em 0.2em;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    font-family: var(--code-font);
+    margin-block: 0.1rem;
+}
+
+pre {
+    background-color: var(--bg-primary) !important;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    line-height: 1.4;
+    overflow-x: auto;
+    padding: 1em;
+    position: relative;
+}
+
+pre code {
+    background-color: transparent !important;
+    color: var(--text-color);
+    font-size: 100%;
+    padding: 0;
+    border: none;
+    font-family: var(--code-font);
+}
+
+/* Giallo lines (Zola 0.22+) */
+pre.giallo {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+pre.giallo code {
+    display: flex;
+    flex-direction: column;
+}
+
+.giallo-l {
+    padding: 0 1em;
+}
+
+/* Giallo highlighted lines — background color set by giallo theme CSS below */
+.z-hl {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+/* Giallo line numbers (Zola 0.22+) */
+.giallo-ln {
+    display: inline-block;
+    -webkit-user-select: none;
+    user-select: none;
+    min-width: 1ch;
+    margin-right: 2ch;
+    opacity: 0.8;
+}
+
+/* Clipboard copy button — bottom-right of <pre> */
+.clipboard-button {
+    all: unset;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    color: var(--text-color);
+    background-color: transparent;
+    border: none;
+    opacity: 0.8;
+}
+
+.clipboard-button:hover {
+    opacity: 1;
+}
+
+.clipboard-button svg {
+    display: block;
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    pointer-events: none;
+}
+
+.body ul > li,
+.body ol > li {
+    margin-block: 0.13rem;
+}
+
+
+/* src/css/cards.css */
+/* =========================================================================
+   cards.css — .cards, .card, .card-media, .card-image, .card-video,
+   .card-content, .card-title, .card-tagline, .card-footer, .card-links,
+   .card-tags, .card-tag, plus the talks grid (.talks-grid, .talk-card, ...).
+   (sections 16 + 17 from src/arata.css)
+   ========================================================================= */
+
+/* =========================================================================
+   16. Cards (projects grid)  (sass/parts/_cards.scss)
+   ------------------------------------------------------------------------- */
+
+.cards {
+    column-count: 2;
+    column-gap: 20px;
+    padding: 12px 0;
+}
+
+@media (max-width: 640px) {
+    .cards {
+        column-count: 1;
+    }
+}
+
+@media (max-width: 720px) {
+    .cards {
+        gap: 16px;
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-1);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    break-inside: avoid;
+    margin-bottom: 20px;
+}
+
+.card-media {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: var(--bg-2);
+    flex-shrink: 0;
+}
+
+@media (max-width: 720px) {
+    .card-media {
+        height: 160px;
+    }
+}
+
+.card-image,
+.card-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-video {
+    border-radius: 8px;
+}
+
+.card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+}
+
+@media (max-width: 720px) {
+    .card-content {
+        padding: 16px;
+    }
+}
+
+.card-title {
+    margin: 0;
+    line-height: 1.3;
+}
+
+@media (max-width: 720px) {
+    .card-title {
+        font-size: 1.1rem;
+    }
+}
+
+.card-tagline {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-1);
+    line-height: 1.5;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: auto;
+}
+
+.card-links {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: flex-front;
+    align-items: center;
+}
+
+.card-tag {
+    font-size: 0.7rem;
+    color: var(--text-1);
+    white-space: nowrap;
+    padding: 2px 6px;
+    border-radius: 3px;
+    background: var(--bg-2);
+}
+/* =========================================================================
+   17. Talks grid  (sass/parts/_talks.scss)
+   ------------------------------------------------------------------------- */
+
+.talks-grid {
+    display: grid;
+    gap: 24px;
+    padding: 12px 0;
+    grid-template-rows: max-content;
+    grid-auto-rows: 1fr;
+}
+
+@media all and (min-width: 640px) and (max-width: 1023.98px) {
+    .talks-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.talk-card {
+    background: var(--bg-1);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+@media all and (max-width: 1023.98px) {
+    .talk-card {
+        flex-direction: column;
+    }
+}
+
+.talk-card .talk-video {
+    position: relative;
+    flex-shrink: 0;
+    aspect-ratio: 16 / 9;
+}
+
+@media all and (min-width: 1024px) {
+    .talk-card .talk-video {
+        width: calc(205px * 16 / 9);
+        min-height: 205px;
+        height: 100%;
+    }
+}
+
+.talk-card .talk-video .talk-image {
+    border: unset;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: transparent;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: block;
+    object-fit: cover;
+    filter: brightness(75%) grayscale(50%);
+}
+
+.talk-card .talk-video .video-play-btn {
+    /* absolute inset-0 flex items-center justify-center */
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.talk-card .talk-video .video-play-btn .rounded-btn {
+    /* bg-black bg-opacity-50 rounded-full p-4 */
+    background-color: var(--bg-2);
+    border-radius: 9999px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.talk-card .talk-info {
+    padding: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.talk-card .talk-info .talk-title {
+    margin: 0;
+}
+
+.talk-card .talk-info .talk-description {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    /* Multi-line truncation: standard property + WebKit fallback. */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+}
+
+.talk-card .talk-info .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+
+/* src/css/links.css */
+/* =========================================================================
+   links.css — friend-link cards (list, item, avatar, title, description).
+   (section 20b from src/arata.css)
+   ========================================================================= */
+
+/* =========================================================================
+   20b. Links page (friend-link list)
+   ------------------------------------------------------------------------- */
+
+/* The `.links-list` `<ul>` is laid out as a vertical flex column with a
+   generous gap so each friend-link card reads as a distinct unit. The list
+   style and padding are reset since the cards carry their own borders. */
+.links-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Each friend link is rendered as a `.link-item` card with a rounded border
+   and a subtle hover treatment (primary-coloured border + soft shadow) so
+   users get clear affordance that the card is interactive. Fix 5: the card
+   itself is no longer an `<a>` — it has `role="generic"` (default for `<li>`)
+   and only the title inside is a link, so hovering the card no longer
+   implies the entire surface is clickable. */
+.link-item {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.link-item:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* The `.link-content` wraps an optional `.link-avatar` `<img>` alongside a
+   `.link-text` block (title + description). Without flexbox the avatar would
+   sit on its own line above the title — the flex row keeps the avatar pinned
+   to the left of the title/description block. Fix 5: this used to be the
+   `.link-item a` rule; the `<a>` wrapper was removed so the card has
+   `role="generic"`. */
+.link-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+}
+
+/* The text block (title + description) next to the avatar. `min-width: 0`
+   lets the description wrap inside the flex row instead of forcing overflow. */
+.link-text {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Avatar image rendered beside a friend link's title/description when the
+   link's frontmatter carries an `image` URL. The avatar is a 48px circle. */
+.link-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* The link title — a `<div>` (not an `<h2>`) so it doesn't inherit heading
+   margins/`##` styling from arata.css. Fix 5: the title text is now wrapped
+   in an `<a>` (the only link on the card). */
+.link-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-0);
+}
+
+.link-title a {
+  text-decoration: none;
+}
+
+/* The friend-link description. Fix 5: styled formally — `font-style: normal`
+   (explicitly not italic), neutral text colour, slightly smaller than the
+   title so the title carries the visual weight. */
+.link-description {
+  margin: 0.25rem 0 0 0;
+  color: var(--text-1);
+  font-size: 0.9rem;
+  font-style: normal;
+}
+
+
+/* src/css/search.css */
+/* =========================================================================
+   search.css — .search-button, .search-modal, .search-backdrop,
+   #modal-content, #searchBar, #searchInput, .clear-button, #results,
+   #results-container, #results-info.
+   (section 19 from src/arata.css)
+   ========================================================================= */
+
+/* =========================================================================
+   19. Search button + modal  (sass/parts/_search.scss)
+   ------------------------------------------------------------------------- */
+
+/* Search button in navbar */
+.search-button {
+  background: none;
+  border: none;
+  padding: 2px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.25em;
+}
+
+.search-button img {
+  border: none;
+}
+
+.search-button .search-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.search-button:hover {
+  background-color: transparent;
+}
+
+/* Search modal
+   -------------------------------------------------------------------------
+   NOTE: arata conditionally renders the modal in Gleam (search_modal.view
+   returns element.none() when closed, full markup when open). Unlike apollo,
+   which keeps the modal in the DOM and toggles visibility via JS, arata's
+   modal is only in the DOM when it should be visible — so `display: none`
+   must NOT be set here, otherwise the rendered modal stays invisible and the
+   search button appears not to respond to clicks. */
+.search-modal {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.search-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  cursor: pointer;
+}
+
+.search-modal #modal-content {
+  position: relative;
+  z-index: 1;
+  margin: 8% auto;
+  width: 80%;
+  max-width: 28rem;
+  background-color: var(--bg-0);
+  border: 1px solid var(--bg-1);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.search-modal #searchBar {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  gap: 0.5rem;
+}
+
+.search-modal #searchBar #searchInput {
+  flex: 1;
+  padding: 0.75rem 2.5rem;
+  font-size: 1rem;
+  color: var(--text-0);
+  background: var(--bg-1);
+  border: 1px solid var(--bg-1);
+  border-radius: 20px;
+  width: 100%;
+}
+
+.search-modal #searchBar #searchInput:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.search-modal #searchBar #searchInput::placeholder {
+  color: var(--text-1);
+}
+
+.search-modal #searchBar .close-icon {
+  position: absolute;
+  right: 1.5rem;
+  display: none;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.search-modal #searchBar .close-icon svg {
+  width: 1.3rem;
+  height: 1.3rem;
+  fill: var(--text-1);
+}
+
+/* Results container is always visible when the modal is open; arata
+   populates results via Gleam (no JS show/hide), so `display: none` would
+   hide the "No results" / "N results" line and result list. */
+.search-modal #results-container {
+  border-top: 1px solid var(--bg-1);
+}
+
+.search-modal #results-container #results-info {
+  padding: 0.5rem;
+  color: var(--text-1);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.search-modal #results-container #results {
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.search-modal #results-container #results > div {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+}
+
+.search-modal #results-container #results > div[aria-selected="true"] {
+  background: var(--primary-color);
+}
+
+.search-modal #results-container #results > div[aria-selected="true"] * {
+  color: var(--hover-color) !important;
+}
+
+.search-modal #results-container #results > div span:first-child {
+  display: block;
+  color: var(--text-0);
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.search-modal #results-container #results > div span:nth-child(2) {
+  display: block;
+  color: var(--text-1);
+  font-size: 0.9rem;
+}
+
+.search-modal #results-container #results > div:hover:not([aria-selected="true"]) {
+  background: var(--bg-1);
+}
+
+/* Second #modal-content block in apollo SCSS adds padding + h1 styling */
+.search-modal #modal-content {
+  position: relative;
+  margin: 8% auto;
+  width: 80%;
+  max-width: 28rem;
+  background-color: var(--bg-0);
+  border: 1px solid var(--bg-1);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+.search-modal #modal-content h1 {
+  margin-top: 0; /* Override the default 2em margin */
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.search-modal #modal-content h1::before {
+  color: var(--primary-color);
+  content: "# ";
+}
+
+/* Top-level #searchBar — clear button */
+#searchBar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+#searchBar .clear-button {
+  position: absolute;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  /* Always visible: arata renders the clear button conditionally
+     (only when the search input has text) rather than toggling CSS. */
+  width: 24px;
+  height: 24px;
+}
+
+#searchBar .clear-button svg {
+  width: 100%;
+  height: 100%;
+  fill: var(--text-1);
+}
+
+#searchBar .clear-button:hover svg {
+  fill: var(--primary-color);
+}
+
+/* Make sure input accommodates the clear button */
+#searchBar #searchInput {
+  padding-right: 2.5rem;
+}
+
+/* Mobile adjustments */
+@media only screen and (max-width: 600px) {
+  .search-modal #modal-content {
+    margin: 4% auto;
+    width: 92%;
+  }
+
+  .search-modal #results {
+    max-height: 70vh;
+  }
+}
+
+
+/* src/css/toc.css */
+/* =========================================================================
+   toc.css — .toc, .toc a, .toc li, .toc ul, .heading, .selected, .parent.
+   (section 20 TOC pieces from src/arata.css; the .post-tags block at the
+   end of section 20 lives in components.css)
+   ========================================================================= */
+
+/* =========================================================================
+   20. Table of contents  (sass/parts/_toc.scss)
+   ------------------------------------------------------------------------- */
+
+@media only screen and (max-width: 1365px) {
+  .toc {
+    display: none;
+  }
+}
+
+.toc li,
+.toc a {
+  font-family: sans-serif;
+  color: var(--text-2);
+  transition: none;
+  border-bottom: none;
+}
+
+.toc a:hover {
+  color: var(--hover-color) !important;
+  transition: none;
+}
+
+.toc .heading {
+  font-weight: 700;
+}
+
+.toc ul {
+  list-style-type: none;
+  padding-left: 1em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.toc > ul {
+  padding-left: 0;
+}
+
+.toc li.selected,
+.toc li.selected > a {
+  color: var(--text-0);
+}
+
+.toc .parent > a {
+  color: var(--text-0);
+}
+
+/* =========================================================================
+   Floating ToC button — visible on ALL screen sizes (Fix 5). A round FAB
+   sits in the bottom-right corner; tapping it opens a bottom-sheet overlay
+   that re-renders the same `.toc` tree as the sidebar.
+   ========================================================================= */
+
+.toc-fab {
+  display: flex;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  z-index: 200;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.toc-overlay {
+  display: block;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 199;
+}
+
+.toc-overlay-content {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-height: 60vh;
+  overflow-y: auto;
+  background: var(--bg-0);
+  padding: 1.5rem;
+  border-top: 2px solid var(--primary-color);
+  border-radius: 12px 12px 0 0;
+}
+
+.toc-overlay-content .toc {
+  display: block !important;
+}
+
+.toc-overlay-content .heading {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* =========================================================================
+   Overlay header (Fix 8/10) — a flex row at the top of the overlay content
+   that holds the scroll-to-top button (top-right). The button dispatches
+   `UserScrolledToTop`, which fires the browser FFI's `window.scrollTo` via
+   an effect.
+   ========================================================================= */
+
+.toc-overlay-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.5rem;
+}
+
+.toc-overlay-scroll-top {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================================================
+   Floating overlay tags (Fix 5): the bottom-sheet overlay re-renders the
+   `.post-tags` row from the right sidebar so the post's tags are reachable
+   on small screens. Without these rules the tags would inherit the sidebar
+   layout (flex-wrap with `--gap`), but the overlay's narrower width and
+   different padding need a tighter, pill-style layout that matches the
+   `.post-list-tag` chips on the posts index.
+   ========================================================================= */
+
+.toc-overlay-content .post-tags {
+  margin-bottom: 1rem;
+}
+
+.toc-overlay-content .post-tags .tag {
+  display: inline-block;
+  margin: 2px 4px;
+  padding: 2px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--text-1);
+  font-size: 0.8rem;
+}
+
+.toc-overlay-content .post-tags .tag:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+
+/* src/css/syntax.css */
+/* =========================================================================
+   syntax.css — giallo syntax highlighting (all .z-* and .giallo-* rules).
+   Light rules are the default; dark rules are scoped under :root.dark.
+   (section 21 from src/arata.css)
+   ========================================================================= */
+
+/* =========================================================================
+   21. Syntax highlighting (giallo themes — inlined)
+       Light colors are the default rules; dark colors are scoped under
+       :root.dark so syntax colors switch with the theme automatically.
+       Source: apollo/static/giallo-light.css, apollo/static/giallo-dark.css
+       (themes "github-light" and "github-dark" generated by giallo).
+   ------------------------------------------------------------------------- */
+
+/* --- giallo-light (default) --- */
+
+.z-code {
+  color: #24292E;
+  background-color: #FFFFFF;
+}
+
+.z-hl {
+  background-color: #E0E5EB;
+}
+
+.giallo-ln {
+  color: #1B1F234D;
+}
+
+.z-comment { color: #6A737D; }
+.z-constant { color: #005CC5; }
+.z-entity { color: #6F42C1; }
+.z-keyword { color: #D73A49; }
+.z-storage { color: #D73A49; }
+.z-string { color: #032F62; }
+.z-support { color: #005CC5; }
+.z-variable { color: #E36209; }
+.z-carriage-return { color: #FAFBFC; background-color: #D73A49; font-style: italic; text-decoration: underline; }
+.z-variable { color: #005CC5; }
+.z-source { color: #032F62; }
+.z-string.z-comment { color: #6A737D; }
+.z-variable.z-language { color: #005CC5; }
+.z-entity.z-name { color: #6F42C1; }
+.z-storage.z-type { color: #D73A49; }
+.z-meta.z-property-name { color: #005CC5; }
+.z-variable.z-other { color: #24292E; }
+.z-invalid.z-broken { color: #B31D28; font-style: italic; }
+.z-invalid.z-deprecated { color: #B31D28; font-style: italic; }
+.z-invalid.z-illegal { color: #B31D28; font-style: italic; }
+.z-invalid.z-unimplemented { color: #B31D28; font-style: italic; }
+.z-message.z-error { color: #B31D28; }
+.z-source.z-regexp { color: #032F62; }
+.z-string.z-regexp { color: #032F62; }
+.z-support.z-constant { color: #005CC5; }
+.z-support.z-variable { color: #005CC5; }
+.z-meta.z-module-reference { color: #005CC5; }
+.z-markup.z-heading { color: #005CC5; font-weight: bold; }
+.z-markup.z-quote { color: #22863A; }
+.z-markup.z-italic { color: #24292E; font-style: italic; }
+.z-markup.z-bold { color: #24292E; font-weight: bold; }
+.z-markup.z-underline { text-decoration: underline; }
+.z-markup.z-strikethrough { text-decoration: line-through; }
+.z-markup.z-deleted { color: #B31D28; background-color: #FFEEF0; }
+.z-markup.z-inserted { color: #22863A; background-color: #F0FFF4; }
+.z-markup.z-changed { color: #E36209; background-color: #FFEBDA; }
+.z-markup.z-ignored { color: #F6F8FA; background-color: #005CC5; }
+.z-markup.z-untracked { color: #F6F8FA; background-color: #005CC5; }
+.z-meta.z-separator { color: #005CC5; font-weight: bold; }
+.z-meta.z-output { color: #005CC5; }
+.z-brackethighlighter.z-tag { color: #586069; }
+.z-brackethighlighter.z-curly { color: #586069; }
+.z-brackethighlighter.z-round { color: #586069; }
+.z-brackethighlighter.z-square { color: #586069; }
+.z-brackethighlighter.z-angle { color: #586069; }
+.z-brackethighlighter.z-quote { color: #586069; }
+.z-brackethighlighter.z-unmatched { color: #B31D28; }
+.z-entity.z-name { color: #005CC5; font-weight: bold; }
+.z-punctuation.z-definition.z-comment { color: #6A737D; }
+.z-entity.z-name.z-constant { color: #005CC5; }
+.z-variable.z-other.z-constant { color: #005CC5; }
+.z-variable.z-other.z-enummember { color: #005CC5; }
+.z-variable.z-parameter.z-function { color: #24292E; }
+.z-entity.z-name.z-tag { color: #22863A; }
+.z-storage.z-modifier.z-package { color: #24292E; }
+.z-storage.z-modifier.z-import { color: #24292E; }
+.z-storage.z-type.z-java { color: #24292E; }
+.z-punctuation.z-definition.z-string { color: #032F62; }
+.z-string.z-regexp.z-character-class { color: #032F62; }
+.z-markup.z-inline.z-raw { color: #005CC5; }
+.z-punctuation.z-definition.z-deleted { color: #B31D28; background-color: #FFEEF0; }
+.z-punctuation.z-definition.z-inserted { color: #22863A; background-color: #F0FFF4; }
+.z-punctuation.z-definition.z-changed { color: #E36209; background-color: #FFEBDA; }
+.z-meta.z-diff.z-range { color: #6F42C1; font-weight: bold; }
+.z-meta.z-diff.z-header { color: #005CC5; }
+.z-string.z-other.z-link { color: #032F62; text-decoration: underline; }
+.z-constant.z-character.z-escape { color: #032F62; }
+.z-source.z-ruby.z-embedded { color: #032F62; }
+.z-string.z-regexp.z-arbitrary-repitition { color: #032F62; }
+.z-constant.z-character.z-escape { color: #22863A; font-weight: bold; }
+.z-meta.z-diff.z-header.z-from-file { color: #B31D28; background-color: #FFEEF0; }
+.z-meta.z-diff.z-header.z-to-file { color: #22863A; background-color: #F0FFF4; }
+.z-constant.z-other.z-reference.z-link { color: #032F62; text-decoration: underline; }
+.z-punctuation.z-definition.z-list.z-begin.z-markdown { color: #E36209; }
+
+/* --- giallo-dark (scoped under :root.dark) --- */
+
+:root.dark .z-code {
+  color: #E1E4E8;
+  background-color: #24292E;
+}
+
+:root.dark .z-hl {
+  background-color: #2B3036;
+}
+
+:root.dark .giallo-ln {
+  color: #444D56;
+}
+
+:root.dark .z-comment { color: #6A737D; }
+:root.dark .z-constant { color: #79B8FF; }
+:root.dark .z-entity { color: #B392F0; }
+:root.dark .z-keyword { color: #F97583; }
+:root.dark .z-storage { color: #F97583; }
+:root.dark .z-string { color: #9ECBFF; }
+:root.dark .z-support { color: #79B8FF; }
+:root.dark .z-variable { color: #FFAB70; }
+:root.dark .z-carriage-return { color: #24292E; background-color: #F97583; font-style: italic; text-decoration: underline; }
+:root.dark .z-variable { color: #79B8FF; }
+:root.dark .z-source { color: #9ECBFF; }
+:root.dark .z-string.z-comment { color: #6A737D; }
+:root.dark .z-variable.z-language { color: #79B8FF; }
+:root.dark .z-entity.z-name { color: #B392F0; }
+:root.dark .z-storage.z-type { color: #F97583; }
+:root.dark .z-meta.z-property-name { color: #79B8FF; }
+:root.dark .z-variable.z-other { color: #E1E4E8; }
+:root.dark .z-invalid.z-broken { color: #FDAEB7; font-style: italic; }
+:root.dark .z-invalid.z-deprecated { color: #FDAEB7; font-style: italic; }
+:root.dark .z-invalid.z-illegal { color: #FDAEB7; font-style: italic; }
+:root.dark .z-invalid.z-unimplemented { color: #FDAEB7; font-style: italic; }
+:root.dark .z-message.z-error { color: #FDAEB7; }
+:root.dark .z-source.z-regexp { color: #DBEDFF; }
+:root.dark .z-string.z-regexp { color: #DBEDFF; }
+:root.dark .z-support.z-constant { color: #79B8FF; }
+:root.dark .z-support.z-variable { color: #79B8FF; }
+:root.dark .z-meta.z-module-reference { color: #79B8FF; }
+:root.dark .z-markup.z-heading { color: #79B8FF; font-weight: bold; }
+:root.dark .z-markup.z-quote { color: #85E89D; }
+:root.dark .z-markup.z-italic { color: #E1E4E8; font-style: italic; }
+:root.dark .z-markup.z-bold { color: #E1E4E8; font-weight: bold; }
+:root.dark .z-markup.z-underline { text-decoration: underline; }
+:root.dark .z-markup.z-strikethrough { text-decoration: line-through; }
+:root.dark .z-markup.z-deleted { color: #FDAEB7; background-color: #86181D; }
+:root.dark .z-markup.z-inserted { color: #85E89D; background-color: #144620; }
+:root.dark .z-markup.z-changed { color: #FFAB70; background-color: #C24E00; }
+:root.dark .z-markup.z-ignored { color: #2F363D; background-color: #79B8FF; }
+:root.dark .z-markup.z-untracked { color: #2F363D; background-color: #79B8FF; }
+:root.dark .z-meta.z-separator { color: #79B8FF; font-weight: bold; }
+:root.dark .z-meta.z-output { color: #79B8FF; }
+:root.dark .z-brackethighlighter.z-tag { color: #D1D5DA; }
+:root.dark .z-brackethighlighter.z-curly { color: #D1D5DA; }
+:root.dark .z-brackethighlighter.z-round { color: #D1D5DA; }
+:root.dark .z-brackethighlighter.z-square { color: #D1D5DA; }
+:root.dark .z-brackethighlighter.z-angle { color: #D1D5DA; }
+:root.dark .z-brackethighlighter.z-quote { color: #D1D5DA; }
+:root.dark .z-brackethighlighter.z-unmatched { color: #FDAEB7; }
+:root.dark .z-entity.z-name { color: #79B8FF; font-weight: bold; }
+:root.dark .z-punctuation.z-definition.z-comment { color: #6A737D; }
+:root.dark .z-entity.z-name.z-constant { color: #79B8FF; }
+:root.dark .z-variable.z-other.z-constant { color: #79B8FF; }
+:root.dark .z-variable.z-other.z-enummember { color: #79B8FF; }
+:root.dark .z-variable.z-parameter.z-function { color: #E1E4E8; }
+:root.dark .z-entity.z-name.z-tag { color: #85E89D; }
+:root.dark .z-storage.z-modifier.z-package { color: #E1E4E8; }
+:root.dark .z-storage.z-modifier.z-import { color: #E1E4E8; }
+:root.dark .z-storage.z-type.z-java { color: #E1E4E8; }
+:root.dark .z-punctuation.z-definition.z-string { color: #9ECBFF; }
+:root.dark .z-string.z-regexp.z-character-class { color: #DBEDFF; }
+:root.dark .z-markup.z-inline.z-raw { color: #79B8FF; }
+:root.dark .z-punctuation.z-definition.z-deleted { color: #FDAEB7; background-color: #86181D; }
+:root.dark .z-punctuation.z-definition.z-inserted { color: #85E89D; background-color: #144620; }
+:root.dark .z-punctuation.z-definition.z-changed { color: #FFAB70; background-color: #C24E00; }
+:root.dark .z-meta.z-diff.z-range { color: #B392F0; font-weight: bold; }
+:root.dark .z-meta.z-diff.z-header { color: #79B8FF; }
+:root.dark .z-string.z-other.z-link { color: #DBEDFF; text-decoration: underline; }
+:root.dark .z-constant.z-character.z-escape { color: #DBEDFF; }
+:root.dark .z-source.z-ruby.z-embedded { color: #DBEDFF; }
+:root.dark .z-string.z-regexp.z-arbitrary-repitition { color: #DBEDFF; }
+:root.dark .z-constant.z-character.z-escape { color: #85E89D; font-weight: bold; }
+:root.dark .z-meta.z-diff.z-header.z-from-file { color: #FDAEB7; background-color: #86181D; }
+:root.dark .z-meta.z-diff.z-header.z-to-file { color: #85E89D; background-color: #144620; }
+:root.dark .z-constant.z-other.z-reference.z-link { color: #DBEDFF; text-decoration: underline; }
+:root.dark .z-punctuation.z-definition.z-list.z-begin.z-markdown { color: #FFAB70; }
+
+
+/* src/css/accessibility.css */
+/* =========================================================================
+   accessibility.css — :focus-visible outlines and .skip-link.
+   (section 23 from src/arata.css)
+   ========================================================================= */
+
+/* =========================================================================
+   23. Accessibility — focus-visible styles
+   Visible focus outlines for keyboard navigation across all interactive
+   elements. Uses the :focus-visible pseudo-class so mouse clicks don't
+   show outlines (matching apollo's clean aesthetic) while keyboard users
+   get clear focus indicators.
+   ------------------------------------------------------------------------- */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* The search input already has a primary-color border on focus (ported from
+   apollo's _search.scss); augment rather than override. */
+.search-modal #searchInput:focus-visible {
+  outline: none;
+}
+
+/* Skip-to-content link for screen readers and keyboard users. Visually
+   hidden until focused. */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary-color);
+  color: var(--hover-color);
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+  </style>
+</head>
+<body>
+  <div id='app'><div style='position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:var(--bg-0);color:var(--text-1);font-family:sans-serif;'>Loading…</div></div>
+  <script type='module' src='/app.mjs'></script>
+</body>
+</html>

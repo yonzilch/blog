@@ -15,6 +15,9 @@
 - Migrate to Zola
 - Use theme [apollo](https://github.com/not-matthias/apollo)
 
+## 2026-06-25:
+- Migrate to Arata
+- [https://github.com/yonzilch/arata](https://github.com/yonzilch/arata)
 
 
 ---

@@ -1,7 +1,8 @@
-# build site
 @build:
-  zola build && pagefind --site public
+  rm -rf dist && gleam run -m build/pipeline
 
 @update:
-  # Let flake update
   nix flake update --extra-experimental-features flakes --extra-experimental-features nix-command --show-trace
+
+@server:
+  http-server -p 8080 dist

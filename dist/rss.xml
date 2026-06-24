@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Yon Zilch</title>
+        <link>https://blog.yon.im</link>
+        <description>This is Yonzilch&apos;s blog</description>
+        <atom:link href="https://blog.yon.im/rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title>构建中的幽灵</title>
+            <link>https://blog.yon.im/posts/the-ghost-in-the-build-zh-CN</link>
+            <guid>https://blog.yon.im/posts/the-ghost-in-the-build-zh-CN</guid>
+            <pubDate>2026-05-29T00:00:00Z</pubDate>
+            <description></description>
+        </item>
+        <item>
+            <title>The Ghost in the Build</title>
+            <link>https://blog.yon.im/posts/the-ghost-in-the-build</link>
+            <guid>https://blog.yon.im/posts/the-ghost-in-the-build</guid>
+            <pubDate>2026-05-29T00:00:00Z</pubDate>
+            <description></description>
+        </item>
+        <item>
+            <title>2025</title>
+            <link>https://blog.yon.im/posts/2025</link>
+            <guid>https://blog.yon.im/posts/2025</guid>
+            <pubDate>2026-03-09T00:00:00Z</pubDate>
+            <description></description>
+        </item>
+        <item>
+            <title>2024</title>
+            <link>https://blog.yon.im/posts/2024</link>
+            <guid>https://blog.yon.im/posts/2024</guid>
+            <pubDate>2025-03-09T00:00:00Z</pubDate>
+            <description></description>
+        </item>
+        <item>
+            <title>Use backrest for Linux full backup</title>
+            <link>https://blog.yon.im/posts/use-backrest-for-Linux-full-backup</link>
+            <guid>https://blog.yon.im/posts/use-backrest-for-Linux-full-backup</guid>
+            <pubDate>2024-10-02T00:00:00Z</pubDate>
+            <description></description>
+        </item>
+        <item>
+            <title>Use rclone for s3 sync</title>
+            <link>https://blog.yon.im/posts/use-rclone-for-s3-sync</link>
+            <guid>https://blog.yon.im/posts/use-rclone-for-s3-sync</guid>
+            <pubDate>2024-09-29T00:00:00Z</pubDate>
+            <description></description>
+        </item>
+        <item>
+            <title>2023</title>
+            <link>https://blog.yon.im/posts/2023</link>
+            <guid>https://blog.yon.im/posts/2023</guid>
+            <pubDate>2024-03-09T00:00:00Z</pubDate>
+            <description></description>
+        </item>
+        <item>
+            <title>My App Defaults 2023</title>
+            <link>https://blog.yon.im/posts/my-app-defaults-2023</link>
+            <guid>https://blog.yon.im/posts/my-app-defaults-2023</guid>
+            <pubDate>2023-12-05T00:00:00Z</pubDate>
+            <description></description>
+        </item>
+        <item>
+            <title>利用 Render 部署 wiki.js</title>
+            <link>https://blog.yon.im/posts/use-render-deploy-wiki-js</link>
+            <guid>https://blog.yon.im/posts/use-render-deploy-wiki-js</guid>
+            <pubDate>2023-09-17T00:00:00Z</pubDate>
+            <description></description>
+        </item>
+        <item>
+            <title>没有希望，没有绝望</title>
+            <link>https://blog.yon.im/posts/no-hope-no-despair</link>
+            <guid>https://blog.yon.im/posts/no-hope-no-despair</guid>
+            <pubDate>2023-03-13T00:00:00Z</pubDate>
+            <description></description>
+        </item>
+        <item>
+            <title>Powered by Albert Camus</title>
+            <link>https://blog.yon.im/posts/powered-by-albert-camus</link>
+            <guid>https://blog.yon.im/posts/powered-by-albert-camus</guid>
+            <pubDate>2023-02-26T00:00:00Z</pubDate>
+            <description></description>
+        </item>
+        <item>
+            <title>关于记忆的一点思绪</title>
+            <link>https://blog.yon.im/posts/thoughs-about-memories</link>
+            <guid>https://blog.yon.im/posts/thoughs-about-memories</guid>
+            <pubDate>2022-10-20T00:00:00Z</pubDate>
+            <description></description>
+        </item>
+        <item>
+            <title>Linux 安装 Java 通法</title>
+            <link>https://blog.yon.im/posts/linux-install-java</link>
+            <guid>https://blog.yon.im/posts/linux-install-java</guid>
+            <pubDate>2022-04-03T00:00:00Z</pubDate>
+            <description></description>
+        </item>
+        <item>
+            <title>Hello World!</title>
+            <link>https://blog.yon.im/posts/hello-world</link>
+            <guid>https://blog.yon.im/posts/hello-world</guid>
+            <pubDate>2022-03-28T00:00:00Z</pubDate>
+            <description></description>
+        </item>
+        <item>
+            <title>Markdown Test</title>
+            <link>https://blog.yon.im/posts/markdown-test</link>
+            <guid>https://blog.yon.im/posts/markdown-test</guid>
+            <pubDate>2022-01-01T00:00:00Z</pubDate>
+            <description></description>
+        </item>
+    </channel>
+</rss>
