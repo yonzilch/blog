@@ -855,10 +855,12 @@ fn view_route_content(model: Model) -> #(Element(Msg), Element(Msg)) {
     Home -> {
       let stats =
         aratafetch.from_content(
-          model.site_meta.title,
-          model.posts,
           model.links,
+          model.posts,
           model.projects,
+          model.site_meta.title,
+          model.site_meta.description,
+          model.site_meta.base_url,
           model.config.aratafetch_maintained_for,
         )
 

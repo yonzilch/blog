@@ -69,6 +69,12 @@ pub type Config {
     /// button is omitted from the header, the search modal is not rendered,
     /// and the Cmd/Ctrl+K keyboard shortcut is not subscribed to.
     search_enabled: Bool,
+    /// Whether the navbar stays pinned while the page scrolls.
+    ///
+    /// When `True`, the header receives `.navbar-fixed`.
+    /// When `False`, the header receives `.navbar-static` and should scroll
+    /// away with the document. Defaults to `True` to preserve existing behavior.
+    navbar_fixed: Bool,
     /// Analytics provider for the SPA runtime. Defaults to `AnalyticsDisabled`;
     /// set to `GoatCounter` or `Umami` to inject the provider's script at boot.
     /// This mirrors `SiteMeta.analytics` so analytics can be configured from
@@ -101,9 +107,24 @@ pub type Config {
 }
 
 /// Hardcoded default site metadata used by the build pipeline and SPA runtime.
+///
+/// `base_url` is canonicalized at the configuration boundary. This keeps
+/// trailing-slash variants equivalent for all downstream build outputs:
+///
+///   https://example.com/blog
+///   https://example.com/blog/
+///
+/// Both are stored internally as:
+///
+///   https://example.com/blog
+///
+/// This prevents drift between `base_path`, feed URLs, sitemap URLs, robots.txt,
+/// llms.txt, the SPA shell, and runtime content metadata.
 pub fn site_meta() -> SiteMeta {
+  let base_url = canonical_base_url("https://blog.yon.im")
+
   SiteMeta(
-    base_url: "https://blog.yon.im",
+    base_url: base_url,
     title: "Yon Zilch",
     description: "This is Yonzilch's blog",
     analytics: AnalyticsDisabled,
@@ -151,12 +172,13 @@ pub fn default() -> Config {
       code: "ui-monospace, \"Cascadia Code\", \"Source Code Pro\", Menlo, Consolas, \"DejaVu Sans Mono\", monospace",
     ),
     search_enabled: True,
+    navbar_fixed: True,
     analytics: AnalyticsDisabled,
     mathjax_enabled: False,
     sidebar_enabled: True,
     floating_buttons_enabled: True,
     aratafetch_enabled: True,
-    aratafetch_maintained_for: Some("since 2023-03-28"),
+    aratafetch_maintained_for: Some("since 2022-03-28"),
     lightbox_enabled: True,
     latest_posts_enabled: True,
     latest_posts_count: 20,
@@ -180,29 +202,44 @@ fn default_socials(rss_enabled: Bool) -> List(Social) {
       icon: "codeberg",
     ),
     Social(name: "GitHub", url: "https://github.com/yonzilch", icon: "github"),
-    Social(
-      name: "matrix",
-      url: "https://matrix.to/#/@yonzilch:matrix.org",
-      icon: "matrix",
-    ),
     Social(name: "Telegram", url: "https://t.me/yonzilch", icon: "telegram"),
   ])
+}
+
+/// Canonicalize the public deployed site URL.
+///
+/// This helper intentionally trims trailing slashes at the config boundary
+/// instead of forcing every output generator to guess whether it should join
+/// with `base_url` directly. It keeps these values equivalent:
+///
+///   https://example.com
+///   https://example.com/
+///
+///   https://example.com/blog
+///   https://example.com/blog/
+///
+/// The configured value is still written in one place, but the rest of the
+/// application receives a stable no-trailing-slash canonical form.
+pub fn canonical_base_url(url: String) -> String {
+  url
+  |> string.trim
+  |> trim_trailing_slashes
 }
 
 /// Derive a deployment base path from `SiteMeta.base_url`.
 ///
 /// Examples:
-///   https://example.com        -> ""
-///   https://example.com/       -> ""
+///   https://example.com          -> ""
+///   https://example.com/         -> ""
 ///   https://user.github.io/arata -> "/arata"
+///   https://user.github.io/arata/ -> "/arata"
 ///
 /// This keeps GitHub Pages project deployments working without hardcoding
 /// root-absolute asset URLs like `/app.mjs`.
 pub fn base_path_from_url(url: String) -> String {
   let cleaned =
     url
-    |> string.trim
-    |> trim_trailing_slashes
+    |> canonical_base_url
 
   case string.split_once(cleaned, "://") {
     Ok(#(_scheme, rest)) -> base_path_from_host_and_path(rest)

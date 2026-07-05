@@ -1,36 +1,35 @@
 {
-  description = "devshell for yonzilch's blog";
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+  description = "Bun and Gleam development environment";
+
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
+    devshell.url = "github:numtide/devshell";
+    devshell.inputs.nixpkgs.follows = "nixpkgs";
+  };
+
   outputs =
-    { self, nixpkgs }:
-    let
-      supportedSystems = [
-        "x86_64-linux"
-        "aarch64-linux"
-        "x86_64-darwin"
-        "aarch64-darwin"
-      ];
-      forEachSupportedSystem =
-        f:
-        nixpkgs.lib.genAttrs supportedSystems (
-          system:
-          f {
-            pkgs = import nixpkgs { inherit self system; };
-          }
-        );
-    in
     {
-      devShells = forEachSupportedSystem (
-        { pkgs }:
-        {
-          default = pkgs.mkShell {
-            packages = with pkgs; [
-              bun
-              gleam
-              http-server
-            ];
-          };
-        }
-      );
-    };
+      nixpkgs,
+      flake-utils,
+      devshell,
+      ...
+    }:
+    flake-utils.lib.eachSystem [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ] (
+      system:
+      let
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [ devshell.overlays.default ];
+        };
+      in
+      {
+        devShells.default = pkgs.devshell.mkShell {
+          packages = with pkgs; [
+            bun
+            gleam
+          ];
+        };
+      }
+    );
 }

@@ -26,13 +26,15 @@ import lustre/element/html
 
 pub type Stats {
   Stats(
-    site_title: String,
     post_count: Int,
     word_count: Int,
     tag_count: Int,
     link_count: Int,
     project_count: Int,
     maintain_for: Option(String),
+    site_title: String,
+    description: String,
+    base_url: String,
   )
 }
 
@@ -47,21 +49,25 @@ pub type Stats {
 ///   None
 ///
 pub fn from_content(
-  site_title: String,
-  posts: List(Post),
   links: List(Link),
+  posts: List(Post),
   projects: List(Project),
+  site_title: String,
+  description: String,
+  base_url: String,
   maintain_for: Option(String),
 ) -> Stats {
   let published_posts = list.filter(posts, fn(post) { !post.draft })
 
   Stats(
-    site_title: site_title,
+    link_count: list.length(links),
     post_count: list.length(published_posts),
     word_count: total_words(published_posts),
-    tag_count: unique_tag_count(published_posts),
-    link_count: list.length(links),
     project_count: list.length(projects),
+    tag_count: unique_tag_count(published_posts),
+    site_title: site_title,
+    description: description,
+    base_url: base_url,
     maintain_for: maintain_for,
   )
 }
@@ -106,16 +112,27 @@ fn unique_tag_count(posts: List(Post)) -> Int {
 
 fn render(stats: Stats) -> String {
   string.join(
-    [
-      "        /\\        " <> row("site", stats.site_title),
-      "       /  \\       " <> row("posts", int.to_string(stats.post_count)),
-      "      / /\\ \\      " <> row("words", int.to_string(stats.word_count)),
-      "     / ____ \\     " <> row("tags", int.to_string(stats.tag_count)),
-      "    /_/    \\_\\    " <> row("links", int.to_string(stats.link_count)),
-      "                  "
-        <> row("projects", int.to_string(stats.project_count)),
-      "                  " <> row("maintain", optional_text(stats.maintain_for)),
-    ],
+    list.flatten([
+      [
+        "[root@arata:~]$ aratafetch",
+        "",
+        "        /\\",
+        "       /  \\",
+        "      / /\\ \\",
+        "     / ____ \\",
+        "    /_/    \\_\\",
+        "",
+      ],
+      positive_row("links", stats.link_count),
+      positive_row("posts", stats.post_count),
+      positive_row("words", stats.word_count),
+      positive_row("projects", stats.project_count),
+      positive_row("tags", stats.tag_count),
+      text_row("site_title", stats.site_title),
+      text_row("base_url", display_base_url(stats.base_url)),
+      text_row("description", stats.description),
+      optional_row("maintain", stats.maintain_for),
+    ]),
     "\n",
   )
 }
@@ -124,11 +141,24 @@ fn row(label: String, value: String) -> String {
   label <> repeat(" ", int.max(1, 11 - string.length(label))) <> value
 }
 
-fn optional_text(value: Option(String)) -> String {
-  case value {
-    Some(text) -> text
+fn text_row(label: String, value: String) -> List(String) {
+  case string.trim(value) {
+    "" -> []
+    value -> [row(label, value)]
+  }
+}
 
-    None -> "n/a"
+fn positive_row(label: String, value: Int) -> List(String) {
+  case value > 0 {
+    True -> [row(label, int.to_string(value))]
+    False -> []
+  }
+}
+
+fn optional_row(label: String, value: Option(String)) -> List(String) {
+  case value {
+    Some(text) -> text_row(label, text)
+    None -> []
   }
 }
 
@@ -137,5 +167,32 @@ fn repeat(chunk: String, times: Int) -> String {
     True -> ""
 
     False -> chunk <> repeat(chunk, times - 1)
+  }
+}
+
+fn display_base_url(url: String) -> String {
+  url
+  |> strip_url_scheme
+  |> trim_trailing_slash
+}
+
+fn strip_url_scheme(url: String) -> String {
+  case string.split_once(url, "://") {
+    Ok(#(_scheme, rest)) -> rest
+    Error(_) -> url
+  }
+}
+
+fn trim_trailing_slash(url: String) -> String {
+  case string.ends_with(url, "/") {
+    True -> {
+      let size = string.length(url)
+
+      url
+      |> string.slice(0, size - 1)
+      |> trim_trailing_slash
+    }
+
+    False -> url
   }
 }

@@ -58,41 +58,86 @@ fn sample_posts() -> List(Post) {
   ]
 }
 
+fn atom_feed(posts: List(Post)) -> String {
+  feeds.atom_feed(sample_site(), posts, "/atom.xsl")
+}
+
+fn rss_feed(posts: List(Post)) -> String {
+  feeds.rss_feed(sample_site(), posts, "/rss.xsl")
+}
+
 pub fn atom_feed_has_xml_declaration_test() {
-  let feed = feeds.atom_feed(sample_site(), sample_posts())
+  let feed = atom_feed(sample_posts())
   string.starts_with(feed, "<?xml version=\"1.0\"") |> should.be_true()
 }
 
+pub fn atom_feed_has_stylesheet_pi_test() {
+  let feed = atom_feed(sample_posts())
+
+  string.contains(
+    feed,
+    "<?xml-stylesheet type=\"text/xsl\" href=\"/atom.xsl\"?>",
+  )
+  |> should.be_true()
+}
+
+pub fn atom_feed_omits_stylesheet_pi_when_href_empty_test() {
+  let feed = feeds.atom_feed(sample_site(), sample_posts(), "")
+
+  string.contains(feed, "<?xml-stylesheet") |> should.be_false()
+}
+
 pub fn atom_feed_has_feed_element_test() {
-  let feed = feeds.atom_feed(sample_site(), sample_posts())
+  let feed = atom_feed(sample_posts())
   string.contains(feed, "<feed xmlns=\"http://www.w3.org/2005/Atom\">")
   |> should.be_true()
 }
 
 pub fn atom_feed_has_site_title_test() {
-  let feed = feeds.atom_feed(sample_site(), sample_posts())
+  let feed = atom_feed(sample_posts())
   string.contains(feed, "<title>Test Site</title>") |> should.be_true()
 }
 
+pub fn atom_feed_has_site_subtitle_test() {
+  let feed = atom_feed(sample_posts())
+  string.contains(feed, "<subtitle>A test site.</subtitle>") |> should.be_true()
+}
+
 pub fn atom_feed_has_entries_test() {
-  let feed = feeds.atom_feed(sample_site(), sample_posts())
+  let feed = atom_feed(sample_posts())
   string.contains(feed, "<entry>") |> should.be_true()
   string.contains(feed, "First Post") |> should.be_true()
   string.contains(feed, "Second Post") |> should.be_true()
 }
 
 pub fn rss_feed_has_xml_declaration_test() {
-  let feed = feeds.rss_feed(sample_site(), sample_posts())
+  let feed = rss_feed(sample_posts())
   string.starts_with(feed, "<?xml version=\"1.0\"") |> should.be_true()
 }
 
+pub fn rss_feed_has_stylesheet_pi_test() {
+  let feed = rss_feed(sample_posts())
+
+  string.contains(
+    feed,
+    "<?xml-stylesheet type=\"text/xsl\" href=\"/rss.xsl\"?>",
+  )
+  |> should.be_true()
+}
+
+pub fn rss_feed_omits_stylesheet_pi_when_href_empty_test() {
+  let feed = feeds.rss_feed(sample_site(), sample_posts(), "")
+
+  string.contains(feed, "<?xml-stylesheet") |> should.be_false()
+}
+
 pub fn rss_feed_has_rss_element_test() {
-  let feed = feeds.rss_feed(sample_site(), sample_posts())
+  let feed = rss_feed(sample_posts())
   string.contains(feed, "<rss version=\"2.0\"") |> should.be_true()
 }
 
 pub fn rss_feed_has_items_test() {
-  let feed = feeds.rss_feed(sample_site(), sample_posts())
+  let feed = rss_feed(sample_posts())
   string.contains(feed, "<item>") |> should.be_true()
   string.contains(feed, "First Post") |> should.be_true()
 }
@@ -127,7 +172,9 @@ pub fn xml_escapes_special_chars_test() {
       comments: CommentsDisabled,
       fediverse_creator: None,
     )
-  let feed = feeds.rss_feed(site, [])
+
+  let feed = feeds.rss_feed(site, [], "/rss.xsl")
+
   string.contains(feed, "&amp;") |> should.be_true()
   string.contains(feed, "&lt;script&gt;") |> should.be_true()
   string.contains(feed, "&quot;") |> should.be_true()

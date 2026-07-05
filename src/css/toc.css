@@ -1,164 +1,213 @@
 /* =========================================================================
-   toc.css — .toc, .toc a, .toc li, .toc ul, .heading, .selected, .parent.
-   (section 20 TOC pieces from src/arata.css; the .post-tags block at the
-   end of section 20 lives in components.css)
+   toc.css — right-sidebar table of contents, floating ToC button, ToC/tags
+   overlay, selected heading state, and ToC-specific scrollbar hiding.
    ========================================================================= */
 
 /* =========================================================================
-   20. Table of contents  (sass/parts/_toc.scss)
-   ------------------------------------------------------------------------- */
+   Table of contents
+   -------------------------------------------------------------------------
+   Ported from apollo's `sass/parts/_toc.scss`.
+   ========================================================================= */
 
 @media only screen and (max-width: 1365px) {
-  .toc {
-    display: none;
-  }
+    .toc {
+        display: none;
+    }
 }
 
 .toc li,
 .toc a {
-  font-family: sans-serif;
-  color: var(--text-2);
-  transition: none;
-  border-bottom: none;
+    font-family: sans-serif;
+    color: var(--text-2);
+    transition: none;
+    border-bottom: none;
 }
 
 .toc a:hover {
-  color: var(--hover-color) !important;
-  transition: none;
+    color: var(--hover-color) !important;
+    transition: none;
 }
 
 .toc .heading {
-  font-weight: 700;
+    font-weight: 700;
 }
 
 .toc ul {
-  list-style-type: none;
-  padding-left: 1em;
-  margin-top: 0;
-  margin-bottom: 0;
+    list-style-type: none;
+    padding-left: 1em;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .toc > ul {
-  padding-left: 0;
+    padding-left: 0;
 }
 
 .toc li.selected,
 .toc li.selected > a {
-  color: var(--text-0);
+    color: var(--text-0);
 }
 
 .toc .parent > a {
-  color: var(--text-0);
+    color: var(--text-0);
+}
+
+/* Hide native scrollbars in the right sidebar while keeping scroll behavior.
+   The sidebar can still scroll with a mouse wheel, trackpad, or touch gesture;
+   only the browser-provided scrollbar chrome is hidden. */
+.right-content,
+.right-content .toc {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Legacy Edge / IE */
+}
+
+.right-content::-webkit-scrollbar,
+.right-content .toc::-webkit-scrollbar {
+    display: none; /* Chrome / Safari / Edge */
 }
 
 /* =========================================================================
-   Floating ToC button — visible on ALL screen sizes (Fix 5). A round FAB
-   sits in the bottom-right corner; tapping it opens a bottom-sheet overlay
-   that re-renders the same `.toc` tree as the sidebar.
+   Floating ToC button
+   -------------------------------------------------------------------------
+   A round FAB sits in the bottom-right corner. Tapping it opens a compact
+   bottom overlay that re-renders the same `.toc` tree as the sidebar.
    ========================================================================= */
 
 .toc-fab {
-  display: flex;
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--primary-color);
-  color: white;
-  border: none;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  z-index: 200;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    z-index: 200;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .toc-overlay {
-  display: block;
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 199;
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 199;
 }
 
 .toc-overlay-content {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  max-height: 60vh;
-  overflow-y: auto;
-  background: var(--bg-0);
-  padding: 1.5rem;
-  border-top: 2px solid var(--primary-color);
-  border-radius: 12px 12px 0 0;
+    position: fixed;
+    left: 50%;
+    right: auto;
+    bottom: 1rem;
+    transform: translateX(-50%);
+
+    width: min(calc(100vw - 2rem), 720px);
+    max-height: min(45vh, 500px);
+    overflow-y: auto;
+
+    background: var(--bg-0);
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-top: 2px solid var(--primary-color);
+    border-radius: 12px;
+
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.18);
 }
 
 .toc-overlay-content .toc {
-  display: block !important;
+    display: block !important;
 }
 
 .toc-overlay-content .heading {
-  font-weight: 700;
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
 }
 
 /* =========================================================================
-   Overlay header (Fix 8/10) — a flex row at the top of the overlay content
-   that holds the scroll-to-top button (top-right). The button dispatches
-   `UserScrolledToTop`, which fires the browser FFI's `window.scrollTo` via
-   an effect.
-   ========================================================================= */
-
-.toc-overlay-header {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 0.5rem;
-}
-
-.toc-overlay-scroll-top {
-  background: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  cursor: pointer;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* =========================================================================
-   Floating overlay tags (Fix 5): the bottom-sheet overlay re-renders the
-   `.post-tags` row from the right sidebar so the post's tags are reachable
-   on small screens. Without these rules the tags would inherit the sidebar
-   layout (flex-wrap with `--gap`), but the overlay's narrower width and
-   different padding need a tighter, pill-style layout that matches the
+   Floating overlay tags
+   -------------------------------------------------------------------------
+   The bottom overlay re-renders the `.post-tags` row from the right sidebar
+   so post tags remain reachable when the sidebar is hidden. The overlay uses
+   a tighter pill-style layout suited to its narrower width, matching the
    `.post-list-tag` chips on the posts index.
    ========================================================================= */
 
 .toc-overlay-content .post-tags {
-  margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
 }
 
 .toc-overlay-content .post-tags .tag {
-  display: inline-block;
-  margin: 2px 4px;
-  padding: 2px 8px;
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  text-decoration: none;
-  color: var(--text-1);
-  font-size: 0.8rem;
+    display: inline-block;
+    margin: 2px 3px;
+    padding: 2px 7px;
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    text-decoration: none;
+    color: var(--text-1);
+    font-size: 0.78rem;
 }
 
 .toc-overlay-content .post-tags .tag:hover {
-  border-color: var(--primary-color);
-  color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+@media (max-width: 600px) {
+    .toc-overlay-content {
+        bottom: 0.75rem;
+        width: calc(100vw - 1.5rem);
+        max-height: min(50vh, 600px);
+        padding: 0.85rem;
+        border-radius: 10px;
+    }
+
+    .toc-overlay-content .heading {
+        font-size: 1rem;
+    }
+}
+
+/* =========================================================================
+   Overlay header
+   -------------------------------------------------------------------------
+   A flex row at the top of the overlay content. It currently hosts the
+   scroll-to-top button.
+   ========================================================================= */
+
+.toc-overlay-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 0.5rem;
+}
+
+.toc-overlay-scroll-top {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hide native scrollbar while keeping the ToC overlay scrollable.
+   This mirrors the right-sidebar scrollbar behavior above but is scoped to
+   the floating overlay content. */
+.toc-overlay-content {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Legacy Edge / IE */
+}
+
+.toc-overlay-content::-webkit-scrollbar {
+    display: none; /* Chrome / Safari / Edge */
 }
