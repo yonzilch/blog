@@ -42,7 +42,7 @@ This file is a curated Markdown map of the site for large language models. Use t
 - [Eurekaimer's Digital Garden](https://www.eurekaimer.icu/) External link.
 - [Milvoid](https://milvoid.com/) External link.
 - [nanimonai's Blog](https://blog.nanimonai.org/) External link.
-- [Fovir.FYI](https://www.fovir.fyi/) External link.
+- [Fovir.FYI](https://fovir.fyi/) External link.
 - [Medi's Space](https://medihbt.github.io/) External link.
 - [Dich 的小站](https://blog.dich.bid/) External link.
 - [zenyarn](https://zenyarn.github.io/) External link.
