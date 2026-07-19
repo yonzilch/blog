@@ -76,15 +76,39 @@ pub type Config {
     /// away with the document. Defaults to `True` to preserve existing behavior.
     navbar_fixed: Bool,
     /// Analytics provider for the SPA runtime. Defaults to `AnalyticsDisabled`;
-    /// set to `GoatCounter` or `Umami` to inject the provider's script at boot.
+    /// set to `GoatCounter`, `Umami` or `Liwan` to inject the provider's script at boot.
     /// This mirrors `SiteMeta.analytics` so analytics can be configured from
     /// `config.gleam` rather than only from `data/site.gleam`.
     analytics: Analytics,
-    /// Whether MathJax typesetting runs on post pages. When `False`, the
-    /// MathJax typeset effect is skipped (no MathJax script injection/queue
-    /// on post navigation) — useful when no post uses LaTeX. Defaults to
-    /// `False` to avoid loading MathJax unless explicitly opted in.
+    /// Whether MathJax typesetting is allowed on post pages. When `False`, the
+    /// MathJax typeset effect is skipped entirely. When `True`, the JavaScript
+    /// FFI still lazy-loads MathJax only if the rendered post content contains
+    /// likely TeX delimiters, avoiding unnecessary runtime cost on posts without
+    /// math. Defaults to `False` unless LaTeX rendering is needed.
     mathjax_enabled: Bool,
+    /// Runtime asset URL used by the MathJax enhancement. This is passed to the
+    /// JavaScript FFI so users can replace jsDelivr with another CDN or a
+    /// vendored local asset.
+    mathjax_cdn_url: String,
+    /// Whether Mermaid diagram rendering is allowed on post pages. When `True`,
+    /// Arata renders native Markdown fenced code blocks such as ```mermaid and
+    /// keeps compatibility with legacy Mermaid shortcode output. When `False`,
+    /// no Mermaid runtime module is imported.
+    mermaid_enabled: Bool,
+    /// Runtime asset URL used by the Mermaid enhancement. This must point to a
+    /// browser-importable ESM bundle exposing Mermaid's `initialize` and
+    /// `render` APIs, such as jsDelivr's `mermaid.esm.min.mjs`.
+    mermaid_cdn_url: String,
+    /// Whether syntax highlighting is applied to fenced code blocks at runtime.
+    /// When `False`, code blocks retain plain rendering, language labels, and
+    /// copy controls without loading the highlighting runtime.
+    syntax_highlight_enabled: Bool,
+    /// Runtime asset URL for the syntax-highlighting enhancement.
+    ///
+    /// This should point to a pinned browser-compatible Highlight.js bundle.
+    /// Users may replace the default CDN URL with another CDN or a vendored local
+    /// asset.
+    syntax_highlight_cdn_url: String,
     /// Whether the right sidebar (Tags + ToC) is rendered on post pages.
     /// When `False`, `view_tags_and_toc` is omitted so the post body takes
     /// the full content width. Defaults to `True` so the sidebar shows on
@@ -100,8 +124,14 @@ pub type Config {
     /// Optional display string for aratafetch's "maintained" row.
     /// Example: Some("since 2026-06-21")
     aratafetch_maintained_for: Option(String),
+    /// Whether Markdown body images open in the built-in lightbox.
+    /// When `False`, images retain their default browser behavior.
     lightbox_enabled: Bool,
+    /// Whether to show the latest published posts on the homepage.
+    /// When `False`, the latest-posts section is omitted entirely.
     latest_posts_enabled: Bool,
+    /// Maximum number of published posts shown in the homepage latest-posts section.
+    /// Values less than or equal to zero produce an empty section.
     latest_posts_count: Int,
   )
 }
@@ -175,6 +205,11 @@ pub fn default() -> Config {
     navbar_fixed: True,
     analytics: AnalyticsDisabled,
     mathjax_enabled: False,
+    mathjax_cdn_url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js",
+    mermaid_enabled: True,
+    mermaid_cdn_url: "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs",
+    syntax_highlight_enabled: True,
+    syntax_highlight_cdn_url: "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js",
     sidebar_enabled: True,
     floating_buttons_enabled: True,
     aratafetch_enabled: True,
