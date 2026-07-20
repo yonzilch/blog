@@ -43,6 +43,7 @@ This file is a curated Markdown map of the site for large language models. Use t
 - [OpenYZLab](https://blog.yon.im/projects/openyzlab) A set of self-hosted services, maintaining as long as I can.
 - [SAIG](https://blog.yon.im/projects/saig) Static Assets Index Generator: Automatically generates beautiful, styled directory listings for your local files.
 - [SRRM](https://blog.yon.im/projects/srrm) Serverless Repository Release Monitor: Track releases across multiple Git repositories in one place.
+- [VexGo](https://blog.yon.im/projects/vexgo) A lightweight, self-hosted blog content management system designed for developers and writers who value simplicity, performance, and control.
 - [YonOS](https://blog.yon.im/projects/yonos) A Nix and Flakes❄️ based config set customized with Occam's razor.
 - [yzlab](https://blog.yon.im/projects/yzlab) OpenYZLab Infra: My personal Infrastructure Lab, fully declarative and reproducible — powered by NixOS Flakes.
 
