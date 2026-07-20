@@ -38,7 +38,7 @@ This file is a curated Markdown map of the site for large language models. Use t
 ## Projects
 
 - [EFI-Q1HY-OpenCore-Hackintosh](https://blog.yon.im/projects/EFI-Q1HY-OpenCore-Hackintosh) Sequoia, Sonoma, Ventura tested. Archive myself hackintosh EFI config for Q1HY.
-- [arata](https://blog.yon.im/projects/arata) Arata: A modern and minimalistic blog theme powered by Gleam and Lustre.
+- [arata](https://blog.yon.im/projects/arata) A modern and minimalistic blog theme powered by Gleam and Lustre.
 - [FYOM](https://blog.yon.im/projects/fyom) For Your Own Media: A lightweight, self-hosted media catalog — no transcoding, no scraping, no fuss.
 - [OpenYZLab](https://blog.yon.im/projects/openyzlab) A set of self-hosted services, maintaining as long as I can.
 - [SAIG](https://blog.yon.im/projects/saig) Static Assets Index Generator: Automatically generates beautiful, styled directory listings for your local files.
