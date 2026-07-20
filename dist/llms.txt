@@ -35,6 +35,17 @@ This file is a curated Markdown map of the site for large language models. Use t
 
 - [](https://blog.yon.im/home) Standalone page.
 
+## Projects
+
+- [EFI-Q1HY-OpenCore-Hackintosh](https://blog.yon.im/projects/EFI-Q1HY-OpenCore-Hackintosh) Sequoia, Sonoma, Ventura tested. Archive myself hackintosh EFI config for Q1HY.
+- [arata](https://blog.yon.im/projects/arata) Arata: A modern and minimalistic blog theme powered by Gleam and Lustre.
+- [FYOM](https://blog.yon.im/projects/fyom) For Your Own Media: A lightweight, self-hosted media catalog — no transcoding, no scraping, no fuss.
+- [OpenYZLab](https://blog.yon.im/projects/openyzlab) A set of self-hosted services, maintaining as long as I can.
+- [SAIG](https://blog.yon.im/projects/saig) Static Assets Index Generator: Automatically generates beautiful, styled directory listings for your local files.
+- [SRRM](https://blog.yon.im/projects/srrm) Serverless Repository Release Monitor: Track releases across multiple Git repositories in one place.
+- [YonOS](https://blog.yon.im/projects/yonos) A Nix and Flakes❄️ based config set customized with Occam's razor.
+- [yzlab](https://blog.yon.im/projects/yzlab) OpenYZLab Infra: My personal Infrastructure Lab, fully declarative and reproducible — powered by NixOS Flakes.
+
 ## External Links
 
 - [Ice Year の位面](https://blog.iceyear.eu.org/) External link.

@@ -175,8 +175,9 @@ pub fn default() -> Config {
     description: meta.description,
     base_path: base_path,
     menu: [
-      MenuItem(name: "posts", url: "/posts"),
       MenuItem(name: "links", url: "/links"),
+      MenuItem(name: "posts", url: "/posts"),
+      MenuItem(name: "projects", url: "/projects"),
     ],
     // The RSS social link is only added when `rss_enabled` is `True`. Fix
     // 9b/10: the URL is absolute (`/atom.xml`) so it resolves correctly on
