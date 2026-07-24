@@ -12,125 +12,197 @@
         <meta charset='UTF-8'/>
         <meta name='viewport' content='width=device-width, initial-scale=1'/>
         <title><xsl:value-of select='/atom:feed/atom:title'/> — Atom Feed</title>
+        <script><![CDATA[
+(function () {
+  var theme = null;
+
+  try {
+    theme = window.localStorage.getItem('theme-storage');
+  } catch (_) {
+    theme = null;
+  }
+
+  if (theme !== 'light' && theme !== 'dark' && theme !== 'auto') {
+    theme = 'auto';
+  }
+
+  var dark = theme === 'dark';
+
+  if (theme === 'auto') {
+    try {
+      dark = window.matchMedia(
+        '(prefers-color-scheme: dark)'
+      ).matches;
+    } catch (_) {
+      dark = false;
+    }
+  }
+
+  document.documentElement.classList.toggle('dark', dark);
+})();
+]]></script>
         <style>
           :root {
-            color-scheme: light dark;
-            --bg: #f8f8f8;
-            --surface: #ffffff;
-            --text: #1f2328;
-            --muted: #656d76;
-            --border: #d0d7de;
-            --primary: #3555b3;
-          }
+    color-scheme: light;
 
-          @media (prefers-color-scheme: dark) {
-            :root {
-              --bg: #0f1115;
-              --surface: #171a21;
-              --text: #e6edf3;
-              --muted: #9aa4b2;
-              --border: #30363d;
-              --primary: #8aa2ff;
-            }
-          }
+    --bg-0: #ffffff;
+    --bg-1: #f7f7f7;
+
+    --text-0: #111827;
+    --text-2: #4b5563;
+    --body-text: #151515de;
+
+    --border-color: #d1d5db;
+    --primary-color: #2f4fa3;
+  }
+
+  :root.dark {
+    color-scheme: dark;
+
+    --bg-0: #0f1115;
+    --bg-1: #171a21;
+
+    --text-0: #f8fafc;
+    --text-2: #a1a1aa;
+    --body-text: #f8fafce0;
+
+    --border-color: #374151;
+    --primary-color: #5f7eea;
+  }
 
           * {
-            box-sizing: border-box;
-          }
+    box-sizing: border-box;
+  }
 
-          body {
-            margin: 0;
-            padding: 2rem 1rem;
-            background: var(--bg);
-            color: var(--text);
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-          }
+  html {
+    min-height: 100%;
+    background: var(--bg-0);
+  }
 
-          main {
-            max-width: 760px;
-            margin: 0 auto;
-          }
+  body {
+    min-height: 100%;
+    margin: 0;
+    padding: 2rem 1rem;
+    background: var(--bg-0);
+    color: var(--body-text);
+    font-family:
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      sans-serif;
+    line-height: 1.6;
+  }
 
-          header {
-            margin-bottom: 2rem;
-          }
+  main {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+  }
 
-          h1 {
-            margin: 0 0 0.5rem;
-            font-size: clamp(1.8rem, 6vw, 3rem);
-            line-height: 1.1;
-          }
+  header {
+    margin-bottom: 2rem;
+  }
 
-          p {
-            margin: 0.75rem 0;
-          }
+  h1 {
+    margin: 0 0 0.5rem;
+    color: var(--text-0);
+    font-size: clamp(1.8rem, 6vw, 3rem);
+    line-height: 1.1;
+  }
 
-          a {
-            color: var(--primary);
-            text-decoration-thickness: 0.08em;
-            text-underline-offset: 0.18em;
-          }
+  p {
+    margin: 0.75rem 0;
+  }
 
-          code {
-            display: inline-block;
-            max-width: 100%;
-            overflow-x: auto;
-            padding: 0.25rem 0.45rem;
-            border: 1px solid var(--border);
-            border-radius: 0.4rem;
-            background: var(--surface);
-            color: var(--text);
-            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-            font-size: 0.9rem;
-            white-space: nowrap;
-          }
+  a {
+    color: var(--primary-color);
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.18em;
+  }
 
-          .feed-note {
-            color: var(--muted);
-          }
+  code {
+    display: inline-block;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 0.25rem 0.45rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.4rem;
+    background: var(--bg-1);
+    color: var(--text-0);
+    font-family:
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Consolas,
+      monospace;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
 
-          .entries {
-            display: grid;
-            gap: 0.75rem;
-            margin-top: 1.5rem;
-          }
+  .feed-note {
+    color: var(--text-2);
+  }
 
-          details {
-            border: 1px solid var(--border);
-            border-radius: 0.75rem;
-            background: var(--surface);
-            padding: 0.85rem 1rem;
-          }
+  .entries {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
 
-          summary {
-            cursor: pointer;
-            font-weight: 700;
-          }
+  details {
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    background: var(--bg-1);
+  }
 
-          .date {
-            color: var(--muted);
-            font-size: 0.9rem;
-            font-weight: 400;
-          }
+  summary {
+    color: var(--text-0);
+    cursor: pointer;
+    font-weight: 700;
+  }
 
-          .summary {
-            margin-top: 0.75rem;
-            color: var(--muted);
-          }
+  .date {
+    color: var(--text-2);
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
 
-          footer {
-            margin-top: 2rem;
-            color: var(--muted);
-            font-size: 0.9rem;
-          }
+  .summary {
+    margin-top: 0.75rem;
+    color: var(--text-2);
+  }
+
+  footer {
+    margin-top: 2rem;
+    color: var(--text-2);
+    font-size: 0.9rem;
+  }
+
+  @media all and (max-width: 640px) {
+    body {
+      padding: 1.5rem 0.85rem;
+    }
+
+    details {
+      padding: 0.8rem 0.85rem;
+      border-radius: 0.65rem;
+    }
+
+    .date {
+      display: block;
+      margin-top: 0.2rem;
+    }
+  }
         </style>
       </head>
 
       <body>
         <main>
           <header>
-            <h1><xsl:value-of select='/atom:feed/atom:title'/></h1>
+            <h1>
+              <xsl:value-of select='/atom:feed/atom:title'/>
+            </h1>
 
             <p>
               <xsl:value-of select='/atom:feed/atom:subtitle'/>
@@ -148,7 +220,9 @@
             </p>
 
             <p>
-              <code><xsl:value-of select='/atom:feed/atom:link[@rel="self"]/@href'/></code>
+              <code>
+                <xsl:value-of select='/atom:feed/atom:link[@rel="self"]/@href'/>
+              </code>
             </p>
           </header>
 
@@ -156,12 +230,13 @@
             <xsl:for-each select='/atom:feed/atom:entry'>
               <details>
                 <summary>
-                  <a>
+                  <a target='_blank' rel='noopener noreferrer'>
                     <xsl:attribute name='href'>
-                      <xsl:value-of select='atom:link/@href'/>
+                      <xsl:value-of select='atom:link[@rel="alternate"]/@href | atom:link[not(@rel)]/@href'/>
                     </xsl:attribute>
                     <xsl:value-of select='atom:title'/>
                   </a>
+
                   <span class='date'>
                     —
                     <xsl:value-of select='atom:updated'/>

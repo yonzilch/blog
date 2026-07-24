@@ -1,25 +1,41 @@
-//// The build pipeline: orchestrates the content → `dist/` build, replacing
+//// The build pipeline: orchestrates the content -> `dist/` build, replacing
 //// Zola's role end-to-end.
+////
+//// Configuration is loaded exactly once from `content/arata.toml`, decoded,
+//// resolved, and validated before `dist/` is created or modified.
 ////
 //// Running `gleam run -m build/pipeline` produces a complete static site in
 //// `dist/`:
-////   1. Emits the JSON content index, search index, feeds, sitemap, robots.txt,
-////      a custom `index.html` with FOUC prevention, and a `404.html` that
-////      serves the SPA shell directly.
+////
+////   1. Emits the JSON content index, search index, configured feeds, sitemap,
+////      robots.txt, llms.txt, index.html, and 404.html.
 ////   2. Copies each CSS module under `src/css/` to `dist/css/`.
 ////   3. Copies all static assets from `static/` to `dist/`.
-////   4. Compiles the Gleam JavaScript and bundles it into `dist/app.mjs`.
+////   4. Compiles and bundles the Lustre SPA into `dist/app.mjs`.
 ////
-//// The content source is the `.md` files under `content/` (loaded by
-//// `content/loader`), serialized to `content_index.json` for the SPA to
-//// fetch at runtime.
+//// Feed generation follows the resolved `FeedMode`:
+////
+////   - `Full` emits complete rendered post content;
+////   - `Summary` emits post summaries;
+////   - `Disabled` emits no feed artifacts and removes stale feed files.
+////
+//// Runtime-safe configuration is embedded in `content_index.json`. The browser
+//// does not fetch `content/arata.toml` or a separate configuration file.
 
 import build/feeds
 import build/feeds_style
 import build/llms
 import build/robots
 import config
-import content/loader
+import config/decoder as config_decoder
+import config/encoder as config_encoder
+import config/error as config_error
+import config/loader as config_loader
+import config/raw.{type RawConfig, RawConfig}
+import config/resolve as config_resolve
+import config/runtime as config_runtime
+import config/validate as config_validate
+import content/loader as content_loader
 import data/link.{type Link}
 import data/page.{type Page}
 import data/post.{type Post, type TocEntry}
@@ -37,10 +53,10 @@ import simplifile
 /// The output directory for the built site.
 const dist_dir = "dist"
 
-/// CSS modules copied to `dist/css/` and inlined into the generated HTML
-/// shells in this exact order. The order is significant because it determines
-/// cascade precedence. Theme variables and global styles must precede
-/// component styles, while accessibility overrides must remain last.
+/// CSS modules copied to `dist/css/` and inlined into generated HTML shells.
+///
+/// The order determines cascade precedence. Theme variables and global styles
+/// must precede component styles, while accessibility overrides remain last.
 const css_modules = [
   "src/css/fonts.css",
   "src/css/theme.css",
@@ -61,126 +77,266 @@ const css_modules = [
   "src/css/accessibility.css",
 ]
 
+/// Feed files managed by the build pipeline.
+///
+/// These files must be removed when feeds are disabled so a reused `dist/`
+/// directory cannot expose stale feed output from an earlier build.
+const feed_artifacts = [
+  "atom.xml",
+  "rss.xml",
+  "atom.xsl",
+  "rss.xsl",
+]
+
 /// The static assets directory.
 const static_dir = "static"
 
 /// Run the full build pipeline.
+///
+/// `run()` keeps build failures as typed `Error` values so tests and internal
+/// callers can inspect them without terminating the process.
+///
+/// The executable entry point converts those errors into a panic. On the
+/// JavaScript target this terminates `gleam run -m build/pipeline` with a
+/// non-zero exit status, preventing CI, package scripts, and deployment chains
+/// from treating an invalid configuration as a successful build.
 pub fn main() -> Nil {
-  let assert Ok(_) = run()
-  Nil
+  case run() {
+    Ok(_) -> Nil
+
+    Error(message) -> panic as message
+  }
 }
 
-/// Run the build pipeline, returning a result.
+/// Run the build pipeline.
+///
+/// Configuration is completely loaded and validated before the output
+/// directory is created. Invalid configuration therefore cannot begin a new
+/// build or overwrite existing build artifacts.
 pub fn run() -> Result(Nil, String) {
-  let site_meta = config.site_meta()
-  let site_config = config.default()
-  let posts = loader.load_posts()
-  let projects = loader.load_projects()
-  let links = loader.load_links()
-  let pages = loader.load_pages()
-  let homepage = loader.load_homepage()
+  case load_configuration() {
+    Error(message) -> Error(message)
 
-  // Ensure the dist directory exists.
-  let _ = simplifile.create_directory_all(dist_dir)
+    Ok(resolved) -> {
+      let site_meta = config_resolve.site_meta(resolved)
+      let site_config = config_resolve.runtime_config(resolved)
+      let runtime_config = config_runtime.from_resolved(resolved)
 
-  // 1. Content index JSON.
-  write(
-    dist_dir <> "/content_index.json",
-    content_index_json(site_meta, posts, projects, links, pages, homepage),
-  )
+      let posts = content_loader.load_posts()
+      let projects = content_loader.load_projects()
+      let links = content_loader.load_links()
+      let pages = content_loader.load_pages()
+      let homepage = content_loader.load_homepage()
 
-  // 2. Search index JSON.
-  write(dist_dir <> "/search_index.json", search_index_json(posts))
+      // Configuration has succeeded. Build output may now be written.
+      let _ = simplifile.create_directory_all(dist_dir)
 
-  // 3. Feeds. Only emit `atom.xml` / `rss.xml` when RSS is enabled in the
-  // site metadata; otherwise the feed files are skipped. This mirrors
-  // blogatto's opt-out feed model.
-  //
-  // The XML stylesheet hrefs are resolved through `Config.base_path` so
-  // subdirectory deployments such as GitHub Pages project sites load the XSL
-  // files from the correct public path:
-  //
-  //   root deployment:       /atom.xsl
-  //   /arata deployment:     /arata/atom.xsl
-  //
-  // The actual `atom.xsl` / `rss.xsl` files are emitted by the feed style
-  // build step.
-  case site_meta.rss_enabled {
-    True -> {
+      // 1. Content index JSON.
+      write(
+        dist_dir <> "/content_index.json",
+        content_index_json(
+          runtime_config,
+          posts,
+          projects,
+          links,
+          pages,
+          homepage,
+        ),
+      )
+
+      // 2. Search index JSON.
+      write(
+        dist_dir <> "/search_index.json",
+        search_index_json(site_config, posts),
+      )
+
+      // 3. Feeds and their browser-facing stylesheets.
+      build_feeds(site_meta, site_config, posts)
+
+      // 4. Sitemap.
+      let page_slugs = list.map(pages, fn(page) { page.slug })
+
+      write(
+        dist_dir <> "/sitemap.xml",
+        feeds.sitemap(site_meta, posts, page_slugs),
+      )
+
+      // 5. robots.txt.
+      write(dist_dir <> "/robots.txt", robots.render(site_meta))
+
+      // 6. llms.txt.
+      write(
+        dist_dir <> "/llms.txt",
+        llms.render(site_meta, posts, projects, links, pages),
+      )
+
+      // 7. Custom index.html with FOUC prevention.
+      write(dist_dir <> "/index.html", index_html(site_meta, site_config))
+
+      // 8. SPA shell for deep links.
+      write(dist_dir <> "/404.html", not_found_html(site_meta, site_config))
+
+      // 9. Debug/inspection CSS modules.
+      build_css()
+
+      // 10. Static assets.
+      copy_directory_contents(static_dir, dist_dir)
+
+      // 11. Browser bundle.
+      bundle_spa()
+
+      print_build_summary(site_config.feed_mode)
+
+      Ok(Nil)
+    }
+  }
+}
+
+/// Generate or remove feed artifacts according to the resolved feed mode.
+///
+/// `Full` and `Summary` both generate the standard Atom and RSS files. The
+/// selected mode is passed to the feed renderer so it can choose between full
+/// rendered HTML and summary-only entries.
+///
+/// `Disabled` removes all managed feed files. This is required because Arata
+/// permits reuse of an existing `dist/` directory between builds.
+fn build_feeds(
+  site_meta: site.SiteMeta,
+  site_config: config.Config,
+  posts: List(Post),
+) -> Nil {
+  case site_config.feed_mode {
+    config.Disabled -> remove_feed_artifacts()
+
+    config.Full | config.Summary -> {
       let atom_xsl_href =
         config.with_base_path(site_config.base_path, "/atom.xsl")
+
       let rss_xsl_href =
         config.with_base_path(site_config.base_path, "/rss.xsl")
+
       write(
         dist_dir <> "/atom.xml",
-        feeds.atom_feed(site_meta, posts, atom_xsl_href),
+        feeds.atom_feed(site_meta, posts, atom_xsl_href, site_config.feed_mode),
       )
+
       write(
         dist_dir <> "/rss.xml",
-        feeds.rss_feed(site_meta, posts, rss_xsl_href),
+        feeds.rss_feed(site_meta, posts, rss_xsl_href, site_config.feed_mode),
       )
+
       write(dist_dir <> "/atom.xsl", feeds_style.atom_xsl())
       write(dist_dir <> "/rss.xsl", feeds_style.rss_xsl())
     }
-
-    False -> Nil
   }
+}
 
-  // 4. Sitemap.
-  let page_slugs = list.map(pages, fn(p) { p.slug })
-  write(dist_dir <> "/sitemap.xml", feeds.sitemap(site_meta, posts, page_slugs))
+/// Remove generated feed files from a reused output directory.
+///
+/// Missing files are intentionally ignored: `simplifile.delete_all` does not
+/// error when one or more of the given paths do not exist, so a first build
+/// or a directory that never had feeds is a no-op. Deleting through
+/// simplifile rather than shelling out to `rm` keeps this portable to targets
+/// without a POSIX shell (e.g. native Windows builds), and receives only
+/// fixed build-owned paths, never user-controlled values.
+fn remove_feed_artifacts() -> Nil {
+  let paths =
+    list.map(feed_artifacts, fn(filename) { dist_dir <> "/" <> filename })
 
-  // 5. robots.txt.
-  write(dist_dir <> "/robots.txt", robots.render(site_meta))
+  let _ = simplifile.delete_all(paths)
 
-  // 6. llms.txt.
-  //
-  // Must be a real Markdown file in dist/. Lighthouse/PageSpeed expects at
-  // least one H1 and at least one Markdown link.
-  write(
-    dist_dir <> "/llms.txt",
-    llms.render(site_meta, posts, projects, links, pages),
+  Nil
+}
+
+/// Load, decode, resolve, and validate Arata configuration exactly once.
+///
+/// A missing `content/arata.toml` resolves entirely from built-in defaults.
+/// A present but unreadable or invalid file aborts the build.
+fn load_configuration() -> Result(config_resolve.ResolvedConfig, String) {
+  case config_loader.load() {
+    Error(load_error) -> Error(config_error.render(load_error))
+
+    Ok(None) ->
+      resolve_and_validate(config_loader.default_path, empty_raw_config())
+
+    Ok(Some(source)) ->
+      case config_decoder.decode(source) {
+        Error(errors) -> Error(config_error.render_all(errors))
+
+        Ok(raw) -> resolve_and_validate(config_loader.path(source), raw)
+      }
+  }
+}
+
+/// Resolve and validate configuration while preserving the source path in all
+/// diagnostics.
+fn resolve_and_validate(
+  source_path: String,
+  raw: RawConfig,
+) -> Result(config_resolve.ResolvedConfig, String) {
+  case config_resolve.resolve_from(source_path, raw) {
+    Error(errors) -> Error(config_error.render_all(errors))
+
+    Ok(resolved) ->
+      case config_validate.validate_from(source_path, resolved) {
+        Error(errors) -> Error(config_error.render_all(errors))
+
+        Ok(validated) -> Ok(validated)
+      }
+  }
+}
+
+/// Empty raw configuration used only when the optional TOML file is absent.
+///
+/// Every missing value is later populated by `config/defaults`.
+fn empty_raw_config() -> RawConfig {
+  RawConfig(
+    site: None,
+    menu: None,
+    socials: None,
+    features: None,
+    latest_posts: None,
+    aratafetch: None,
+    fonts: None,
+    assets: None,
+    analytics: None,
+    comments: None,
   )
+}
 
-  // 7. Custom index.html with FOUC prevention.
-  write(dist_dir <> "/index.html", index_html(site_meta, site_config))
-
-  // 8. 404.html — the SPA shell (same content as index.html). Static hosts
-  // that serve 404.html for unknown paths load the SPA directly; the SPA's
-  // modem reads `window.location.pathname` and the router handles the deep
-  // link, no redirect needed (preserves the URL).
-  write(dist_dir <> "/404.html", not_found_html(site_meta, site_config))
-
-  // 9. Copy each CSS module from src/css/ to dist/css/ as a separate file.
-  build_css()
-
-  // 10. Copy all static assets (fonts, icons, images, vendored CSS) to dist/.
-  copy_directory_contents(static_dir, dist_dir)
-
-  // 11. Compile the Gleam JavaScript and bundle into dist/app.mjs.
-  bundle_spa()
-
+/// Print the build output summary.
+fn print_build_summary(feed_mode: config.FeedMode) -> Nil {
   io.println("Build complete. dist/ contains:")
   io.println("  index.html, 404.html, app.mjs,")
   io.println("  content_index.json, search_index.json,")
-  case site_meta.rss_enabled {
-    True -> io.println("  atom.xml, rss.xml, sitemap.xml, robots.txt,")
-    False -> io.println("  sitemap.xml, robots.txt, (feeds disabled)")
-  }
-  io.println("  fonts/, icons/, images/, css/")
 
-  Ok(Nil)
+  case feed_mode {
+    config.Full ->
+      io.println(
+        "  atom.xml, rss.xml, atom.xsl, rss.xsl (full content), sitemap.xml, robots.txt,",
+      )
+
+    config.Summary ->
+      io.println(
+        "  atom.xml, rss.xml, atom.xsl, rss.xsl (summaries), sitemap.xml, robots.txt,",
+      )
+
+    config.Disabled -> io.println("  sitemap.xml, robots.txt, (feeds disabled)")
+  }
+
+  io.println("  llms.txt, fonts/, icons/, images/, css/")
 }
 
-/// Write `content` to `path`.
+/// Write content to a path.
 fn write(path: String, content: String) -> Nil {
   let _ = simplifile.write(path, content)
   Nil
 }
 
-/// Copy each CSS module listed in `css_modules` to `dist/css/` as a separate
-/// minified file. The inlined shell CSS uses the same minification path so the
-/// emitted `index.html`, `404.html`, and debug CSS modules stay consistent.
+/// Copy and minify each CSS module into `dist/css/`.
+///
+/// The inline shell CSS uses the same minification path so generated HTML and
+/// inspection CSS remain consistent.
 fn build_css() -> Nil {
   let _ = simplifile.create_directory_all(dist_dir <> "/css")
 
@@ -194,12 +350,12 @@ fn build_css() -> Nil {
     case simplifile.read(path) {
       Ok(css) -> write(dist_dir <> "/css/" <> filename, minify_css(css))
 
-      Error(e) ->
+      Error(file_error) ->
         io.println(
           "Warning: could not read CSS module "
           <> path
           <> ": "
-          <> simplify_error(e),
+          <> simplify_error(file_error),
         )
     }
   })
@@ -207,20 +363,26 @@ fn build_css() -> Nil {
   Nil
 }
 
-/// Copy a single file, logging on error.
+/// Copy a single file, logging failures without stopping the build.
 fn copy_file(src: String, dest: String) -> Nil {
   case simplifile.copy(src, dest) {
     Ok(_) -> Nil
-    Error(e) -> {
-      io.println("Warning: could not copy " <> src <> ": " <> simplify_error(e))
+
+    Error(file_error) -> {
+      io.println(
+        "Warning: could not copy " <> src <> ": " <> simplify_error(file_error),
+      )
+
       Nil
     }
   }
 }
 
-/// Copy the contents of a directory recursively. `simplifile.copy_directory`
-/// copies the directory itself (creating `dest/src/`); we want the contents
-/// at `dest/`, so we read and copy each entry.
+/// Copy a directory's contents recursively into another directory.
+///
+/// `simplifile.copy_directory` copies the source directory itself. Arata needs
+/// the contents of `static/` directly under `dist/`, so each entry is copied
+/// individually.
 fn copy_directory_contents(src: String, dest: String) -> Nil {
   case simplifile.read_directory(src) {
     Ok(entries) ->
@@ -230,86 +392,81 @@ fn copy_directory_contents(src: String, dest: String) -> Nil {
 
         case simplifile.copy_directory(src_path, dest_path) {
           Ok(_) -> Nil
+
           Error(_) -> copy_file(src_path, dest_path)
         }
       })
 
-    Error(e) ->
-      io.println("Warning: could not read " <> src <> ": " <> simplify_error(e))
+    Error(file_error) ->
+      io.println(
+        "Warning: could not read " <> src <> ": " <> simplify_error(file_error),
+      )
   }
 
   Nil
 }
 
-/// Compile the Gleam JavaScript and bundle it into `dist/app.mjs` using
-/// `bun build`. This replaces `lustre/dev build` (which requires Erlang/OTP).
-/// `gleam build` must have already run (it does as part of `gleam run`).
+/// Compile the Gleam JavaScript and bundle it into `dist/app.mjs`.
 ///
-/// The Gleam entry module (`arata.mjs`) exports `main()` but does not call it
-/// on the JavaScript target. We write a small temporary entry shim that imports
-/// and invokes `main()`, then bundle that.
+/// The Gleam entry module exports `main()` but does not invoke it on the
+/// JavaScript target, so a temporary entry shim performs the invocation.
 fn bundle_spa() -> Nil {
   let shim = "import { main } from \"./arata.mjs\"; main();"
   let shim_path = "build/dev/javascript/arata/entry.mjs"
   let _ = simplifile.write(shim_path, shim)
 
-  let cmd =
+  let command =
     "bun build "
     <> shim_path
     <> " --outfile "
     <> dist_dir
     <> "/app.mjs --target=browser --minify --sourcemap=none 2>/dev/null"
 
-  case run_command(cmd) {
+  case run_command(command) {
     0 -> Nil
-    code -> {
+
+    exit_code -> {
       io.println(
         "Warning: SPA bundle failed (exit "
-        <> int.to_string(code)
+        <> int.to_string(exit_code)
         <> "). Run `"
-        <> cmd
+        <> command
         <> "` manually to debug.",
       )
+
       Nil
     }
   }
 }
 
-/// Convert a simplifile FileError to a readable string.
-fn simplify_error(_e: simplifile.FileError) -> String {
+/// Convert a simplifile error to a readable string.
+fn simplify_error(_error: simplifile.FileError) -> String {
   "file error"
 }
 
 @external(javascript, "../ffi/shell.ffi.mjs", "run_command")
 fn run_command(command: String) -> Int
 
-/// The content index JSON: the full content tree serialized for the SPA to
-/// consume.
+/// Serialize the complete content tree and browser-safe configuration.
+///
+/// Runtime configuration is embedded in this object so the browser retains
+/// Arata's single-fetch startup model.
 fn content_index_json(
-  site_meta: site.SiteMeta,
+  runtime_config: config_runtime.RuntimeConfig,
   posts: List(Post),
   projects: List(Project),
   links: List(Link),
   pages: List(Page),
   homepage: Page,
 ) -> String {
-  let site_config = config.default()
-  let config_obj =
-    json.object([
-      #("title", json.string(site_meta.title)),
-      #("description", json.string(site_meta.description)),
-      #("base_url", json.string(site_meta.base_url)),
-      #("base_path", json.string(site_config.base_path)),
-    ])
-
-  let posts_arr =
+  let posts_array =
     json.array(posts, fn(post) {
       json.object([
         #("slug", json.string(post.slug)),
         #("title", json.string(post.title)),
         #("date", json.string(post.date)),
         #("updated", case post.updated {
-          Some(s) -> json.string(s)
+          Some(value) -> json.string(value)
           None -> json.null()
         }),
         #("description", json.string(post.description)),
@@ -318,7 +475,7 @@ fn content_index_json(
         #("tags", json.array(post.tags, json.string)),
         #("draft", json.bool(post.draft)),
         #("tldr", case post.tldr {
-          Some(s) -> json.string(s)
+          Some(value) -> json.string(value)
           None -> json.null()
         }),
         #("word_count", json.int(post.word_count)),
@@ -326,9 +483,9 @@ fn content_index_json(
       ])
     })
 
-  let projects_arr = json.array(projects, fn(project) { project_json(project) })
+  let projects_array = json.array(projects, project_json)
 
-  let links_arr =
+  let links_array =
     json.array(links, fn(link) {
       json.object([
         #("title", json.string(link.title)),
@@ -339,45 +496,22 @@ fn content_index_json(
       ])
     })
 
-  let pages_arr =
-    json.array(pages, fn(page) {
-      json.object([
-        #("slug", json.string(page.slug)),
-        #("title", json.string(page.title)),
-        #("body", json.string(page.body)),
-        #("subtitle", case page.subtitle {
-          Some(s) -> json.string(s)
-          None -> json.null()
-        }),
-      ])
-    })
+  let pages_array = json.array(pages, page_json)
 
-  let home_obj =
-    json.object([
-      #("slug", json.string(homepage.slug)),
-      #("title", json.string(homepage.title)),
-      #("body", json.string(homepage.body)),
-      #("subtitle", case homepage.subtitle {
-        Some(s) -> json.string(s)
-        None -> json.null()
-      }),
-    ])
+  let homepage_object = page_json(homepage)
 
-  json.to_string(
-    json.object([
-      #("config", config_obj),
-      #("posts", posts_arr),
-      #("projects", projects_arr),
-      #("links", links_arr),
-      #("pages", pages_arr),
-      #("homepage", home_obj),
-    ]),
-  )
+  json.object([
+    #("config", config_encoder.to_json(runtime_config)),
+    #("posts", posts_array),
+    #("projects", projects_array),
+    #("links", links_array),
+    #("pages", pages_array),
+    #("homepage", homepage_object),
+  ])
+  |> json.to_string
 }
 
-/// Serialize a `Project` as `{slug, title, description, link_to, image,
-/// github, gitlab, codeberg, forgejo, demo, tags}`. Optional fields are
-/// emitted as JSON `null` when `None`.
+/// Serialize a project.
 fn project_json(project: Project) -> json.Json {
   json.object([
     #("slug", json.string(project.slug)),
@@ -394,14 +528,26 @@ fn project_json(project: Project) -> json.Json {
   ])
 }
 
-fn option_to_json(opt: option.Option(String)) -> json.Json {
-  case opt {
-    Some(s) -> json.string(s)
+/// Serialize a standalone page or homepage.
+fn page_json(page: Page) -> json.Json {
+  json.object([
+    #("slug", json.string(page.slug)),
+    #("title", json.string(page.title)),
+    #("body", json.string(page.body)),
+    #("subtitle", option_to_json(page.subtitle)),
+  ])
+}
+
+/// Serialize an optional string.
+fn option_to_json(value: option.Option(String)) -> json.Json {
+  case value {
+    Some(string_value) -> json.string(string_value)
+
     None -> json.null()
   }
 }
 
-/// Serialize a `TocEntry` as `{"id": ..., "title": ..., "children": [...]}`.
+/// Serialize a table-of-contents entry.
 fn toc_entry_json(entry: TocEntry) -> json.Json {
   json.object([
     #("id", json.string(entry.id)),
@@ -410,31 +556,38 @@ fn toc_entry_json(entry: TocEntry) -> json.Json {
   ])
 }
 
-/// The search index JSON: a simple array of searchable documents.
-fn search_index_json(posts: List(Post)) -> String {
-  json.to_string(
-    json.array(posts, fn(post) {
-      json.object([
-        #("title", json.string(post.title)),
-        #("description", json.string(post.description)),
-        #("tags", json.string(string.join(post.tags, " "))),
-        #(
-          "url",
-          json.string(config.with_base_path(
-            config.default().base_path,
-            "/posts/" <> post.slug,
-          )),
-        ),
-      ])
-    }),
-  )
+/// Serialize the search index.
+///
+/// The already-resolved site configuration is passed explicitly so this
+/// function cannot independently load defaults or configuration.
+fn search_index_json(site_config: config.Config, posts: List(Post)) -> String {
+  posts
+  |> json.array(fn(post) {
+    json.object([
+      #("title", json.string(post.title)),
+      #("description", json.string(post.description)),
+      #("tags", json.string(string.join(post.tags, " "))),
+      #(
+        "url",
+        json.string(config.with_base_path(
+          site_config.base_path,
+          "/posts/" <> post.slug,
+        )),
+      ),
+    ])
+  })
+  |> json.to_string
 }
 
+/// Read, minify, and concatenate CSS modules for the HTML shell.
 fn inline_css() -> String {
   css_modules
   |> list.map(fn(path) {
     case simplifile.read(path) {
-      Ok(css) -> css |> minify_css |> sanitize_style_text
+      Ok(css) ->
+        css
+        |> minify_css
+        |> sanitize_style_text
 
       Error(_) -> ""
     }
@@ -442,6 +595,7 @@ fn inline_css() -> String {
   |> string.join("")
 }
 
+/// Prevent CSS content from terminating the generated inline style element.
 fn sanitize_style_text(css: String) -> String {
   css
   |> string.replace("</style", "<\\/style")
@@ -453,6 +607,7 @@ type CssScanState {
   CssString(quote: String, escaped: Bool)
 }
 
+/// Minify CSS while preserving quoted strings.
 fn minify_css(css: String) -> String {
   css
   |> strip_css_comments
@@ -484,6 +639,7 @@ fn strip_css_comments_loop(
             "/" ->
               case rest {
                 ["*", ..tail] -> strip_css_comments_loop(tail, CssComment, acc)
+
                 _ -> strip_css_comments_loop(rest, CssOutside, [char, ..acc])
               }
 
@@ -504,6 +660,7 @@ fn strip_css_comments_loop(
             "*" ->
               case rest {
                 ["/", ..tail] -> strip_css_comments_loop(tail, CssOutside, acc)
+
                 _ -> strip_css_comments_loop(rest, CssComment, acc)
               }
 
@@ -517,6 +674,7 @@ fn strip_css_comments_loop(
             False ->
               case char {
                 "\\" -> CssString(quote, True)
+
                 _ ->
                   case char == quote {
                     True -> CssOutside
@@ -545,6 +703,7 @@ fn collapse_repeated_spaces(css: String) -> String {
 
   case compacted == css {
     True -> compacted
+
     False -> collapse_repeated_spaces(compacted)
   }
 }
@@ -567,37 +726,33 @@ fn trim_css_spaces_around_tokens(css: String) -> String {
   |> string.replace(" )", ")")
 }
 
-/// The custom `index.html` with FOUC prevention: both `light` and `dark`
-/// classes on `<html>`, CSS modules loaded in order, and the SPA script.
+/// Generate the SPA HTML shell.
 ///
-/// Feed `<link rel='alternate'>` tags are only emitted when
-/// `site_meta.rss_enabled` is `True`.
-///
-/// All asset paths are absolute (`/app.mjs`, `/css/...`, `/icon/...`) rather
-/// than relative (`./app.mjs`). On a deep link like `/posts/markdown`, the
-/// static host serves 404.html, and relative assets would resolve incorrectly.
+/// Feed metadata is emitted for both `Full` and `Summary` modes. Asset paths
+/// are resolved from the configuration-derived deployment base path.
 fn index_html(site_meta: site.SiteMeta, site_config: config.Config) -> String {
   let base_path = site_config.base_path
-
   let atom_href = config.with_base_path(base_path, "/atom.xml")
   let rss_href = config.with_base_path(base_path, "/rss.xml")
   let app_src = config.with_base_path(base_path, "/app.mjs")
+  let bootstrap_meta = "<meta name='arata-base-path' content='" <> base_path
 
+  // Configured favicon paths have already been resolved by the configuration
+  // resolver. Only the fallback path needs a deployment prefix here.
   let favicon = case site_config.favicon {
-    option.Some(path) -> config.with_base_path(base_path, path)
-
-    option.None -> config.with_base_path(base_path, "/icon/favicon.png")
+    Some(path) -> path
+    None -> config.with_base_path(base_path, "/icon/favicon.png")
   }
 
-  let feed_links = case site_meta.rss_enabled {
-    True ->
-      "<link rel='alternate' type='application/atom+xml' href='"
+  let feed_links = case site_config.feed_mode {
+    config.Full | config.Summary ->
+      "<link rel='alternate' type='application/atom+xml' title='Atom Feed' href='"
       <> atom_href
-      <> "'><link rel='alternate' type='application/rss+xml' href='"
+      <> "'><link rel='alternate' type='application/rss+xml' title='RSS Feed' href='"
       <> rss_href
       <> "'>"
 
-    False -> ""
+    config.Disabled -> ""
   }
 
   let css = inline_css()
@@ -606,6 +761,8 @@ fn index_html(site_meta: site.SiteMeta, site_config: config.Config) -> String {
   <> site_meta.title
   <> "</title><meta name='description' content='"
   <> site_meta.description
+  <> "'>"
+  <> bootstrap_meta
   <> "'><link rel='icon' href='"
   <> favicon
   <> "'>"
@@ -617,7 +774,7 @@ fn index_html(site_meta: site.SiteMeta, site_config: config.Config) -> String {
   <> "'></script></body></html>"
 }
 
-/// The 404.html page: the SPA shell, identical to `index.html`.
+/// Generate the deep-link fallback shell.
 fn not_found_html(
   site_meta: site.SiteMeta,
   site_config: config.Config,

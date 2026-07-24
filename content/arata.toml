@@ -1,0 +1,181 @@
+# Arata site configuration.
+#
+# This file is the user-owned configuration entry point for the site.
+# It is read at build time and must not contain secrets, API keys, private
+# tokens, or other sensitive values.
+#
+# Root-relative paths are resolved against the deployment path derived from
+# `site.base_url`. Do not configure a separate base path.
+
+[site]
+# Public canonical URL of the deployed site.
+#
+# Root deployment:
+#   https://example.com
+#
+# Subdirectory deployment:
+#   https://example.com/arata
+#
+# A trailing slash is allowed and will be removed during configuration
+# resolution.
+base_url = "https://blog.yon.im"
+
+title = "Yon Zilch"
+description = "This is Yonzilch's blog"
+
+# Optional navigation logo.
+#
+# Use an empty string to render the site title as a text link.
+# Otherwise, use a root-relative path to an asset under `static/`.
+logo = ""
+
+# Optional favicon path.
+#
+# Use an empty string to fall back to Arata's default favicon.
+favicon = "/images/avatar.avif"
+
+# Optional Fediverse creator attribution, for example:
+#   "@username@example.social"
+#
+# Leave empty to disable the metadata.
+fediverse_creator = ""
+
+
+# Navigation items are rendered in the declared order.
+#
+# Internal URLs must be root-relative. Arata adds the deployment base path
+# derived from `site.base_url` during configuration resolution.
+#
+# External URLs may use an absolute HTTP or HTTPS URL.
+
+# [[menu]]
+# name = "about"
+# url = "/about"
+
+[[menu]]
+name = "links"
+url = "/links"
+
+[[menu]]
+name = "posts"
+url = "/posts"
+
+[[menu]]
+name = "projects"
+url = "/projects"
+
+# [[menu]]
+# name = "tags"
+# url = "/tags"
+
+
+# Social links are rendered in the declared order.
+#
+# `icon` is the filename without the `.svg` extension under:
+#   static/icons/social/
+#
+# The RSS link is managed automatically through `features.rss` and must not
+# be declared here.
+
+[[socials]]
+name = "Codeberg"
+url = "https://codeberg.org/yonzilch"
+icon = "codeberg"
+
+[[socials]]
+name = "GitHub"
+url = "https://github.com/yonzilch/arata"
+icon = "github"
+
+[[socials]]
+name = "Telegram"
+url = "https://t.me/yonzilch"
+icon = "telegram"
+
+[features]
+# Generate `atom.xml` and `rss.xml`, emit feed metadata, and add the managed
+# RSS social link.
+rss = "full"
+
+# Enable the in-page search modal and the Cmd/Ctrl+K shortcut.
+search = true
+
+# Keep the navigation bar pinned while the page scrolls.
+navbar_fixed = true
+
+# Enable MathJax rendering on post pages containing likely TeX delimiters.
+mathjax = false
+
+# Enable Mermaid rendering for native fenced Mermaid code blocks.
+mermaid = true
+
+# Enable runtime syntax highlighting for fenced code blocks.
+syntax_highlight = true
+
+# Render the right-hand Tags and table-of-contents sidebar on post pages.
+sidebar = false
+
+# Render the floating ToC/tags button and overlay scroll-to-top control.
+floating_buttons = true
+
+# Render the aratafetch site summary on the homepage.
+aratafetch = true
+
+# Open Markdown body images in the built-in lightbox.
+lightbox = true
+
+# Render the latest published posts section on the homepage.
+latest_posts = true
+
+
+[latest_posts]
+# Maximum number of published posts shown in the homepage latest-posts
+# section. This value must be zero or greater.
+count = 20
+
+
+[aratafetch]
+# Optional display value for the `maintained` row.
+#
+# Leave empty to omit the row.
+maintained_for = "since 2022-03-28"
+
+
+[fonts]
+# CSS `font-family` declarations used by Arata's CSS custom properties.
+text = "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif"
+header = "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif"
+code = "ui-monospace, \"Cascadia Code\", \"Source Code Pro\", Menlo, Consolas, \"DejaVu Sans Mono\", monospace"
+
+
+[assets]
+# Runtime asset URLs for optional browser enhancements.
+#
+# A URL is required when its corresponding feature is enabled. These values
+# may point to pinned CDN resources or root-relative vendored assets.
+mathjax_url = "https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-chtml.js"
+mermaid_url = "https://cdn.jsdelivr.net/npm/mermaid@11.16.0/dist/mermaid.esm.min.mjs"
+syntax_highlight_url = "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/es/highlight.min.js"
+
+
+[analytics]
+# Supported providers:
+#   disabled
+#   goatcounter
+#   umami
+#   liwan
+#
+# Provider-specific values belong in this table and are public browser
+# configuration. Do not place secrets here.
+provider = "disabled"
+
+
+[comments]
+# Supported providers:
+#   disabled
+#   giscus
+#   utterances
+#
+# Provider-specific values belong in this table and are public browser
+# configuration. Do not place secrets here.
+provider = "disabled"
