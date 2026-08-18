@@ -21,12 +21,13 @@ import config
 import content/runtime as content_runtime
 import data/link.{type Link}
 import data/page.{type Page}
-import data/post.{type Post}
+import data/post.{type Post, order_posts}
 import data/project.{type Project}
 import data/search.{type SearchResult}
 import data/site.{type SiteMeta, SiteMeta}
 import effect/analytics as analytics_effect
 import effect/codeblock as codeblock_effect
+import effect/fragment as fragment_effect
 import effect/lightbox as lightbox_effect
 import effect/note as note_effect
 import effect/script as script_effect
@@ -34,6 +35,7 @@ import effect/search as search_effect
 import effect/syntax_highlight as syntax_highlight_effect
 import effect/theme as theme_effect
 import effect/toc as toc_effect
+import gleam/dict
 import gleam/int
 import gleam/list
 import gleam/option.{type Option}
@@ -161,11 +163,15 @@ fn init(_flags: Nil) -> #(Model, effect.Effect(Msg)) {
 
   // Configuration-dependent effects must not start from bootstrap defaults.
   // They are armed after ContentLoaded(Ok(_)).
+  let fragment_effect =
+    effect.map(fragment_effect.subscribe_to_hash_changes(), FragmentHashChanged)
+
   let effects =
     effect.batch([
       navigation_effect,
       theme_effect,
       content_effect,
+      fragment_effect,
     ])
 
   #(model, effects)
@@ -176,6 +182,8 @@ fn init(_flags: Nil) -> #(Model, effect.Effect(Msg)) {
 pub type Msg {
   UserNavigatedTo(route: Route)
   TocActiveHeadingChanged(id: String)
+  FragmentSelected(id: String)
+  FragmentHashChanged(id: Option(String))
   UserToggledTheme
   ThemeLoaded(theme: theme_effect.Theme)
   SystemPrefersDarkChanged(prefers_dark: Bool)
@@ -197,6 +205,7 @@ pub type Msg {
   LightboxPrevious
   LightboxNext
   LightboxClosed
+  LightboxZoomChanged(zoomed: Bool)
   LightboxEventReceived(event: lightbox_effect.Event)
 }
 
@@ -215,7 +224,11 @@ fn update(model: Model, msg: Msg) -> #(Model, effect.Effect(Msg)) {
         )
 
       let route_effects = case new_model.content_state {
-        ContentReady -> configured_post_effects(new_model)
+        ContentReady ->
+          effect.batch([
+            configured_post_effects(new_model),
+            fragment_restore_effect(),
+          ])
 
         ContentLoading | ContentFailed -> effect.none()
       }
@@ -233,6 +246,31 @@ fn update(model: Model, msg: Msg) -> #(Model, effect.Effect(Msg)) {
       Model(..model, active_heading: option.Some(id)),
       effect.none(),
     )
+
+    FragmentSelected(id) -> {
+      // Successful selection closes the floating ToC overlay. The fragment is
+      // pushed into the URL (no full-page navigation) and the heading is
+      // scrolled to the vertical center of the viewport.
+      let new_model = Model(..model, toc_overlay_open: False)
+
+      #(
+        new_model,
+        effect.batch([
+          effect.map(fragment_effect.set_hash(id), fn(_) { NoOp }),
+          effect.map(fragment_effect.scroll_to(id), TocActiveHeadingChanged),
+        ]),
+      )
+    }
+
+    FragmentHashChanged(id) ->
+      case id {
+        option.Some(target) -> #(
+          model,
+          effect.map(fragment_effect.scroll_to(target), TocActiveHeadingChanged),
+        )
+
+        option.None -> #(model, effect.none())
+      }
 
     UserToggledTheme -> {
       let next_theme =
@@ -305,7 +343,7 @@ fn update(model: Model, msg: Msg) -> #(Model, effect.Effect(Msg)) {
               ..model,
               config: application_config,
               site_meta: site_meta,
-              posts: content.posts,
+              posts: order_posts(content.posts),
               pages: content.pages,
               homepage: content.homepage,
               links: content.links,
@@ -325,6 +363,7 @@ fn update(model: Model, msg: Msg) -> #(Model, effect.Effect(Msg)) {
               configured_analytics_effect(application_config),
               configured_lightbox_effect(application_config),
               configured_post_effects(new_model),
+              fragment_restore_effect(),
             ]),
           )
         }
@@ -394,30 +433,30 @@ fn update(model: Model, msg: Msg) -> #(Model, effect.Effect(Msg)) {
         False -> #(model, effect.none())
       }
 
-      SearchResultClicked(slug) -> {
-        let target_route = route.Post(slug)
+    SearchResultClicked(slug) -> {
+      let target_route = route.Post(slug)
 
-        let new_model =
-          Model(
-            ..model,
-            route: target_route,
-            search: closed_search(),
-            active_heading: option.None,
-            mobile_menu_open: False,
-            toc_overlay_open: False,
-            sidebar_toc_expanded: True,
-            lightbox: lightbox.Closed,
-          )
-
-        #(
-          new_model,
-          effect.batch([
-            modem.push(route.href_url(target_route), option.None, option.None),
-            configured_post_effects(new_model),
-            lightbox_scroll_lock(False),
-          ]),
+      let new_model =
+        Model(
+          ..model,
+          route: target_route,
+          search: closed_search(),
+          active_heading: option.None,
+          mobile_menu_open: False,
+          toc_overlay_open: False,
+          sidebar_toc_expanded: True,
+          lightbox: lightbox.Closed,
         )
-      }
+
+      #(
+        new_model,
+        effect.batch([
+          modem.push(route.href_url(target_route), option.None, option.None),
+          configured_post_effects(new_model),
+          lightbox_scroll_lock(False),
+        ]),
+      )
+    }
 
     UserToggledMobileMenu -> #(
       Model(..model, mobile_menu_open: !model.mobile_menu_open),
@@ -430,13 +469,9 @@ fn update(model: Model, msg: Msg) -> #(Model, effect.Effect(Msg)) {
     )
 
     UserToggledSidebarToc -> #(
-      Model(
-        ..model,
-        sidebar_toc_expanded: !model.sidebar_toc_expanded,
-      ),
+      Model(..model, sidebar_toc_expanded: !model.sidebar_toc_expanded),
       effect.none(),
     )
-
 
     UserScrolledToTop -> {
       let scroll_effect =
@@ -486,6 +521,9 @@ fn update(model: Model, msg: Msg) -> #(Model, effect.Effect(Msg)) {
         lightbox_effect.PreviousPressed -> update(model, LightboxPrevious)
 
         lightbox_effect.NextPressed -> update(model, LightboxNext)
+
+        lightbox_effect.ZoomChanged(zoomed) ->
+          update(model, LightboxZoomChanged(zoomed))
       }
 
     LightboxOpened(src, alt) ->
@@ -508,6 +546,7 @@ fn update(model: Model, msg: Msg) -> #(Model, effect.Effect(Msg)) {
                 lightbox: lightbox.Open(
                   images: images,
                   index: clamp_index(index, list.length(images)),
+                  zoomed: False,
                 ),
               ),
               lightbox_scroll_lock(True),
@@ -522,18 +561,23 @@ fn update(model: Model, msg: Msg) -> #(Model, effect.Effect(Msg)) {
       }
 
     LightboxPrevious -> #(
-      Model(..model, lightbox: lightbox_previous(model.lightbox)),
-      effect.none(),
+      Model(..model, lightbox: lightbox.previous(model.lightbox)),
+      lightbox_reset_zoom(),
     )
 
     LightboxNext -> #(
-      Model(..model, lightbox: lightbox_next(model.lightbox)),
-      effect.none(),
+      Model(..model, lightbox: lightbox.next(model.lightbox)),
+      lightbox_reset_zoom(),
     )
 
     LightboxClosed -> #(
       Model(..model, lightbox: lightbox.Closed),
       lightbox_scroll_lock(False),
+    )
+
+    LightboxZoomChanged(zoomed) -> #(
+      Model(..model, lightbox: lightbox.set_zoomed(model.lightbox, zoomed)),
+      effect.none(),
     )
   }
 }
@@ -566,6 +610,10 @@ fn configured_lightbox_effect(
 }
 
 fn configured_post_effects(model: Model) -> effect.Effect(Msg) {
+  let grammar_list =
+    model.config.syntax_highlight_grammars
+    |> dict.to_list
+
   post_effects_for(
     model.route,
     is_effective_dark(model.theme, model.system_prefers_dark),
@@ -575,11 +623,16 @@ fn configured_post_effects(model: Model) -> effect.Effect(Msg) {
     model.config.mermaid_cdn_url,
     model.config.syntax_highlight_enabled,
     model.config.syntax_highlight_cdn_url,
+    grammar_list,
   )
 }
 
 fn lightbox_scroll_lock(locked: Bool) -> effect.Effect(Msg) {
   effect.map(lightbox_effect.set_scroll_lock(locked), fn(_) { NoOp })
+}
+
+fn lightbox_reset_zoom() -> effect.Effect(Msg) {
+  effect.map(lightbox_effect.reset_zoom(), fn(_) { NoOp })
 }
 
 fn lightbox_images(
@@ -609,53 +662,6 @@ fn clamp_index(index: Int, total: Int) -> Int {
   }
 }
 
-fn lightbox_previous(state: lightbox.State) -> lightbox.State {
-  case state {
-    lightbox.Closed -> lightbox.Closed
-
-    lightbox.Open(images, index) -> {
-      let total = list.length(images)
-
-      case total <= 1 {
-        True -> state
-
-        False ->
-          lightbox.Open(images: images, index: previous_index(index, total))
-      }
-    }
-  }
-}
-
-fn lightbox_next(state: lightbox.State) -> lightbox.State {
-  case state {
-    lightbox.Closed -> lightbox.Closed
-
-    lightbox.Open(images, index) -> {
-      let total = list.length(images)
-
-      case total <= 1 {
-        True -> state
-
-        False -> lightbox.Open(images: images, index: next_index(index, total))
-      }
-    }
-  }
-}
-
-fn previous_index(index: Int, total: Int) -> Int {
-  case index <= 0 {
-    True -> total - 1
-    False -> index - 1
-  }
-}
-
-fn next_index(index: Int, total: Int) -> Int {
-  case index >= total - 1 {
-    True -> 0
-    False -> index + 1
-  }
-}
-
 fn post_effects_for(
   route: Route,
   is_dark: Bool,
@@ -665,6 +671,7 @@ fn post_effects_for(
   mermaid_cdn_url: String,
   syntax_highlight_enabled: Bool,
   syntax_highlight_cdn_url: String,
+  grammar_list: List(#(String, String)),
 ) -> effect.Effect(Msg) {
   case route {
     Post(_) -> {
@@ -690,6 +697,7 @@ fn post_effects_for(
           syntax_highlight_effect.enhance(
             syntax_highlight_enabled,
             syntax_highlight_cdn_url,
+            grammar_list,
           ),
           fn(_) { NoOp },
         )
@@ -1010,6 +1018,7 @@ fn view_route_content(model: Model) -> #(Element(Msg), Element(Msg)) {
                 found.toc,
                 model.active_heading,
                 model.sidebar_toc_expanded,
+                FragmentSelected,
               )
 
             False -> none()
@@ -1103,6 +1112,7 @@ fn toc_fab_elements(model: Model) -> List(Element(Msg)) {
                               toc_view.view_static(
                                 found.toc,
                                 model.active_heading,
+                                FragmentSelected,
                               ),
                             ]
                           },
@@ -1151,6 +1161,7 @@ fn view_tags_and_toc(
   toc: List(post.TocEntry),
   active_heading: Option(String),
   toc_expanded: Bool,
+  on_toc_select: fn(String) -> Msg,
 ) -> Element(Msg) {
   case post_tags, toc {
     [], [] -> none()
@@ -1163,9 +1174,14 @@ fn view_tags_and_toc(
           active_heading,
           toc_expanded,
           UserToggledSidebarToc,
+          on_toc_select,
         ),
       ])
   }
+}
+
+fn fragment_restore_effect() -> effect.Effect(Msg) {
+  effect.map(fragment_effect.restore_initial(), TocActiveHeadingChanged)
 }
 
 fn view_tags_sidebar(post_tags: List(String)) -> Element(Msg) {

@@ -15,12 +15,12 @@
             <pubDate>Fri, 29 May 2026 00:00:00 GMT</pubDate>
             <description></description>
             <content:encoded>&lt;p&gt;&lt;strong&gt;本文包含大量专业术语，可使用 AI 辅助理解。若阅读过程感到不适，建议直接关闭👻。&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&quot;heading-1&quot;&gt;&lt;a href=&quot;#heading-1&quot;&gt;引入&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;引入&quot;&gt;&lt;a href=&quot;#引入&quot;&gt;引入&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;你安装过的每一款软件，究其根本，都是一次盲目的托付。&lt;/p&gt;
 &lt;p&gt;这份托付并非针对代码本身 —— 代码你可以阅读，可以审计，可以逐行拆解。它针对的是更深不可测、难以捉摸的盲区： 代码在变成你机器上运行的程序之前，所经过的那一长串交接的手。有人在某处、某个系统上、用某些工具链编译了它。你不在场，你没有亲眼目睹。你只是点了安装，然后继续你的日常。&lt;/p&gt;
 &lt;p&gt;对大多数软件而言，这种黑盒式的盲从是一笔无奈但合理的交易 —— 用信任换便利。但对 &lt;strong&gt;Bitcoin Core（比特币核心）&lt;/strong&gt; 项目而言，这是不可接受的。该项目存在的一个重要目的在于：通过消除对人际信任的依赖，从而尽可能地抵制腐败或篡改。&lt;/p&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;heading-2&quot;&gt;&lt;a href=&quot;#heading-2&quot;&gt;Jia Tan： 耐心能成就什么&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;jia-tan-耐心能成就什么&quot;&gt;&lt;a href=&quot;#jia-tan-耐心能成就什么&quot;&gt;Jia Tan： 耐心能成就什么&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;2024 年春天，一位名叫 Andres Freund 的微软工程师注意到，Debian 系统上的 SSH 登录比正常情况慢了大约半秒。这种异常，大多数人会归咎于网络抖动，然后抛之脑后。但 Freund 没有忘记，他顺藤摸瓜，一查到底。&lt;/p&gt;
 &lt;p&gt;他在 XZ Utils （一个平凡的压缩库，以至于大多数 Linux 用户都叫不出它的名字）深处发现了一个工艺极为精湛的后门。这个后门耗时近两年精心布局，由一个名为 Jia Tan 的贡献者循序渐进、有条不紊地植入。&lt;/p&gt;
 &lt;p&gt;那可能是一个假名，但其手段却无比真实。&lt;/p&gt;
@@ -30,7 +30,7 @@
 &lt;p&gt;四年前，攻击者从外部做到了同样的事。2020 年的 SolarWinds 事件无需数年的社区信任积累，不用社会工程学手段，也没有长期铺垫工作所需的耐心。攻击者入侵了将源代码转化为可交付产品的自动化流水线，并在软件“离开大楼”（即正式发布）前，直接将后门植入官方二进制文件。一万八千个组织下载了这个文件，其中包括美国财政部、国务院甚至核安全局，以及全球多家《财富》 500 强企业、知名大学和主要医疗机构。它们运行的都是经过签名、官方的二进制文件，其中却包含着其供应商从未编写过的代码。&lt;/p&gt;
 &lt;p&gt;两次攻击，途径截然相反： 一个从外部寻找破绽，另一个从内部渗透。但两者最终汇聚在完全相同的盲区： 构建过程 —— 那条连接着开发者编写的代码与用户运行的程序之间的漆黑通道。&lt;/p&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;heading-3&quot;&gt;&lt;a href=&quot;#heading-3&quot;&gt;Gitian 时代：当时最好的答案&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;gitian-时代当时最好的答案&quot;&gt;&lt;a href=&quot;#gitian-时代当时最好的答案&quot;&gt;Gitian 时代：当时最好的答案&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;要理解 Bitcoin Core 正走向何方，必须先了解它曾经历过什么。&lt;/p&gt;
 &lt;p&gt;在其历史的大部分时间里，Bitcoin Core 使用一个名为 &lt;a href=&quot;https://github.com/devrandom/gitian-builder&quot;&gt;Gitian&lt;/a&gt; 的工具来解决所谓的 &lt;strong&gt;“可复现构建” (Reproducible Builds)&lt;/strong&gt; 问题。其主要问题在于： 如果我编译 Bitcoin Core 的源代码，而你也编译同一份源代码，我们理应产生字节码完全一致的二进制文件。如果结果不一致，则要么是我们其中一台机器的行为有所不同，要么是某个环节被某个人做了篡改。&lt;/p&gt;
 &lt;p&gt;Gitian 的实现方式是让多位开发者在完全相同的虚拟机内进行构建： 使用相同的 Ubuntu 快照、相同的容器配置，然后比对各自的结果。如果每位构建者都产生了相同的密码学哈希值，该二进制文件就被宣布为可信。在早期开发者们就已经认识到：签名证明的有效性依赖于独立构建结果的收敛，即便构建环境本身仍是一团迷雾。&lt;/p&gt;
@@ -40,7 +40,7 @@
 &lt;p&gt;让我们简单地将整个构建过程类比成口述菜谱的模式： 口述菜谱依赖隐式变量，譬如所谓的 &lt;strong&gt;「加一撮盐，用灶台上现有的任意一口锅。」&lt;/strong&gt; 在软件工程中，这些未写明的指令（比如继承周边环境的 &lt;code&gt;PATH&lt;/code&gt;，或链接一个“碰巧”安装在系统上的库）就是未声明的依赖项。两位称职的厨师按照同一份口述菜谱，能做出味道相似的菜肴，正如两台机器可能编译出相似的二进制文件。但&lt;strong&gt;相似&lt;/strong&gt;不是&lt;strong&gt;相同&lt;/strong&gt;，&lt;strong&gt;相似&lt;/strong&gt;在技术上也无法做到&lt;strong&gt;可证明&lt;/strong&gt;的完全一致。厨房是有“历史”的 —— 它 &lt;strong&gt;“呼吸”&lt;/strong&gt; 着历次烹饪留下的残余气息，正如构建环境会默默继承宿主系统的周边状态。&lt;/p&gt;
 &lt;p&gt;在 Gitian 模式下，构建环境同样拥有历史。而在那段隐式、复杂且大多未经审视的厚重历史中，攻击者有施展拳脚的空间。&lt;/p&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;heading-4&quot;&gt;&lt;a href=&quot;#heading-4&quot;&gt;Guix：纯粹状态的构建&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;guix纯粹状态的构建&quot;&gt;&lt;a href=&quot;#guix纯粹状态的构建&quot;&gt;Guix：纯粹状态的构建&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;在 2019 年合并的一项提案中，Bitcoin Core 项目引入了 GNU Guix 以取代 Gitian。这场转变在演变为技术革新之前，首先是一场哲学层面的演进。&lt;/p&gt;
 &lt;p&gt;Guix 将构建过程视为一个 &lt;strong&gt;纯函数（Pure Function）&lt;/strong&gt; —— 没有记忆、没有副作用、没有环境状态的函数。如果你写过面向对象的代码，你对其反面一定再熟悉不过：悄悄读取 &lt;code&gt;this.config&lt;/code&gt; 的方法，行为取决于从未作为参数声明的环境变量的函数，输出结果随程序早期运行情况而变化的过程。而纯函数没有这些；你给它确切的输入，它就返回确切的输出。映射到构建过程中： 无论在任何机器上、在任何时间点，只要输入确定，构建结果始终一致。&lt;/p&gt;
 &lt;p&gt;这正是 Guix 在整个软件构建规模上强制施加的特性：&lt;/p&gt;
@@ -63,7 +63,7 @@
 &lt;p&gt;因为任何微小的不确定性（Non-determinism）—— 无论是读取系统当前时间、内存随机地址，还是文件系统的打包顺序，都可能导致 &lt;strong&gt;可复现构建 (Reproducible Builds)&lt;/strong&gt; 彻底爆炸 💥&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;heading-5&quot;&gt;&lt;a href=&quot;#heading-5&quot;&gt;在工程实践中改变了什么&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;在工程实践中改变了什么&quot;&gt;&lt;a href=&quot;#在工程实践中改变了什么&quot;&gt;在工程实践中改变了什么&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;借助 Guix，开发者可以独立从源代码构建 Bitcoin Core。不是在共享的基础设施上，而是在完全独立的机器上 —— 可能拥有不同的硬件、身处不同的国家、具备截然不同的系统运行历史。如果构建过程没有瑕疵，他们最终都会得到完全相同的哈希值。&lt;/p&gt;
 &lt;p&gt;他们将这个哈希值连同密码学签名一起提交 —— 这是一个在数学上将构建结果与其身份不可撤销地绑定在一起的印记。这些经签名的证明记录集合是公开的，且可供审计。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;之前（Gitian）：&lt;/strong&gt;&lt;/p&gt;
@@ -82,12 +82,12 @@
 &lt;p&gt;签名已不再是信任的基准。&lt;strong&gt;独立验证者&lt;/strong&gt;之间的共识才是。如果某台验证节点遭到入侵，其生成的哈希值就会与其他所有节点的哈希值产生偏差。此类安全漏洞并非通过事件响应或取证调查被揭露，而是通过验证流程的正常运作自然显现 —— 就像当你将作弊的秤与大多数诚实的秤进行比对时，作弊行为便会立即暴露无遗。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;（这也与区块链共识节点防作弊机制的运作有异曲同工之处）&lt;/strong&gt;&lt;/p&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;heading-6&quot;&gt;&lt;a href=&quot;#heading-6&quot;&gt;Nix 的实用主义与 Guix 的信任哲学&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;nix-的实用主义与-guix-的信任哲学&quot;&gt;&lt;a href=&quot;#nix-的实用主义与-guix-的信任哲学&quot;&gt;Nix 的实用主义与 Guix 的信任哲学&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;NixOS 的用户会对这一切感到似曾相识 —— Nix 拥有完全相同的底层洞察、相同的 &lt;code&gt;/store&lt;/code&gt; 存储模型，以及对“构建即纯函数”的相同执念。然而，这两个项目在一条关键的分叉路口做出截然不同的押注。Nix 优先选择了易用性，默认情况下高度依赖大量预编译好的&lt;strong&gt;二进制缓存包 (Cached Binary Package)&lt;/strong&gt;：你不需要从头编译一切，直接从受信任的服务器下载预先构建好的产物即可。对大多数用户来说，这是完全正确的决定。编译极其缓慢，一个开箱即用的系统比一个纯粹的哲学追求更具实用价值。&lt;/p&gt;
 &lt;p&gt;Guix 选择了另一条路。秉持一种近似 Gentoo 的理念，并加以严格的函数式约束，&lt;strong&gt;Guix + GNU Mes&lt;/strong&gt; 坚持从源码构建一切。对于 Bitcoin Core 而言，这种区别至关重要。Guix 将一条严密的链条一路追溯到它所谓的&lt;strong&gt;全源码自举（Full-Source Bootstrap）&lt;/strong&gt;：一个仅有约 357 字节机器代码的最小信任锚点，整个工具链： 编译器、链接器、标准库，所有的一切 —— 全部基于这个锚点一步步编译而来，没有任何先入为主的假设，也没有任何预先构建的黑盒。因为一旦依赖预编译的二进制缓存包，就等于信任打包它的幕后之人；而 Bitcoin Core 的威胁模型中，根本没有空间容纳这种盲目的信任。&lt;/p&gt;
 &lt;p&gt;这一信任锚点已被完全地精简，使得在复杂的软件工程项目中，开发者能花费更少精力却更有效地对构建产物进行核查。这正是 Guix 选择 &lt;strong&gt;Full-Source Bootstrap&lt;/strong&gt; 的立项押注，亦是 Bitcoin Core 选择 &lt;strong&gt;Guix + GNU Mes&lt;/strong&gt; 作为构建方案的根本原因：信任的根基必须足够精简，因而开发者能容易理解构建过程并验证其正确性，而非因贪图便利，对看不见的黑盒盲目盖章放行。&lt;/p&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;heading-7&quot;&gt;&lt;a href=&quot;#heading-7&quot;&gt;幽灵并未离去，它只是转移了&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;幽灵并未离去它只是转移了&quot;&gt;&lt;a href=&quot;#幽灵并未离去它只是转移了&quot;&gt;幽灵并未离去，它只是转移了&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;叙写到这里，坦诚的叙述开始变得错综复杂。&lt;/p&gt;
 &lt;p&gt;Guix 大幅收缩了隐式信任的攻击面，但它并没有消灭信任。&lt;/p&gt;
 &lt;p&gt;换言之，Guix 逼近信任的极限，却永远无法降至 &lt;strong&gt;零信任&lt;/strong&gt; (Zero Trust) 的极点 —— &lt;strong&gt;绝对零度&lt;/strong&gt;（Absolute Zero）&lt;/p&gt;
@@ -102,7 +102,7 @@
 &lt;p&gt;这一切都不是倒退回 Gitian 的理由。它只是提醒我们应精确地认识 Guix 究竟做到了什么：它用一个狭窄、光线充足、透明易审查的攻击面，取代一个宽泛、昏暗且相对不透明、难审查的攻击面。这是极具意义的进步，但「构建过程的绝对可靠」绝非一个已完全得到解决的问题。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;构建中的幽灵 👻 —— 阴魂不散&lt;/strong&gt;&lt;/p&gt;
 &lt;hr /&gt;
-&lt;h3 id=&quot;heading-8&quot;&gt;&lt;a href=&quot;#heading-8&quot;&gt;Bonus Part (Entracte) | 附加部分（幕间奏）&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;bonus-part-entracte-附加部分幕间奏&quot;&gt;&lt;a href=&quot;#bonus-part-entracte-附加部分幕间奏&quot;&gt;Bonus Part (Entracte) | 附加部分（幕间奏）&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;注：此部分仅本篇文章的中文版本包含&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;{ Pasted the whole formal context | 粘贴上文 }&lt;/p&gt;
@@ -128,7 +128,7 @@
 &lt;p&gt;还有一个更不易察觉的问题。只有当存在大量相互独立的构建者时，这种验证模型才能真正生效。但在实践中，究竟是谁在执行这些构建？是那些拥有技术能力、硬件资源和充裕时间的人。见证者网络是真实的，但它规模有限，且具有自我筛选的性质。这些参与者彼此相识，共享着同样的邮件列表、技术会议和职业履历。在技术层面上，&amp;quot;独立&amp;quot;确实成立 —— 不同的机器、不同的环境 —— 但社会学赋予了这个词另一层含义，而这两层含义并不总是能达成共识。&lt;/p&gt;
 &lt;p&gt;......&lt;/p&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;heading-9&quot;&gt;&lt;a href=&quot;#heading-9&quot;&gt;这远不止于 Bitcoin Core&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;这远不止于-bitcoin-core&quot;&gt;&lt;a href=&quot;#这远不止于-bitcoin-core&quot;&gt;这远不止于 Bitcoin Core&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Bitcoin Core 的使用场景极为极端，这主要是因为该软件旨在为那些从根本上不信任中介机构的用户捍卫金融主权，而我们日常使用的大多数软件并不需要承担如此沉重的负担。&lt;/p&gt;
 &lt;p&gt;然而，这种底层的脆弱性远不止存在于比特币之中。你管理的每一台服务器、部署流水线中的每一个工具、默默运行的每一个后台库 —— 它们无一例外都经历过一场你未曾亲眼目睹的构建过程，运行在你从未见过的机器上，出自你素不相识的人之手。SolarWinds 事件的受害者对此同样一无所知； 而 Andres Freund 捕获 Jia Tan 的阴谋，不过是&lt;strong&gt;侥幸&lt;/strong&gt;之举。&lt;/p&gt;
 &lt;p&gt;而这样的 “侥幸” 正是问题核心所在。阻止 XZ 后门的，仅仅是一位工程师在某个周五下午对 SSH 登录延迟产生的偶然好奇 —— 这是一种转瞬即逝的敏锐，几乎不可能以完全相同的形式再次复现。让灾难踩下刹车的不是什么安全系统，而仅仅是巧合。可所谓的巧合，对于承载整个世界的数字基础设施而言，是一个脆弱得令人不寒而栗的根基......&lt;/p&gt;
@@ -144,14 +144,14 @@
 &lt;p&gt;你永远都在信任某些东西。Guix 提出的问题 —— 也是它给出答案的问题： 那个“某些东西”，能被压缩到多小。&lt;/p&gt;
 &lt;p&gt;幽灵并未离去。但它藏身的空间，越来越小了。&lt;/p&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;heading-10&quot;&gt;&lt;a href=&quot;#heading-10&quot;&gt;参考致谢&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;参考致谢&quot;&gt;&lt;a href=&quot;#参考致谢&quot;&gt;参考致谢&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Bitcoin Core&apos;s Guix contribution guide：&lt;a href=&quot;https://github.com/bitcoin/bitcoin/blob/master/contrib/guix/README.md&quot;&gt;github.com/bitcoin/bitcoin/blob/master/contrib/guix/README.md&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;GNU Guix：&lt;a href=&quot;https://guix.gnu.org/&quot;&gt;guix.gnu.org&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Nix Flakes：&lt;a href=&quot;https://nixos.wiki/wiki/Flakes&quot;&gt;nixos.wiki/wiki/Flakes&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Reproducible Builds：&lt;a href=&quot;https://reproducible-builds.org&quot;&gt;reproducible-builds.org&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;GNU Mes: &lt;a href=&quot;https://nlnet.nl/project/GNUMes-fullsource/&quot;&gt;nlnet.nl/project/GNUMes-fullsource&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;heading-11&quot;&gt;&lt;a href=&quot;#heading-11&quot;&gt;参考文献&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;参考文献&quot;&gt;&lt;a href=&quot;#参考文献&quot;&gt;参考文献&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;[1]&lt;/strong&gt; Freund, A. (2024). &lt;em&gt;backdoor in upstream xz/liblzma leading to sshd compromise&lt;/em&gt;. Open Source Security 邮件列表. &lt;a href=&quot;https://www.openwall.com/lists/oss-security/2024/03/29/4&quot;&gt;查看档案&lt;/a&gt;&lt;/p&gt;
@@ -173,7 +173,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;heading-12&quot;&gt;&lt;a href=&quot;#heading-12&quot;&gt;声明 / 澄清&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;声明-澄清&quot;&gt;&lt;a href=&quot;#声明-澄清&quot;&gt;声明 / 澄清&lt;/a&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;本文是一次个人向的 Vibe Writing 实践，是在与多个大型语言模型（LLMs）进行无数轮对话，并对每一个词和句子进行细致校对与润色之后完成的 —— 尤其是在中英互译的过程中。整个创作过程耗时约连续 12 小时。&lt;/p&gt;
 &lt;p&gt;参与模型提供商包括 Claude、GLM、Gemini、GPT、Grok、DeepSeek 与 Mistral（按估计 Token 用量排序）。&lt;/p&gt;
@@ -181,7 +181,7 @@
 &lt;p&gt;文中所陈述的每个事实均经过人为核实，以尽可能规避模型幻觉。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr /&gt;
-&lt;h3 id=&quot;heading-13&quot;&gt;&lt;a href=&quot;#heading-13&quot;&gt;Bonus Part (Encore) | 附加部分（安可曲）&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;bonus-part-encore-附加部分安可曲&quot;&gt;&lt;a href=&quot;#bonus-part-encore-附加部分安可曲&quot;&gt;Bonus Part (Encore) | 附加部分（安可曲）&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;注：此部分仅本篇文章的中文版本包含&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;{ Pasted the whole formal context | 粘贴上文 }&lt;/p&gt;
@@ -228,7 +228,7 @@ Guix 通过全源码自举将这个幽灵压缩到极小的 357 字节，但这 
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr /&gt;
-&lt;h4 id=&quot;heading-14&quot;&gt;&lt;a href=&quot;#heading-14&quot;&gt;总结&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot;&gt;总结&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;如果非要用一句话在文中给“幽灵”下一个明确的定义，我会这样写：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;“所谓构建中的幽灵，就是那些我们不得不信任，却永远无法在数学上彻底证明其清白的事物。它栖息在代码与二进制之间的缝隙中，利用人类认知的局限和软件栈的复杂性，在每一次编译构建过程中悄无声息地繁存延续。”&lt;/strong&gt;&lt;/p&gt;
@@ -443,7 +443,7 @@ User verifies the convergence
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;heading-1&quot;&gt;&lt;a href=&quot;#heading-1&quot;&gt;Declaration / Statement&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;declaration-statement&quot;&gt;&lt;a href=&quot;#declaration-statement&quot;&gt;Declaration / Statement&lt;/a&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;This article is a personal exercise in Vibe Writing. It was completed after countless rounds of dialogue with multiple large language models (LLMs) and meticulous review and polishing of every word and sentence—particularly during the process of translating between Chinese and English. The entire creative process took approximately 12 consecutive hours.&lt;/p&gt;
 &lt;p&gt;Participating model providers include Claude, GLM, Gemini, GPT, Grok, DeepSeek, and Mistral (listed in order of estimated token usage).&lt;/p&gt;
@@ -1190,7 +1190,7 @@ User verifies the convergence
   &lt;figcaption&gt;蓿 - 重返袖珍时光&lt;/figcaption&gt;
   &lt;audio class=&quot;audio-control&quot; controls src=&quot;https://static.yon.im/audio/%E8%93%BF%20-%20%E9%87%8D%E8%BF%94%E8%A2%96%E7%8F%8D%E6%97%B6%E5%85%89.mp3&quot;&gt;&lt;/audio&gt;
 &lt;/figure&gt;
-&lt;h2 id=&quot;heading-1&quot;&gt;&lt;a href=&quot;#heading-1&quot;&gt;章起&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;章起&quot;&gt;&lt;a href=&quot;#章起&quot;&gt;章起&lt;/a&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;「人生中有价值的事都很困难」-- The Animatrix&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1215,7 +1215,7 @@ User verifies the convergence
 &lt;p&gt;国庆与初中时在 Terraria 服务器相识的好朋友线下相见游遍大连景点&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;heading-2&quot;&gt;&lt;a href=&quot;#heading-2&quot;&gt;旅行&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;旅行&quot;&gt;&lt;a href=&quot;#旅行&quot;&gt;旅行&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;他乘的是晚上抵达的飞机，机场旁的街道冷风吹得我直哆嗦，但体内沸腾着的血液随高亢的心情将寒意驱散，线下见面时，我们俩是同样地激动，同样地感到不可思议。你能想象两个初中时在网络上通过一个游戏而认识成为好友，并能保持友谊度过多年岁月时光，在成年后才终得见面是怎样的场面？...... 人与人之间的命运交织总是如此神奇地发生。&lt;/p&gt;
 &lt;p&gt;为期 4 天的旅程，我们走遍了中山广场，大连美术馆，俄罗斯风情街，东方威尼斯水城，东港音乐广场，大连老虎滩海洋公园，星海广场，世界和平公园。第一天直接暴走 2 万多步，后面几天则放慢脚步走马观花，一路上将处处美景定格在相框中，成为永远的回忆。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://static.yon.im/image/blog/2024/2.webp&quot; alt=&quot;2&quot; /&gt;&lt;/p&gt;
@@ -1244,11 +1244,11 @@ User verifies the convergence
 &lt;/blockquote&gt;
 &lt;p&gt;真是令人难以忘怀啊！&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://static.yon.im/image/blog/2024/15.webp&quot; alt=&quot;15&quot; /&gt;&lt;/p&gt;
-&lt;h2 id=&quot;heading-3&quot;&gt;&lt;a href=&quot;#heading-3&quot;&gt;书影音&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;书影音&quot;&gt;&lt;a href=&quot;#书影音&quot;&gt;书影音&lt;/a&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;如果不去遍历世界，我们就不知道什么是我们精神和情感的寄托，但我们一旦遍历了世界，却发现我们再也无法回到那美好的地方去了。当我们开始寻求，我们就已经失去，而我们不开始寻求，我们根本无法知道自己身边的一切是如此可贵。--《小王子》&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&quot;heading-4&quot;&gt;&lt;a href=&quot;#heading-4&quot;&gt;阅读&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;阅读&quot;&gt;&lt;a href=&quot;#阅读&quot;&gt;阅读&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;（按照阅读完毕的时间先后顺序排列）&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -1311,7 +1311,7 @@ User verifies the convergence
 &lt;/ul&gt;
 &lt;p&gt;年初时主要在阅读技术类书籍，后来视角转向了人文社科，中间穿插了三部科幻作品。
 今年阅读的书籍数量同去年相比不增不减，从行为心理学类书籍（尤其是《福格行为模型》）中收获非常大，使我向好的方面改变了许多，同龄人狂热地进行碎片化时间的娱乐，我却努力将碎片的时间汇聚成块，逆着浮躁的时代浪潮，沉下心来，在书籍中寻求自我完善与自我实现。&lt;/p&gt;
-&lt;h3 id=&quot;heading-5&quot;&gt;&lt;a href=&quot;#heading-5&quot;&gt;影视&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;影视&quot;&gt;&lt;a href=&quot;#影视&quot;&gt;影视&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;https://static.yon.im/image/blog/2024/16.webp&quot; alt=&quot;16&quot; /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;input checked=&quot;&quot; disabled=&quot;&quot; type=&quot;checkbox&quot; /&gt; 哪吒2&lt;/li&gt;
@@ -1349,7 +1349,7 @@ User verifies the convergence
 &lt;p&gt;&lt;input checked=&quot;&quot; disabled=&quot;&quot; type=&quot;checkbox&quot; /&gt; 反社交网络：从网络梗到大灾祸&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;heading-6&quot;&gt;&lt;a href=&quot;#heading-6&quot;&gt;音乐&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;音乐&quot;&gt;&lt;a href=&quot;#音乐&quot;&gt;音乐&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;我的本地音乐库曲目数量已经接近 4000 首，并且这个数字还在增加，库存的音乐有各种各样的曲风门类：Techno、House、Phonk、Chill-out、ACG OST、梦核、梦泡、碎核、自赏、后搖、后朋克、黑金属、乡村民谣、纯音乐、钢琴曲、实验音乐......&lt;/p&gt;
 &lt;p&gt;音乐在我的生活中起着不可或缺的作用：在电脑前工作学习时，我会听一些富有节奏感的 EDM，使我能迅速进入状态。走在路上，则常常与后摇、后朋、金属器乐相伴，这类音乐令我从现实中抽离出来，给予我一种特别的视角审视自己。而在入睡前，我通常会听安静的纯音乐以便舒缓身心、陶冶性情。&lt;/p&gt;
 &lt;p&gt;一些曲子中的歌词常常让人陷入思索，有些歌曲还有其背后深沉的故事，而我今年遇见的最喜欢的曲目&lt;a href=&quot;https://dtesband.bandcamp.com/track/tomorrow-well-be-dying&quot;&gt;《Tommorow we&apos;ll be dying》&lt;/a&gt;恰是两点都有。这首后摇中的念白，是电影死亡诗社（同样是我的年度最佳）中 Mr. Keating 老师同学生们说的&lt;a href=&quot;https://www.bilibili.com/video/BV1Zx411G7kr&quot;&gt;一段话&lt;/a&gt;：&lt;/p&gt;
@@ -1361,7 +1361,7 @@ v.canPlayType(&apos;application/vnd.apple.mpegurl&apos;)?v.src=u:Hls?.isSupporte
 &lt;/script&gt;
 &lt;p&gt;&amp;quot;Carpe diem, seize the day, because we are food for worms, lads, because tomorrow we&apos;ll be dying.&amp;quot;&lt;/p&gt;
 &lt;p&gt;「紧握当下，抓紧时间，因为我们是蛆虫的食物，孩子们，因为我们正走向&apos;明天&apos;的死亡」&lt;/p&gt;
-&lt;h3 id=&quot;heading-7&quot;&gt;&lt;a href=&quot;#heading-7&quot;&gt;ΝΩΘΙ ΣΕΑΥΤΟΝ&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;νωθι-σεαυτον&quot;&gt;&lt;a href=&quot;#νωθι-σεαυτον&quot;&gt;ΝΩΘΙ ΣΕΑΥΤΟΝ&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;「跨过历史长河，希腊德尔斐神庙阿波罗神殿门前赫然刻印着：&amp;quot;ΝΩΘΙ ΣΕΑΥΤΟΝ&amp;quot;
 （记忆中应该是在初中七年级上册的道德与法治课本中出现，英译：Know thyself 即 &amp;quot;认识你自己&amp;quot;）&lt;/p&gt;
 &lt;blockquote&gt;
@@ -1376,7 +1376,7 @@ v.canPlayType(&apos;application/vnd.apple.mpegurl&apos;)?v.src=u:Hls?.isSupporte
 &lt;/ol&gt;
 &lt;p&gt;通过对世界的探索，我重新认识了自己，明确了自身的定位，在兴趣爱好中找到了可以为之奉献终身的事业，从人类创造的几大艺术中发现无限与永恒的领域，在那些维度中，时光会飞速流逝，生命能沉浸于全神贯注的投入中，磨出属于自己所处小宇宙的创造之火花。&lt;/p&gt;
 &lt;p&gt;「有一天，世界燃起了第一团火......」&lt;/p&gt;
-&lt;h2 id=&quot;heading-8&quot;&gt;&lt;a href=&quot;#heading-8&quot;&gt;学习&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;学习&quot;&gt;&lt;a href=&quot;#学习&quot;&gt;学习&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;同去年一样，我仍然花了大部分的时间 Learning on Computer&lt;/p&gt;
 &lt;p&gt;多数时候是处于一种远程工作的模式，与朋友异步进行技术研究与学习，常交流心得并总结得失，总体而言效率不错。我将一个个 CS、SE 知识点分解消化，按优先级顺序一步一行地攻克，虽然学习内容看似大杂烩，但实际上每一块知识都在我的技术学习版图中找到了自己的位置。&lt;/p&gt;
 &lt;ul&gt;
@@ -1405,7 +1405,7 @@ v.canPlayType(&apos;application/vnd.apple.mpegurl&apos;)?v.src=u:Hls?.isSupporte
 &lt;p&gt;（贴一张折腾 Hackintosh 调整 BIOS config 后成功进入系统时的图）&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://static.yon.im/image/blog/2024/18.webp&quot; alt=&quot;18&quot; /&gt;&lt;/p&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;heading-9&quot;&gt;&lt;a href=&quot;#heading-9&quot;&gt;文章&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;文章&quot;&gt;&lt;a href=&quot;#文章&quot;&gt;文章&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.digitaling.com/articles/13213.html&quot;&gt;《我们这一代人的困惑，一个有故事的大叔说的实在话》&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://archive.is/C0d4l&quot;&gt;《前言 | Randy 的读书乐园》&lt;/a&gt;&lt;/li&gt;
@@ -1787,7 +1787,7 @@ services:
 &lt;hr /&gt;
 &lt;p&gt;当【输入】过多，水到渠成般地【输出】即是个人行为后一步的演变。即便意识到文字有限，却仍然一直有股冲动不愿让这宝贵的经历消逝在记忆之中。所以，在经历了无意义的思想交锋（更多是无聊造作🤣）后，象终究是由骑象者驱动，写出了一些可有可无的文字，i.e. 以下你看到的这篇年报：&lt;/p&gt;
 &lt;hr /&gt;
-&lt;h2 id=&quot;heading-1&quot;&gt;&lt;a href=&quot;#heading-1&quot;&gt;章起&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;章起&quot;&gt;&lt;a href=&quot;#章起&quot;&gt;章起&lt;/a&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;「Nothing is True. Everything is permitted.」&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1798,7 +1798,7 @@ services:
 &lt;p&gt;&lt;img src=&quot;https://static.yon.im/image/blog/2023/3.webp&quot; alt=&quot;3&quot; /&gt;
 &lt;img src=&quot;https://static.yon.im/image/blog/2023/4.webp&quot; alt=&quot;4&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;那么我现在拥有的一切是什么呢？除却身外之物，仅剩下了无数经历留给我的记忆，以及与他人（朋友、家人、亲戚）间相处的联系。孑然一身是常态，抛却物欲集中精神更是当下自身的写照。即使虚无主义常伴吾身的我认定：「一切都存在于想象之中」，但无穷无尽的「地球Online」游戏体验仍然使我沉迷。且让我总结下今年在游玩「🌍️Online」过程中 Level UP 的欣喜&amp;amp;收获：&lt;/p&gt;
-&lt;h3 id=&quot;heading-2&quot;&gt;&lt;a href=&quot;#heading-2&quot;&gt;设备软硬件&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;设备软硬件&quot;&gt;&lt;a href=&quot;#设备软硬件&quot;&gt;设备软硬件&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;“最令我欣喜的莫不过是用于赛博冲浪的冲浪板得到「史诗级」的加强”&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;从家里的 六代i3老爷机 过渡到 惠普暗影精灵4，再到 AM5 M-ATX.&lt;/p&gt;
 &lt;p&gt;从 EndeavourOS 过渡到 Garuda Linux、再到目前的 CachyOS.&lt;/p&gt;
@@ -1809,13 +1809,13 @@ services:
 &lt;p&gt;高效工作学习的前提需要有一个简洁易用的系统，而去繁就简的 Arch 符合了这样的需求。&lt;/p&gt;
 &lt;h3 id=&quot;ai&quot;&gt;&lt;a href=&quot;#ai&quot;&gt;AI&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;2023 注定是 AI 技术大放异彩的一年，各种 Requests 通过 ChatGPT、Claude 等生成式 AI 模型其帮助下，deBug 各种「未曾设想」的 Issue 不再坐牢。作为日常技术学习助理的 GPT 帮助我概括一些又臭又长的官方文档，速通水课论文作业，等琐碎事务根本不在话下（已经是「重度依赖GPT晚期」了🫠）。也期待后继更加强大的 AI 大模型能够降本增效，期望更多如同 MidJourney、Quivr 一众创造力强大的项目孵化。未来可期，拭目以待。&lt;/p&gt;
-&lt;h3 id=&quot;heading-3&quot;&gt;&lt;a href=&quot;#heading-3&quot;&gt;研究&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;研究&quot;&gt;&lt;a href=&quot;#研究&quot;&gt;研究&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;使用 &lt;a href=&quot;https://github.com/BryceRussell/astro-minecraft-theme&quot;&gt;astro-minecraft-theme&lt;/a&gt; 构建了我的&lt;a href=&quot;https://yon.im&quot;&gt;主页&lt;/a&gt;，那天心情非常好！&lt;/p&gt;
 &lt;p&gt;重构了我的 Blog，从 hugo-theme-bootstrap 到自行魔改的 zola-theme-apollo，由繁至简的称心使我更有动力通过 Blog 来输出文字，同样使我踏入前端领域这一大坑。（WYSIWYG 实时反馈还是很上头的🙃）&lt;/p&gt;
 &lt;p&gt;多维度地了解互联网各个领域的状况，在 DevOps 项目实践中研究各类 aaS 平台（SaaS、PaaS、IaaS、DBaaS、AIaaS etc.）&lt;/p&gt;
 &lt;p&gt;研究了下 PVE 系统，并在 GPT 帮助下制服 Cloud-init Crash 的问题，掌握了管理集群的一大技能点。&lt;/p&gt;
 &lt;p&gt;其余时间大多与朋友一同研究 Docker 建站，打造了一系列团队共用软件生态圈（如 Matrix for Chat、MiniFlux for RSS Reading、VaultWarden for password managemant etc.）&lt;/p&gt;
-&lt;h3 id=&quot;heading-4&quot;&gt;&lt;a href=&quot;#heading-4&quot;&gt;学习&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;学习&quot;&gt;&lt;a href=&quot;#学习&quot;&gt;学习&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;最大的收获应该是刷完课程&lt;a href=&quot;https://www.bilibili.com/video/BV14E411J7n2&quot;&gt;计算机教育中缺失的一课&lt;/a&gt;，边看边实践从中学到了不少有用的基础知识（也深刻地感受到国内外大学教学差异（降维打击了属于是）&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://static.yon.im/image/blog/2023/8.webp&quot; alt=&quot;8&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;测试&amp;amp;&amp;amp;对比了一堆开源软件，打磨技术生产力工具，还尝试体验了好几个 Linux 发行版（Fedora、RebornOS、openSUSE、MocaccinoOS、Calculate Linux etc.）有朝一日也想研究下 Linux from Scratch（LFS）&lt;/p&gt;
@@ -1823,8 +1823,8 @@ services:
 &lt;img src=&quot;https://static.yon.im/image/blog/2023/10.webp&quot; alt=&quot;10&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;在这过程中探索了不少开源项目，并成为了一个更加偏执狂的存在👻。（下一步：主力系统迁移到 NixOS? Gentoo? Or?）&lt;/p&gt;
 &lt;p&gt;阅读了《区块链超入门》、《人人都能读懂的密码学》以及一些 Blog Posts，使我对 Distributed Systems、Blockchain、web3 等技术领域颇感兴趣。&lt;/p&gt;
-&lt;h3 id=&quot;heading-5&quot;&gt;&lt;a href=&quot;#heading-5&quot;&gt;生活&lt;/a&gt;&lt;/h3&gt;
-&lt;h4 id=&quot;heading-6&quot;&gt;&lt;a href=&quot;#heading-6&quot;&gt;辗转&lt;/a&gt;&lt;/h4&gt;
+&lt;h3 id=&quot;生活&quot;&gt;&lt;a href=&quot;#生活&quot;&gt;生活&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;辗转&quot;&gt;&lt;a href=&quot;#辗转&quot;&gt;辗转&lt;/a&gt;&lt;/h4&gt;
 &lt;ol&gt;
 &lt;li&gt;游深圳&lt;/li&gt;
 &lt;/ol&gt;
@@ -1864,7 +1864,7 @@ services:
 &lt;p&gt;除此之外，还搭建了 Minecraft、泰拉瑞亚 服务器与伙伴们一同玩耍，也与 &lt;a href=&quot;https://milvoid.com&quot;&gt;Milvoid&lt;/a&gt;等几位朋友在 MC Hypixel 服务器里🛏起床战争，不亦乐乎！&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://static.yon.im/image/blog/2023/28.webp&quot; alt=&quot;28&quot; /&gt;
 &lt;img src=&quot;https://static.yon.im/image/blog/2023/29.webp&quot; alt=&quot;29&quot; /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;heading-7&quot;&gt;&lt;a href=&quot;#heading-7&quot;&gt;书与影&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;书与影&quot;&gt;&lt;a href=&quot;#书与影&quot;&gt;书与影&lt;/a&gt;&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;《铁皮鼓》&lt;/li&gt;
 &lt;li&gt;《小王子》&lt;/li&gt;
@@ -1909,7 +1909,7 @@ services:
 &lt;li&gt;《黑客帝国》（全系列）&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;其中每一部都令人称道，拍案叫绝！&lt;/p&gt;
-&lt;h3 id=&quot;heading-8&quot;&gt;&lt;a href=&quot;#heading-8&quot;&gt;文章&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;文章&quot;&gt;&lt;a href=&quot;#文章&quot;&gt;文章&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;（其实一年下来看过的文章没几千篇，也有百来篇了）这里，我仅选取了对我影响最深的10篇文章。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;一年中最想♥️感谢♥️的其实是这些深深触动并改变我的故事和文章：&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -2017,20 +2017,20 @@ services:
             <pubDate>Sun, 17 Sep 2023 00:00:00 GMT</pubDate>
             <description></description>
             <content:encoded>&lt;p&gt;（应 &lt;a href=&quot;https://milvoid.com/&quot;&gt;Milvoid&lt;/a&gt; 需求撰写）&lt;/p&gt;
-&lt;h2 id=&quot;heading-1&quot;&gt;&lt;a href=&quot;#heading-1&quot;&gt;需要注册使用：&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;需要注册使用&quot;&gt;&lt;a href=&quot;#需要注册使用&quot;&gt;需要注册使用：&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://neon.tech/&quot;&gt;https://neon.tech/&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://render.com/&quot;&gt;https://render.com/&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://Hetrixtools.com/&quot;&gt;https://Hetrixtools.com/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;heading-2&quot;&gt;&lt;a href=&quot;#heading-2&quot;&gt;部署&lt;/a&gt;&lt;/h2&gt;
-&lt;h4 id=&quot;heading-3&quot;&gt;&lt;a href=&quot;#heading-3&quot;&gt;概览：&lt;/a&gt;&lt;/h4&gt;
+&lt;h2 id=&quot;部署&quot;&gt;&lt;a href=&quot;#部署&quot;&gt;部署&lt;/a&gt;&lt;/h2&gt;
+&lt;h4 id=&quot;概览&quot;&gt;&lt;a href=&quot;#概览&quot;&gt;概览：&lt;/a&gt;&lt;/h4&gt;
 &lt;pre&gt;&lt;code&gt;Render 作为 ServerLess 服务器运行 wiki.js Docker 容器
 wiki.js 通过配置好的 env(环境变量) 连接 NEON Postgres 数据库
 配置 HetrixTools 定时检查 部署好的 wiki-js 站点，来实现持续运行（保活）
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;heading-4&quot;&gt;&lt;a href=&quot;#heading-4&quot;&gt;开始实战部署：&lt;/a&gt;&lt;/h3&gt;
-&lt;h4 id=&quot;heading-5&quot;&gt;&lt;a href=&quot;#heading-5&quot;&gt;NEON 上的操作&lt;/a&gt;&lt;/h4&gt;
+&lt;h3 id=&quot;开始实战部署&quot;&gt;&lt;a href=&quot;#开始实战部署&quot;&gt;开始实战部署：&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;neon-上的操作&quot;&gt;&lt;a href=&quot;#neon-上的操作&quot;&gt;NEON 上的操作&lt;/a&gt;&lt;/h4&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;/li&gt;
 &lt;/ol&gt;
@@ -2043,7 +2043,7 @@ wiki.js 通过配置好的 env(环境变量) 连接 NEON Postgres 数据库
 Tip：可以临时放到 VScode 之类的文本编辑器里&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://static.yon.im/image/blog/use-render-deploy-wiki-js/2.webp&quot; alt=&quot;2&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;Over&lt;/p&gt;
-&lt;h4 id=&quot;heading-6&quot;&gt;&lt;a href=&quot;#heading-6&quot;&gt;Render 上的操作：&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;render-上的操作&quot;&gt;&lt;a href=&quot;#render-上的操作&quot;&gt;Render 上的操作：&lt;/a&gt;&lt;/h4&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;/li&gt;
 &lt;/ol&gt;
@@ -2115,10 +2115,10 @@ DB_TYPE 请设为 postgres
 &lt;hr /&gt;
 &lt;p&gt;&lt;strong&gt;至此，wiki-js 部署完毕！&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;下面是使用 HetrixTools 监控 wiki-js 网站 实现保活的教程&lt;/p&gt;
-&lt;h4 id=&quot;heading-7&quot;&gt;&lt;a href=&quot;#heading-7&quot;&gt;HetrixTools 上的操作：&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;hetrixtools-上的操作&quot;&gt;&lt;a href=&quot;#hetrixtools-上的操作&quot;&gt;HetrixTools 上的操作：&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;看图自行操作，不多说明&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://static.yon.im/image/blog/use-render-deploy-wiki-js/14.webp&quot; alt=&quot;14&quot; /&gt;&lt;/p&gt;
-&lt;h2 id=&quot;heading-8&quot;&gt;&lt;a href=&quot;#heading-8&quot;&gt;附录：&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;附录&quot;&gt;&lt;a href=&quot;#附录&quot;&gt;附录：&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/requarks/wiki&quot;&gt;https://github.com/requarks/wiki&lt;/a&gt;&lt;/p&gt;
 </content:encoded>
         </item>
@@ -2171,7 +2171,7 @@ DB_TYPE 请设为 postgres
     &lt;source src=&quot;https://static.yon.im/audio/Paragon%20-%20A.N.O.%E3%80%81Shadowx.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
   &lt;/audio&gt;
 &lt;/figure&gt;
-&lt;h3 id=&quot;heading-1&quot;&gt;&lt;a href=&quot;#heading-1&quot;&gt;《地狱中的普罗米修斯》&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;地狱中的普罗米修斯&quot;&gt;&lt;a href=&quot;#地狱中的普罗米修斯&quot;&gt;《地狱中的普罗米修斯》&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;我们亦然，尽管血气方刚，也如同沉沦在末世的暮年里，有时思念那生生不息的小草和我们不再出于闲情逸致而去探访的橄榄叶，追怀那些自由的果实。&lt;/p&gt;
@@ -2180,7 +2180,7 @@ DB_TYPE 请设为 postgres
 &lt;p&gt;在地球表面的逼仄空间里，现代人确实承受着许许多多的苦难；因为人们被剥夺了食物和温暖，自由仅仅是可望而不可及的奢侈品；人们所能做的就是再多受一点苦，似乎唯一切题的是让自由及其最后一批见证者再多消失一些。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;heading-2&quot;&gt;&lt;a href=&quot;#heading-2&quot;&gt;《热爱生活》&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;热爱生活&quot;&gt;&lt;a href=&quot;#热爱生活&quot;&gt;《热爱生活》&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;这些国度操持的语言与我内心深处回荡的声音起了共鸣，那也不是因为这语言解答了我的问题，而是因为它让这些问题不再有提出的必要。并没有谢恩的祷告向我唇边涌来，唯有那空无——只有看到被阳光碾碎的风景才可能孳生的空无。没有对生活的绝望，就没有对生活的热爱。&lt;/p&gt;
@@ -2192,7 +2192,7 @@ DB_TYPE 请设为 postgres
 &lt;p&gt;我对生活的全部热爱都在于此：这是对于我可能求而不得之物的默然不语的激情，是隐藏在炽烈之下的苦涩。我每天离开这座回廊时，都觉得像是从自身中被抽离出来，一时间成了绵延不绝的世界上的一个印迹。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;heading-3&quot;&gt;&lt;a href=&quot;#heading-3&quot;&gt;《杰米拉的风》&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;杰米拉的风&quot;&gt;&lt;a href=&quot;#杰米拉的风&quot;&gt;《杰米拉的风》&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;我的内心还太年轻，以至于还不能谈论死亡。但在我看来，如果我不得不谈到它的话，我会找到在“恐惧”和“沉默”之间的那个合适的词，来表达对于在无望中死亡的有意识的确认。&lt;/p&gt;
@@ -2210,7 +2210,7 @@ DB_TYPE 请设为 postgres
 &lt;p&gt;在这个世界面前，我不愿撒谎，也不想听到谎言。我想到最后一刻一直保持神志清醒，以我全部的嫉妒和恐惧凝视我的死亡。我最害怕死亡的是，它使我和这个世界完全割离了，它使我把自己和活着的人而不是和永恒不变的天空的沉思联系起来。创造有意识的死亡是为了减少世界和我们之间的距离，为了毫无喜悦之情地接受一个圆满，对永远逝去的世界里令人陶醉的景象保持警觉。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;heading-4&quot;&gt;&lt;a href=&quot;#heading-4&quot;&gt;《未置可否》&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;未置可否&quot;&gt;&lt;a href=&quot;#未置可否&quot;&gt;《未置可否》&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;我从座位上能看到一角天空，白日的云彩已经散尽，夜空中充斥着繁星，清风吹过时微微摇颤。黑夜在我身边缓缓地拍动它厚重的翅膀。今晚我不再属于自己了，这夜晚还有多长呢？在“简单”一词中包含了一种危险的品格。一旦彻底看透了生活，万事都将变得无足轻重，有人因此而希求死亡——今晚，我能理解这样的想法了。&lt;/p&gt;
@@ -2219,7 +2219,7 @@ DB_TYPE 请设为 postgres
 &lt;p&gt;我最后看一眼海湾和海上的灯光：的确，在我心中升起的不是对于美好未来的憧憬，而是一种静谧而原始的淡漠，对万事万物淡漠，也对我自己淡漠。但我一定要跳出这贫弱无力、随波逐流的坡道。我需要明晰锐利的头脑。是的，一切都很简单。是人把事情搞复杂了。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;heading-5&quot;&gt;&lt;a href=&quot;#heading-5&quot;&gt;《一体两面》&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;一体两面&quot;&gt;&lt;a href=&quot;#一体两面&quot;&gt;《一体两面》&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;我可以说，并且马上就要说：真正重要的是具备人性，是简单明了。不对，真正重要的是真实，而后一切都会水到渠成，无论人性还是简单。我与这世界合而为一的时候岂不是最真实吗？渴念还不及成形，我的杯子已经盈满了。永恒就在面前，正是我曾希求的。我现在的理想，已不再是幸福快乐，而仅仅是心下了然。&lt;/p&gt;
@@ -2228,7 +2228,7 @@ DB_TYPE 请设为 postgres
 &lt;p&gt;要能正视阳光一如正视死亡，这才是大勇。这燃尽一切的对生活的热爱与这隐秘的绝望是相通的，我又要怎样才能审定其间的连结呢？悖谬蜷伏在事物的深层，如果我侧耳倾听其话语，它就会慢慢地显出身形来，眨一眨清澈的小眼睛，说：“要怎样生活？且只当……”尽管我寻寻觅觅，所求得的知识却不外如此。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;heading-6&quot;&gt;&lt;a href=&quot;#heading-6&quot;&gt;《谜》&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;谜&quot;&gt;&lt;a href=&quot;#谜&quot;&gt;《谜》&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;没人能说出自己是什么，但人有时能说出自己不是什么。人人希望那些依然探索着的人已经得出了他的结论；干百个声音对他说他已经发现了，然而他明白自己什么也没发现。&lt;/p&gt;
@@ -2240,7 +2240,7 @@ DB_TYPE 请设为 postgres
 &lt;p&gt;无论如何，人怎能画地为牢， 说一切毫无意义，说我们必须沉溺于绝对的绝望呢？没把事情弄个水落石出之前，人至少能说，正如没有绝对的唯物主义（因为单是造出这个词，就已经承认世界上除了物质还有别样的存在），完全的虚无主义同样不存在。当你说事事皆荒谬时，你是在表述某种有意义的东西。拒绝承认世上的所有意义，相当于彻底抛弃所有的价值判断。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;heading-7&quot;&gt;&lt;a href=&quot;#heading-7&quot;&gt;《海伦的放逐》&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;海伦的放逐&quot;&gt;&lt;a href=&quot;#海伦的放逐&quot;&gt;《海伦的放逐》&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;历史的另一部分可同样归于赫拉克利特言简意赅之语：”自大，进步之殇。“在这位以弗所人的百年之后又历经了多少世纪，苏格拉底，面临被处死的威胁之时，承认自己唯有一个高人一等之处：不懂的东西他绝不装懂。多少年来，生活和思想之典范就是敢于承认目己的无知。忘记了这一点，我们便忘记了阳刚之力。&lt;/p&gt;
@@ -2249,7 +2249,7 @@ DB_TYPE 请设为 postgres
 &lt;p&gt;从某种程度来进，历史并不是治着我们所设想的方向前行。创造和探索的争斗决定了历史的走向。尽管艺术家赤手相搏并为此付出了代价，我们仍希望他们取得胜利。这样，黑暗的哲学将会被打破，其盛蜃也将在炫目耀眼的海上慢慢褪却。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;heading-8&quot;&gt;&lt;a href=&quot;#heading-8&quot;&gt;《杏树》&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;杏树&quot;&gt;&lt;a href=&quot;#杏树&quot;&gt;《杏树》&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;毋庸置疑，我们生活在悲剧时代，然而太多的人把悲剧与绝望混为一谈。劳伦斯说：悲剧应当是砸向苦难的一记重拳。”这是一种健康且直接可行的想法，如今很多现象都欠这般痛揍。&lt;/p&gt;
@@ -2258,7 +2258,7 @@ DB_TYPE 请设为 postgres
 &lt;p&gt;如欲拯救思想，我们必须忽略它的忧郁气质，赞美它的力量与神奇。人类世界遭受着苦难的茶毒，而且似乎将沉溺于此；世界已彻底屈从于邪恶——即尼采所说的沉重之灵魂。我们不要再雪上加霜了，为思想哀哭是徒劳无益的，这样的劳心劳力已经够多了。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;heading-9&quot;&gt;&lt;a href=&quot;#heading-9&quot;&gt;《重返提帕萨》&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;重返提帕萨&quot;&gt;&lt;a href=&quot;#重返提帕萨&quot;&gt;《重返提帕萨》&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;一个又一个的帝国正在分崩瓦解；国与国之间，人与人之间也相互撕咬着对方的喉咙；我们的双手沾满了泥土。我们诞生之初并不知道我们自己是清白无辜的，而现在，尽管我们无心犯罪，但我们却是有了罪行。懂得的越多，这个谜就越纠结。哦，真是可笑啊，这就是为什么我们在乎仁义道德的原因吧。虚弱残疾的我竟还在做着道德的美梦！在那天真无邪的日子里，我甚至从来都不知道存在着这种道德。现在我知道了，但我不符合那道德要求的标准。&lt;/p&gt;
@@ -2267,7 +2267,7 @@ DB_TYPE 请设为 postgres
 &lt;p&gt;当一个人好运袭来可以尽情去爱的时候，他的生命就会在尝试重新获得那种激情与启迪的过程中一点点地消磨过去。放奔美。放弃与之相连的肉欲的快感。一心一意地侍奉不幸，这需要一种我所不具备的高贵品质。但强迫人去排斥美和快感是不现实的。孤立的美感终会化作痴痴的傻笑；孤立的正义终会变成压迫。任何一个旨在侍奉唯一而排除他者。甚至连自己都弃之不顾的人最终只是两次侍奉了非正义。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;heading-10&quot;&gt;&lt;a href=&quot;#heading-10&quot;&gt;《提帕萨的婚礼》&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;提帕萨的婚礼&quot;&gt;&lt;a href=&quot;#提帕萨的婚礼&quot;&gt;《提帕萨的婚礼》&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;从某种意义上讲，我在这里下的赌注，实际上是我的生命，这生命有温暖的石头的味道，充满了大海的叹息和逐渐响起来的蟋蟀的歌唱。蔚蓝的天空下，微凉的风轻轻拂过。我放肆地热爱着这种生命，我要大声说出它的意义：它让我感觉到作为一个人类的骄傲。但是人们经常告诉我说没有什么可值得骄傲的。不，是有那么一些事情的：这太阳，这大海，我跃动的年轻的心，海水的威味，这壮丽的景象以及其中由柔美和光荣混合而成的蓝色和黄色。我需要力量和资源，来拥有它们。这里的所有东西都让我保持着自身的完整，我不会有一丝退让，也不会蒙上假面：耐心而勤奋地学习如何生活对我来说就已足够，那些所谓的生活艺术没有什么用。&lt;/p&gt;
@@ -2276,7 +2276,7 @@ DB_TYPE 请设为 postgres
 &lt;p&gt;一个人对着一个景观看足够长的时间，总会看够的；同样地，一个人需要很长时间，才会看够它。山脉。天空，海洋就像一张张脸，我们通过观看发现它们是空虚还是辉煌，而不是通过理解。但是，为了富于说服力，每一张脸必须被当做全新的来观看。人们总是抱怨疲倦得太快；我们觉得世界似乎是全新的，其实仅仅是因为我们忘记了它——人们应该对这一点感到惊奇。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;heading-11&quot;&gt;&lt;a href=&quot;#heading-11&quot;&gt;《魂销神灭》&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;魂销神灭&quot;&gt;&lt;a href=&quot;#魂销神灭&quot;&gt;《魂销神灭》&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;一切都要把我丢回到这日复一日的生活中，此间的万事万物都沾染上了我的痛苦。言辞和举止织就了一道习惯的帷幕，心灵在其中舒服得昏昏欲睡；然而这帷幕缓缓地升了起来，最终露出了一副惨白的面容：忧惧。人与自己面对面相处，我敢断定他不会幸福……但旅行给人的启迪正在于此。人与眼中的所见发生了尖锐的矛盾，这颗心灵失去了森严的壁垒，大地的乐曲才更容易乘虚而人。外壳完全和剥落之际，最不起眼的一棵孤单单的树也变成了最为娇弱动人的景致。&lt;/p&gt;
@@ -2285,7 +2285,7 @@ DB_TYPE 请设为 postgres
 &lt;p&gt;在这朗照无遗的了悟面前万事万物汇集为一，我的生活成了一个不可分的整体，或则全盘接受，或则一概摒弃。我需要一种恢宏伟岸的气概；当我深切的绝望与此处冠绝天下的风景中暗藏的淡漠相争持的时候，这一愿望终于得到了满足。由此我汲取力量，要让勇毅与明辩同时并存。这一目标既困难又似荒诞不经，足以满足我的胃口了。或许我现在语涉浮夸，然而当时的感受的确是绝无虚假。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;heading-12&quot;&gt;&lt;a href=&quot;#heading-12&quot;&gt;《第一人》&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;第一人&quot;&gt;&lt;a href=&quot;#第一人&quot;&gt;《第一人》&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;人不能活得太真实——太明白——这样做的人，势必脱离其他人，他再也不能分享他们的任何幻想。他成了个怪物——这便是我的写照。&lt;/p&gt;
@@ -2368,7 +2368,7 @@ update-alternatives --install &amp;quot;/usr/bin/javac&amp;quot; &amp;quot;javac
 update-alternatives --install &amp;quot;/usr/bin/javac&amp;quot; &amp;quot;javac&amp;quot; &amp;quot;/usr/local/java-17/jdk-17.0.9/bin/javac&amp;quot; 1600
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;DONE.&lt;/p&gt;
-&lt;h2 id=&quot;heading-1&quot;&gt;&lt;a href=&quot;#heading-1&quot;&gt;附录：&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;附录&quot;&gt;&lt;a href=&quot;#附录&quot;&gt;附录：&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/bell-sw/Liberica&quot;&gt;https://github.com/bell-sw/Liberica&lt;/a&gt;&lt;/p&gt;
 </content:encoded>
         </item>

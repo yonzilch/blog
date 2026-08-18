@@ -13,33 +13,7 @@
         <meta name='viewport' content='width=device-width, initial-scale=1'/>
         <title><xsl:value-of select='/rss/channel/title'/> — RSS Feed</title>
         <script><![CDATA[
-(function () {
-  var theme = null;
-
-  try {
-    theme = window.localStorage.getItem('theme-storage');
-  } catch (_) {
-    theme = null;
-  }
-
-  if (theme !== 'light' && theme !== 'dark' && theme !== 'auto') {
-    theme = 'auto';
-  }
-
-  var dark = theme === 'dark';
-
-  if (theme === 'auto') {
-    try {
-      dark = window.matchMedia(
-        '(prefers-color-scheme: dark)'
-      ).matches;
-    } catch (_) {
-      dark = false;
-    }
-  }
-
-  document.documentElement.classList.toggle('dark', dark);
-})();
+(function(){var theme=null;try{theme=window.localStorage.getItem('theme-storage');}catch(_){theme=null;}if(theme!=='light'&&theme!=='dark'&&theme!=='auto'){theme='auto';}var dark=theme==='dark';if(theme==='auto'){try{dark=window.matchMedia('(prefers-color-scheme: dark)').matches;}catch(_){dark=false;}}document.documentElement.classList.toggle('dark',dark);})();
 ]]></script>
         <style>
           :root {

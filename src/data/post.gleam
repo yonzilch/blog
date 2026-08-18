@@ -8,15 +8,18 @@
 import gleam/dict
 import gleam/list
 import gleam/option.{type Option}
+import gleam/order.{type Order, Eq, Gt, Lt}
 import gleam/result
 import gleam/string
 
 /// A single entry in a post's table of contents. apollo generates up to three
 /// levels (h1, h2, h3) from the markdown headings; arata mirrors that with a
-/// recursive `children` list. The `id` is the heading's HTML `id` attribute,
-/// which the TOC links to via `#id` anchors.
+/// recursive `children` list. The `level` is the heading level (2, 3, or 4) so
+/// the view can distinguish h4 entries from their parent h3 entries, and the
+/// `id` is the heading's HTML `id` attribute, which the TOC links to via
+/// `#id` anchors.
 pub type TocEntry {
-  TocEntry(id: String, title: String, children: List(TocEntry))
+  TocEntry(level: Int, id: String, title: String, children: List(TocEntry))
 }
 
 /// A blog post.
@@ -37,6 +40,9 @@ pub type Post {
     tags: List(String),
     /// Draft posts are labelled `DRAFT` in the list and on the page.
     draft: Bool,
+    /// Pinned posts appear before regular posts in post listings. Within each
+    /// group, date-based ordering is preserved.
+    pinned: Bool,
     /// Optional `tl;dr` summary shown in a box above the body.
     tldr: Option(String),
     /// Word count of the body; shown in the meta row when non-zero.
@@ -50,6 +56,29 @@ pub type Post {
 /// single-post route to look up the post to render.
 pub fn find_by_slug(posts: List(Post), slug: String) -> Result(Post, Nil) {
   list.find(posts, fn(post) { post.slug == slug })
+}
+
+/// Order posts for listing: pinned posts first, then date descending
+/// (newest first). Within each group the existing date ordering is preserved,
+/// and identical dates fall back to slug ordering so the result is always
+/// deterministic.
+pub fn order_posts(posts: List(Post)) -> List(Post) {
+  list.sort(posts, compare_posts)
+}
+
+/// Comparator for `order_posts`. Pinned posts sort before regular posts;
+/// otherwise posts are compared by date descending, with slug as a
+/// deterministic tiebreak for equal dates.
+fn compare_posts(a: Post, b: Post) -> Order {
+  case a.pinned, b.pinned {
+    True, False -> Lt
+    False, True -> Gt
+    _, _ ->
+      case string.compare(b.date, a.date) {
+        Eq -> string.compare(a.slug, b.slug)
+        ordering -> ordering
+      }
+  }
 }
 
 /// One entry in the tag index: the tag name and the posts that carry it.

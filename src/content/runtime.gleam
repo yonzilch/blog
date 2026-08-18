@@ -180,6 +180,10 @@ fn decode_application_config() -> decode.Decoder(config.Config) {
     "syntax_highlight_cdn_url",
     decode.string,
   )
+  use syntax_highlight_grammars <- decode.field(
+    "syntax_highlight_grammars",
+    decode.dict(decode.string, decode.string),
+  )
   use sidebar_enabled <- decode.field("sidebar_enabled", decode.bool)
   use floating_buttons_enabled <- decode.field(
     "floating_buttons_enabled",
@@ -215,6 +219,7 @@ fn decode_application_config() -> decode.Decoder(config.Config) {
     mermaid_cdn_url: mermaid_cdn_url,
     syntax_highlight_enabled: syntax_highlight_enabled,
     syntax_highlight_cdn_url: syntax_highlight_cdn_url,
+    syntax_highlight_grammars: syntax_highlight_grammars,
     sidebar_enabled: sidebar_enabled,
     floating_buttons_enabled: floating_buttons_enabled,
     aratafetch_enabled: aratafetch_enabled,
@@ -378,6 +383,7 @@ fn decode_post() -> decode.Decoder(Post) {
   use toc <- decode.field("toc", decode.list(decode_toc_entry()))
   use tags <- decode.field("tags", decode.list(decode.string))
   use draft <- decode.optional_field("draft", False, decode.bool)
+  use pinned <- decode.optional_field("pinned", False, decode.bool)
   use tldr <- decode.optional_field(
     "tldr",
     option.None,
@@ -396,6 +402,7 @@ fn decode_post() -> decode.Decoder(Post) {
     toc: toc,
     tags: tags,
     draft: draft,
+    pinned: pinned,
     tldr: tldr,
     word_count: word_count,
     reading_time: reading_time,
@@ -416,6 +423,7 @@ fn decode_page() -> decode.Decoder(Page) {
 }
 
 fn decode_toc_entry() -> decode.Decoder(TocEntry) {
+  use level <- decode.field("level", decode.int)
   use id <- decode.field("id", decode.string)
   use title <- decode.field("title", decode.string)
   use children <- decode.optional_field(
@@ -424,7 +432,12 @@ fn decode_toc_entry() -> decode.Decoder(TocEntry) {
     decode.list(decode_toc_entry()),
   )
 
-  decode.success(TocEntry(id: id, title: title, children: children))
+  decode.success(TocEntry(
+    level: level,
+    id: id,
+    title: title,
+    children: children,
+  ))
 }
 
 fn decode_link() -> decode.Decoder(Link) {
