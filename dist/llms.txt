@@ -17,6 +17,7 @@ This file is a curated Markdown map of the site for large language models. Use t
 
 ## Links
 
+- [Yon Zilch's blog](https://blog.yon.im/): From the yon, into zilch.
 - [Ice Year の位面](https://blog.iceyear.eu.org/): Il n'y a pas de hasard, il n'y a que des rendez-vous.
 - [世纪大道 | 春风少年兄](https://blog.0pt.icu/): 你在世纪大道东门
 - [Eurekaimer's Digital Garden](https://www.eurekaimer.icu/): All models are wrong, but some are useful.
