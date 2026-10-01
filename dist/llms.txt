@@ -28,6 +28,7 @@ This file is a curated Markdown map of the site for large language models. Use t
 - [zenyarn](https://zenyarn.github.io/): Stay hungry, stay foolish.
 - [Tony's Blog](https://blog.iamsjy.com): 一个萌新的博客
 - [池塘](https://blog.clickfling.top/): Enjoy simplicity
+- [Hobr.Site](https://hobr.site/): 
 
 ## Pages
 
