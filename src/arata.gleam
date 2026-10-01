@@ -66,8 +66,6 @@ import view/toc as toc_view
 
 // MAIN ------------------------------------------------------------------------
 
-const posts_per_page = 10
-
 pub fn main() {
   let app = lustre.application(init, update, view)
   let assert Ok(_) = lustre.start(app, "#app", Nil)
@@ -95,7 +93,6 @@ pub type Model {
     content_state: ContentState,
     active_heading: Option(String),
     theme: theme_effect.Theme,
-    system_prefers_dark: Bool,
     search: SearchState,
     mobile_menu_open: Bool,
     toc_overlay_open: Bool,
@@ -141,8 +138,9 @@ fn init(_flags: Nil) -> #(Model, effect.Effect(Msg)) {
       pages: [],
       content_state: ContentLoading,
       active_heading: option.None,
+      // Placeholder only: `init_theme` resolves the persisted/system theme
+      // and dispatches `ThemeLoaded` during startup.
       theme: theme_effect.Light,
-      system_prefers_dark: False,
       search: closed_search(),
       mobile_menu_open: False,
       toc_overlay_open: False,
@@ -186,7 +184,6 @@ pub type Msg {
   FragmentHashChanged(id: Option(String))
   UserToggledTheme
   ThemeLoaded(theme: theme_effect.Theme)
-  SystemPrefersDarkChanged(prefers_dark: Bool)
   NoOp
   ContentLoaded(result: Result(content_runtime.Content, Nil))
   UserOpenedSearch
@@ -273,8 +270,7 @@ fn update(model: Model, msg: Msg) -> #(Model, effect.Effect(Msg)) {
       }
 
     UserToggledTheme -> {
-      let next_theme =
-        next_theme_after_click(model.theme, model.system_prefers_dark)
+      let next_theme = toggle_theme(model.theme)
 
       let new_model = Model(..model, theme: next_theme)
 
@@ -294,28 +290,6 @@ fn update(model: Model, msg: Msg) -> #(Model, effect.Effect(Msg)) {
       let new_model = Model(..model, theme: theme)
 
       #(new_model, mermaid_rerender_for(new_model))
-    }
-
-    SystemPrefersDarkChanged(prefers_dark) -> {
-      let new_model = Model(..model, system_prefers_dark: prefers_dark)
-
-      let apply_theme_effect = case new_model.theme {
-        theme_effect.Auto ->
-          effect.map(
-            theme_effect.apply_theme_choice(new_model.theme),
-            theme_msg_to_msg,
-          )
-
-        _ -> effect.none()
-      }
-
-      #(
-        new_model,
-        effect.batch([
-          apply_theme_effect,
-          mermaid_rerender_for(new_model),
-        ]),
-      )
     }
 
     NoOp -> #(model, effect.none())
@@ -616,7 +590,7 @@ fn configured_post_effects(model: Model) -> effect.Effect(Msg) {
 
   post_effects_for(
     model.route,
-    is_effective_dark(model.theme, model.system_prefers_dark),
+    is_effective_dark(model.theme),
     model.config.mathjax_enabled,
     model.config.mathjax_cdn_url,
     model.config.mermaid_enabled,
@@ -673,8 +647,11 @@ fn post_effects_for(
   syntax_highlight_cdn_url: String,
   grammar_list: List(#(String, String)),
 ) -> effect.Effect(Msg) {
+  // Every route that renders a Markdown body (posts, the homepage, and
+  // standalone pages) needs the code-block enhancements: copy buttons and
+  // language labels, syntax highlighting, notes, MathJax, and Mermaid.
   case route {
-    Post(_) -> {
+    Post(_) | Home | Page(_) -> {
       let mathjax_effect = case mathjax_enabled {
         True ->
           effect.map(script_effect.typeset_math(mathjax_cdn_url), fn(_) { NoOp })
@@ -716,55 +693,32 @@ fn post_effects_for(
   }
 }
 
-fn is_effective_dark(
-  theme: theme_effect.Theme,
-  system_prefers_dark: Bool,
-) -> Bool {
+fn is_effective_dark(theme: theme_effect.Theme) -> Bool {
   case theme {
     theme_effect.Dark -> True
     theme_effect.Light -> False
-    theme_effect.Auto -> system_prefers_dark
   }
 }
 
-/// Pick the next theme after a user click.
-///
-/// The cycle is system-aware so the first click from `Auto` always causes a
-/// visible change:
-///
-///   system light: Auto(light) -> Dark -> Light -> Auto(light)
-///   system dark:  Auto(dark)  -> Light -> Dark -> Auto(dark)
-fn next_theme_after_click(
-  theme: theme_effect.Theme,
-  system_prefers_dark: Bool,
-) -> theme_effect.Theme {
+/// Pick the next theme after a user click. The theme is always an explicit
+/// choice (`init_theme` resolves the system preference at startup), so a
+/// click is a simple flip and always causes a visible change.
+fn toggle_theme(theme: theme_effect.Theme) -> theme_effect.Theme {
   case theme {
-    theme_effect.Auto ->
-      case system_prefers_dark {
-        True -> theme_effect.Light
-        False -> theme_effect.Dark
-      }
-
-    theme_effect.Light ->
-      case system_prefers_dark {
-        True -> theme_effect.Dark
-        False -> theme_effect.Auto
-      }
-
-    theme_effect.Dark ->
-      case system_prefers_dark {
-        True -> theme_effect.Auto
-        False -> theme_effect.Light
-      }
+    theme_effect.Light -> theme_effect.Dark
+    theme_effect.Dark -> theme_effect.Light
   }
 }
 
 fn mermaid_rerender_for(model: Model) -> effect.Effect(Msg) {
   case model.content_state, model.route, model.config.mermaid_enabled {
-    ContentReady, Post(_), True ->
+    ContentReady, Post(_), True
+    | ContentReady, Home, True
+    | ContentReady, Page(_), True
+    ->
       effect.map(
         script_effect.render_mermaid(
-          is_effective_dark(model.theme, model.system_prefers_dark),
+          is_effective_dark(model.theme),
           model.config.mermaid_cdn_url,
         ),
         fn(_) { NoOp },
@@ -777,9 +731,6 @@ fn mermaid_rerender_for(model: Model) -> effect.Effect(Msg) {
 fn theme_msg_to_msg(theme_message: theme_effect.ThemeMsg) -> Msg {
   case theme_message {
     theme_effect.ThemeLoaded(theme) -> ThemeLoaded(theme: theme)
-
-    theme_effect.SystemPrefersDarkChanged(prefers_dark) ->
-      SystemPrefersDarkChanged(prefers_dark: prefers_dark)
   }
 }
 
@@ -922,6 +873,27 @@ fn view(model: Model) -> Element(Msg) {
         <> "; }",
     )
 
+  // The resolved configuration arrives with `content_index.json`. Until then
+  // the header would render the built-in bootstrap defaults (default site
+  // title and menu entries), which flash and then visibly change once the
+  // user configuration loads. Render the header only after the configuration
+  // is known so a refresh never shows the default navigation.
+  let header_element = case model.content_state {
+    ContentLoading -> none()
+
+    ContentReady | ContentFailed ->
+      header.view(
+        model.config,
+        model.route,
+        model.theme,
+        is_effective_dark(model.theme),
+        event.on_click(UserToggledTheme),
+        event.on_click(UserOpenedSearch),
+        event.on_click(UserToggledMobileMenu),
+        model.mobile_menu_open,
+      )
+  }
+
   let toc_fab_elements = case
     model.content_state,
     model.config.floating_buttons_enabled
@@ -935,23 +907,7 @@ fn view(model: Model) -> Element(Msg) {
     [],
     list.flatten([
       [
-        layout.view(
-          [
-            fonts_style,
-            header.view(
-              model.config,
-              model.route,
-              model.theme,
-              is_effective_dark(model.theme, model.system_prefers_dark),
-              event.on_click(UserToggledTheme),
-              event.on_click(UserOpenedSearch),
-              event.on_click(UserToggledMobileMenu),
-              model.mobile_menu_open,
-            ),
-            main_content,
-          ],
-          right_content,
-        ),
+        layout.view([fonts_style, header_element, main_content], right_content),
       ],
       [search_modal_element],
       toc_fab_elements,
@@ -1001,7 +957,10 @@ fn view_route_content(model: Model) -> #(Element(Msg), Element(Msg)) {
       post_list.view(
         model.posts,
         page_number,
-        posts_per_page,
+        // The per-page count comes from the resolved user config
+        // (`[posts].per_page`), falling back to the built-in default of 10
+        // when it is not configured.
+        model.config.posts_per_page,
         UserEnteredPageJump,
       ),
       none(),
@@ -1134,8 +1093,27 @@ fn toc_fab_elements(model: Model) -> List(Element(Msg)) {
   }
 }
 
+/// Render the pre-content loading state.
+///
+/// Mirrors the loading indicator embedded in the generated HTML shell so the
+/// transition from the shell to the mounted SPA is seamless while
+/// `content_index.json` is still in flight. The header is intentionally not
+/// rendered here: it depends on the resolved configuration that this state is
+/// waiting for.
 fn view_loading() -> Element(Msg) {
-  html.main([attribute.class("page-header")], [])
+  html.main(
+    [
+      attribute.style("position", "fixed"),
+      attribute.style("inset", "0"),
+      attribute.style("display", "flex"),
+      attribute.style("align-items", "center"),
+      attribute.style("justify-content", "center"),
+      attribute.style("background", "var(--bg-0)"),
+      attribute.style("color", "var(--text-1)"),
+      attribute.style("font-family", "sans-serif"),
+    ],
+    [html.text("Loading…")],
+  )
 }
 
 fn view_content_failed() -> Element(Msg) {
